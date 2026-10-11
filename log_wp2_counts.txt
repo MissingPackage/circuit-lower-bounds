@@ -1,0 +1,10 @@
+count k=3 variant=stable1 essential=0 total=256 holds=0 examples=[] elapsed_s=0.0
+count k=3 variant=stable1pos essential=0 total=256 holds=0 examples=[] elapsed_s=0.0
+count k=3 variant=weak1 essential=0 total=256 holds=32 examples=[23, 27, 29, 39] elapsed_s=0.0
+count k=3 variant=stable2 essential=0 total=256 holds=0 examples=[] elapsed_s=0.0
+count k=3 variant=weak1 essential=1 total=256 holds=32 examples=[23, 27, 29, 39] elapsed_s=0.0
+count k=4 variant=stable1 essential=0 total=65536 holds=0 examples=[] elapsed_s=0.1
+count k=4 variant=stable1pos essential=0 total=65536 holds=0 examples=[] elapsed_s=0.1
+count k=4 variant=weak1 essential=0 total=65536 holds=34488 examples=[279, 283, 285, 287] elapsed_s=0.1
+count k=4 variant=stable2 essential=0 total=65536 holds=0 examples=[] elapsed_s=0.1
+count k=4 variant=weak1 essential=1 total=65536 holds=34360 examples=[279, 283, 285, 287] elapsed_s=0.3

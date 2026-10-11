@@ -1,0 +1,11 @@
+variant,k,mode,essential,min_s,status
+stable1,3,full,0,,UNSAT<=4
+weak1,3,full,0,3,SAT
+stable1,4,full,0,,UNSAT<=7
+weak1,3,none,0,3,SAT
+weak1,4,full,0,3,SAT
+weak1,4,full,1,3,SAT
+stable2,3,full,0,,UNSAT<=4
+stable1,3,none,0,,UNSAT<=4
+stable2,4,full,0,,UNSAT<=7
+stable1,4,none,0,,UNSAT<=7

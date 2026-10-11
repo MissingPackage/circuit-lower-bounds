@@ -11,29 +11,52 @@ mode 'full' : symmetry breaking:
    O  consecutive gates i,i+1: i feeds i+1, or pair(i) <= pair(i+1) in colex order;
    S  (only if sym=True) x_p is first used no later than x_{p+1}  (valid for input-symmetric targets).
    With U the encoding is NOT monotone in s: exact values need UNSAT for every s' < s.
+
+WP2 extension (free-function search): if `outs` is an integer q, the circuit has q outputs whose truth
+tables are NOT fixed but are variables self.fv[o, t] (one per output and row); constraints on the function
+(e.g. stability, see stability.py) are added on those variables.  In mode 'full' (normal gates) an output
+node computes fv XOR sgn[o]; with sgnfree=False sgn[o] is fixed to 0 (WLOG only when the searched property
+is invariant under complement), with sgnfree=True sgn[o] is a variable and a complemented output must sit
+on a gate (absorbed at decode time, as for fixed targets with f(0)=1).  The free path assumes the searched
+function is neither a constant nor a literal (constraint D stays on).  With a fixed `outs` list the
+encoding is unchanged from WP1 (regression-checked: identical variables and clauses).
 """
 from itertools import combinations
 
 
 class Enc:
-    def __init__(self, n, outs, s, mode='full', sym=False):
+    def __init__(self, n, outs, s, mode='full', sym=False, sgnfree=False):
         self.n, self.s, self.mode = n, s, mode
-        self.outs = [list(o) for o in outs]
         self.R = 1 << n
         self.nv = 0
         self.cl = []
         N = n + s
         normal = mode != 'none'
-        # normalised targets
-        self.neg = [normal and o[0] == 1 for o in self.outs]
-        tg = [[b ^ 1 for b in o] if ng else o for o, ng in zip(self.outs, self.neg)]
         inputs = [[(t >> i) & 1 for t in range(self.R)] for i in range(n)]
+        self.free = isinstance(outs, int)
+        self.fv = {}    # (o,t) -> var   (free outputs only)
+        self.sgn = {}   # o -> var       (free outputs, normal mode, sgnfree)
+        if self.free:
+            self.outs = [None] * outs
+            self.neg = [False] * outs
+            tg = [None] * outs
+            nondeg = normal
+            for o in range(outs):
+                for t in range(self.R):
+                    self.fv[o, t] = self._new()
+                if normal and sgnfree:
+                    self.sgn[o] = self._new()
+        else:
+            self.outs = [list(o) for o in outs]
+            # normalised targets
+            self.neg = [normal and o[0] == 1 for o in self.outs]
+            tg = [[b ^ 1 for b in o] if ng else o for o, ng in zip(self.outs, self.neg)]
 
-        def trivial(o):
-            if len(set(o)) == 1:
-                return True
-            return any(o == [b ^ 1 for b in x] for x in inputs)
-        nondeg = normal and not any(trivial(o) for o in self.outs)
+            def trivial(o):
+                if len(set(o)) == 1:
+                    return True
+                return any(o == [b ^ 1 for b in x] for x in inputs)
+            nondeg = normal and not any(trivial(o) for o in self.outs)
 
         self.sel = {}   # (i,j,k) -> var
         self.op = {}    # (i,a,b) -> var
@@ -106,6 +129,25 @@ class Enc:
             self.cl.append(ovs)
             for x, y in combinations(ovs, 2):
                 self.cl.append([-x, -y])
+            if self.free:
+                sg = self.sgn.get(o)
+                for v in range(N):
+                    if sg is not None and v < n:
+                        self.cl.append([-sg, -self.out[o, v]])   # complemented output must be a gate
+                    for t in range(self.R):
+                        f = self.fv[o, t]
+                        for a in (0, 1):
+                            la = vlit(v, t, a)
+                            if la is False:
+                                continue
+                            pre = [-self.out[o, v]] + ([] if la is True else [-la])
+                            if sg is None:          # out & node=a -> fv=a
+                                self.cl.append(pre + [f if a else -f])
+                            else:                   # out & node=a & sgn=g -> fv = a^g
+                                for g in (0, 1):
+                                    c = a ^ g
+                                    self.cl.append(pre + [-sg if g else sg] + [f if c else -f])
+                continue
             for v in range(N):
                 if self.neg[o] and v < n:
                     self.cl.append([-self.out[o, v]]); continue
@@ -167,6 +209,11 @@ class Enc:
             vs = [v for v in range(n + s) if self.out[o, v] in true]
             assert len(vs) == 1
             outs.append(vs[0])
+        tts = None
+        if self.free:
+            # the function found by the solver; its sign is read from the model (0 when sgn is fixed)
+            self.neg = [o in self.sgn and self.sgn[o] in true for o in range(len(self.outs))]
+            tts = [[int(self.fv[o, t] in true) for t in range(self.R)] for o in range(len(self.outs))]
         # absorb complements of negated targets into their gates
         flip = set(v for v, ng in zip(outs, self.neg) if ng)
         keep = set(v for v, ng in zip(outs, self.neg) if not ng)
@@ -181,4 +228,7 @@ class Enc:
                     g2[2] = f = [f[2], f[3], f[0], f[1]]
                 if g2[1] == v:   # second input complemented
                     g2[2] = [f[1], f[0], f[3], f[2]]
-        return dict(n=n, gates=[(j, k, tuple(f)) for j, k, f in gates], outputs=outs)
+        d = dict(n=n, gates=[(j, k, tuple(f)) for j, k, f in gates], outputs=outs)
+        if tts is not None:
+            d['tt'] = tts
+        return d

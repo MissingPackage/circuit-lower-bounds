@@ -1,0 +1,55 @@
+19:50:32 stable1 k=3 s=0 full ess=0 UNSAT   tt= 0.1s to=1800
+19:50:32 stable1 k=4 s=0 full ess=0 UNSAT   tt= 0.1s to=1800
+19:50:32 stable1 k=3 s=1 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=4 s=1 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=3 s=2 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=4 s=2 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=3 s=3 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=4 s=3 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=3 s=4 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=4 s=4 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=3 s=0 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=4 s=5 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=3 s=1 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=3 s=2 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=4 s=6 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=3 s=3 full ess=0 SAT pass accept tt=216 0.0s to=1800
+19:50:32 weak1 k=3 s=0 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=4 s=7 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=4 s=0 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=3 s=1 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=4 s=1 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=3 s=2 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=4 s=2 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=3 s=3 none ess=0 SAT pass accept tt=184 0.0s to=1800
+19:50:32 weak1 k=4 s=0 full ess=1 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=4 s=3 full ess=0 SAT pass accept tt=4010 0.0s to=1800
+19:50:32 weak1 k=4 s=1 full ess=1 UNSAT   tt= 0.0s to=1800
+19:50:32 stable2 k=3 s=0 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable2 k=3 s=1 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=4 s=2 full ess=1 UNSAT   tt= 0.0s to=1800
+19:50:32 stable2 k=3 s=2 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 weak1 k=4 s=3 full ess=1 SAT pass accept tt=48052 0.0s to=1800
+19:50:32 stable2 k=3 s=3 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable2 k=4 s=0 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable2 k=3 s=4 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable2 k=4 s=1 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=3 s=0 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=3 s=1 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable2 k=4 s=2 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=3 s=2 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable2 k=4 s=3 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=3 s=3 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable2 k=4 s=4 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=3 s=4 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable2 k=4 s=5 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=4 s=0 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable2 k=4 s=6 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable2 k=4 s=7 full ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=4 s=1 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=4 s=2 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:32 stable1 k=4 s=3 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:33 stable1 k=4 s=4 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:33 stable1 k=4 s=5 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:33 stable1 k=4 s=6 none ess=0 UNSAT   tt= 0.0s to=1800
+19:50:33 stable1 k=4 s=7 none ess=0 UNSAT   tt= 0.0s to=1800
