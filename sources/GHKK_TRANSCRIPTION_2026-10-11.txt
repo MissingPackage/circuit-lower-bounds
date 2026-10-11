@@ -1,0 +1,342 @@
+GHKK TRANSCRIPTION (WP2) -- 2026-10-11
+=========================================
+
+Source: Alexander Golovnev, Edward A. Hirsch, Alexander Knop, Alexander S. Kulikov,
+"On the Limits of Gate Elimination". Journal version (JCSS 2018); preliminary version
+MFCS 2016 [16]; ECCC TR16-119. PDF fetched 2026-10-11 from
+https://golovnev.org/papers/limits.pdf (20 pages, 365743 bytes,
+sha256 fb0b1b2b4b18036f72a39cfc55a3e47512a5bb69e6195ce3abc23f3f80428e03).
+Text extracted with pypdf 6.20.0 into sources/ghkk-limits.txt (not redistributed).
+
+Page references: "PDF p.N" is the N-th page of the file; the printed page number is N-1
+(PDF p.2 carries printed number 1). Both are given.
+
+Transcription conventions: text copied from the extraction; ligatures (fi, ff) and
+sub/superscripts that the extractor flattened are restored in plain ASCII and marked
+[RESTORED] where the restoration is not a pure ligature fix. Anything inferred rather
+than read is marked [VERIFY]. Mathematical notation: MOD^n_{3,r}, THR^n_2, B_n,
+B_{n,k}, mu_alpha, f <> g for the composition symbol (a diamond in the PDF).
+
+
+-----------------------------------------------------------------------------------------
+1. Circuits, measures mu and mu_alpha  (PDF p.2, printed p.1; PDF p.4, printed p.3;
+   PDF p.5, printed p.4; PDF p.11, printed p.10)
+-----------------------------------------------------------------------------------------
+
+PDF p.2 (printed p.1), Section 1:
+  "A binary Boolean circuit is a directed acyclic graph with nodes of in-degree either 0
+  or 2. Nodes of in-degree 0 are called inputs and are labeled by variables x1,...,xn.
+  Nodes of in-degree 2 are called gates and are labeled by binary Boolean functions. Some
+  k nodes are additionally labeled as the outputs of the circuit. The output gate compute
+  a Boolean function {0,1}^n -> {0,1}^k in a natural way. The size of a circuit C is
+  defined as the number of gates in C and is denoted by gates(C). By inputs(C) we denote
+  the number of inputs of C.
+  A circuit complexity measure mu is a function assigning each circuit a non-negative
+  real number. In particular, gates and inputs are circuit complexity measures.
+  By B_{n,k} we denote the set of all Boolean functions f : {0,1}^n -> {0,1}^k. B_n is a
+  shorthand for B_{n,1}. For a circuit complexity measure mu and a function f in B_n, by
+  mu(f) we denote the minimum value of mu(C) over all circuits C computing f. For
+  example, gates(f) is the miniumum size of a circuit computing f."
+
+PDF p.4 (printed p.3), Section 2 (Demenkov-Kulikov measure):
+  "The proof also uses a non-standard circuit complexity measure: for a circuit C,
+  mu(C) = gates(C) + inputs(C)."
+
+PDF p.5 (printed p.4), Section 2:
+  "a lower bound of 3.1n has been shown for them in [17] using the circuit complexity
+  measure mu_alpha(C) = gates(C) + alpha * inputs(C) (alpha >= 0 is a constant) and
+  quadratic substitutions."
+
+PDF p.6 (printed p.5), Section 3.1 Notation:
+  "A function f depends on a variable x if there is a substitution rho of constants to
+  all other variables such that f|rho(0) != f|rho(1). Additionaly, we denote by
+  inputs(f) the number of variables such that f depends on them.
+  As we saw in Section 2, gate elimination proofs sometimes track sophisticated
+  complexity measure mu rather than just number of gates, for example, the measure
+  mu(f) = gates(f) + alpha * inputs(f) for a constant alpha >= 0."
+
+PDF p.11 (printed p.10), Section 3.4:
+  "Namely, [10] uses the following measure: mu(C) = gates(C) + inputs(C). [...] In
+  [18, 17] a more general measure is used: mu_alpha(C) = gates(C) + alpha * inputs(C),
+  where alpha >= 0 is a constant. A typical m-substitution reduces mu_alpha by
+  k + alpha*m where k is the number of gates eliminated. If, however, a substitution
+  removes more than m inputs, then mu_alpha is reduced by at least alpha(m + 1). By
+  choosing a large enough value for alpha, one ensures that alpha(m + 1) >= k + alpha*m."
+
+
+-----------------------------------------------------------------------------------------
+2. Substitutions, m-substitution  (PDF p.6, printed p.5, Section 3.1 Notation)
+-----------------------------------------------------------------------------------------
+
+  "Let X = {x1,...,xn} be a set of Boolean variables. A substitution rho of a set of
+  variables R subseteq X is a set of |R| restrictions of the form
+        r_i = f_i(x1,...,xn),
+  one restriction for each variable r_i in R, where f_i depends only on variables from
+  X \ R. The degree of a substitution is the maximum degree of f_i's represented as
+  Boolean polynomials. The size of a substitution is |R|. Substitutions of size m are
+  called m-substitutions.
+  Given an m-substitution rho and a function f, one can naturally define a new function
+  f|rho that has m fewer arguments than f."
+
+
+-----------------------------------------------------------------------------------------
+3. Definition 1 (weakly m-stable)  (PDF p.8, printed p.7, Section 3.3)
+-----------------------------------------------------------------------------------------
+
+Context sentence (same page): "In this section we use gadgets that satisfy the following
+requirement: For every set of variables Y of size m, we can force the value of the gadget
+to be 0 and 1 by assigning constants only to the remaining variables."
+
+  "Definition 1 (weakly m-stable function). A function g(X) is weakly m-stable if, for
+  every Y subseteq X of size |Y| <= m, there exist two assignments
+  tau_0, tau_1 : X \ Y -> {0,1} to the remaining variables such that g|tau_0(Y) == 0 and
+  g|tau_1(Y) == 1. That is, after the assignment tau_0 (tau_1), the function does not
+  depend on the remaining variables Y."
+
+PDF p.9 (printed p.8): "It is easy to see that MAJ_{2m+1} is a weakly m-stable function.
+In Lemma 2 we show that almost all Boolean functions satisfy an even stronger requirement
+of stability."
+
+
+-----------------------------------------------------------------------------------------
+4. Theorem 1  (PDF p.9, printed p.8, Section 3.3)
+-----------------------------------------------------------------------------------------
+
+Preceding definitions (PDF p.8-9, printed p.7-8):
+  "A function mu : U_{n,m in N} B_{n,m} -> R is called a subadditive complexity measure,
+  if
+  - for all functions s and t [vectors; bars dropped], mu((s,t)) <= mu(s) + mu(t), where
+    (s,t) is the 'merge' of s and t that comprises (independent) inputs and outputs of
+    both functions,
+  - for all functions f and g, mu(h) <= mu(f) + mu(g), where h(x,y) = f(g(x),y).
+  [...] Clearly, the measures mu(f) = gates(f) and mu_alpha(f) = gates(f) + alpha *
+  inputs(f) are subadditive, and so are many other natural measures.
+  Let f in B_n and g in B_k. Then by h = f <> g in B_{nk} we denote the function
+  resulting from f by replacing each of its input variables by g applied to k fresh
+  variables."
+
+  "Theorem 1. Let mu be a subadditive measure, f in B_n be any function, g in B_k be a
+  weakly m-stable function, and h = f <> g in B_{nk}. Then for every m-substitution rho,
+  mu(h) - mu(h|rho) <= m * mu(g)."
+
+Proof (PDF p.9, printed p.8), transcribed because the WP2 checker mirrors its repair
+argument:
+  "Proof. Similarly to Lemma 1, we use a circuit H for the function h|rho to construct
+  a circuit C for h. Let
+     h(x11, x12, ..., xnk) = f(g(x11,...,x1k), ..., g(xn1,...,xnk)).
+  Let us focus on the variables x11,...,x1k. Assume, without loss of generality, that
+  the variables x11,...,x1r are substituted by rho. Since rho is an m-substitution,
+  r <= m. From the definition of weakly m-stable function, there exist substitutions
+  tau_0 and tau_1 to the variables x1r+1,...,x1k such that g|rho tau_0 = 0 and
+  g|rho tau_1 = 1. We take the circuit H and add a circuit computing g(x11,...,x1k).
+  Now, for every variable x in {x1r+1,...,x1k} in the circuit H, we wire
+  g(x11,...,x1k) xor tau_0(x) instead of x if tau_0(x) != tau_1(x), and wire tau_0(x)
+  otherwise; i.e. we set the value of x equal to tau_0(x) if g(x11,...,x1k) = 0 and
+  equal to tau_1(x) otherwise. That is, we set x1r+1,...,x1k in such a way that
+  g|rho(x1r+1,...,x1k) = g(x11,...,x1k). Thus, we added one instance of a circuit
+  computing the gadget g and 'repaired' g(x11,...,x1k).
+  Now we repeat this procedure for each of the n inner functions g that have at least
+  one variable substituted by rho. Since rho is an m-substitution, there are at most m
+  gadgets we need to repair. Thus, we can compute h using the circuit H and m instances
+  of a circuit computing g, in particular, h is a composition of the function h|rho
+  computed by H and the multi-output function g^(m) comprising m instances of g. By
+  subadditivity of mu, mu(h) - mu(h|rho) <= m * mu(g)."
+
+
+-----------------------------------------------------------------------------------------
+5. Definition 2 (m-stable)  (PDF p.12, printed p.11, Section 3.4)
+-----------------------------------------------------------------------------------------
+
+Context (PDF p.11-12, printed p.10-11): "In this section, we construct gadgets against
+such measures. Namely, we construct a function f such that any m-substitution reduces
+the number of gates by a constant c_m and reduces the number of inputs by m. This
+prevents anyone from proving a better than c_m n bound using these measures."
+
+  "Definition 2 (m-stable function). A function g(X) is m-stable if, for every
+  Y subseteq X of size |Y| <= m + 1 and every y in Y, there exists an assignment
+  tau : X \ Y -> {0,1} to the remaining variables such that g|tau(Y) == y or
+  g|tau(Y) == not y. That is, after the assignment tau, the function depends only on
+  the variable y.
+  It is now easy to see that every m-stable function is weakly m-stable."
+
+Note (WP2, not in the paper): Definition 2 admits both signs (g|tau == y OR
+g|tau == not y). The Appendix A script (Section 9 below) checks the positive sign only
+(tt[a] == (a>>i)&1). The WP2 search uses Definition 2 as printed (both signs); the
+positive-sign-only variant is run separately for the Appendix A reproduction.
+
+
+-----------------------------------------------------------------------------------------
+6. Theorem 4  (PDF p.12, printed p.11, Section 3.4)
+-----------------------------------------------------------------------------------------
+
+  "Theorem 4. Let f be a Boolean function, g be an m-stable function, and h = f <> g.
+  Then for every alpha >= 0, for every m-substitution rho,
+  mu_alpha(h) - mu_alpha(h|rho) <= m * (gates(g) + alpha).
+
+  Proof. Since g is m-stable, Theorem 1 implies that gates(h) - gates(h|rho) <=
+  m * gates(g). It remains to show that inputs(h) - inputs(h|rho) = m. Thus, it suffices
+  to prove that if h depends on x_ij and rho does not substitute x_i,j, then h|rho
+  depends on x_i,j. Let
+     h(x11, x12, ..., xnk) = f(g(x11,...,x1k), ..., g(xn1,...,xnk)).
+  Without loss of generality let i = 1. Let R be the set of variables x_st for s > 1
+  substituted by rho. There exists a substitution eta to the variables
+  {x21,...,x2k,...,xn1,...,xnk} \ R such that h|eta(x11,...,x1k) does not depend on the
+  variables in R and is not a constant: by the definition of m-stability we can force
+  the instances of the gadget g except for the first one to produce any desired
+  assignment for the inputs of f (all but the first one).
+  Let us consider the variables x11,...,x1k. Assume, without loss of generality, that
+  the variables x11,...,x1r are substituted by rho. Since rho is an m-substitution,
+  r <= m. Now we want to show that for every j > r, h|rho depends on x1j. From the
+  definition of an m-stable function, there exists a substitution tau to
+  {x1,r+1,...,x1k} \ {x1j} such that g|rho tau(x1j) is not constant (g|rho tau = x1j or
+  g|rho tau = not x1j). Now, we compose the substitutions eta and tau, which gives us
+  that h|rho tau eta(x1j) is not constant. This implies that the function h|rho depends
+  on the variable x1j."
+
+Lemma 2 (PDF p.12, printed p.11), statement only: "Lemma 2. For m >= 1 and
+k = omega(2^m), a random f in B_k is m-stable almost surely."
+
+Corollary 4 (PDF p.13, printed p.12): "For any m > 0, there exist k > 0 and g in B_k
+such that for any f of n inputs, the function h = f <> g in B_{nk} satisfies:
+  - Circuit complexity of h is close to that of f:
+    gates(f) <= gates(h) <= gates(f) + gates(g) * n,
+  - For any m-substitution rho and real alpha >= 0,
+    mu_alpha(h) - mu_alpha(h|rho) <= gates(g) * m + alpha * m.
+Thus, gate elimination with m-substitutions and mu_alpha measures can prove only O(n)
+lower bounds."
+
+
+-----------------------------------------------------------------------------------------
+7. Lemma 4 and the truth table of gst1  (PDF p.13-14, printed p.12-13)
+-----------------------------------------------------------------------------------------
+
+  "A computer-assisted search gives a 1-stable function of 5 inputs that can be
+  computed with 11 gates.
+  Lemma 4. There exists a 1-stable function gst1 : {0,1}^5 -> {0,1} of circuit
+  complexity at most 11.
+  Proof. The truth table of the function gst1 is shown below."
+
+  Table (PDF p.13, printed p.12), columns = inputs in order of increasing index
+  a = x0 + 2 x1 + 4 x2 + 8 x3 + 16 x4 (x0 is the fastest-changing row):
+    x0   0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+    x1   0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1
+    x2   0 0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0 0 0 1 1 1 1
+    x3   0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
+    x4   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    gst1(x0,x1,x2,x3,x4)
+         0 0 0 0 0 0 1 1 0 1 0 1 1 1 1 0 0 1 1 1 0 1 1 0 0 1 1 0 1 0 0 0
+
+  As a list indexed by a (identical to the tt list in the Appendix scripts):
+    tt = [0,0,0,0,0,0,1,1,0,1,0,1,1,1,1,0,0,1,1,1,0,1,1,0,0,1,1,0,1,0,0,0]
+  Integer encoding used by WP1 funcs.py (bit a of the integer = tt[a]):
+    sum(tt[a] << a) = 0x166e7ac0 = 376339136   (computed from the list above; 15 ones
+    out of 32 rows; WP1 name TT_5_376339136)
+  WP1 row convention (row t assigns x_{i+1} = (t >> i) & 1) coincides with the GHKK
+  index a = sum x_i 2^i after renaming x_i (GHKK, 0-based) -> x_{i+1} (WP1, 1-based).
+
+  "It can be checked that for any i,j in {0,1,2,3,4}, where i != j, there exist
+  c1,c2,c3 in {0,1} such that when the three remaining variables are assigned the
+  values c1,c2,c3, the function gst1 turns into x_i. For example, under the
+  substitution {x0 <- 0, x2 <- 0, x4 <- 1} the function gst1 is equal to x1. Appendix
+  on page 16 contains two short scripts which (i) verify the required property of the
+  function gst1, and (ii) demonstrate that gst1 can be computed by a circuit of
+  size 11.
+  This lemma implies that the basic gate elimination argument is unable to prove a
+  lower bound of 11n using the measure mu_alpha and 1-substitutions. (Note that almost
+  all known proofs use either 1- or 2-substitutions.)"
+
+
+-----------------------------------------------------------------------------------------
+8. Corollary 6  (PDF p.14, printed p.13)
+-----------------------------------------------------------------------------------------
+
+  "Corollary 6. For any function f of n inputs, assume function h = f <> gst1 (it has
+  5n inputs). Then
+  1. The complexity of h is close to that of f: gates(f) <= gates(h) <= gates(f) + 11n;
+  2. For any 1-substitution rho and real alpha >= 0,
+     mu_alpha(h) - mu_alpha(h|rho) <= 11 + alpha."
+
+
+-----------------------------------------------------------------------------------------
+9. Appendix A: Scripts for the proof of Lemma 4  (PDF p.17-18, printed p.16-17)
+-----------------------------------------------------------------------------------------
+
+  "First, we show that for any i,j in {0,1,2,3,4}, where i != j, there exist
+  c1,c2,c3 in {0,1} such that when the three remaining variables are assigned the
+  values c1,c2,c3, the function gst1 computes x_i. The following Python script
+  specifies the values of c1,c2,c3 for all (ordered) pairs (i,j) and ensures that the
+  function gst1 satisfies the required property."
+
+  Script (i), verbatim (indentation lost by the extractor and restored [RESTORED];
+  the loop body is the single assert, the three c-assignments and the tuple
+  unpacking):
+
+    import itertools
+    tt=[0,0,0,0,0,0,1,1,0,1,0,1,1,1,1,0,0,1,1,1,0,1,1,0,0,1,1,0,1,0,0,0]
+    M = {(0,1): (0,1,0), (0,2): (0,0,1), (0,3): (0,0,1), (0,4): (0,0,1),
+         (1,0): (1,0,0), (1,2): (0,0,1), (1,3): (0,0,1), (1,4): (0,1,0),
+         (2,0): (1,0,0), (2,1): (0,1,0), (2,3): (0,1,0), (2,4): (0,0,1),
+         (3,0): (0,1,0), (3,1): (1,0,0), (3,2): (1,0,0), (3,4): (0,0,1),
+         (4,0): (1,0,0), (4,1): (1,0,0), (4,2): (1,0,0), (4,3): (0,1,0)}
+    for (i,j) in itertools.permutations(range(5), 2):
+        c1=M[(i,j)][0]
+        c2=M[(i,j)][1]
+        c3=M[(i,j)][2]
+        (v1,v2,v3)=[v for v in range(5) if (v!=i and v!=j)]
+        for a in range(1 << 5):
+            assert((a>>v1)&1!=c1 or
+                   (a>>v2)&1!=c2 or
+                   (a>>v3)&1!=c3 or
+                   tt[a]==(a>>i)&1
+                   )
+
+  Semantics of script (i), as read: for the ordered pair (i,j), Y = {x_i, x_j}, the
+  three remaining variables (v1,v2,v3) in increasing index order receive the constants
+  (c1,c2,c3) = M[(i,j)]; the assert states that on every row a consistent with that
+  assignment, tt[a] equals x_i (positive sign only). 20 ordered pairs, 20 entries.
+
+  "The fact that this function can be computed by a circuit of size 11 is justified by
+  the following script."
+
+  Script (ii), verbatim (indentation [RESTORED]):
+
+    import itertools
+    tt=[0,0,0,0,0,0,1,1,0,1,0,1,1,1,1,0,0,1,1,1,0,1,1,0,0,1,1,0,1,0,0,0]
+    for (x0,x1,x2,x3,x4) in itertools.product(range(2), repeat=5):
+        g1=(x1+x2)%2 # x1 xor x2
+        g2=(x2+x3)%2 # x2 xor x3
+        g3=(x0+x2)%2 # x0 xor x2
+        g4=(x1+x4)%2 # x1 xor x4
+        g5=1-(1-g2)*(1-g4) # g2 or g4
+        g6=1-(1-x3)*(1-x4) # x3 or x4
+        g7=x3*g4 # x3 and g4
+        g8=g1*(1-g7) # g1 and (not g7)
+        g9=(1-g3)*g6 # (not g3) and g6
+        g10=g5*(1-g9) # g5 and (not g9)
+        g11=(g8+g10)%2 # g8 xor g10
+        assert(g11==tt[x0+2*x1+4*x2+8*x3+16*x4])
+
+  Both scripts are ported unchanged (except indentation) into appendix_a.py in the
+  repository root; the port adds an exit status and prints the integer truth table.
+
+
+-----------------------------------------------------------------------------------------
+10. Items read but not transcribed in full
+-----------------------------------------------------------------------------------------
+
+- Lemma 1 (PDF p.8, printed p.7): h <> MAJ_{2m+1} gadget, gates(f) - gates(f|rho) <=
+  4.5(2m+1)m for m-substitutions.
+- Lemma 3 (PDF p.13, printed p.12): Walsh-Hadamard based (n/4 - 2)-stable function of
+  n inputs with circuit complexity O(n^2 log n); Corollary 5.
+- Theorem 3 / Corollary 2 (error-correcting-code based constructions), Remark 2
+  (every h in B_N is trivialized by ceil(N/2) substitutions), Corollary 3 (decision
+  trees).
+- Table of known bounds (PDF p.5, printed p.4): 2n [35] Q^n_{2,3} gates x_i <- c;
+  2.5n [37] symmetric gates x_i <- c, {x_i <- f, x_j <- f xor 1}; 3n [7] artificial
+  gates arbitrary; 3n [10] affine disp. gates + inputs linear; 3.01n [14] affine disp.
+  gates + alpha inputs + ... linear; 3.1n [17] quadratic disp. gates + alpha inputs
+  quadratic deg <= 2.   [sub/superscripts RESTORED]
+
+Nothing in this file is inferred beyond the [RESTORED] indentation and sub/superscript
+fixes. No [VERIFY] items remain: every definition and statement above was read in the
+extracted text of the fetched PDF.

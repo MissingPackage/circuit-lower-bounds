@@ -1,0 +1,104 @@
+WP2 PRE-REGISTRATION -- 2026-10-11 (frozen before the first search run)
+=======================================================================
+
+Work package: cheaper m-stable gadgets for the Golovnev-Hirsch-Knop-Kulikov ceiling
+(GHKK, "On the Limits of Gate Elimination", definitions transcribed in
+sources/GHKK_TRANSCRIPTION_2026-10-11.txt, sha256 in wp2_frozen.stamp).
+
+What WP2 is NOT: no outcome of WP2 is a circuit lower bound. A found gadget tightens
+the GHKK ceiling (a negative result about the plain gate-elimination method with the
+measure mu_alpha and single substitutions); an exhaustive UNSAT at some (k, s) is a
+proven non-existence for that (k, s) only, under the stated encoding.
+
+Conventions
+-----------
+- Truth-table row t assigns x_{i+1} = (t >> i) & 1 (WP1 convention), which coincides
+  with the GHKK index a = sum x_i 2^i after the 0-based -> 1-based renaming.
+- "stable1"  = 1-stable, Definition 2 as printed (|Y| <= 2, g|tau == y OR == not y).
+- "stable1pos" = Definition 2 restricted to the positive sign (g|tau == y), i.e. the
+  property actually checked by the Appendix A script (i).
+- "weak1"    = weakly 1-stable, Definition 1 (|Y| <= 1, g|tau0 == 0 and g|tau1 == 1).
+- "stable2"  = 2-stable, Definition 2 (|Y| <= 3, both signs).
+- "fixed_gst1" = the WP1 encoder on the fixed GHKK truth table TT_5_376339136.
+- mode full = WP1 symmetry breaking (N, D, U, O; S off because the function is free or
+  not symmetric). With U the encoding is non-monotone in s: an exact minimum needs
+  UNSAT at every s' < s. mode none = plain encoding (monotone in s).
+- essential_inputs flag: 1 = every input variable must be essential for the function;
+  0 = dummy inputs allowed. For stable1/stable2 the property implies all inputs
+  essential, so the flag is informational there; for weak1 both settings are run.
+- TIMEOUT is recorded as TIMEOUT, never as UNSAT. Per-instance hard timeouts:
+  1800 s for k <= 4, 7200 s for k = 5, 6; 2 workers. If the 4-hour run budget forces
+  a shorter limit on some instance, the actual limit is recorded in timeout_s and the
+  instance is still reported as TIMEOUT (never as UNSAT).
+
+Pre-registered predictions (verbatim from the WP2 brief; the evidence decides)
+-------------------------------------------------------------------------------
+P1 (baseline).
+ (a) WP1 encoder on the transcribed gst1 truth table (GHKK index a = sum x_i 2^i; same
+     row convention as WP1): UNSAT at every s <= 10, SAT at s = 11, simulate.py pass,
+     i.e. exact size 11, each instance within 7200 s on 2 cores.
+ (b) Joint search (free 5-input function + Def. 2 1-stability constraint): SAT at
+     s = 11 within 7200 s, and the decoded circuit's truth table is accepted as
+     1-stable by the independent brute-force checker.
+ (c) Ported Appendix A script accepts gst1 with the printed witness table M (20 ordered
+     pairs, positive sign only), and the printed 11-gate circuit g1..g11 simulates
+     exactly to the printed truth table.
+P2 (search, 1-stable, Def. 2 with both signs).
+     k=3: 0 of 256 truth tables are 1-stable and SAT is UNSAT at every s <= 4.
+     k=4: 0 of 65536 are 1-stable and SAT is UNSAT at every s <= 7.
+     k=5: no checker-certified SAT at any s <= 10; the (5,10) instance ends UNSAT
+          (probability <= 50%) or TIMEOUT within 7200 s; minimum stays 11.
+     k=6: no checker-certified SAT at s <= 10 (expected TIMEOUT at s = 9, 10).
+P2w (weakly 1-stable, Def. 1): no function with <= 2 gates at any k; k=3 minimum
+     exactly 3 (UNSAT s <= 2, SAT s = 3, e.g. MUX_3); if dummy inputs are allowed, SAT
+     at s = 3 for k = 4, 5, 6; if every input must be essential, minima 3, 4, 5 for
+     k = 4, 5, 6 (witnesses x1x2+x3x4, x1x2+x3x4x5, x1x2x3+x4x5x6 with + = XOR).
+P2s (2-stable, Def. 2 with |Y| <= 3): k=3,4: 0 functions by exhaustive enumeration;
+     k=5: 0 functions (exhaustive, or UNSAT at every s run); k=6: no
+     checker-certified SAT at s <= 10.
+P3 (checker agreement): 0 of the SAT-found circuits are rejected by the independent
+     checker for the property searched; controls: every symmetric function (MAJ_5,
+     XOR_5, THR_k_5, MOD3) is NOT 1-stable; MUX_3 is weakly 1-stable and NOT 1-stable;
+     gst1 is 1-stable and weakly 1-stable and NOT 2-stable.
+
+What refutes each
+-----------------
+P1(a): any SAT at s <= 10 on fixed_gst1 with sim pass (refutes "exact 11"), or UNSAT at
+       s = 11, or a sim FAIL at s = 11. A TIMEOUT leaves P1(a) undecided, not refuted.
+P1(b): UNSAT at (5, 11) for stable1, or a SAT whose decoded truth table the checker
+       rejects. TIMEOUT = undecided.
+P1(c): nonzero exit status of appendix_a.py, or simulate.py mismatch on the Appendix
+       circuit.
+P2:    a checker-certified 1-stable function with <= 10 gates at any k in 3..6 (refutes
+       the "no cheaper gadget" expectation; it is then the reportable positive result),
+       or a nonzero brute-force count at k = 3 or 4, or a SAT row at k=3, s<=4 / k=4,
+       s<=7.
+P2w:   any discrepancy in the stated minima (SAT below, or UNSAT at the stated value).
+P2s:   nonzero count at k = 3, 4, 5 (exhaustive) or a checker-certified SAT at k=5,6,
+       s <= 10.
+P3:    any SAT circuit rejected by the checker, or any control misclassified.
+
+Metric (read exactly as written in the brief)
+---------------------------------------------
+One CSV row per instance (variant in {stable1, weak1, stable2, fixed_gst1}, k, s, mode,
+essential_inputs flag, res in {SAT, UNSAT, TIMEOUT}, wall_s, timeout_s, vars, clauses,
+circuit JSON, sim pass/fail, checker verdict), written by the WP1-style runner with hard
+per-instance timeouts (1800 s for k <= 4, 7200 s for k = 5, 6; 2 workers). Exhaustive
+brute-force counts per (variant, k) for k = 3, 4 (and k = 5 if run) from the
+independent checker module, which recomputes everything from the truth table and shares
+no code with encoder.py. A minimum counts as exact only with UNSAT at every s' < s in
+mode full (non-monotone with U) or with UNSAT at s-1 in mode none (monotone); TIMEOUT
+is recorded as TIMEOUT and never as UNSAT. Grading = line-by-line comparison of P1, P2,
+P2w, P2s, P3 against these rows and counts; P1(c) is graded by the exit status of the
+ported script and by simulate.py on the Appendix circuit; controls in P3 are graded by
+the checker's output on the named functions.
+
+Staging (budget: ~4 h wall, 2 cores, ~3 GB)
+--------------------------------------------
+Stage A: transcription + this file + stamp (no search).            commit
+Stage B: code (encoder free-function extension, stability module, independent checker,
+         Appendix A port, runner) + P3 controls + exhaustive counts k=3,4.   commit
+Stage C: SAT ladders k=3,4 (all variants).                                    commit
+Stage D: k=5: fixed_gst1 ladder, stable1 ladder, weak1, stable2.              commit
+Stage E: k=6 only if time remains.                                            commit
+Stage F: README / SOURCES update.                                             commit
