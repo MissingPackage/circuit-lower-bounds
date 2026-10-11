@@ -1,0 +1,102 @@
+WP2c controls 2026-10-11T21:28:34Z
+C1 {"k": 6, "tt": 9187484529235886208, "ones": 14, "essential": [0, 1, 2, 3, 4, 5], "stable1": false, "stable1pos": false, "weak1": true, "stable2": false, "weak2": false}
+PASS C1 x1x2x3+x4x5x6: weak1 accept, stable1 reject
+PASS C1 holds() agrees with report()
+C2 gst1 k=5 {"k": 5, "tt": 376339136, "ones": 15, "essential": [0, 1, 2, 3, 4], "stable1": true, "stable1pos": true, "weak1": true, "stable2": false, "weak2": false}
+C2 gst1 k=6 {"k": 6, "tt": 1616364281701235392, "ones": 30, "essential": [0, 1, 2, 3, 4], "stable1": false, "stable1pos": false, "weak1": true, "stable2": false, "weak2": false}
+C2 gst1 k=7 {"k": 7, "tt": 29816658234428060213895986699291228864, "ones": 60, "essential": [0, 1, 2, 3, 4], "stable1": false, "stable1pos": false, "weak1": true, "stable2": false, "weak2": false}
+PASS C2 gst1 unpadded stable1 accept at k=5
+PASS C2 gst1 padded (dummy x6) stable1 reject at k=6, essential = five inputs
+PASS C2 gst1 padded (dummy x6, x7) stable1 reject at k=7
+C2 gst1 k=6 failing (Y,y) test indices: [5, 15, 23, 29, 33, 35] count 6
+C2 argmin_0x00071357 k=5 {"k": 5, "tt": 3939033088, "ones": 11, "essential": [0, 1, 2, 3, 4], "stable1": true, "stable1pos": true, "weak1": true, "stable2": false, "weak2": false}
+C2 argmin_0x00071357 k=6 {"k": 6, "tt": 16918018294760923136, "ones": 22, "essential": [0, 1, 2, 3, 4], "stable1": false, "stable1pos": false, "weak1": true, "stable2": false, "weak2": false}
+C2 argmin_0x00071357 k=7 {"k": 7, "tt": 312082353717790833048499768567561510912, "ones": 44, "essential": [0, 1, 2, 3, 4], "stable1": false, "stable1pos": false, "weak1": true, "stable2": false, "weak2": false}
+PASS C2 argmin_0x00071357 unpadded stable1 accept at k=5
+PASS C2 argmin_0x00071357 padded (dummy x6) stable1 reject at k=6, essential = five inputs
+PASS C2 argmin_0x00071357 padded (dummy x6, x7) stable1 reject at k=7
+C2 argmin_0x00071357 k=6 failing (Y,y) test indices: [5, 15, 23, 29, 33, 35] count 6
+C2 wp2_found k=5 {"k": 5, "tt": 9178798, "ones": 11, "essential": [0, 1, 2, 3, 4], "stable1": true, "stable1pos": false, "weak1": true, "stable2": false, "weak2": false}
+C2 wp2_found k=6 {"k": 6, "tt": 39422637235769006, "ones": 22, "essential": [0, 1, 2, 3, 4], "stable1": false, "stable1pos": false, "weak1": true, "stable2": false, "weak2": false}
+C2 wp2_found k=7 {"k": 7, "tt": 727219299798923411024645746445782702, "ones": 44, "essential": [0, 1, 2, 3, 4], "stable1": false, "stable1pos": false, "weak1": true, "stable2": false, "weak2": false}
+PASS C2 wp2_found unpadded stable1 accept at k=5
+PASS C2 wp2_found padded (dummy x6) stable1 reject at k=6, essential = five inputs
+PASS C2 wp2_found padded (dummy x6, x7) stable1 reject at k=7
+C2 wp2_found k=6 failing (Y,y) test indices: [5, 15, 23, 29, 33, 35] count 6
+PASS C3 random 1-stable 6-input function found
+C3 found after 8 samples in 0.3s {"k": 6, "tt": 12383109446056992938, "ones": 30, "essential": [0, 1, 2, 3, 4, 5], "stable1": true, "stable1pos": false, "weak1": true, "stable2": false, "weak2": false}
+PASS C3 positive: stable1 accept, weak1 accept, all six inputs essential
+C3 frequency estimate: 104 / 2000 random 64-bit tables are stable1
+C4 free k=6 mode=full s=0 rows=64 vars=1414 clauses=5044 aux=1344
+PASS C4 free k=6 mode=full s=0: 64 rows / fv variables
+C4 free k=6 mode=full s=1 rows=64 vars=1496 clauses=6952 aux=1344
+PASS C4 free k=6 mode=full s=1: 64 rows / fv variables
+C4 free k=6 mode=full s=2 rows=64 vars=1584 clauses=10397 aux=1344
+PASS C4 free k=6 mode=full s=2: 64 rows / fv variables
+C4 free k=6 mode=full s=3 rows=64 vars=1679 clauses=15883 aux=1344
+PASS C4 free k=6 mode=full s=3: 64 rows / fv variables
+C4 free k=6 mode=full s=4 rows=64 vars=1782 clauses=23998 aux=1344
+PASS C4 free k=6 mode=full s=4: 64 rows / fv variables
+C4 free k=6 mode=full s=5 rows=64 vars=1894 clauses=35375 aux=1344
+PASS C4 free k=6 mode=full s=5: 64 rows / fv variables
+C4 free k=6 mode=full s=6 rows=64 vars=2016 clauses=50698 aux=1344
+PASS C4 free k=6 mode=full s=6: 64 rows / fv variables
+C4 free k=6 mode=none s=0 rows=64 vars=1414 clauses=5044 aux=1344
+PASS C4 free k=6 mode=none s=0: 64 rows / fv variables
+C4 free k=6 mode=none s=1 rows=64 vars=1498 clauses=7204 aux=1344
+PASS C4 free k=6 mode=none s=1: 64 rows / fv variables
+C4 free k=6 mode=none s=2 rows=64 vars=1588 clauses=11006 aux=1344
+PASS C4 free k=6 mode=none s=2: 64 rows / fv variables
+C4 free k=6 mode=none s=3 rows=64 vars=1685 clauses=17025 aux=1344
+PASS C4 free k=6 mode=none s=3: 64 rows / fv variables
+C4 free k=6 mode=none s=4 rows=64 vars=1790 clauses=25857 aux=1344
+PASS C4 free k=6 mode=none s=4: 64 rows / fv variables
+C4 free k=6 mode=none s=5 rows=64 vars=1904 clauses=38122 aux=1344
+PASS C4 free k=6 mode=none s=5: 64 rows / fv variables
+C4 free k=6 mode=none s=6 rows=64 vars=2028 clauses=54467 aux=1344
+PASS C4 free k=6 mode=none s=6: 64 rows / fv variables
+C4 fixed TT_6_1616364281701235392 n=6 rows=64 vars=271 clauses=10845
+PASS C4 fixed path TT_6_ builds with 64 rows and round-trips
+C4 free k=7 mode=full s=0 rows=128 vars=3719 clauses=13511 aux=3584
+PASS C4 free k=7 mode=full s=0: 128 rows / fv variables
+C4 free k=7 mode=full s=1 rows=128 vars=3871 clauses=18671 aux=3584
+PASS C4 free k=7 mode=full s=1: 128 rows / fv variables
+C4 free k=7 mode=full s=2 rows=128 vars=4030 clauses=27325 aux=3584
+PASS C4 free k=7 mode=full s=2: 128 rows / fv variables
+C4 free k=7 mode=full s=3 rows=128 vars=4197 clauses=40404 aux=3584
+PASS C4 free k=7 mode=full s=3: 128 rows / fv variables
+C4 free k=7 mode=full s=4 rows=128 vars=4373 clauses=58989 aux=3584
+PASS C4 free k=7 mode=full s=4: 128 rows / fv variables
+C4 free k=7 mode=full s=5 rows=128 vars=4559 clauses=84212 aux=3584
+PASS C4 free k=7 mode=full s=5: 128 rows / fv variables
+C4 free k=7 mode=full s=6 rows=128 vars=4756 clauses=117262 aux=3584
+PASS C4 free k=7 mode=full s=6: 128 rows / fv variables
+C4 free k=7 mode=none s=0 rows=128 vars=3719 clauses=13511 aux=3584
+PASS C4 free k=7 mode=none s=0: 128 rows / fv variables
+C4 free k=7 mode=none s=1 rows=128 vars=3873 clauses=19361 aux=3584
+PASS C4 free k=7 mode=none s=1: 128 rows / fv variables
+C4 free k=7 mode=none s=2 rows=128 vars=4034 clauses=28964 aux=3584
+PASS C4 free k=7 mode=none s=2: 128 rows / fv variables
+C4 free k=7 mode=none s=3 rows=128 vars=4203 clauses=43428 aux=3584
+PASS C4 free k=7 mode=none s=3: 128 rows / fv variables
+C4 free k=7 mode=none s=4 rows=128 vars=4381 clauses=63885 aux=3584
+PASS C4 free k=7 mode=none s=4: 128 rows / fv variables
+C4 free k=7 mode=none s=5 rows=128 vars=4569 clauses=91494 aux=3584
+PASS C4 free k=7 mode=none s=5: 128 rows / fv variables
+C4 free k=7 mode=none s=6 rows=128 vars=4768 clauses=127444 aux=3584
+PASS C4 free k=7 mode=none s=6: 128 rows / fv variables
+C4 fixed TT_7_29816658234428060213895986699291228864 n=7 rows=128 vars=485 clauses=26959
+PASS C4 fixed path TT_7_ builds with 128 rows and round-trips
+C5 weak1 k=6 s=3 full SAT pass accept tt=17216961131958902302 0.2s
+PASS C5 weak1 k=6 s=3 mode=full: SAT, sim pass, checker accept
+C5 weak1 k=6 s=3 none SAT pass accept tt=8680820740552357751 0.2s
+PASS C5 weak1 k=6 s=3 mode=none: SAT, sim pass, checker accept
+C5 fixed AND_6 s=4 UNSAT  0.1s
+PASS C5 fixed AND_6 s=4: expected UNSAT
+C5 fixed AND_6 s=5 SAT pass 0.1s
+PASS C5 fixed AND_6 s=5: expected SAT
+C5 fixed AND_7 s=5 UNSAT  0.1s
+PASS C5 fixed AND_7 s=5: expected UNSAT
+C5 fixed AND_7 s=6 SAT pass 0.7s
+PASS C5 fixed AND_7 s=6: expected SAT
+ALL CONTROLS PASS
