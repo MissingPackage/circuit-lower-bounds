@@ -1,0 +1,49 @@
+TRANSCRIPTION OF REFERENCE VALUES -- written 2026-10-11, BEFORE the first encoder run.
+Convention: C(f) = number of 2-input gates over the full binary basis B2 (all 16 ops), fan-out unbounded.
+
+SOURCE K = D. E. Knuth, TAOCP Vol. 4 pre-fascicle 0C "Boolean Evaluation" (draft of Section 7.1.2),
+  file https://cs.stanford.edu/~knuth/fasc0c.ps.gz, dvips date 2008-02-10, sha256 413e1f3b...d072f (sources/fasc0c.ps.gz).
+  CAVEAT: this is the 2008 DRAFT of 7.1.2, not the printed Vol. 4A; page numbers below are DRAFT page labels.
+  Text was extracted with sources/ps2txt.py (crude dvips parser; no ghostscript on this machine) -> sources/fasc0c.txt.
+  K1 (draft p.1):  "The mux function in our examples above has cost 3, because one can show by exhaustive trials
+                    that it can't be produced by any Boolean chain of length 2."
+  K2 (draft p.11): "z1 = <x1x2x3> and z0 = x1 (+) x2 (+) x3; so the individual costs are C(z1) = 4 and C(z0) = 2.
+                    But it's easy to see that the combined cost C(z1 z0) is at most 5 [...] Furthermore, exhaustive
+                    calculations show that C(z1 z0) > 4; hence C(z1 z0) = 5."
+  K3 (draft p.3-4, Fig. 9 "Optimum Boolean chains for the symmetric functions of four variables"):
+       values obtained by COUNTING OPERATOR GLYPHS per sub-figure in the extracted text (figure not viewed as image):
+       S2: "__++++" = 6 ; S1,4: "+^___++" = 7 ; S1,2,4: "+__^^++" = 7 ; S3,4: "^_^^^__" = 7 ; S2,3,4: "__^^^__" = 7 ;
+       S1,3: "+++" = 3 ; S4: "^^^" = 3.
+  K4 (draft p.9-10, Fig. 10 "Boolean chains of minimum cost for symmetric functions of five variables"), glyph count:
+       S3,4,5: "+^__+++++" = 9 ; S1,4: "+^__+++++" = 9 ; S2,5: "+__+++__+^" = 10 ; S4,5: "+^++^^^__^" = 10 ; S2,3: "+__+++++" = 8.
+       Glyph-count method cross-validated against two statements in running text (draft p.13):
+       "The 10-step computation of S4,5 is optimum, according to Fig. 10" and "C(S2,3) = 8".
+  K5 (draft p.9, Table 2): five-variable functions: max C(f) = 12 (one class). Table 1 (draft p.5): four variables max C(f)=7.
+       No table for THREE variables was found in the extracted text.
+
+SOURCE P = A. S. Kulikov, D. Pechenev, N. Slezkin, "SAT-based Circuit Local Improvement", arXiv:2102.12579v3
+  (sources/arxiv-2102.12579v3.pdf, sha256 1b39ae5a...d16c3d; text via pypdf -> sources/arxiv-2102.12579v3.txt).
+  SECONDARY source for Knuth's values (cites Knuth TAOCP 4 Fasc. 6, solution to exercise 480 -- NOT read directly).
+  P1 (p.2-3): "Using SAT-solvers, Knuth [11, solution to exercise 480] found size(MOD_n^{3,r}) for all 3<=n<=5 and all 0<=r<=2:
+                      r=0 r=1 r=2
+                n=3    3   4   4
+                n=4    7   7   6
+                n=5   10   9  10 "
+              with MOD_n^{m,r}(x) = [x1+...+xn == r mod m]   (eq. (1), p.2).
+  P2 (p.6, Table 1): MOD_4^{3,0}: 7 SAT, 6 UNSAT(1178.8 s); MOD_4^{3,1}: 7 SAT, 6 UNSAT(1756.5 s); MOD_4^{3,2}: 6 SAT, 5 UNSAT(12.6 s);
+              MOD_5^{3,0} 10 SAT; MOD_5^{3,1} 9 SAT; MOD_5^{3,2} 10 SAT; SUM5 11 SAT (337.8 s).
+  P3 (p.8, Table 3, row "size(SUM_n)"): n=2:2, n=3:5, n=4:9, n=5:11, n=6: <=16 ... ; text p.8-9 "the optimal circuit of size 11 for SUM5";
+              Fig. 1 (p.2) "Optimal size straight line programs and circuits for SUM2 and SUM3"; Fig. 5 "Optimal circuits computing SUM_n for n=3,4,5".
+              The source does NOT say who proved the lower bounds 9 (SUM4) and 11 (SUM5).
+
+CROSS-CONSISTENCY between sources (same functions): MOD_4^{3,2}=S2 -> K3 6 = P1 6; MOD_4^{3,1}=S1,4 -> 7 = 7;
+  MOD_4^{3,0}=S0,3 = complement of S1,2,4 -> 7 = 7; MOD_5^{3,1}=S1,4 -> K4 9 = P1 9; MOD_5^{3,2}=S2,5 -> 10 = 10;
+  MOD_5^{3,0}=S0,3 = S2,5 with inputs complemented -> 10 = 10.
+
+NOT VERIFIED:
+  - "max C(f) over the 256 functions of 3 variables = 4": no source read. OEIS A178939 gives 1,1,4,7,12 (ref. Knuth 7.1.2) but is
+    titled "Maximal AND-OR-XOR FORMULA complexity", which is a different quantity by its title -> treated as UNVERIFIED.
+  - Printed TAOCP Vol. 4A page numbers; Knuth Fasc. 6 answer to ex. 480 (only via secondary source P).
+  - Kojevnikov-Kulikov-Yaroslavtsev SAT 2009: full text not accessible (academia.edu 403); no value is taken from it.
+CONVENTION NOTE: Knuth's C(f) gives cost 0 to complemented literals and constants (normal chains). This project counts actual gates:
+  a negated input or a constant needs 1 gate. The two conventions agree on every function in the target table.

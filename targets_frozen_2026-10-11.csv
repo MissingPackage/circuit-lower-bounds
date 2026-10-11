@@ -1,0 +1,28 @@
+f,n,n_outputs,expected_s,source,verified
+XOR_2,2,1,1,proof: depends on all n inputs => >= n-1 gates; chain of n-1 XOR,proof
+XOR_3,3,1,2,proof (also K2: C(z0)=2),proof
+XOR_4,4,1,3,proof (also K3 S1;3 = 3),proof
+XOR_5,5,1,4,proof,proof
+XOR_6,6,1,5,proof,proof
+AND_2,2,1,1,proof: depends on all n inputs => >= n-1 gates; chain of n-1 AND,proof
+AND_3,3,1,2,proof,proof
+AND_4,4,1,3,proof (also K3 S4 = 3),proof
+AND_5,5,1,4,proof,proof
+AND_6,6,1,5,proof,proof
+MUX_3,3,1,3,K1 Knuth 7.1.2 draft p.1,yes
+MAJ_3,3,1,4,K2 Knuth 7.1.2 draft p.11 C(z1)=4,yes
+SUM_3,3,2,5,K2 Knuth 7.1.2 draft p.11 C(z1z0)=5; P3,yes
+MOD3_3_0,3,1,3,P1 Kulikov+ arXiv:2102.12579v3 p.3 (secondary for Knuth F6 ex.480),yes-secondary
+MOD3_3_1,3,1,4,P1,yes-secondary
+MOD3_3_2,3,1,4,P1,yes-secondary
+MOD3_4_0,4,1,7,P1; P2 Table 1; K3 Fig.9 S1;2;4 (complement) glyph count,yes
+MOD3_4_1,4,1,7,P1; P2 Table 1; K3 Fig.9 S1;4 glyph count,yes
+MOD3_4_2,4,1,6,P1; P2 Table 1; K3 Fig.9 S2 glyph count,yes
+THR2_4,4,1,7,K3 Fig.9 S2;3;4 glyph count only,yes-glyphcount
+THR3_4,4,1,7,K3 Fig.9 S3;4 glyph count only,yes-glyphcount
+SUM_4,4,3,9,P3 Kulikov+ Table 3 p.8 (lower-bound proof not attributed),yes-secondary
+MOD3_5_0,5,1,10,P1; K4 Fig.10 S2;5 (input-complemented) glyph count,yes
+MOD3_5_1,5,1,9,P1; K4 Fig.10 S1;4 glyph count,yes
+MOD3_5_2,5,1,10,P1; K4 Fig.10 S2;5 glyph count,yes
+MAJ_5,5,1,9,K4 Fig.10 S3;4;5 glyph count only (method cross-validated on S4;5=10 and S2;3=8 stated in text),yes-glyphcount
+SUM_5,5,3,11,P3 Kulikov+ Table 3 p.8 + text 'optimal circuit of size 11 for SUM5' (lower-bound proof not attributed),yes-secondary

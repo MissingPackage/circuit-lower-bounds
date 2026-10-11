@@ -1,0 +1,1 @@
+ERRATA (added after the run, 2026-10-11): in TRANSCRIPTION_2026-10-11.txt, K4, the two text statements about S4,5 and S2,3 are on draft p.12, not p.13. No value changes.

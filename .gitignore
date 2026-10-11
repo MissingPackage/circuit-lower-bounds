@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+# Third-party sources: not redistributed, see sources/SOURCES.md
+sources/*.ps
+sources/*.ps.gz
+sources/*.pdf
+sources/fasc0c.txt
+sources/arxiv-*.txt

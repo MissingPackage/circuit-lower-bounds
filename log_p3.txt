@@ -1,0 +1,1710 @@
+17:25:02 p3-none TT_3_0 s=0 none sym=0 UNSAT  0.021
+17:25:02 p3-full TT_3_0 s=0 full sym=1 UNSAT  0.016
+17:25:02 p3-full TT_3_0 s=1 full sym=1 SAT pass 0.017
+17:25:02 p3-none TT_3_0 s=1 none sym=0 SAT pass 0.021
+17:25:02 p3-none TT_3_1 s=0 none sym=0 UNSAT  0.018
+17:25:02 p3-full TT_3_1 s=0 full sym=1 UNSAT  0.02
+17:25:02 p3-none TT_3_1 s=1 none sym=0 UNSAT  0.019
+17:25:02 p3-full TT_3_1 s=1 full sym=1 UNSAT  0.018
+17:25:02 p3-full TT_3_1 s=2 full sym=1 SAT pass 0.016
+17:25:02 p3-none TT_3_1 s=2 none sym=0 SAT pass 0.018
+17:25:02 p3-none TT_3_2 s=0 none sym=0 UNSAT  0.025
+17:25:02 p3-full TT_3_2 s=0 full sym=0 UNSAT  0.024
+17:25:02 p3-none TT_3_2 s=1 none sym=0 UNSAT  0.018
+17:25:02 p3-full TT_3_2 s=1 full sym=0 UNSAT  0.017
+17:25:02 p3-none TT_3_2 s=2 none sym=0 SAT pass 0.017
+17:25:02 p3-full TT_3_2 s=2 full sym=0 SAT pass 0.017
+17:25:02 p3-none TT_3_3 s=0 none sym=0 UNSAT  0.023
+17:25:02 p3-full TT_3_3 s=0 full sym=0 UNSAT  0.022
+17:25:02 p3-none TT_3_3 s=1 none sym=0 SAT pass 0.018
+17:25:02 p3-full TT_3_3 s=1 full sym=0 SAT pass 0.016
+17:25:02 p3-full TT_3_4 s=0 full sym=0 UNSAT  0.017
+17:25:02 p3-none TT_3_4 s=0 none sym=0 UNSAT  0.019
+17:25:02 p3-none TT_3_4 s=1 none sym=0 UNSAT  0.017
+17:25:02 p3-full TT_3_4 s=1 full sym=0 UNSAT  0.025
+17:25:02 p3-none TT_3_4 s=2 none sym=0 SAT pass 0.02
+17:25:02 p3-full TT_3_4 s=2 full sym=0 SAT pass 0.025
+17:25:02 p3-none TT_3_5 s=0 none sym=0 UNSAT  0.017
+17:25:02 p3-full TT_3_5 s=0 full sym=0 UNSAT  0.016
+17:25:02 p3-none TT_3_5 s=1 none sym=0 SAT pass 0.016
+17:25:02 p3-full TT_3_5 s=1 full sym=0 SAT pass 0.017
+17:25:02 p3-none TT_3_6 s=0 none sym=0 UNSAT  0.016
+17:25:02 p3-full TT_3_6 s=0 full sym=0 UNSAT  0.018
+17:25:02 p3-none TT_3_6 s=1 none sym=0 UNSAT  0.019
+17:25:02 p3-full TT_3_6 s=1 full sym=0 UNSAT  0.018
+17:25:02 p3-none TT_3_6 s=2 none sym=0 SAT pass 0.023
+17:25:02 p3-full TT_3_6 s=2 full sym=0 SAT pass 0.022
+17:25:02 p3-none TT_3_7 s=0 none sym=0 UNSAT  0.028
+17:25:02 p3-full TT_3_7 s=0 full sym=0 UNSAT  0.021
+17:25:02 p3-none TT_3_7 s=1 none sym=0 UNSAT  0.022
+17:25:02 p3-full TT_3_7 s=1 full sym=0 UNSAT  0.046
+17:25:02 p3-none TT_3_7 s=2 none sym=0 SAT pass 0.033
+17:25:02 p3-full TT_3_7 s=2 full sym=0 SAT pass 0.022
+17:25:02 p3-none TT_3_8 s=0 none sym=0 UNSAT  0.03
+17:25:02 p3-full TT_3_8 s=0 full sym=0 UNSAT  0.02
+17:25:02 p3-none TT_3_8 s=1 none sym=0 UNSAT  0.02
+17:25:02 p3-full TT_3_8 s=1 full sym=0 UNSAT  0.021
+17:25:02 p3-none TT_3_8 s=2 none sym=0 SAT pass 0.02
+17:25:02 p3-full TT_3_8 s=2 full sym=0 SAT pass 0.02
+17:25:02 p3-none TT_3_9 s=0 none sym=0 UNSAT  0.022
+17:25:02 p3-full TT_3_9 s=0 full sym=0 UNSAT  0.017
+17:25:02 p3-none TT_3_9 s=1 none sym=0 UNSAT  0.024
+17:25:02 p3-full TT_3_9 s=1 full sym=0 UNSAT  0.032
+17:25:02 p3-none TT_3_9 s=2 none sym=0 SAT pass 0.021
+17:25:02 p3-full TT_3_9 s=2 full sym=0 SAT pass 0.027
+17:25:02 p3-none TT_3_10 s=0 none sym=0 UNSAT  0.024
+17:25:02 p3-full TT_3_10 s=0 full sym=0 UNSAT  0.021
+17:25:02 p3-none TT_3_10 s=1 none sym=0 SAT pass 0.023
+17:25:02 p3-full TT_3_10 s=1 full sym=0 SAT pass 0.022
+17:25:02 p3-none TT_3_11 s=0 none sym=0 UNSAT  0.019
+17:25:02 p3-full TT_3_11 s=0 full sym=0 UNSAT  0.024
+17:25:02 p3-none TT_3_11 s=1 none sym=0 UNSAT  0.02
+17:25:03 p3-none TT_3_11 s=2 none sym=0 SAT pass 0.022
+17:25:03 p3-full TT_3_11 s=1 full sym=0 UNSAT  0.03
+17:25:03 p3-full TT_3_11 s=2 full sym=0 SAT pass 0.023
+17:25:03 p3-none TT_3_12 s=0 none sym=0 UNSAT  0.035
+17:25:03 p3-full TT_3_12 s=0 full sym=0 UNSAT  0.021
+17:25:03 p3-none TT_3_12 s=1 none sym=0 SAT pass 0.032
+17:25:03 p3-full TT_3_12 s=1 full sym=0 SAT pass 0.023
+17:25:03 p3-none TT_3_13 s=0 none sym=0 UNSAT  0.02
+17:25:03 p3-full TT_3_13 s=0 full sym=0 UNSAT  0.017
+17:25:03 p3-none TT_3_13 s=1 none sym=0 UNSAT  0.024
+17:25:03 p3-full TT_3_13 s=1 full sym=0 UNSAT  0.019
+17:25:03 p3-full TT_3_13 s=2 full sym=0 SAT pass 0.02
+17:25:03 p3-none TT_3_13 s=2 none sym=0 SAT pass 0.041
+17:25:03 p3-none TT_3_14 s=0 none sym=0 UNSAT  0.025
+17:25:03 p3-none TT_3_14 s=1 none sym=0 UNSAT  0.02
+17:25:03 p3-full TT_3_14 s=0 full sym=0 UNSAT  0.025
+17:25:03 p3-none TT_3_14 s=2 none sym=0 SAT pass 0.018
+17:25:03 p3-full TT_3_14 s=1 full sym=0 UNSAT  0.034
+17:25:03 p3-none TT_3_15 s=0 none sym=0 UNSAT  0.022
+17:25:03 p3-full TT_3_14 s=2 full sym=0 SAT pass 0.02
+17:25:03 p3-full TT_3_15 s=0 full sym=0 UNSAT  0.02
+17:25:03 p3-none TT_3_15 s=1 none sym=0 SAT pass 0.042
+17:25:03 p3-full TT_3_15 s=1 full sym=0 SAT pass 0.019
+17:25:03 p3-full TT_3_16 s=0 full sym=0 UNSAT  0.017
+17:25:03 p3-none TT_3_16 s=0 none sym=0 UNSAT  0.043
+17:25:03 p3-full TT_3_16 s=1 full sym=0 UNSAT  0.028
+17:25:03 p3-none TT_3_16 s=1 none sym=0 UNSAT  0.035
+17:25:03 p3-full TT_3_16 s=2 full sym=0 SAT pass 0.02
+17:25:03 p3-none TT_3_16 s=2 none sym=0 SAT pass 0.019
+17:25:03 p3-none TT_3_17 s=0 none sym=0 UNSAT  0.03
+17:25:03 p3-full TT_3_17 s=0 full sym=0 UNSAT  0.029
+17:25:03 p3-none TT_3_17 s=1 none sym=0 SAT pass 0.023
+17:25:03 p3-full TT_3_17 s=1 full sym=0 SAT pass 0.021
+17:25:03 p3-full TT_3_18 s=0 full sym=0 UNSAT  0.019
+17:25:03 p3-none TT_3_18 s=0 none sym=0 UNSAT  0.05
+17:25:03 p3-full TT_3_18 s=1 full sym=0 UNSAT  0.019
+17:25:03 p3-full TT_3_18 s=2 full sym=0 SAT pass 0.02
+17:25:03 p3-none TT_3_18 s=1 none sym=0 UNSAT  0.032
+17:25:03 p3-none TT_3_19 s=0 none sym=0 UNSAT  0.021
+17:25:03 p3-none TT_3_18 s=2 none sym=0 SAT pass 0.021
+17:25:03 p3-none TT_3_19 s=1 none sym=0 UNSAT  0.018
+17:25:03 p3-full TT_3_19 s=0 full sym=0 UNSAT  0.032
+17:25:03 p3-none TT_3_19 s=2 none sym=0 SAT pass 0.025
+17:25:03 p3-none TT_3_20 s=0 none sym=0 UNSAT  0.02
+17:25:03 p3-full TT_3_19 s=1 full sym=0 UNSAT  0.034
+17:25:03 p3-none TT_3_20 s=1 none sym=0 UNSAT  0.02
+17:25:03 p3-full TT_3_19 s=2 full sym=0 SAT pass 0.03
+17:25:03 p3-none TT_3_20 s=2 none sym=0 SAT pass 0.035
+17:25:03 p3-full TT_3_20 s=0 full sym=0 UNSAT  0.023
+17:25:03 p3-full TT_3_20 s=1 full sym=0 UNSAT  0.02
+17:25:03 p3-none TT_3_21 s=0 none sym=0 UNSAT  0.031
+17:25:03 p3-full TT_3_20 s=2 full sym=0 SAT pass 0.021
+17:25:03 p3-none TT_3_21 s=1 none sym=0 UNSAT  0.022
+17:25:03 p3-full TT_3_21 s=0 full sym=0 UNSAT  0.021
+17:25:03 p3-none TT_3_21 s=2 none sym=0 SAT pass 0.021
+17:25:03 p3-full TT_3_21 s=1 full sym=0 UNSAT  0.02
+17:25:03 p3-none TT_3_22 s=0 none sym=0 UNSAT  0.021
+17:25:03 p3-full TT_3_21 s=2 full sym=0 SAT pass 0.019
+17:25:03 p3-none TT_3_22 s=1 none sym=0 UNSAT  0.017
+17:25:03 p3-full TT_3_22 s=0 full sym=1 UNSAT  0.017
+17:25:03 p3-none TT_3_22 s=2 none sym=0 UNSAT  0.02
+17:25:03 p3-full TT_3_22 s=1 full sym=1 UNSAT  0.018
+17:25:03 p3-none TT_3_22 s=3 none sym=0 UNSAT  0.023
+17:25:03 p3-full TT_3_22 s=2 full sym=1 UNSAT  0.017
+17:25:03 p3-none TT_3_22 s=4 none sym=0 SAT pass 0.024
+17:25:03 p3-full TT_3_22 s=3 full sym=1 UNSAT  0.02
+17:25:03 p3-full TT_3_22 s=4 full sym=1 SAT pass 0.027
+17:25:03 p3-none TT_3_23 s=0 none sym=0 UNSAT  0.039
+17:25:03 p3-full TT_3_23 s=0 full sym=1 UNSAT  0.017
+17:25:03 p3-none TT_3_23 s=1 none sym=0 UNSAT  0.016
+17:25:03 p3-full TT_3_23 s=1 full sym=1 UNSAT  0.02
+17:25:03 p3-none TT_3_23 s=2 none sym=0 UNSAT  0.016
+17:25:03 p3-full TT_3_23 s=2 full sym=1 UNSAT  0.019
+17:25:03 p3-none TT_3_23 s=3 none sym=0 UNSAT  0.02
+17:25:03 p3-full TT_3_23 s=3 full sym=1 UNSAT  0.02
+17:25:03 p3-none TT_3_23 s=4 none sym=0 SAT pass 0.023
+17:25:04 p3-full TT_3_23 s=4 full sym=1 SAT pass 0.02
+17:25:04 p3-none TT_3_24 s=0 none sym=0 UNSAT  0.017
+17:25:04 p3-none TT_3_24 s=1 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_24 s=0 full sym=0 UNSAT  0.029
+17:25:04 p3-none TT_3_24 s=2 none sym=0 UNSAT  0.019
+17:25:04 p3-full TT_3_24 s=1 full sym=0 UNSAT  0.018
+17:25:04 p3-none TT_3_24 s=3 none sym=0 SAT pass 0.018
+17:25:04 p3-full TT_3_24 s=2 full sym=0 UNSAT  0.015
+17:25:04 p3-none TT_3_25 s=0 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_24 s=3 full sym=0 SAT pass 0.017
+17:25:04 p3-none TT_3_25 s=1 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_25 s=0 full sym=0 UNSAT  0.016
+17:25:04 p3-none TT_3_25 s=2 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_25 s=1 full sym=0 UNSAT  0.015
+17:25:04 p3-none TT_3_25 s=3 none sym=0 SAT pass 0.015
+17:25:04 p3-full TT_3_25 s=2 full sym=0 UNSAT  0.015
+17:25:04 p3-none TT_3_26 s=0 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_25 s=3 full sym=0 SAT pass 0.017
+17:25:04 p3-none TT_3_26 s=1 none sym=0 UNSAT  0.017
+17:25:04 p3-full TT_3_26 s=0 full sym=0 UNSAT  0.015
+17:25:04 p3-none TT_3_26 s=2 none sym=0 UNSAT  0.017
+17:25:04 p3-full TT_3_26 s=1 full sym=0 UNSAT  0.016
+17:25:04 p3-none TT_3_26 s=3 none sym=0 SAT pass 0.018
+17:25:04 p3-full TT_3_26 s=2 full sym=0 UNSAT  0.015
+17:25:04 p3-none TT_3_27 s=0 none sym=0 UNSAT  0.018
+17:25:04 p3-full TT_3_26 s=3 full sym=0 SAT pass 0.017
+17:25:04 p3-none TT_3_27 s=1 none sym=0 UNSAT  0.015
+17:25:04 p3-full TT_3_27 s=0 full sym=0 UNSAT  0.015
+17:25:04 p3-none TT_3_27 s=2 none sym=0 UNSAT  0.021
+17:25:04 p3-full TT_3_27 s=1 full sym=0 UNSAT  0.021
+17:25:04 p3-none TT_3_27 s=3 none sym=0 SAT pass 0.016
+17:25:04 p3-full TT_3_27 s=2 full sym=0 UNSAT  0.016
+17:25:04 p3-none TT_3_28 s=0 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_27 s=3 full sym=0 SAT pass 0.024
+17:25:04 p3-none TT_3_28 s=1 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_28 s=0 full sym=0 UNSAT  0.016
+17:25:04 p3-none TT_3_28 s=2 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_28 s=1 full sym=0 UNSAT  0.018
+17:25:04 p3-none TT_3_28 s=3 none sym=0 SAT pass 0.018
+17:25:04 p3-full TT_3_28 s=2 full sym=0 UNSAT  0.016
+17:25:04 p3-none TT_3_29 s=0 none sym=0 UNSAT  0.015
+17:25:04 p3-full TT_3_28 s=3 full sym=0 SAT pass 0.018
+17:25:04 p3-none TT_3_29 s=1 none sym=0 UNSAT  0.018
+17:25:04 p3-full TT_3_29 s=0 full sym=0 UNSAT  0.015
+17:25:04 p3-none TT_3_29 s=2 none sym=0 UNSAT  0.017
+17:25:04 p3-full TT_3_29 s=1 full sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_29 s=2 full sym=0 UNSAT  0.016
+17:25:04 p3-none TT_3_29 s=3 none sym=0 SAT pass 0.017
+17:25:04 p3-none TT_3_30 s=0 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_29 s=3 full sym=0 SAT pass 0.016
+17:25:04 p3-none TT_3_30 s=1 none sym=0 UNSAT  0.018
+17:25:04 p3-full TT_3_30 s=0 full sym=0 UNSAT  0.016
+17:25:04 p3-none TT_3_30 s=2 none sym=0 SAT pass 0.018
+17:25:04 p3-full TT_3_30 s=1 full sym=0 UNSAT  0.017
+17:25:04 p3-none TT_3_31 s=0 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_30 s=2 full sym=0 SAT pass 0.015
+17:25:04 p3-none TT_3_31 s=1 none sym=0 UNSAT  0.014
+17:25:04 p3-full TT_3_31 s=0 full sym=0 UNSAT  0.014
+17:25:04 p3-full TT_3_31 s=1 full sym=0 UNSAT  0.015
+17:25:04 p3-none TT_3_31 s=2 none sym=0 SAT pass 0.016
+17:25:04 p3-none TT_3_32 s=0 none sym=0 UNSAT  0.015
+17:25:04 p3-full TT_3_31 s=2 full sym=0 SAT pass 0.016
+17:25:04 p3-none TT_3_32 s=1 none sym=0 UNSAT  0.015
+17:25:04 p3-full TT_3_32 s=0 full sym=0 UNSAT  0.015
+17:25:04 p3-none TT_3_32 s=2 none sym=0 SAT pass 0.016
+17:25:04 p3-full TT_3_32 s=1 full sym=0 UNSAT  0.014
+17:25:04 p3-none TT_3_33 s=0 none sym=0 UNSAT  0.018
+17:25:04 p3-full TT_3_32 s=2 full sym=0 SAT pass 0.016
+17:25:04 p3-none TT_3_33 s=1 none sym=0 UNSAT  0.014
+17:25:04 p3-full TT_3_33 s=0 full sym=0 UNSAT  0.015
+17:25:04 p3-none TT_3_33 s=2 none sym=0 SAT pass 0.017
+17:25:04 p3-full TT_3_33 s=1 full sym=0 UNSAT  0.016
+17:25:04 p3-none TT_3_34 s=0 none sym=0 UNSAT  0.017
+17:25:04 p3-full TT_3_33 s=2 full sym=0 SAT pass 0.017
+17:25:04 p3-none TT_3_34 s=1 none sym=0 SAT pass 0.016
+17:25:04 p3-full TT_3_34 s=0 full sym=0 UNSAT  0.015
+17:25:04 p3-none TT_3_35 s=0 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_34 s=1 full sym=0 SAT pass 0.015
+17:25:04 p3-none TT_3_35 s=1 none sym=0 UNSAT  0.017
+17:25:04 p3-full TT_3_35 s=0 full sym=0 UNSAT  0.017
+17:25:04 p3-none TT_3_35 s=2 none sym=0 SAT pass 0.017
+17:25:04 p3-full TT_3_35 s=1 full sym=0 UNSAT  0.015
+17:25:04 p3-full TT_3_35 s=2 full sym=0 SAT pass 0.016
+17:25:04 p3-none TT_3_36 s=0 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_36 s=0 full sym=0 UNSAT  0.017
+17:25:04 p3-none TT_3_36 s=1 none sym=0 UNSAT  0.027
+17:25:04 p3-full TT_3_36 s=1 full sym=0 UNSAT  0.017
+17:25:04 p3-full TT_3_36 s=2 full sym=0 UNSAT  0.018
+17:25:04 p3-none TT_3_36 s=2 none sym=0 UNSAT  0.034
+17:25:04 p3-full TT_3_36 s=3 full sym=0 SAT pass 0.028
+17:25:04 p3-none TT_3_36 s=3 none sym=0 SAT pass 0.041
+17:25:04 p3-none TT_3_37 s=0 none sym=0 UNSAT  0.031
+17:25:04 p3-full TT_3_37 s=0 full sym=0 UNSAT  0.02
+17:25:04 p3-none TT_3_37 s=1 none sym=0 UNSAT  0.017
+17:25:04 p3-none TT_3_37 s=2 none sym=0 UNSAT  0.016
+17:25:04 p3-full TT_3_37 s=1 full sym=0 UNSAT  0.016
+17:25:04 p3-none TT_3_37 s=3 none sym=0 SAT pass 0.016
+17:25:04 p3-full TT_3_37 s=2 full sym=0 UNSAT  0.017
+17:25:04 p3-none TT_3_38 s=0 none sym=0 UNSAT  0.017
+17:25:04 p3-full TT_3_37 s=3 full sym=0 SAT pass 0.017
+17:25:04 p3-none TT_3_38 s=1 none sym=0 UNSAT  0.031
+17:25:04 p3-full TT_3_38 s=0 full sym=0 UNSAT  0.022
+17:25:04 p3-none TT_3_38 s=2 none sym=0 UNSAT  0.017
+17:25:04 p3-full TT_3_38 s=1 full sym=0 UNSAT  0.018
+17:25:05 p3-none TT_3_38 s=3 none sym=0 SAT pass 0.014
+17:25:05 p3-full TT_3_38 s=2 full sym=0 UNSAT  0.017
+17:25:05 p3-none TT_3_39 s=0 none sym=0 UNSAT  0.015
+17:25:05 p3-full TT_3_38 s=3 full sym=0 SAT pass 0.017
+17:25:05 p3-none TT_3_39 s=1 none sym=0 UNSAT  0.018
+17:25:05 p3-full TT_3_39 s=0 full sym=0 UNSAT  0.013
+17:25:05 p3-none TT_3_39 s=2 none sym=0 UNSAT  0.013
+17:25:05 p3-full TT_3_39 s=1 full sym=0 UNSAT  0.013
+17:25:05 p3-none TT_3_39 s=3 none sym=0 SAT pass 0.015
+17:25:05 p3-full TT_3_39 s=2 full sym=0 UNSAT  0.014
+17:25:05 p3-none TT_3_40 s=0 none sym=0 UNSAT  0.016
+17:25:05 p3-full TT_3_39 s=3 full sym=0 SAT pass 0.017
+17:25:05 p3-none TT_3_40 s=1 none sym=0 UNSAT  0.016
+17:25:05 p3-full TT_3_40 s=0 full sym=0 UNSAT  0.014
+17:25:05 p3-none TT_3_40 s=2 none sym=0 SAT pass 0.016
+17:25:05 p3-full TT_3_40 s=1 full sym=0 UNSAT  0.017
+17:25:05 p3-full TT_3_40 s=2 full sym=0 SAT pass 0.015
+17:25:05 p3-none TT_3_41 s=0 none sym=0 UNSAT  0.025
+17:25:05 p3-full TT_3_41 s=0 full sym=0 UNSAT  0.014
+17:25:05 p3-full TT_3_41 s=1 full sym=0 UNSAT  0.015
+17:25:05 p3-none TT_3_41 s=1 none sym=0 UNSAT  0.034
+17:25:05 p3-full TT_3_41 s=2 full sym=0 UNSAT  0.017
+17:25:05 p3-full TT_3_41 s=3 full sym=0 UNSAT  0.02
+17:25:05 p3-none TT_3_41 s=2 none sym=0 UNSAT  0.04
+17:25:05 p3-full TT_3_41 s=4 full sym=0 SAT pass 0.024
+17:25:05 p3-none TT_3_41 s=3 none sym=0 UNSAT  0.021
+17:25:05 p3-none TT_3_42 s=0 none sym=0 UNSAT  0.015
+17:25:05 p3-none TT_3_41 s=4 none sym=0 SAT pass 0.02
+17:25:05 p3-none TT_3_42 s=1 none sym=0 UNSAT  0.015
+17:25:05 p3-full TT_3_42 s=0 full sym=0 UNSAT  0.014
+17:25:05 p3-none TT_3_42 s=2 none sym=0 SAT pass 0.015
+17:25:05 p3-full TT_3_42 s=1 full sym=0 UNSAT  0.016
+17:25:05 p3-none TT_3_43 s=0 none sym=0 UNSAT  0.017
+17:25:05 p3-none TT_3_43 s=1 none sym=0 UNSAT  0.015
+17:25:05 p3-full TT_3_42 s=2 full sym=0 SAT pass 0.018
+17:25:05 p3-none TT_3_43 s=2 none sym=0 UNSAT  0.022
+17:25:05 p3-full TT_3_43 s=0 full sym=0 UNSAT  0.022
+17:25:05 p3-none TT_3_43 s=3 none sym=0 UNSAT  0.021
+17:25:05 p3-full TT_3_43 s=1 full sym=0 UNSAT  0.028
+17:25:05 p3-none TT_3_43 s=4 none sym=0 SAT pass 0.021
+17:25:05 p3-full TT_3_43 s=2 full sym=0 UNSAT  0.018
+17:25:05 p3-none TT_3_44 s=0 none sym=0 UNSAT  0.017
+17:25:05 p3-none TT_3_44 s=1 none sym=0 UNSAT  0.016
+17:25:05 p3-full TT_3_43 s=3 full sym=0 UNSAT  0.033
+17:25:05 p3-none TT_3_44 s=2 none sym=0 UNSAT  0.029
+17:25:05 p3-full TT_3_43 s=4 full sym=0 SAT pass 0.025
+17:25:05 p3-none TT_3_44 s=3 none sym=0 SAT pass 0.024
+17:25:05 p3-full TT_3_44 s=0 full sym=0 UNSAT  0.024
+17:25:05 p3-full TT_3_44 s=1 full sym=0 UNSAT  0.018
+17:25:05 p3-none TT_3_45 s=0 none sym=0 UNSAT  0.022
+17:25:05 p3-full TT_3_44 s=2 full sym=0 UNSAT  0.016
+17:25:05 p3-none TT_3_45 s=1 none sym=0 UNSAT  0.014
+17:25:05 p3-none TT_3_45 s=2 none sym=0 SAT pass 0.016
+17:25:05 p3-full TT_3_44 s=3 full sym=0 SAT pass 0.014
+17:25:05 p3-none TT_3_46 s=0 none sym=0 UNSAT  0.014
+17:25:05 p3-full TT_3_45 s=0 full sym=0 UNSAT  0.017
+17:25:05 p3-none TT_3_46 s=1 none sym=0 UNSAT  0.015
+17:25:05 p3-full TT_3_45 s=1 full sym=0 UNSAT  0.015
+17:25:05 p3-full TT_3_45 s=2 full sym=0 SAT pass 0.015
+17:25:05 p3-none TT_3_46 s=2 none sym=0 UNSAT  0.021
+17:25:05 p3-full TT_3_46 s=0 full sym=0 UNSAT  0.015
+17:25:05 p3-none TT_3_46 s=3 none sym=0 SAT pass 0.017
+17:25:05 p3-full TT_3_46 s=1 full sym=0 UNSAT  0.015
+17:25:05 p3-none TT_3_47 s=0 none sym=0 UNSAT  0.015
+17:25:05 p3-full TT_3_46 s=2 full sym=0 UNSAT  0.016
+17:25:05 p3-none TT_3_47 s=1 none sym=0 UNSAT  0.014
+17:25:05 p3-full TT_3_46 s=3 full sym=0 SAT pass 0.018
+17:25:05 p3-none TT_3_47 s=2 none sym=0 SAT pass 0.017
+17:25:05 p3-none TT_3_48 s=0 none sym=0 UNSAT  0.021
+17:25:05 p3-full TT_3_47 s=0 full sym=0 UNSAT  0.022
+17:25:05 p3-none TT_3_48 s=1 none sym=0 SAT pass 0.017
+17:25:05 p3-full TT_3_47 s=1 full sym=0 UNSAT  0.016
+17:25:05 p3-full TT_3_48 s=0 full sym=0 UNSAT  0.014
+17:25:05 p3-full TT_3_47 s=2 full sym=0 SAT pass 0.015
+17:25:05 p3-none TT_3_49 s=0 none sym=0 UNSAT  0.015
+17:25:05 p3-full TT_3_48 s=1 full sym=0 SAT pass 0.016
+17:25:05 p3-full TT_3_49 s=0 full sym=0 UNSAT  0.014
+17:25:05 p3-none TT_3_49 s=1 none sym=0 UNSAT  0.016
+17:25:05 p3-full TT_3_49 s=1 full sym=0 UNSAT  0.015
+17:25:05 p3-none TT_3_49 s=2 none sym=0 SAT pass 0.017
+17:25:05 p3-none TT_3_50 s=0 none sym=0 UNSAT  0.013
+17:25:05 p3-full TT_3_49 s=2 full sym=0 SAT pass 0.016
+17:25:05 p3-none TT_3_50 s=1 none sym=0 UNSAT  0.016
+17:25:05 p3-full TT_3_50 s=0 full sym=0 UNSAT  0.013
+17:25:05 p3-full TT_3_50 s=1 full sym=0 UNSAT  0.016
+17:25:05 p3-none TT_3_50 s=2 none sym=0 SAT pass 0.017
+17:25:05 p3-full TT_3_50 s=2 full sym=0 SAT pass 0.015
+17:25:05 p3-none TT_3_51 s=0 none sym=0 UNSAT  0.013
+17:25:05 p3-full TT_3_51 s=0 full sym=0 UNSAT  0.017
+17:25:05 p3-none TT_3_51 s=1 none sym=0 SAT pass 0.015
+17:25:05 p3-full TT_3_51 s=1 full sym=0 SAT pass 0.017
+17:25:05 p3-none TT_3_52 s=0 none sym=0 UNSAT  0.017
+17:25:05 p3-full TT_3_52 s=0 full sym=0 UNSAT  0.015
+17:25:05 p3-none TT_3_52 s=1 none sym=0 UNSAT  0.014
+17:25:05 p3-full TT_3_52 s=1 full sym=0 UNSAT  0.016
+17:25:05 p3-none TT_3_52 s=2 none sym=0 UNSAT  0.014
+17:25:05 p3-full TT_3_52 s=2 full sym=0 UNSAT  0.017
+17:25:05 p3-none TT_3_52 s=3 none sym=0 SAT pass 0.017
+17:25:05 p3-none TT_3_53 s=0 none sym=0 UNSAT  0.016
+17:25:05 p3-full TT_3_52 s=3 full sym=0 SAT pass 0.016
+17:25:05 p3-full TT_3_53 s=0 full sym=0 UNSAT  0.013
+17:25:05 p3-none TT_3_53 s=1 none sym=0 UNSAT  0.015
+17:25:05 p3-none TT_3_53 s=2 none sym=0 UNSAT  0.014
+17:25:05 p3-full TT_3_53 s=1 full sym=0 UNSAT  0.019
+17:25:05 p3-full TT_3_53 s=2 full sym=0 UNSAT  0.019
+17:25:06 p3-none TT_3_53 s=3 none sym=0 SAT pass 0.042
+17:25:06 p3-full TT_3_53 s=3 full sym=0 SAT pass 0.022
+17:25:06 p3-full TT_3_54 s=0 full sym=0 UNSAT  0.023
+17:25:06 p3-none TT_3_54 s=0 none sym=0 UNSAT  0.024
+17:25:06 p3-full TT_3_54 s=1 full sym=0 UNSAT  0.016
+17:25:06 p3-none TT_3_54 s=1 none sym=0 UNSAT  0.015
+17:25:06 p3-none TT_3_54 s=2 none sym=0 SAT pass 0.017
+17:25:06 p3-full TT_3_54 s=2 full sym=0 SAT pass 0.018
+17:25:06 p3-full TT_3_55 s=0 full sym=0 UNSAT  0.015
+17:25:06 p3-none TT_3_55 s=0 none sym=0 UNSAT  0.017
+17:25:06 p3-full TT_3_55 s=1 full sym=0 UNSAT  0.016
+17:25:06 p3-none TT_3_55 s=1 none sym=0 UNSAT  0.017
+17:25:06 p3-full TT_3_55 s=2 full sym=0 SAT pass 0.015
+17:25:06 p3-none TT_3_55 s=2 none sym=0 SAT pass 0.014
+17:25:06 p3-none TT_3_56 s=0 none sym=0 UNSAT  0.016
+17:25:06 p3-full TT_3_56 s=0 full sym=0 UNSAT  0.015
+17:25:06 p3-none TT_3_56 s=1 none sym=0 UNSAT  0.013
+17:25:06 p3-full TT_3_56 s=1 full sym=0 UNSAT  0.013
+17:25:06 p3-none TT_3_56 s=2 none sym=0 UNSAT  0.015
+17:25:06 p3-full TT_3_56 s=2 full sym=0 UNSAT  0.013
+17:25:06 p3-full TT_3_56 s=3 full sym=0 SAT pass 0.013
+17:25:06 p3-none TT_3_56 s=3 none sym=0 SAT pass 0.015
+17:25:06 p3-none TT_3_57 s=0 none sym=0 UNSAT  0.014
+17:25:06 p3-full TT_3_57 s=0 full sym=0 UNSAT  0.014
+17:25:06 p3-full TT_3_57 s=1 full sym=0 UNSAT  0.015
+17:25:06 p3-none TT_3_57 s=1 none sym=0 UNSAT  0.019
+17:25:06 p3-full TT_3_57 s=2 full sym=0 SAT pass 0.017
+17:25:06 p3-none TT_3_57 s=2 none sym=0 SAT pass 0.014
+17:25:06 p3-none TT_3_58 s=0 none sym=0 UNSAT  0.014
+17:25:06 p3-full TT_3_58 s=0 full sym=0 UNSAT  0.014
+17:25:06 p3-full TT_3_58 s=1 full sym=0 UNSAT  0.015
+17:25:06 p3-none TT_3_58 s=1 none sym=0 UNSAT  0.019
+17:25:06 p3-full TT_3_58 s=2 full sym=0 UNSAT  0.018
+17:25:06 p3-none TT_3_58 s=2 none sym=0 UNSAT  0.016
+17:25:06 p3-full TT_3_58 s=3 full sym=0 SAT pass 0.021
+17:25:06 p3-none TT_3_58 s=3 none sym=0 SAT pass 0.023
+17:25:06 p3-none TT_3_59 s=0 none sym=0 UNSAT  0.017
+17:25:06 p3-full TT_3_59 s=0 full sym=0 UNSAT  0.015
+17:25:06 p3-none TT_3_59 s=1 none sym=0 UNSAT  0.017
+17:25:06 p3-full TT_3_59 s=1 full sym=0 UNSAT  0.017
+17:25:06 p3-none TT_3_59 s=2 none sym=0 SAT pass 0.017
+17:25:06 p3-full TT_3_59 s=2 full sym=0 SAT pass 0.017
+17:25:06 p3-none TT_3_60 s=0 none sym=0 UNSAT  0.018
+17:25:06 p3-full TT_3_60 s=0 full sym=0 UNSAT  0.017
+17:25:06 p3-none TT_3_60 s=1 none sym=0 SAT pass 0.017
+17:25:06 p3-full TT_3_60 s=1 full sym=0 SAT pass 0.016
+17:25:06 p3-none TT_3_61 s=0 none sym=0 UNSAT  0.015
+17:25:06 p3-full TT_3_61 s=0 full sym=0 UNSAT  0.017
+17:25:06 p3-none TT_3_61 s=1 none sym=0 UNSAT  0.017
+17:25:06 p3-full TT_3_61 s=1 full sym=0 UNSAT  0.016
+17:25:06 p3-none TT_3_61 s=2 none sym=0 UNSAT  0.019
+17:25:06 p3-full TT_3_61 s=2 full sym=0 UNSAT  0.018
+17:25:06 p3-none TT_3_61 s=3 none sym=0 SAT pass 0.018
+17:25:06 p3-full TT_3_61 s=3 full sym=0 SAT pass 0.019
+17:25:06 p3-none TT_3_62 s=0 none sym=0 UNSAT  0.016
+17:25:06 p3-full TT_3_62 s=0 full sym=0 UNSAT  0.015
+17:25:06 p3-full TT_3_62 s=1 full sym=0 UNSAT  0.014
+17:25:06 p3-none TT_3_62 s=1 none sym=0 UNSAT  0.017
+17:25:06 p3-full TT_3_62 s=2 full sym=0 UNSAT  0.018
+17:25:06 p3-none TT_3_62 s=2 none sym=0 UNSAT  0.02
+17:25:06 p3-full TT_3_62 s=3 full sym=0 SAT pass 0.018
+17:25:06 p3-none TT_3_62 s=3 none sym=0 SAT pass 0.016
+17:25:06 p3-none TT_3_63 s=0 none sym=0 UNSAT  0.017
+17:25:06 p3-full TT_3_63 s=0 full sym=0 UNSAT  0.015
+17:25:06 p3-none TT_3_63 s=1 none sym=0 SAT pass 0.016
+17:25:06 p3-full TT_3_63 s=1 full sym=0 SAT pass 0.016
+17:25:06 p3-full TT_3_64 s=0 full sym=0 UNSAT  0.015
+17:25:06 p3-none TT_3_64 s=0 none sym=0 UNSAT  0.016
+17:25:06 p3-none TT_3_64 s=1 none sym=0 UNSAT  0.017
+17:25:06 p3-full TT_3_64 s=1 full sym=0 UNSAT  0.02
+17:25:06 p3-full TT_3_64 s=2 full sym=0 SAT pass 0.016
+17:25:06 p3-none TT_3_64 s=2 none sym=0 SAT pass 0.017
+17:25:06 p3-none TT_3_65 s=0 none sym=0 UNSAT  0.023
+17:25:06 p3-full TT_3_65 s=0 full sym=0 UNSAT  0.022
+17:25:06 p3-none TT_3_65 s=1 none sym=0 UNSAT  0.018
+17:25:06 p3-full TT_3_65 s=1 full sym=0 UNSAT  0.019
+17:25:06 p3-full TT_3_65 s=2 full sym=0 SAT pass 0.016
+17:25:06 p3-none TT_3_65 s=2 none sym=0 SAT pass 0.017
+17:25:06 p3-full TT_3_66 s=0 full sym=0 UNSAT  0.015
+17:25:06 p3-none TT_3_66 s=0 none sym=0 UNSAT  0.016
+17:25:06 p3-full TT_3_66 s=1 full sym=0 UNSAT  0.016
+17:25:06 p3-none TT_3_66 s=1 none sym=0 UNSAT  0.015
+17:25:06 p3-none TT_3_66 s=2 none sym=0 UNSAT  0.017
+17:25:06 p3-full TT_3_66 s=2 full sym=0 UNSAT  0.018
+17:25:06 p3-full TT_3_66 s=3 full sym=0 SAT pass 0.016
+17:25:06 p3-none TT_3_66 s=3 none sym=0 SAT pass 0.016
+17:25:06 p3-none TT_3_67 s=0 none sym=0 UNSAT  0.015
+17:25:06 p3-full TT_3_67 s=0 full sym=0 UNSAT  0.014
+17:25:06 p3-none TT_3_67 s=1 none sym=0 UNSAT  0.017
+17:25:06 p3-full TT_3_67 s=1 full sym=0 UNSAT  0.018
+17:25:06 p3-none TT_3_67 s=2 none sym=0 UNSAT  0.017
+17:25:06 p3-full TT_3_67 s=2 full sym=0 UNSAT  0.015
+17:25:06 p3-none TT_3_67 s=3 none sym=0 SAT pass 0.019
+17:25:06 p3-full TT_3_67 s=3 full sym=0 SAT pass 0.017
+17:25:06 p3-none TT_3_68 s=0 none sym=0 UNSAT  0.016
+17:25:06 p3-full TT_3_68 s=0 full sym=0 UNSAT  0.015
+17:25:06 p3-none TT_3_68 s=1 none sym=0 SAT pass 0.016
+17:25:06 p3-full TT_3_68 s=1 full sym=0 SAT pass 0.013
+17:25:06 p3-none TT_3_69 s=0 none sym=0 UNSAT  0.015
+17:25:06 p3-full TT_3_69 s=0 full sym=0 UNSAT  0.016
+17:25:06 p3-none TT_3_69 s=1 none sym=0 UNSAT  0.016
+17:25:06 p3-full TT_3_69 s=1 full sym=0 UNSAT  0.015
+17:25:06 p3-full TT_3_69 s=2 full sym=0 SAT pass 0.016
+17:25:06 p3-none TT_3_69 s=2 none sym=0 SAT pass 0.016
+17:25:06 p3-none TT_3_70 s=0 none sym=0 UNSAT  0.016
+17:25:06 p3-full TT_3_70 s=0 full sym=0 UNSAT  0.017
+17:25:06 p3-none TT_3_70 s=1 none sym=0 UNSAT  0.021
+17:25:06 p3-full TT_3_70 s=1 full sym=0 UNSAT  0.02
+17:25:06 p3-none TT_3_70 s=2 none sym=0 UNSAT  0.016
+17:25:06 p3-full TT_3_70 s=2 full sym=0 UNSAT  0.015
+17:25:07 p3-full TT_3_70 s=3 full sym=0 SAT pass 0.017
+17:25:07 p3-none TT_3_70 s=3 none sym=0 SAT pass 0.017
+17:25:07 p3-none TT_3_71 s=0 none sym=0 UNSAT  0.032
+17:25:07 p3-full TT_3_71 s=0 full sym=0 UNSAT  0.031
+17:25:07 p3-full TT_3_71 s=1 full sym=0 UNSAT  0.016
+17:25:07 p3-none TT_3_71 s=1 none sym=0 UNSAT  0.019
+17:25:07 p3-full TT_3_71 s=2 full sym=0 UNSAT  0.018
+17:25:07 p3-none TT_3_71 s=2 none sym=0 UNSAT  0.015
+17:25:07 p3-none TT_3_71 s=3 none sym=0 SAT pass 0.018
+17:25:07 p3-full TT_3_71 s=3 full sym=0 SAT pass 0.017
+17:25:07 p3-none TT_3_72 s=0 none sym=0 UNSAT  0.017
+17:25:07 p3-full TT_3_72 s=0 full sym=0 UNSAT  0.02
+17:25:07 p3-none TT_3_72 s=1 none sym=0 UNSAT  0.018
+17:25:07 p3-full TT_3_72 s=1 full sym=0 UNSAT  0.017
+17:25:07 p3-none TT_3_72 s=2 none sym=0 SAT pass 0.017
+17:25:07 p3-full TT_3_72 s=2 full sym=0 SAT pass 0.015
+17:25:07 p3-full TT_3_73 s=0 full sym=0 UNSAT  0.016
+17:25:07 p3-none TT_3_73 s=0 none sym=0 UNSAT  0.015
+17:25:07 p3-full TT_3_73 s=1 full sym=0 UNSAT  0.019
+17:25:07 p3-none TT_3_73 s=1 none sym=0 UNSAT  0.018
+17:25:07 p3-none TT_3_73 s=2 none sym=0 UNSAT  0.018
+17:25:07 p3-full TT_3_73 s=2 full sym=0 UNSAT  0.017
+17:25:07 p3-none TT_3_73 s=3 none sym=0 UNSAT  0.022
+17:25:07 p3-full TT_3_73 s=3 full sym=0 UNSAT  0.021
+17:25:07 p3-full TT_3_73 s=4 full sym=0 SAT pass 0.021
+17:25:07 p3-none TT_3_73 s=4 none sym=0 SAT pass 0.024
+17:25:07 p3-full TT_3_74 s=0 full sym=0 UNSAT  0.015
+17:25:07 p3-none TT_3_74 s=0 none sym=0 UNSAT  0.017
+17:25:07 p3-none TT_3_74 s=1 none sym=0 UNSAT  0.016
+17:25:07 p3-full TT_3_74 s=1 full sym=0 UNSAT  0.018
+17:25:07 p3-full TT_3_74 s=2 full sym=0 UNSAT  0.022
+17:25:07 p3-none TT_3_74 s=2 none sym=0 UNSAT  0.035
+17:25:07 p3-full TT_3_74 s=3 full sym=0 SAT pass 0.027
+17:25:07 p3-none TT_3_74 s=3 none sym=0 SAT pass 0.02
+17:25:07 p3-full TT_3_75 s=0 full sym=0 UNSAT  0.016
+17:25:07 p3-none TT_3_75 s=0 none sym=0 UNSAT  0.019
+17:25:07 p3-none TT_3_75 s=1 none sym=0 UNSAT  0.018
+17:25:07 p3-full TT_3_75 s=1 full sym=0 UNSAT  0.022
+17:25:07 p3-none TT_3_75 s=2 none sym=0 SAT pass 0.018
+17:25:07 p3-full TT_3_75 s=2 full sym=0 SAT pass 0.017
+17:25:07 p3-none TT_3_76 s=0 none sym=0 UNSAT  0.017
+17:25:07 p3-full TT_3_76 s=0 full sym=0 UNSAT  0.015
+17:25:07 p3-none TT_3_76 s=1 none sym=0 UNSAT  0.016
+17:25:07 p3-full TT_3_76 s=1 full sym=0 UNSAT  0.015
+17:25:07 p3-none TT_3_76 s=2 none sym=0 SAT pass 0.016
+17:25:07 p3-full TT_3_76 s=2 full sym=0 SAT pass 0.015
+17:25:07 p3-none TT_3_77 s=0 none sym=0 UNSAT  0.019
+17:25:07 p3-full TT_3_77 s=0 full sym=0 UNSAT  0.017
+17:25:07 p3-none TT_3_77 s=1 none sym=0 UNSAT  0.017
+17:25:07 p3-full TT_3_77 s=1 full sym=0 UNSAT  0.017
+17:25:07 p3-none TT_3_77 s=2 none sym=0 UNSAT  0.018
+17:25:07 p3-full TT_3_77 s=2 full sym=0 UNSAT  0.016
+17:25:07 p3-full TT_3_77 s=3 full sym=0 UNSAT  0.016
+17:25:07 p3-none TT_3_77 s=3 none sym=0 UNSAT  0.019
+17:25:07 p3-full TT_3_77 s=4 full sym=0 SAT pass 0.018
+17:25:07 p3-none TT_3_77 s=4 none sym=0 SAT pass 0.024
+17:25:07 p3-none TT_3_78 s=0 none sym=0 UNSAT  0.016
+17:25:07 p3-full TT_3_78 s=0 full sym=0 UNSAT  0.014
+17:25:07 p3-none TT_3_78 s=1 none sym=0 UNSAT  0.016
+17:25:07 p3-full TT_3_78 s=1 full sym=0 UNSAT  0.014
+17:25:07 p3-none TT_3_78 s=2 none sym=0 UNSAT  0.018
+17:25:07 p3-full TT_3_78 s=2 full sym=0 UNSAT  0.016
+17:25:07 p3-none TT_3_78 s=3 none sym=0 SAT pass 0.022
+17:25:07 p3-full TT_3_78 s=3 full sym=0 SAT pass 0.021
+17:25:07 p3-full TT_3_79 s=0 full sym=0 UNSAT  0.016
+17:25:07 p3-none TT_3_79 s=0 none sym=0 UNSAT  0.017
+17:25:07 p3-none TT_3_79 s=1 none sym=0 UNSAT  0.017
+17:25:07 p3-full TT_3_79 s=1 full sym=0 UNSAT  0.016
+17:25:07 p3-none TT_3_79 s=2 none sym=0 SAT pass 0.017
+17:25:07 p3-full TT_3_79 s=2 full sym=0 SAT pass 0.017
+17:25:07 p3-none TT_3_80 s=0 none sym=0 UNSAT  0.017
+17:25:07 p3-full TT_3_80 s=0 full sym=0 UNSAT  0.017
+17:25:07 p3-full TT_3_80 s=1 full sym=0 SAT pass 0.016
+17:25:07 p3-none TT_3_80 s=1 none sym=0 SAT pass 0.018
+17:25:07 p3-full TT_3_81 s=0 full sym=0 UNSAT  0.015
+17:25:07 p3-none TT_3_81 s=0 none sym=0 UNSAT  0.017
+17:25:07 p3-none TT_3_81 s=1 none sym=0 UNSAT  0.017
+17:25:07 p3-full TT_3_81 s=1 full sym=0 UNSAT  0.014
+17:25:07 p3-full TT_3_81 s=2 full sym=0 SAT pass 0.014
+17:25:07 p3-none TT_3_81 s=2 none sym=0 SAT pass 0.016
+17:25:07 p3-none TT_3_82 s=0 none sym=0 UNSAT  0.015
+17:25:07 p3-full TT_3_82 s=0 full sym=0 UNSAT  0.015
+17:25:07 p3-none TT_3_82 s=1 none sym=0 UNSAT  0.017
+17:25:07 p3-full TT_3_82 s=1 full sym=0 UNSAT  0.016
+17:25:07 p3-full TT_3_82 s=2 full sym=0 UNSAT  0.016
+17:25:07 p3-none TT_3_82 s=2 none sym=0 UNSAT  0.017
+17:25:07 p3-full TT_3_82 s=3 full sym=0 SAT pass 0.018
+17:25:07 p3-none TT_3_82 s=3 none sym=0 SAT pass 0.022
+17:25:07 p3-none TT_3_83 s=0 none sym=0 UNSAT  0.02
+17:25:07 p3-full TT_3_83 s=0 full sym=0 UNSAT  0.033
+17:25:07 p3-none TT_3_83 s=1 none sym=0 UNSAT  0.021
+17:25:07 p3-none TT_3_83 s=2 none sym=0 UNSAT  0.022
+17:25:07 p3-full TT_3_83 s=1 full sym=0 UNSAT  0.025
+17:25:07 p3-full TT_3_83 s=2 full sym=0 UNSAT  0.016
+17:25:07 p3-none TT_3_83 s=3 none sym=0 SAT pass 0.018
+17:25:07 p3-none TT_3_84 s=0 none sym=0 UNSAT  0.015
+17:25:07 p3-full TT_3_83 s=3 full sym=0 SAT pass 0.017
+17:25:07 p3-full TT_3_84 s=0 full sym=0 UNSAT  0.014
+17:25:07 p3-none TT_3_84 s=1 none sym=0 UNSAT  0.016
+17:25:07 p3-none TT_3_84 s=2 none sym=0 SAT pass 0.016
+17:25:07 p3-full TT_3_84 s=1 full sym=0 UNSAT  0.015
+17:25:08 p3-none TT_3_85 s=0 none sym=0 UNSAT  0.014
+17:25:08 p3-full TT_3_84 s=2 full sym=0 SAT pass 0.022
+17:25:08 p3-full TT_3_85 s=0 full sym=0 UNSAT  0.014
+17:25:08 p3-none TT_3_85 s=1 none sym=0 SAT pass 0.019
+17:25:08 p3-full TT_3_85 s=1 full sym=0 SAT pass 0.015
+17:25:08 p3-none TT_3_86 s=0 none sym=0 UNSAT  0.021
+17:25:08 p3-full TT_3_86 s=0 full sym=0 UNSAT  0.02
+17:25:08 p3-none TT_3_86 s=1 none sym=0 UNSAT  0.016
+17:25:08 p3-full TT_3_86 s=1 full sym=0 UNSAT  0.016
+17:25:08 p3-none TT_3_86 s=2 none sym=0 SAT pass 0.016
+17:25:08 p3-full TT_3_86 s=2 full sym=0 SAT pass 0.017
+17:25:08 p3-none TT_3_87 s=0 none sym=0 UNSAT  0.015
+17:25:08 p3-full TT_3_87 s=0 full sym=0 UNSAT  0.013
+17:25:08 p3-none TT_3_87 s=1 none sym=0 UNSAT  0.013
+17:25:08 p3-none TT_3_87 s=2 none sym=0 SAT pass 0.013
+17:25:08 p3-full TT_3_87 s=1 full sym=0 UNSAT  0.014
+17:25:08 p3-none TT_3_88 s=0 none sym=0 UNSAT  0.014
+17:25:08 p3-full TT_3_87 s=2 full sym=0 SAT pass 0.013
+17:25:08 p3-full TT_3_88 s=0 full sym=0 UNSAT  0.014
+17:25:08 p3-none TT_3_88 s=1 none sym=0 UNSAT  0.016
+17:25:08 p3-none TT_3_88 s=2 none sym=0 UNSAT  0.013
+17:25:08 p3-full TT_3_88 s=1 full sym=0 UNSAT  0.015
+17:25:08 p3-none TT_3_88 s=3 none sym=0 SAT pass 0.015
+17:25:08 p3-full TT_3_88 s=2 full sym=0 UNSAT  0.018
+17:25:08 p3-none TT_3_89 s=0 none sym=0 UNSAT  0.015
+17:25:08 p3-full TT_3_88 s=3 full sym=0 SAT pass 0.015
+17:25:08 p3-none TT_3_89 s=1 none sym=0 UNSAT  0.015
+17:25:08 p3-full TT_3_89 s=0 full sym=0 UNSAT  0.017
+17:25:08 p3-none TT_3_89 s=2 none sym=0 SAT pass 0.015
+17:25:08 p3-full TT_3_89 s=1 full sym=0 UNSAT  0.015
+17:25:08 p3-full TT_3_89 s=2 full sym=0 SAT pass 0.014
+17:25:08 p3-none TT_3_90 s=0 none sym=0 UNSAT  0.018
+17:25:08 p3-full TT_3_90 s=0 full sym=0 UNSAT  0.013
+17:25:08 p3-none TT_3_90 s=1 none sym=0 SAT pass 0.015
+17:25:08 p3-full TT_3_90 s=1 full sym=0 SAT pass 0.02
+17:25:08 p3-none TT_3_91 s=0 none sym=0 UNSAT  0.02
+17:25:08 p3-full TT_3_91 s=0 full sym=0 UNSAT  0.014
+17:25:08 p3-none TT_3_91 s=1 none sym=0 UNSAT  0.014
+17:25:08 p3-full TT_3_91 s=1 full sym=0 UNSAT  0.016
+17:25:08 p3-none TT_3_91 s=2 none sym=0 UNSAT  0.014
+17:25:08 p3-full TT_3_91 s=2 full sym=0 UNSAT  0.016
+17:25:08 p3-none TT_3_91 s=3 none sym=0 SAT pass 0.019
+17:25:08 p3-full TT_3_91 s=3 full sym=0 SAT pass 0.017
+17:25:08 p3-none TT_3_92 s=0 none sym=0 UNSAT  0.024
+17:25:08 p3-full TT_3_92 s=0 full sym=0 UNSAT  0.013
+17:25:08 p3-none TT_3_92 s=1 none sym=0 UNSAT  0.012
+17:25:08 p3-full TT_3_92 s=1 full sym=0 UNSAT  0.021
+17:25:08 p3-none TT_3_92 s=2 none sym=0 UNSAT  0.013
+17:25:08 p3-none TT_3_92 s=3 none sym=0 SAT pass 0.015
+17:25:08 p3-full TT_3_92 s=2 full sym=0 UNSAT  0.03
+17:25:08 p3-none TT_3_93 s=0 none sym=0 UNSAT  0.019
+17:25:08 p3-full TT_3_92 s=3 full sym=0 SAT pass 0.014
+17:25:08 p3-none TT_3_93 s=1 none sym=0 UNSAT  0.011
+17:25:08 p3-full TT_3_93 s=0 full sym=0 UNSAT  0.015
+17:25:08 p3-none TT_3_93 s=2 none sym=0 SAT pass 0.013
+17:25:08 p3-none TT_3_94 s=0 none sym=0 UNSAT  0.012
+17:25:08 p3-full TT_3_93 s=1 full sym=0 UNSAT  0.015
+17:25:08 p3-full TT_3_93 s=2 full sym=0 SAT pass 0.016
+17:25:08 p3-none TT_3_94 s=1 none sym=0 UNSAT  0.014
+17:25:08 p3-full TT_3_94 s=0 full sym=0 UNSAT  0.014
+17:25:08 p3-none TT_3_94 s=2 none sym=0 UNSAT  0.014
+17:25:08 p3-full TT_3_94 s=1 full sym=0 UNSAT  0.016
+17:25:08 p3-none TT_3_94 s=3 none sym=0 SAT pass 0.016
+17:25:08 p3-full TT_3_94 s=2 full sym=0 UNSAT  0.016
+17:25:08 p3-none TT_3_95 s=0 none sym=0 UNSAT  0.016
+17:25:08 p3-none TT_3_95 s=1 none sym=0 SAT pass 0.015
+17:25:08 p3-full TT_3_94 s=3 full sym=0 SAT pass 0.018
+17:25:08 p3-full TT_3_95 s=0 full sym=0 UNSAT  0.02
+17:25:08 p3-none TT_3_96 s=0 none sym=0 UNSAT  0.022
+17:25:08 p3-full TT_3_95 s=1 full sym=0 SAT pass 0.02
+17:25:08 p3-none TT_3_96 s=1 none sym=0 UNSAT  0.018
+17:25:08 p3-full TT_3_96 s=0 full sym=0 UNSAT  0.016
+17:25:08 p3-none TT_3_96 s=2 none sym=0 SAT pass 0.016
+17:25:08 p3-full TT_3_96 s=1 full sym=0 UNSAT  0.017
+17:25:08 p3-none TT_3_97 s=0 none sym=0 UNSAT  0.015
+17:25:08 p3-none TT_3_97 s=1 none sym=0 UNSAT  0.021
+17:25:08 p3-full TT_3_96 s=2 full sym=0 SAT pass 0.027
+17:25:08 p3-none TT_3_97 s=2 none sym=0 UNSAT  0.015
+17:25:08 p3-full TT_3_97 s=0 full sym=0 UNSAT  0.015
+17:25:08 p3-full TT_3_97 s=1 full sym=0 UNSAT  0.015
+17:25:08 p3-none TT_3_97 s=3 none sym=0 UNSAT  0.018
+17:25:08 p3-full TT_3_97 s=2 full sym=0 UNSAT  0.017
+17:25:08 p3-none TT_3_97 s=4 none sym=0 SAT pass 0.018
+17:25:08 p3-none TT_3_98 s=0 none sym=0 UNSAT  0.015
+17:25:08 p3-full TT_3_97 s=3 full sym=0 UNSAT  0.017
+17:25:08 p3-none TT_3_98 s=1 none sym=0 UNSAT  0.015
+17:25:08 p3-full TT_3_97 s=4 full sym=0 SAT pass 0.016
+17:25:08 p3-full TT_3_98 s=0 full sym=0 UNSAT  0.013
+17:25:08 p3-none TT_3_98 s=2 none sym=0 UNSAT  0.016
+17:25:08 p3-none TT_3_98 s=3 none sym=0 SAT pass 0.017
+17:25:08 p3-full TT_3_98 s=1 full sym=0 UNSAT  0.019
+17:25:08 p3-none TT_3_99 s=0 none sym=0 UNSAT  0.016
+17:25:08 p3-full TT_3_98 s=2 full sym=0 UNSAT  0.017
+17:25:08 p3-full TT_3_98 s=3 full sym=0 SAT pass 0.014
+17:25:08 p3-none TT_3_99 s=1 none sym=0 UNSAT  0.019
+17:25:08 p3-full TT_3_99 s=0 full sym=0 UNSAT  0.017
+17:25:08 p3-none TT_3_99 s=2 none sym=0 SAT pass 0.016
+17:25:08 p3-full TT_3_99 s=1 full sym=0 UNSAT  0.016
+17:25:08 p3-none TT_3_100 s=0 none sym=0 UNSAT  0.016
+17:25:08 p3-full TT_3_99 s=2 full sym=0 SAT pass 0.015
+17:25:08 p3-none TT_3_100 s=1 none sym=0 UNSAT  0.014
+17:25:08 p3-full TT_3_100 s=0 full sym=0 UNSAT  0.013
+17:25:08 p3-none TT_3_100 s=2 none sym=0 UNSAT  0.015
+17:25:08 p3-full TT_3_100 s=1 full sym=0 UNSAT  0.013
+17:25:08 p3-none TT_3_100 s=3 none sym=0 SAT pass 0.014
+17:25:08 p3-full TT_3_100 s=2 full sym=0 UNSAT  0.012
+17:25:08 p3-none TT_3_101 s=0 none sym=0 UNSAT  0.012
+17:25:08 p3-full TT_3_100 s=3 full sym=0 SAT pass 0.013
+17:25:08 p3-none TT_3_101 s=1 none sym=0 UNSAT  0.015
+17:25:08 p3-full TT_3_101 s=0 full sym=0 UNSAT  0.014
+17:25:08 p3-none TT_3_101 s=2 none sym=0 SAT pass 0.02
+17:25:08 p3-full TT_3_101 s=1 full sym=0 UNSAT  0.019
+17:25:08 p3-none TT_3_102 s=0 none sym=0 UNSAT  0.016
+17:25:08 p3-full TT_3_101 s=2 full sym=0 SAT pass 0.014
+17:25:08 p3-none TT_3_102 s=1 none sym=0 SAT pass 0.015
+17:25:08 p3-full TT_3_102 s=0 full sym=0 UNSAT  0.016
+17:25:08 p3-none TT_3_103 s=0 none sym=0 UNSAT  0.015
+17:25:09 p3-full TT_3_102 s=1 full sym=0 SAT pass 0.015
+17:25:09 p3-none TT_3_103 s=1 none sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_103 s=0 full sym=0 UNSAT  0.014
+17:25:09 p3-none TT_3_103 s=2 none sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_103 s=1 full sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_103 s=2 full sym=0 UNSAT  0.014
+17:25:09 p3-none TT_3_103 s=3 none sym=0 SAT pass 0.019
+17:25:09 p3-none TT_3_104 s=0 none sym=0 UNSAT  0.013
+17:25:09 p3-full TT_3_103 s=3 full sym=0 SAT pass 0.015
+17:25:09 p3-full TT_3_104 s=0 full sym=1 UNSAT  0.013
+17:25:09 p3-none TT_3_104 s=1 none sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_104 s=1 full sym=1 UNSAT  0.014
+17:25:09 p3-none TT_3_104 s=2 none sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_104 s=2 full sym=1 UNSAT  0.014
+17:25:09 p3-none TT_3_104 s=3 none sym=0 UNSAT  0.017
+17:25:09 p3-full TT_3_104 s=3 full sym=1 UNSAT  0.019
+17:25:09 p3-none TT_3_104 s=4 none sym=0 SAT pass 0.019
+17:25:09 p3-full TT_3_104 s=4 full sym=1 SAT pass 0.018
+17:25:09 p3-none TT_3_105 s=0 none sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_105 s=0 full sym=1 UNSAT  0.012
+17:25:09 p3-none TT_3_105 s=1 none sym=0 UNSAT  0.013
+17:25:09 p3-full TT_3_105 s=1 full sym=1 UNSAT  0.011
+17:25:09 p3-none TT_3_105 s=2 none sym=0 SAT pass 0.018
+17:25:09 p3-full TT_3_105 s=2 full sym=1 SAT pass 0.015
+17:25:09 p3-none TT_3_106 s=0 none sym=0 UNSAT  0.013
+17:25:09 p3-full TT_3_106 s=0 full sym=0 UNSAT  0.014
+17:25:09 p3-none TT_3_106 s=1 none sym=0 UNSAT  0.011
+17:25:09 p3-none TT_3_106 s=2 none sym=0 SAT pass 0.012
+17:25:09 p3-full TT_3_106 s=1 full sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_106 s=2 full sym=0 SAT pass 0.017
+17:25:09 p3-none TT_3_107 s=0 none sym=0 UNSAT  0.018
+17:25:09 p3-none TT_3_107 s=1 none sym=0 UNSAT  0.015
+17:25:09 p3-full TT_3_107 s=0 full sym=0 UNSAT  0.017
+17:25:09 p3-full TT_3_107 s=1 full sym=0 UNSAT  0.014
+17:25:09 p3-none TT_3_107 s=2 none sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_107 s=2 full sym=0 UNSAT  0.013
+17:25:09 p3-none TT_3_107 s=3 none sym=0 UNSAT  0.015
+17:25:09 p3-full TT_3_107 s=3 full sym=0 UNSAT  0.017
+17:25:09 p3-none TT_3_107 s=4 none sym=0 SAT pass 0.019
+17:25:09 p3-full TT_3_107 s=4 full sym=0 SAT pass 0.017
+17:25:09 p3-none TT_3_108 s=0 none sym=0 UNSAT  0.013
+17:25:09 p3-full TT_3_108 s=0 full sym=0 UNSAT  0.015
+17:25:09 p3-none TT_3_108 s=1 none sym=0 UNSAT  0.018
+17:25:09 p3-full TT_3_108 s=1 full sym=0 UNSAT  0.026
+17:25:09 p3-none TT_3_108 s=2 none sym=0 SAT pass 0.024
+17:25:09 p3-none TT_3_109 s=0 none sym=0 UNSAT  0.015
+17:25:09 p3-full TT_3_108 s=2 full sym=0 SAT pass 0.016
+17:25:09 p3-full TT_3_109 s=0 full sym=0 UNSAT  0.013
+17:25:09 p3-none TT_3_109 s=1 none sym=0 UNSAT  0.016
+17:25:09 p3-full TT_3_109 s=1 full sym=0 UNSAT  0.014
+17:25:09 p3-none TT_3_109 s=2 none sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_109 s=2 full sym=0 UNSAT  0.013
+17:25:09 p3-none TT_3_109 s=3 none sym=0 UNSAT  0.017
+17:25:09 p3-full TT_3_109 s=3 full sym=0 UNSAT  0.015
+17:25:09 p3-none TT_3_109 s=4 none sym=0 SAT pass 0.015
+17:25:09 p3-full TT_3_109 s=4 full sym=0 SAT pass 0.018
+17:25:09 p3-none TT_3_110 s=0 none sym=0 UNSAT  0.013
+17:25:09 p3-full TT_3_110 s=0 full sym=0 UNSAT  0.013
+17:25:09 p3-none TT_3_110 s=1 none sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_110 s=1 full sym=0 UNSAT  0.016
+17:25:09 p3-none TT_3_110 s=2 none sym=0 UNSAT  0.016
+17:25:09 p3-full TT_3_110 s=2 full sym=0 UNSAT  0.017
+17:25:09 p3-none TT_3_110 s=3 none sym=0 SAT pass 0.018
+17:25:09 p3-full TT_3_110 s=3 full sym=0 SAT pass 0.017
+17:25:09 p3-none TT_3_111 s=0 none sym=0 UNSAT  0.015
+17:25:09 p3-none TT_3_111 s=1 none sym=0 UNSAT  0.015
+17:25:09 p3-full TT_3_111 s=0 full sym=0 UNSAT  0.016
+17:25:09 p3-none TT_3_111 s=2 none sym=0 SAT pass 0.016
+17:25:09 p3-full TT_3_111 s=1 full sym=0 UNSAT  0.015
+17:25:09 p3-none TT_3_112 s=0 none sym=0 UNSAT  0.015
+17:25:09 p3-full TT_3_111 s=2 full sym=0 SAT pass 0.014
+17:25:09 p3-none TT_3_112 s=1 none sym=0 UNSAT  0.016
+17:25:09 p3-full TT_3_112 s=0 full sym=0 UNSAT  0.016
+17:25:09 p3-none TT_3_112 s=2 none sym=0 SAT pass 0.021
+17:25:09 p3-full TT_3_112 s=1 full sym=0 UNSAT  0.02
+17:25:09 p3-none TT_3_113 s=0 none sym=0 UNSAT  0.015
+17:25:09 p3-full TT_3_112 s=2 full sym=0 SAT pass 0.015
+17:25:09 p3-none TT_3_113 s=1 none sym=0 UNSAT  0.017
+17:25:09 p3-full TT_3_113 s=0 full sym=0 UNSAT  0.015
+17:25:09 p3-full TT_3_113 s=1 full sym=0 UNSAT  0.015
+17:25:09 p3-none TT_3_113 s=2 none sym=0 UNSAT  0.017
+17:25:09 p3-full TT_3_113 s=2 full sym=0 UNSAT  0.016
+17:25:09 p3-none TT_3_113 s=3 none sym=0 UNSAT  0.019
+17:25:09 p3-full TT_3_113 s=3 full sym=0 UNSAT  0.017
+17:25:09 p3-none TT_3_113 s=4 none sym=0 SAT pass 0.018
+17:25:09 p3-full TT_3_113 s=4 full sym=0 SAT pass 0.018
+17:25:09 p3-full TT_3_114 s=0 full sym=0 UNSAT  0.014
+17:25:09 p3-none TT_3_114 s=0 none sym=0 UNSAT  0.027
+17:25:09 p3-full TT_3_114 s=1 full sym=0 UNSAT  0.013
+17:25:09 p3-none TT_3_114 s=1 none sym=0 UNSAT  0.015
+17:25:09 p3-full TT_3_114 s=2 full sym=0 UNSAT  0.015
+17:25:09 p3-none TT_3_114 s=2 none sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_114 s=3 full sym=0 SAT pass 0.015
+17:25:09 p3-none TT_3_114 s=3 none sym=0 SAT pass 0.015
+17:25:09 p3-none TT_3_115 s=0 none sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_115 s=0 full sym=0 UNSAT  0.014
+17:25:09 p3-none TT_3_115 s=1 none sym=0 UNSAT  0.015
+17:25:09 p3-full TT_3_115 s=1 full sym=0 UNSAT  0.012
+17:25:09 p3-full TT_3_115 s=2 full sym=0 SAT pass 0.013
+17:25:09 p3-none TT_3_115 s=2 none sym=0 SAT pass 0.014
+17:25:09 p3-none TT_3_116 s=0 none sym=0 UNSAT  0.015
+17:25:09 p3-full TT_3_116 s=0 full sym=0 UNSAT  0.014
+17:25:09 p3-none TT_3_116 s=1 none sym=0 UNSAT  0.016
+17:25:09 p3-full TT_3_116 s=1 full sym=0 UNSAT  0.015
+17:25:09 p3-none TT_3_116 s=2 none sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_116 s=2 full sym=0 UNSAT  0.014
+17:25:09 p3-full TT_3_116 s=3 full sym=0 SAT pass 0.014
+17:25:09 p3-none TT_3_116 s=3 none sym=0 SAT pass 0.016
+17:25:09 p3-none TT_3_117 s=0 none sym=0 UNSAT  0.016
+17:25:09 p3-full TT_3_117 s=0 full sym=0 UNSAT  0.015
+17:25:09 p3-none TT_3_117 s=1 none sym=0 UNSAT  0.022
+17:25:09 p3-full TT_3_117 s=1 full sym=0 UNSAT  0.019
+17:25:09 p3-none TT_3_117 s=2 none sym=0 SAT pass 0.014
+17:25:09 p3-full TT_3_117 s=2 full sym=0 SAT pass 0.015
+17:25:09 p3-full TT_3_118 s=0 full sym=0 UNSAT  0.016
+17:25:09 p3-none TT_3_118 s=0 none sym=0 UNSAT  0.015
+17:25:09 p3-full TT_3_118 s=1 full sym=0 UNSAT  0.016
+17:25:09 p3-none TT_3_118 s=1 none sym=0 UNSAT  0.015
+17:25:10 p3-full TT_3_118 s=2 full sym=0 UNSAT  0.017
+17:25:10 p3-none TT_3_118 s=2 none sym=0 UNSAT  0.015
+17:25:10 p3-none TT_3_118 s=3 none sym=0 SAT pass 0.015
+17:25:10 p3-full TT_3_118 s=3 full sym=0 SAT pass 0.016
+17:25:10 p3-full TT_3_119 s=0 full sym=0 UNSAT  0.014
+17:25:10 p3-none TT_3_119 s=0 none sym=0 UNSAT  0.016
+17:25:10 p3-full TT_3_119 s=1 full sym=0 SAT pass 0.017
+17:25:10 p3-none TT_3_119 s=1 none sym=0 SAT pass 0.018
+17:25:10 p3-none TT_3_120 s=0 none sym=0 UNSAT  0.017
+17:25:10 p3-none TT_3_120 s=1 none sym=0 UNSAT  0.015
+17:25:10 p3-full TT_3_120 s=0 full sym=0 UNSAT  0.041
+17:25:10 p3-none TT_3_120 s=2 none sym=0 SAT pass 0.018
+17:25:10 p3-full TT_3_120 s=1 full sym=0 UNSAT  0.024
+17:25:10 p3-none TT_3_121 s=0 none sym=0 UNSAT  0.017
+17:25:10 p3-full TT_3_120 s=2 full sym=0 SAT pass 0.017
+17:25:10 p3-none TT_3_121 s=1 none sym=0 UNSAT  0.015
+17:25:10 p3-full TT_3_121 s=0 full sym=0 UNSAT  0.017
+17:25:10 p3-none TT_3_121 s=2 none sym=0 UNSAT  0.016
+17:25:10 p3-full TT_3_121 s=1 full sym=0 UNSAT  0.017
+17:25:10 p3-none TT_3_121 s=3 none sym=0 UNSAT  0.018
+17:25:10 p3-full TT_3_121 s=2 full sym=0 UNSAT  0.018
+17:25:10 p3-none TT_3_121 s=4 none sym=0 SAT pass 0.021
+17:25:10 p3-full TT_3_121 s=3 full sym=0 UNSAT  0.017
+17:25:10 p3-none TT_3_122 s=0 none sym=0 UNSAT  0.016
+17:25:10 p3-none TT_3_122 s=1 none sym=0 UNSAT  0.013
+17:25:10 p3-full TT_3_121 s=4 full sym=0 SAT pass 0.022
+17:25:10 p3-none TT_3_122 s=2 none sym=0 UNSAT  0.016
+17:25:10 p3-full TT_3_122 s=0 full sym=0 UNSAT  0.015
+17:25:10 p3-full TT_3_122 s=1 full sym=0 UNSAT  0.023
+17:25:10 p3-none TT_3_122 s=3 none sym=0 SAT pass 0.024
+17:25:10 p3-full TT_3_122 s=2 full sym=0 UNSAT  0.017
+17:25:10 p3-none TT_3_123 s=0 none sym=0 UNSAT  0.016
+17:25:10 p3-none TT_3_123 s=1 none sym=0 UNSAT  0.013
+17:25:10 p3-full TT_3_122 s=3 full sym=0 SAT pass 0.015
+17:25:10 p3-none TT_3_123 s=2 none sym=0 SAT pass 0.017
+17:25:10 p3-full TT_3_123 s=0 full sym=0 UNSAT  0.021
+17:25:10 p3-none TT_3_124 s=0 none sym=0 UNSAT  0.014
+17:25:10 p3-full TT_3_123 s=1 full sym=0 UNSAT  0.015
+17:25:10 p3-none TT_3_124 s=1 none sym=0 UNSAT  0.014
+17:25:10 p3-full TT_3_123 s=2 full sym=0 SAT pass 0.014
+17:25:10 p3-none TT_3_124 s=2 none sym=0 UNSAT  0.016
+17:25:10 p3-full TT_3_124 s=0 full sym=0 UNSAT  0.014
+17:25:10 p3-none TT_3_124 s=3 none sym=0 SAT pass 0.015
+17:25:10 p3-full TT_3_124 s=1 full sym=0 UNSAT  0.015
+17:25:10 p3-none TT_3_125 s=0 none sym=0 UNSAT  0.016
+17:25:10 p3-full TT_3_124 s=2 full sym=0 UNSAT  0.015
+17:25:10 p3-none TT_3_125 s=1 none sym=0 UNSAT  0.016
+17:25:10 p3-full TT_3_124 s=3 full sym=0 SAT pass 0.015
+17:25:10 p3-none TT_3_125 s=2 none sym=0 SAT pass 0.016
+17:25:10 p3-full TT_3_125 s=0 full sym=0 UNSAT  0.015
+17:25:10 p3-none TT_3_126 s=0 none sym=0 UNSAT  0.017
+17:25:10 p3-full TT_3_125 s=1 full sym=0 UNSAT  0.014
+17:25:10 p3-none TT_3_126 s=1 none sym=0 UNSAT  0.015
+17:25:10 p3-full TT_3_125 s=2 full sym=0 SAT pass 0.014
+17:25:10 p3-none TT_3_126 s=2 none sym=0 UNSAT  0.017
+17:25:10 p3-full TT_3_126 s=0 full sym=1 UNSAT  0.013
+17:25:10 p3-full TT_3_126 s=1 full sym=1 UNSAT  0.014
+17:25:10 p3-none TT_3_126 s=3 none sym=0 SAT pass 0.016
+17:25:10 p3-none TT_3_127 s=0 none sym=0 UNSAT  0.017
+17:25:10 p3-full TT_3_126 s=2 full sym=1 UNSAT  0.016
+17:25:10 p3-none TT_3_127 s=1 none sym=0 UNSAT  0.015
+17:25:10 p3-full TT_3_126 s=3 full sym=1 SAT pass 0.014
+17:25:10 p3-none TT_3_127 s=2 none sym=0 SAT pass 0.015
+17:25:10 p3-full TT_3_127 s=0 full sym=1 UNSAT  0.018
+17:25:10 p3-none TT_3_128 s=0 none sym=0 UNSAT  0.023
+17:25:10 p3-full TT_3_127 s=1 full sym=1 UNSAT  0.027
+17:25:10 p3-none TT_3_128 s=1 none sym=0 UNSAT  0.018
+17:25:10 p3-full TT_3_127 s=2 full sym=1 SAT pass 0.021
+17:25:10 p3-none TT_3_128 s=2 none sym=0 SAT pass 0.018
+17:25:10 p3-full TT_3_128 s=0 full sym=1 UNSAT  0.017
+17:25:10 p3-none TT_3_129 s=0 none sym=0 UNSAT  0.02
+17:25:10 p3-full TT_3_128 s=1 full sym=1 UNSAT  0.017
+17:25:10 p3-none TT_3_129 s=1 none sym=0 UNSAT  0.016
+17:25:10 p3-full TT_3_128 s=2 full sym=1 SAT pass 0.021
+17:25:10 p3-none TT_3_129 s=2 none sym=0 UNSAT  0.017
+17:25:10 p3-full TT_3_129 s=0 full sym=1 UNSAT  0.018
+17:25:10 p3-none TT_3_129 s=3 none sym=0 SAT pass 0.018
+17:25:10 p3-full TT_3_129 s=1 full sym=1 UNSAT  0.018
+17:25:10 p3-none TT_3_130 s=0 none sym=0 UNSAT  0.018
+17:25:10 p3-full TT_3_129 s=2 full sym=1 UNSAT  0.019
+17:25:10 p3-none TT_3_130 s=1 none sym=0 UNSAT  0.028
+17:25:10 p3-full TT_3_129 s=3 full sym=1 SAT pass 0.024
+17:25:10 p3-full TT_3_130 s=0 full sym=0 UNSAT  0.026
+17:25:10 p3-none TT_3_130 s=2 none sym=0 SAT pass 0.035
+17:25:10 p3-none TT_3_131 s=0 none sym=0 UNSAT  0.019
+17:25:10 p3-full TT_3_130 s=1 full sym=0 UNSAT  0.018
+17:25:10 p3-full TT_3_130 s=2 full sym=0 SAT pass 0.018
+17:25:10 p3-none TT_3_131 s=1 none sym=0 UNSAT  0.022
+17:25:10 p3-full TT_3_131 s=0 full sym=0 UNSAT  0.016
+17:25:10 p3-none TT_3_131 s=2 none sym=0 UNSAT  0.018
+17:25:10 p3-full TT_3_131 s=1 full sym=0 UNSAT  0.018
+17:25:10 p3-none TT_3_131 s=3 none sym=0 SAT pass 0.023
+17:25:10 p3-full TT_3_131 s=2 full sym=0 UNSAT  0.02
+17:25:10 p3-none TT_3_132 s=0 none sym=0 UNSAT  0.018
+17:25:10 p3-none TT_3_132 s=1 none sym=0 UNSAT  0.019
+17:25:10 p3-full TT_3_131 s=3 full sym=0 SAT pass 0.026
+17:25:10 p3-none TT_3_132 s=2 none sym=0 SAT pass 0.017
+17:25:10 p3-full TT_3_132 s=0 full sym=0 UNSAT  0.03
+17:25:10 p3-none TT_3_133 s=0 none sym=0 UNSAT  0.038
+17:25:10 p3-full TT_3_132 s=1 full sym=0 UNSAT  0.027
+17:25:11 p3-none TT_3_133 s=1 none sym=0 UNSAT  0.02
+17:25:11 p3-full TT_3_132 s=2 full sym=0 SAT pass 0.023
+17:25:11 p3-none TT_3_133 s=2 none sym=0 UNSAT  0.018
+17:25:11 p3-full TT_3_133 s=0 full sym=0 UNSAT  0.019
+17:25:11 p3-none TT_3_133 s=3 none sym=0 SAT pass 0.016
+17:25:11 p3-full TT_3_133 s=1 full sym=0 UNSAT  0.017
+17:25:11 p3-none TT_3_134 s=0 none sym=0 UNSAT  0.018
+17:25:11 p3-full TT_3_133 s=2 full sym=0 UNSAT  0.018
+17:25:11 p3-none TT_3_134 s=1 none sym=0 UNSAT  0.015
+17:25:11 p3-full TT_3_133 s=3 full sym=0 SAT pass 0.02
+17:25:11 p3-none TT_3_134 s=2 none sym=0 UNSAT  0.017
+17:25:11 p3-full TT_3_134 s=0 full sym=0 UNSAT  0.019
+17:25:11 p3-none TT_3_134 s=3 none sym=0 UNSAT  0.02
+17:25:11 p3-full TT_3_134 s=1 full sym=0 UNSAT  0.018
+17:25:11 p3-none TT_3_134 s=4 none sym=0 SAT pass 0.02
+17:25:11 p3-full TT_3_134 s=2 full sym=0 UNSAT  0.015
+17:25:11 p3-none TT_3_135 s=0 none sym=0 UNSAT  0.016
+17:25:11 p3-full TT_3_134 s=3 full sym=0 UNSAT  0.016
+17:25:11 p3-none TT_3_135 s=1 none sym=0 UNSAT  0.016
+17:25:11 p3-full TT_3_134 s=4 full sym=0 SAT pass 0.02
+17:25:11 p3-full TT_3_135 s=0 full sym=0 UNSAT  0.016
+17:25:11 p3-none TT_3_135 s=2 none sym=0 SAT pass 0.032
+17:25:11 p3-full TT_3_135 s=1 full sym=0 UNSAT  0.026
+17:25:11 p3-none TT_3_136 s=0 none sym=0 UNSAT  0.028
+17:25:11 p3-full TT_3_135 s=2 full sym=0 SAT pass 0.02
+17:25:11 p3-full TT_3_136 s=0 full sym=0 UNSAT  0.014
+17:25:11 p3-none TT_3_136 s=1 none sym=0 SAT pass 0.027
+17:25:11 p3-full TT_3_136 s=1 full sym=0 SAT pass 0.02
+17:25:11 p3-none TT_3_137 s=0 none sym=0 UNSAT  0.016
+17:25:11 p3-full TT_3_137 s=0 full sym=0 UNSAT  0.015
+17:25:11 p3-none TT_3_137 s=1 none sym=0 UNSAT  0.018
+17:25:11 p3-full TT_3_137 s=1 full sym=0 UNSAT  0.015
+17:25:11 p3-none TT_3_137 s=2 none sym=0 UNSAT  0.017
+17:25:11 p3-full TT_3_137 s=2 full sym=0 UNSAT  0.014
+17:25:11 p3-none TT_3_137 s=3 none sym=0 SAT pass 0.016
+17:25:11 p3-full TT_3_137 s=3 full sym=0 SAT pass 0.016
+17:25:11 p3-none TT_3_138 s=0 none sym=0 UNSAT  0.018
+17:25:11 p3-full TT_3_138 s=0 full sym=0 UNSAT  0.016
+17:25:11 p3-none TT_3_138 s=1 none sym=0 UNSAT  0.014
+17:25:11 p3-full TT_3_138 s=1 full sym=0 UNSAT  0.017
+17:25:11 p3-none TT_3_138 s=2 none sym=0 SAT pass 0.016
+17:25:11 p3-full TT_3_138 s=2 full sym=0 SAT pass 0.02
+17:25:11 p3-none TT_3_139 s=0 none sym=0 UNSAT  0.015
+17:25:11 p3-full TT_3_139 s=0 full sym=0 UNSAT  0.015
+17:25:11 p3-none TT_3_139 s=1 none sym=0 UNSAT  0.016
+17:25:11 p3-full TT_3_139 s=1 full sym=0 UNSAT  0.018
+17:25:11 p3-none TT_3_139 s=2 none sym=0 UNSAT  0.015
+17:25:11 p3-full TT_3_139 s=2 full sym=0 UNSAT  0.02
+17:25:11 p3-none TT_3_139 s=3 none sym=0 SAT pass 0.021
+17:25:11 p3-full TT_3_139 s=3 full sym=0 SAT pass 0.018
+17:25:11 p3-none TT_3_140 s=0 none sym=0 UNSAT  0.017
+17:25:11 p3-full TT_3_140 s=0 full sym=0 UNSAT  0.017
+17:25:11 p3-none TT_3_140 s=1 none sym=0 UNSAT  0.019
+17:25:11 p3-full TT_3_140 s=1 full sym=0 UNSAT  0.017
+17:25:11 p3-none TT_3_140 s=2 none sym=0 SAT pass 0.018
+17:25:11 p3-full TT_3_140 s=2 full sym=0 SAT pass 0.02
+17:25:11 p3-none TT_3_141 s=0 none sym=0 UNSAT  0.019
+17:25:11 p3-full TT_3_141 s=0 full sym=0 UNSAT  0.017
+17:25:11 p3-none TT_3_141 s=1 none sym=0 UNSAT  0.019
+17:25:11 p3-full TT_3_141 s=1 full sym=0 UNSAT  0.017
+17:25:11 p3-none TT_3_141 s=2 none sym=0 UNSAT  0.021
+17:25:11 p3-full TT_3_141 s=2 full sym=0 UNSAT  0.019
+17:25:11 p3-none TT_3_141 s=3 none sym=0 SAT pass 0.02
+17:25:11 p3-full TT_3_141 s=3 full sym=0 SAT pass 0.014
+17:25:11 p3-full TT_3_142 s=0 full sym=0 UNSAT  0.015
+17:25:11 p3-none TT_3_142 s=0 none sym=0 UNSAT  0.021
+17:25:11 p3-none TT_3_142 s=1 none sym=0 UNSAT  0.019
+17:25:11 p3-full TT_3_142 s=1 full sym=0 UNSAT  0.022
+17:25:11 p3-none TT_3_142 s=2 none sym=0 UNSAT  0.016
+17:25:11 p3-full TT_3_142 s=2 full sym=0 UNSAT  0.02
+17:25:11 p3-none TT_3_142 s=3 none sym=0 UNSAT  0.021
+17:25:11 p3-full TT_3_142 s=3 full sym=0 UNSAT  0.017
+17:25:11 p3-full TT_3_142 s=4 full sym=0 SAT pass 0.018
+17:25:11 p3-none TT_3_142 s=4 none sym=0 SAT pass 0.022
+17:25:11 p3-none TT_3_143 s=0 none sym=0 UNSAT  0.017
+17:25:11 p3-full TT_3_143 s=0 full sym=0 UNSAT  0.018
+17:25:11 p3-none TT_3_143 s=1 none sym=0 UNSAT  0.013
+17:25:11 p3-full TT_3_143 s=1 full sym=0 UNSAT  0.018
+17:25:11 p3-none TT_3_143 s=2 none sym=0 SAT pass 0.018
+17:25:11 p3-full TT_3_143 s=2 full sym=0 SAT pass 0.019
+17:25:11 p3-none TT_3_144 s=0 none sym=0 UNSAT  0.016
+17:25:11 p3-full TT_3_144 s=0 full sym=0 UNSAT  0.018
+17:25:11 p3-none TT_3_144 s=1 none sym=0 UNSAT  0.013
+17:25:11 p3-full TT_3_144 s=1 full sym=0 UNSAT  0.017
+17:25:11 p3-none TT_3_144 s=2 none sym=0 SAT pass 0.013
+17:25:11 p3-none TT_3_145 s=0 none sym=0 UNSAT  0.017
+17:25:11 p3-full TT_3_144 s=2 full sym=0 SAT pass 0.022
+17:25:11 p3-none TT_3_145 s=1 none sym=0 UNSAT  0.034
+17:25:11 p3-full TT_3_145 s=0 full sym=0 UNSAT  0.035
+17:25:11 p3-none TT_3_145 s=2 none sym=0 UNSAT  0.019
+17:25:11 p3-none TT_3_145 s=3 none sym=0 SAT pass 0.017
+17:25:11 p3-full TT_3_145 s=1 full sym=0 UNSAT  0.035
+17:25:11 p3-none TT_3_146 s=0 none sym=0 UNSAT  0.023
+17:25:11 p3-full TT_3_145 s=2 full sym=0 UNSAT  0.02
+17:25:11 p3-none TT_3_146 s=1 none sym=0 UNSAT  0.017
+17:25:11 p3-full TT_3_145 s=3 full sym=0 SAT pass 0.018
+17:25:11 p3-none TT_3_146 s=2 none sym=0 UNSAT  0.014
+17:25:11 p3-full TT_3_146 s=0 full sym=0 UNSAT  0.016
+17:25:11 p3-none TT_3_146 s=3 none sym=0 UNSAT  0.017
+17:25:11 p3-full TT_3_146 s=1 full sym=0 UNSAT  0.017
+17:25:12 p3-none TT_3_146 s=4 none sym=0 SAT pass 0.018
+17:25:12 p3-full TT_3_146 s=2 full sym=0 UNSAT  0.018
+17:25:12 p3-none TT_3_147 s=0 none sym=0 UNSAT  0.016
+17:25:12 p3-full TT_3_146 s=3 full sym=0 UNSAT  0.019
+17:25:12 p3-none TT_3_147 s=1 none sym=0 UNSAT  0.014
+17:25:12 p3-none TT_3_147 s=2 none sym=0 SAT pass 0.014
+17:25:12 p3-full TT_3_146 s=4 full sym=0 SAT pass 0.02
+17:25:12 p3-none TT_3_148 s=0 none sym=0 UNSAT  0.015
+17:25:12 p3-full TT_3_147 s=0 full sym=0 UNSAT  0.023
+17:25:12 p3-full TT_3_147 s=1 full sym=0 UNSAT  0.014
+17:25:12 p3-none TT_3_148 s=1 none sym=0 UNSAT  0.018
+17:25:12 p3-full TT_3_147 s=2 full sym=0 SAT pass 0.018
+17:25:12 p3-none TT_3_148 s=2 none sym=0 UNSAT  0.017
+17:25:12 p3-full TT_3_148 s=0 full sym=0 UNSAT  0.023
+17:25:12 p3-none TT_3_148 s=3 none sym=0 UNSAT  0.034
+17:25:12 p3-full TT_3_148 s=1 full sym=0 UNSAT  0.023
+17:25:12 p3-full TT_3_148 s=2 full sym=0 UNSAT  0.014
+17:25:12 p3-none TT_3_148 s=4 none sym=0 SAT pass 0.024
+17:25:12 p3-full TT_3_148 s=3 full sym=0 UNSAT  0.016
+17:25:12 p3-none TT_3_149 s=0 none sym=0 UNSAT  0.017
+17:25:12 p3-full TT_3_148 s=4 full sym=0 SAT pass 0.015
+17:25:12 p3-none TT_3_149 s=1 none sym=0 UNSAT  0.017
+17:25:12 p3-full TT_3_149 s=0 full sym=0 UNSAT  0.015
+17:25:12 p3-none TT_3_149 s=2 none sym=0 SAT pass 0.018
+17:25:12 p3-full TT_3_149 s=1 full sym=0 UNSAT  0.019
+17:25:12 p3-none TT_3_150 s=0 none sym=0 UNSAT  0.021
+17:25:12 p3-full TT_3_149 s=2 full sym=0 SAT pass 0.017
+17:25:12 p3-none TT_3_150 s=1 none sym=0 UNSAT  0.02
+17:25:12 p3-full TT_3_150 s=0 full sym=1 UNSAT  0.017
+17:25:12 p3-none TT_3_150 s=2 none sym=0 SAT pass 0.018
+17:25:12 p3-full TT_3_150 s=1 full sym=1 UNSAT  0.017
+17:25:12 p3-full TT_3_150 s=2 full sym=1 SAT pass 0.017
+17:25:12 p3-none TT_3_151 s=0 none sym=0 UNSAT  0.019
+17:25:12 p3-none TT_3_151 s=1 none sym=0 UNSAT  0.024
+17:25:12 p3-full TT_3_151 s=0 full sym=1 UNSAT  0.026
+17:25:12 p3-full TT_3_151 s=1 full sym=1 UNSAT  0.021
+17:25:12 p3-full TT_3_151 s=2 full sym=1 UNSAT  0.018
+17:25:12 p3-none TT_3_151 s=2 none sym=0 UNSAT  0.055
+17:25:12 p3-full TT_3_151 s=3 full sym=1 UNSAT  0.022
+17:25:12 p3-none TT_3_151 s=3 none sym=0 UNSAT  0.032
+17:25:12 p3-full TT_3_151 s=4 full sym=1 SAT pass 0.024
+17:25:12 p3-none TT_3_151 s=4 none sym=0 SAT pass 0.041
+17:25:12 p3-none TT_3_152 s=0 none sym=0 UNSAT  0.043
+17:25:12 p3-none TT_3_152 s=1 none sym=0 UNSAT  0.019
+17:25:12 p3-full TT_3_152 s=0 full sym=0 UNSAT  0.029
+17:25:12 p3-full TT_3_152 s=1 full sym=0 UNSAT  0.02
+17:25:12 p3-none TT_3_152 s=2 none sym=0 UNSAT  0.028
+17:25:12 p3-none TT_3_152 s=3 none sym=0 SAT pass 0.017
+17:25:12 p3-none TT_3_153 s=0 none sym=0 UNSAT  0.017
+17:25:12 p3-none TT_3_153 s=1 none sym=0 SAT pass 0.016
+17:25:12 p3-full TT_3_152 s=2 full sym=0 UNSAT  0.054
+17:25:12 p3-full TT_3_152 s=3 full sym=0 SAT pass 0.019
+17:25:12 p3-none TT_3_154 s=0 none sym=0 UNSAT  0.025
+17:25:12 p3-full TT_3_153 s=0 full sym=0 UNSAT  0.056
+17:25:12 p3-none TT_3_154 s=1 none sym=0 UNSAT  0.022
+17:25:12 p3-none TT_3_154 s=2 none sym=0 SAT pass 0.018
+17:25:12 p3-full TT_3_154 s=0 full sym=0 UNSAT  0.015
+17:25:12 p3-full TT_3_154 s=1 full sym=0 UNSAT  0.014
+17:25:12 p3-full TT_3_154 s=2 full sym=0 SAT pass 0.016
+17:25:12 p3-full TT_3_153 s=1 full sym=0 SAT pass 0.081
+17:25:12 p3-full TT_3_155 s=0 full sym=0 UNSAT  0.015
+17:25:12 p3-none TT_3_155 s=0 none sym=0 UNSAT  0.032
+17:25:12 p3-full TT_3_155 s=1 full sym=0 UNSAT  0.015
+17:25:12 p3-none TT_3_155 s=1 none sym=0 UNSAT  0.018
+17:25:12 p3-full TT_3_155 s=2 full sym=0 UNSAT  0.016
+17:25:12 p3-none TT_3_155 s=2 none sym=0 UNSAT  0.019
+17:25:12 p3-full TT_3_155 s=3 full sym=0 SAT pass 0.017
+17:25:12 p3-none TT_3_155 s=3 none sym=0 SAT pass 0.018
+17:25:12 p3-none TT_3_156 s=0 none sym=0 UNSAT  0.016
+17:25:12 p3-none TT_3_156 s=1 none sym=0 UNSAT  0.015
+17:25:12 p3-full TT_3_156 s=0 full sym=0 UNSAT  0.017
+17:25:12 p3-full TT_3_156 s=1 full sym=0 UNSAT  0.014
+17:25:12 p3-none TT_3_156 s=2 none sym=0 SAT pass 0.016
+17:25:12 p3-full TT_3_156 s=2 full sym=0 SAT pass 0.015
+17:25:12 p3-none TT_3_157 s=0 none sym=0 UNSAT  0.014
+17:25:12 p3-none TT_3_157 s=1 none sym=0 UNSAT  0.015
+17:25:12 p3-full TT_3_157 s=0 full sym=0 UNSAT  0.015
+17:25:12 p3-none TT_3_157 s=2 none sym=0 UNSAT  0.015
+17:25:12 p3-full TT_3_157 s=1 full sym=0 UNSAT  0.017
+17:25:12 p3-none TT_3_157 s=3 none sym=0 SAT pass 0.015
+17:25:12 p3-full TT_3_157 s=2 full sym=0 UNSAT  0.013
+17:25:12 p3-none TT_3_158 s=0 none sym=0 UNSAT  0.014
+17:25:12 p3-full TT_3_157 s=3 full sym=0 SAT pass 0.015
+17:25:12 p3-none TT_3_158 s=1 none sym=0 UNSAT  0.016
+17:25:12 p3-full TT_3_158 s=0 full sym=0 UNSAT  0.017
+17:25:12 p3-none TT_3_158 s=2 none sym=0 UNSAT  0.014
+17:25:12 p3-full TT_3_158 s=1 full sym=0 UNSAT  0.014
+17:25:12 p3-none TT_3_158 s=3 none sym=0 UNSAT  0.018
+17:25:12 p3-full TT_3_158 s=2 full sym=0 UNSAT  0.015
+17:25:12 p3-full TT_3_158 s=3 full sym=0 UNSAT  0.015
+17:25:12 p3-none TT_3_158 s=4 none sym=0 SAT pass 0.018
+17:25:13 p3-none TT_3_159 s=0 none sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_158 s=4 full sym=0 SAT pass 0.017
+17:25:13 p3-full TT_3_159 s=0 full sym=0 UNSAT  0.012
+17:25:13 p3-none TT_3_159 s=1 none sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_159 s=2 none sym=0 SAT pass 0.014
+17:25:13 p3-full TT_3_159 s=1 full sym=0 UNSAT  0.015
+17:25:13 p3-none TT_3_160 s=0 none sym=0 UNSAT  0.014
+17:25:13 p3-full TT_3_159 s=2 full sym=0 SAT pass 0.015
+17:25:13 p3-none TT_3_160 s=1 none sym=0 SAT pass 0.016
+17:25:13 p3-full TT_3_160 s=0 full sym=0 UNSAT  0.016
+17:25:13 p3-none TT_3_161 s=0 none sym=0 UNSAT  0.014
+17:25:13 p3-full TT_3_160 s=1 full sym=0 SAT pass 0.013
+17:25:13 p3-full TT_3_161 s=0 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_161 s=1 none sym=0 UNSAT  0.016
+17:25:13 p3-none TT_3_161 s=2 none sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_161 s=1 full sym=0 UNSAT  0.014
+17:25:13 p3-full TT_3_161 s=2 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_161 s=3 none sym=0 SAT pass 0.017
+17:25:13 p3-full TT_3_161 s=3 full sym=0 SAT pass 0.016
+17:25:13 p3-none TT_3_162 s=0 none sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_162 s=0 full sym=0 UNSAT  0.015
+17:25:13 p3-none TT_3_162 s=1 none sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_162 s=1 full sym=0 UNSAT  0.018
+17:25:13 p3-none TT_3_162 s=2 none sym=0 SAT pass 0.017
+17:25:13 p3-full TT_3_162 s=2 full sym=0 SAT pass 0.016
+17:25:13 p3-none TT_3_163 s=0 none sym=0 UNSAT  0.015
+17:25:13 p3-none TT_3_163 s=1 none sym=0 UNSAT  0.014
+17:25:13 p3-full TT_3_163 s=0 full sym=0 UNSAT  0.015
+17:25:13 p3-none TT_3_163 s=2 none sym=0 UNSAT  0.017
+17:25:13 p3-full TT_3_163 s=1 full sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_163 s=2 full sym=0 UNSAT  0.015
+17:25:13 p3-none TT_3_163 s=3 none sym=0 SAT pass 0.016
+17:25:13 p3-none TT_3_164 s=0 none sym=0 UNSAT  0.014
+17:25:13 p3-full TT_3_163 s=3 full sym=0 SAT pass 0.017
+17:25:13 p3-none TT_3_164 s=1 none sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_164 s=0 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_164 s=2 none sym=0 UNSAT  0.013
+17:25:13 p3-full TT_3_164 s=1 full sym=0 UNSAT  0.013
+17:25:13 p3-full TT_3_164 s=2 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_164 s=3 none sym=0 SAT pass 0.017
+17:25:13 p3-full TT_3_164 s=3 full sym=0 SAT pass 0.016
+17:25:13 p3-none TT_3_165 s=0 none sym=0 UNSAT  0.017
+17:25:13 p3-full TT_3_165 s=0 full sym=0 UNSAT  0.015
+17:25:13 p3-none TT_3_165 s=1 none sym=0 SAT pass 0.016
+17:25:13 p3-full TT_3_165 s=1 full sym=0 SAT pass 0.016
+17:25:13 p3-none TT_3_166 s=0 none sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_166 s=0 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_166 s=1 none sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_166 s=1 full sym=0 UNSAT  0.016
+17:25:13 p3-none TT_3_166 s=2 none sym=0 SAT pass 0.016
+17:25:13 p3-full TT_3_166 s=2 full sym=0 SAT pass 0.012
+17:25:13 p3-none TT_3_167 s=0 none sym=0 UNSAT  0.017
+17:25:13 p3-full TT_3_167 s=0 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_167 s=1 none sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_167 s=1 full sym=0 UNSAT  0.016
+17:25:13 p3-none TT_3_167 s=2 none sym=0 UNSAT  0.016
+17:25:13 p3-full TT_3_167 s=2 full sym=0 UNSAT  0.016
+17:25:13 p3-none TT_3_167 s=3 none sym=0 SAT pass 0.016
+17:25:13 p3-full TT_3_167 s=3 full sym=0 SAT pass 0.017
+17:25:13 p3-full TT_3_168 s=0 full sym=0 UNSAT  0.015
+17:25:13 p3-none TT_3_168 s=0 none sym=0 UNSAT  0.017
+17:25:13 p3-none TT_3_168 s=1 none sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_168 s=1 full sym=0 UNSAT  0.016
+17:25:13 p3-none TT_3_168 s=2 none sym=0 SAT pass 0.014
+17:25:13 p3-full TT_3_168 s=2 full sym=0 SAT pass 0.016
+17:25:13 p3-none TT_3_169 s=0 none sym=0 UNSAT  0.014
+17:25:13 p3-full TT_3_169 s=0 full sym=0 UNSAT  0.015
+17:25:13 p3-none TT_3_169 s=1 none sym=0 UNSAT  0.013
+17:25:13 p3-full TT_3_169 s=1 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_169 s=2 none sym=0 SAT pass 0.013
+17:25:13 p3-full TT_3_169 s=2 full sym=0 SAT pass 0.016
+17:25:13 p3-none TT_3_170 s=0 none sym=0 SAT pass 0.012
+17:25:13 p3-full TT_3_170 s=0 full sym=0 SAT pass 0.015
+17:25:13 p3-none TT_3_171 s=0 none sym=0 UNSAT  0.015
+17:25:13 p3-none TT_3_171 s=1 none sym=0 UNSAT  0.013
+17:25:13 p3-full TT_3_171 s=0 full sym=0 UNSAT  0.016
+17:25:13 p3-none TT_3_171 s=2 none sym=0 SAT pass 0.015
+17:25:13 p3-full TT_3_171 s=1 full sym=0 UNSAT  0.015
+17:25:13 p3-none TT_3_172 s=0 none sym=0 UNSAT  0.017
+17:25:13 p3-full TT_3_171 s=2 full sym=0 SAT pass 0.019
+17:25:13 p3-none TT_3_172 s=1 none sym=0 UNSAT  0.016
+17:25:13 p3-full TT_3_172 s=0 full sym=0 UNSAT  0.016
+17:25:13 p3-full TT_3_172 s=1 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_172 s=2 none sym=0 UNSAT  0.017
+17:25:13 p3-full TT_3_172 s=2 full sym=0 UNSAT  0.017
+17:25:13 p3-none TT_3_172 s=3 none sym=0 SAT pass 0.018
+17:25:13 p3-full TT_3_172 s=3 full sym=0 SAT pass 0.015
+17:25:13 p3-none TT_3_173 s=0 none sym=0 UNSAT  0.014
+17:25:13 p3-full TT_3_173 s=0 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_173 s=1 none sym=0 UNSAT  0.013
+17:25:13 p3-full TT_3_173 s=1 full sym=0 UNSAT  0.016
+17:25:13 p3-none TT_3_173 s=2 none sym=0 UNSAT  0.016
+17:25:13 p3-full TT_3_173 s=2 full sym=0 UNSAT  0.015
+17:25:13 p3-none TT_3_173 s=3 none sym=0 SAT pass 0.014
+17:25:13 p3-none TT_3_174 s=0 none sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_173 s=3 full sym=0 SAT pass 0.016
+17:25:13 p3-none TT_3_174 s=1 none sym=0 UNSAT  0.016
+17:25:13 p3-full TT_3_174 s=0 full sym=0 UNSAT  0.016
+17:25:13 p3-full TT_3_174 s=1 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_174 s=2 none sym=0 SAT pass 0.017
+17:25:13 p3-none TT_3_175 s=0 none sym=0 UNSAT  0.013
+17:25:13 p3-full TT_3_174 s=2 full sym=0 SAT pass 0.014
+17:25:13 p3-none TT_3_175 s=1 none sym=0 SAT pass 0.015
+17:25:13 p3-full TT_3_175 s=0 full sym=0 UNSAT  0.019
+17:25:13 p3-none TT_3_176 s=0 none sym=0 UNSAT  0.016
+17:25:13 p3-full TT_3_175 s=1 full sym=0 SAT pass 0.015
+17:25:13 p3-full TT_3_176 s=0 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_176 s=1 none sym=0 UNSAT  0.03
+17:25:13 p3-full TT_3_176 s=1 full sym=0 UNSAT  0.014
+17:25:13 p3-full TT_3_176 s=2 full sym=0 SAT pass 0.013
+17:25:13 p3-none TT_3_176 s=2 none sym=0 SAT pass 0.026
+17:25:13 p3-none TT_3_177 s=0 none sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_177 s=0 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_177 s=1 none sym=0 UNSAT  0.013
+17:25:13 p3-full TT_3_177 s=1 full sym=0 UNSAT  0.014
+17:25:13 p3-none TT_3_177 s=2 none sym=0 UNSAT  0.015
+17:25:13 p3-full TT_3_177 s=2 full sym=0 UNSAT  0.015
+17:25:13 p3-none TT_3_177 s=3 none sym=0 SAT pass 0.017
+17:25:13 p3-full TT_3_177 s=3 full sym=0 SAT pass 0.017
+17:25:13 p3-none TT_3_178 s=0 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_178 s=0 full sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_178 s=1 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_178 s=1 full sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_178 s=2 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_178 s=2 full sym=0 UNSAT  0.016
+17:25:14 p3-none TT_3_178 s=3 none sym=0 UNSAT  0.019
+17:25:14 p3-full TT_3_178 s=3 full sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_178 s=4 none sym=0 SAT pass 0.018
+17:25:14 p3-full TT_3_178 s=4 full sym=0 SAT pass 0.017
+17:25:14 p3-none TT_3_179 s=0 none sym=0 UNSAT  0.018
+17:25:14 p3-full TT_3_179 s=0 full sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_179 s=1 none sym=0 UNSAT  0.016
+17:25:14 p3-full TT_3_179 s=1 full sym=0 UNSAT  0.019
+17:25:14 p3-none TT_3_179 s=2 none sym=0 SAT pass 0.015
+17:25:14 p3-none TT_3_180 s=0 none sym=0 UNSAT  0.012
+17:25:14 p3-full TT_3_179 s=2 full sym=0 SAT pass 0.013
+17:25:14 p3-none TT_3_180 s=1 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_180 s=0 full sym=0 UNSAT  0.016
+17:25:14 p3-none TT_3_180 s=2 none sym=0 SAT pass 0.016
+17:25:14 p3-full TT_3_180 s=1 full sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_181 s=0 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_180 s=2 full sym=0 SAT pass 0.015
+17:25:14 p3-none TT_3_181 s=1 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_181 s=0 full sym=0 UNSAT  0.028
+17:25:14 p3-none TT_3_181 s=2 none sym=0 UNSAT  0.018
+17:25:14 p3-none TT_3_181 s=3 none sym=0 SAT pass 0.016
+17:25:14 p3-full TT_3_181 s=1 full sym=0 UNSAT  0.036
+17:25:14 p3-none TT_3_182 s=0 none sym=0 UNSAT  0.018
+17:25:14 p3-full TT_3_181 s=2 full sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_182 s=1 none sym=0 UNSAT  0.012
+17:25:14 p3-none TT_3_182 s=2 none sym=0 UNSAT  0.014
+17:25:14 p3-full TT_3_181 s=3 full sym=0 SAT pass 0.015
+17:25:14 p3-full TT_3_182 s=0 full sym=0 UNSAT  0.014
+17:25:14 p3-none TT_3_182 s=3 none sym=0 UNSAT  0.02
+17:25:14 p3-full TT_3_182 s=1 full sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_182 s=4 none sym=0 SAT pass 0.015
+17:25:14 p3-none TT_3_183 s=0 none sym=0 UNSAT  0.013
+17:25:14 p3-full TT_3_182 s=2 full sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_182 s=3 full sym=0 UNSAT  0.014
+17:25:14 p3-none TT_3_183 s=1 none sym=0 UNSAT  0.016
+17:25:14 p3-full TT_3_182 s=4 full sym=0 SAT pass 0.015
+17:25:14 p3-none TT_3_183 s=2 none sym=0 SAT pass 0.015
+17:25:14 p3-none TT_3_184 s=0 none sym=0 UNSAT  0.016
+17:25:14 p3-full TT_3_183 s=0 full sym=0 UNSAT  0.021
+17:25:14 p3-none TT_3_184 s=1 none sym=0 UNSAT  0.013
+17:25:14 p3-none TT_3_184 s=2 none sym=0 UNSAT  0.014
+17:25:14 p3-full TT_3_183 s=1 full sym=0 UNSAT  0.029
+17:25:14 p3-none TT_3_184 s=3 none sym=0 SAT pass 0.022
+17:25:14 p3-full TT_3_183 s=2 full sym=0 SAT pass 0.02
+17:25:14 p3-none TT_3_185 s=0 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_184 s=0 full sym=0 UNSAT  0.017
+17:25:14 p3-full TT_3_184 s=1 full sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_185 s=1 none sym=0 UNSAT  0.017
+17:25:14 p3-full TT_3_184 s=2 full sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_185 s=2 none sym=0 UNSAT  0.018
+17:25:14 p3-full TT_3_184 s=3 full sym=0 SAT pass 0.017
+17:25:14 p3-none TT_3_185 s=3 none sym=0 SAT pass 0.017
+17:25:14 p3-full TT_3_185 s=0 full sym=0 UNSAT  0.014
+17:25:14 p3-none TT_3_186 s=0 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_185 s=1 full sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_186 s=1 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_185 s=2 full sym=0 UNSAT  0.014
+17:25:14 p3-none TT_3_186 s=2 none sym=0 SAT pass 0.014
+17:25:14 p3-full TT_3_185 s=3 full sym=0 SAT pass 0.014
+17:25:14 p3-full TT_3_186 s=0 full sym=0 UNSAT  0.013
+17:25:14 p3-none TT_3_187 s=0 none sym=0 UNSAT  0.013
+17:25:14 p3-full TT_3_186 s=1 full sym=0 UNSAT  0.011
+17:25:14 p3-none TT_3_187 s=1 none sym=0 SAT pass 0.013
+17:25:14 p3-full TT_3_186 s=2 full sym=0 SAT pass 0.014
+17:25:14 p3-full TT_3_187 s=0 full sym=0 UNSAT  0.013
+17:25:14 p3-none TT_3_188 s=0 none sym=0 UNSAT  0.012
+17:25:14 p3-full TT_3_187 s=1 full sym=0 SAT pass 0.013
+17:25:14 p3-none TT_3_188 s=1 none sym=0 UNSAT  0.013
+17:25:14 p3-full TT_3_188 s=0 full sym=0 UNSAT  0.016
+17:25:14 p3-none TT_3_188 s=2 none sym=0 UNSAT  0.016
+17:25:14 p3-full TT_3_188 s=1 full sym=0 UNSAT  0.017
+17:25:14 p3-none TT_3_188 s=3 none sym=0 SAT pass 0.017
+17:25:14 p3-none TT_3_189 s=0 none sym=0 UNSAT  0.014
+17:25:14 p3-full TT_3_188 s=2 full sym=0 UNSAT  0.016
+17:25:14 p3-full TT_3_188 s=3 full sym=0 SAT pass 0.015
+17:25:14 p3-none TT_3_189 s=1 none sym=0 UNSAT  0.016
+17:25:14 p3-full TT_3_189 s=0 full sym=0 UNSAT  0.014
+17:25:14 p3-none TT_3_189 s=2 none sym=0 UNSAT  0.014
+17:25:14 p3-full TT_3_189 s=1 full sym=0 UNSAT  0.016
+17:25:14 p3-none TT_3_189 s=3 none sym=0 SAT pass 0.015
+17:25:14 p3-none TT_3_190 s=0 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_189 s=2 full sym=0 UNSAT  0.016
+17:25:14 p3-full TT_3_189 s=3 full sym=0 SAT pass 0.014
+17:25:14 p3-none TT_3_190 s=1 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_190 s=0 full sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_190 s=2 none sym=0 SAT pass 0.016
+17:25:14 p3-full TT_3_190 s=1 full sym=0 UNSAT  0.016
+17:25:14 p3-none TT_3_191 s=0 none sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_191 s=1 none sym=0 UNSAT  0.014
+17:25:14 p3-full TT_3_190 s=2 full sym=0 SAT pass 0.016
+17:25:14 p3-full TT_3_191 s=0 full sym=0 UNSAT  0.014
+17:25:14 p3-none TT_3_191 s=2 none sym=0 SAT pass 0.016
+17:25:14 p3-none TT_3_192 s=0 none sym=0 UNSAT  0.016
+17:25:14 p3-full TT_3_191 s=1 full sym=0 UNSAT  0.016
+17:25:14 p3-full TT_3_191 s=2 full sym=0 SAT pass 0.014
+17:25:14 p3-none TT_3_192 s=1 none sym=0 SAT pass 0.015
+17:25:14 p3-full TT_3_192 s=0 full sym=0 UNSAT  0.013
+17:25:14 p3-none TT_3_193 s=0 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_192 s=1 full sym=0 SAT pass 0.015
+17:25:14 p3-none TT_3_193 s=1 none sym=0 UNSAT  0.014
+17:25:14 p3-full TT_3_193 s=0 full sym=0 UNSAT  0.013
+17:25:14 p3-none TT_3_193 s=2 none sym=0 UNSAT  0.014
+17:25:14 p3-full TT_3_193 s=1 full sym=0 UNSAT  0.013
+17:25:14 p3-none TT_3_193 s=3 none sym=0 SAT pass 0.014
+17:25:14 p3-none TT_3_194 s=0 none sym=0 UNSAT  0.015
+17:25:14 p3-full TT_3_193 s=2 full sym=0 UNSAT  0.016
+17:25:14 p3-none TT_3_194 s=1 none sym=0 UNSAT  0.017
+17:25:14 p3-full TT_3_193 s=3 full sym=0 SAT pass 0.018
+17:25:14 p3-full TT_3_194 s=0 full sym=0 UNSAT  0.016
+17:25:14 p3-none TT_3_194 s=2 none sym=0 UNSAT  0.018
+17:25:14 p3-full TT_3_194 s=1 full sym=0 UNSAT  0.017
+17:25:14 p3-none TT_3_194 s=3 none sym=0 SAT pass 0.017
+17:25:14 p3-full TT_3_194 s=2 full sym=0 UNSAT  0.015
+17:25:14 p3-none TT_3_195 s=0 none sym=0 UNSAT  0.016
+17:25:15 p3-full TT_3_194 s=3 full sym=0 SAT pass 0.018
+17:25:15 p3-full TT_3_195 s=0 full sym=0 UNSAT  0.012
+17:25:15 p3-none TT_3_195 s=1 none sym=0 SAT pass 0.032
+17:25:15 p3-full TT_3_195 s=1 full sym=0 SAT pass 0.033
+17:25:15 p3-none TT_3_196 s=0 none sym=0 UNSAT  0.029
+17:25:15 p3-full TT_3_196 s=0 full sym=0 UNSAT  0.017
+17:25:15 p3-none TT_3_196 s=1 none sym=0 UNSAT  0.016
+17:25:15 p3-full TT_3_196 s=1 full sym=0 UNSAT  0.016
+17:25:15 p3-none TT_3_196 s=2 none sym=0 SAT pass 0.015
+17:25:15 p3-none TT_3_197 s=0 none sym=0 UNSAT  0.015
+17:25:15 p3-full TT_3_196 s=2 full sym=0 SAT pass 0.022
+17:25:15 p3-none TT_3_197 s=1 none sym=0 UNSAT  0.015
+17:25:15 p3-full TT_3_197 s=0 full sym=0 UNSAT  0.015
+17:25:15 p3-none TT_3_197 s=2 none sym=0 UNSAT  0.013
+17:25:15 p3-full TT_3_197 s=1 full sym=0 UNSAT  0.012
+17:25:15 p3-full TT_3_197 s=2 full sym=0 UNSAT  0.012
+17:25:15 p3-none TT_3_197 s=3 none sym=0 SAT pass 0.013
+17:25:15 p3-none TT_3_198 s=0 none sym=0 UNSAT  0.013
+17:25:15 p3-full TT_3_197 s=3 full sym=0 SAT pass 0.013
+17:25:15 p3-none TT_3_198 s=1 none sym=0 UNSAT  0.012
+17:25:15 p3-full TT_3_198 s=0 full sym=0 UNSAT  0.011
+17:25:15 p3-full TT_3_198 s=1 full sym=0 UNSAT  0.014
+17:25:15 p3-none TT_3_198 s=2 none sym=0 SAT pass 0.017
+17:25:15 p3-full TT_3_198 s=2 full sym=0 SAT pass 0.015
+17:25:15 p3-none TT_3_199 s=0 none sym=0 UNSAT  0.013
+17:25:15 p3-none TT_3_199 s=1 none sym=0 UNSAT  0.013
+17:25:15 p3-full TT_3_199 s=0 full sym=0 UNSAT  0.016
+17:25:15 p3-full TT_3_199 s=1 full sym=0 UNSAT  0.015
+17:25:15 p3-none TT_3_199 s=2 none sym=0 UNSAT  0.016
+17:25:15 p3-full TT_3_199 s=2 full sym=0 UNSAT  0.013
+17:25:15 p3-none TT_3_199 s=3 none sym=0 SAT pass 0.015
+17:25:15 p3-full TT_3_199 s=3 full sym=0 SAT pass 0.014
+17:25:15 p3-none TT_3_200 s=0 none sym=0 UNSAT  0.014
+17:25:15 p3-full TT_3_200 s=0 full sym=0 UNSAT  0.016
+17:25:15 p3-none TT_3_200 s=1 none sym=0 UNSAT  0.015
+17:25:15 p3-none TT_3_200 s=2 none sym=0 SAT pass 0.016
+17:25:15 p3-full TT_3_200 s=1 full sym=0 UNSAT  0.014
+17:25:15 p3-full TT_3_200 s=2 full sym=0 SAT pass 0.016
+17:25:15 p3-none TT_3_201 s=0 none sym=0 UNSAT  0.016
+17:25:15 p3-none TT_3_201 s=1 none sym=0 UNSAT  0.016
+17:25:15 p3-full TT_3_201 s=0 full sym=0 UNSAT  0.015
+17:25:15 p3-full TT_3_201 s=1 full sym=0 UNSAT  0.017
+17:25:15 p3-none TT_3_201 s=2 none sym=0 SAT pass 0.015
+17:25:15 p3-full TT_3_201 s=2 full sym=0 SAT pass 0.015
+17:25:15 p3-none TT_3_202 s=0 none sym=0 UNSAT  0.015
+17:25:15 p3-full TT_3_202 s=0 full sym=0 UNSAT  0.016
+17:25:15 p3-none TT_3_202 s=1 none sym=0 UNSAT  0.015
+17:25:15 p3-full TT_3_202 s=1 full sym=0 UNSAT  0.016
+17:25:15 p3-none TT_3_202 s=2 none sym=0 UNSAT  0.015
+17:25:15 p3-full TT_3_202 s=2 full sym=0 UNSAT  0.016
+17:25:15 p3-none TT_3_202 s=3 none sym=0 SAT pass 0.017
+17:25:15 p3-none TT_3_203 s=0 none sym=0 UNSAT  0.015
+17:25:15 p3-full TT_3_202 s=3 full sym=0 SAT pass 0.018
+17:25:15 p3-full TT_3_203 s=0 full sym=0 UNSAT  0.014
+17:25:15 p3-none TT_3_203 s=1 none sym=0 UNSAT  0.017
+17:25:15 p3-full TT_3_203 s=1 full sym=0 UNSAT  0.015
+17:25:15 p3-none TT_3_203 s=2 none sym=0 UNSAT  0.015
+17:25:15 p3-full TT_3_203 s=2 full sym=0 UNSAT  0.014
+17:25:15 p3-none TT_3_203 s=3 none sym=0 SAT pass 0.014
+17:25:15 p3-none TT_3_204 s=0 none sym=0 SAT pass 0.014
+17:25:15 p3-full TT_3_203 s=3 full sym=0 SAT pass 0.017
+17:25:15 p3-none TT_3_205 s=0 none sym=0 UNSAT  0.014
+17:25:15 p3-full TT_3_204 s=0 full sym=0 SAT pass 0.016
+17:25:15 p3-none TT_3_205 s=1 none sym=0 UNSAT  0.016
+17:25:15 p3-full TT_3_205 s=0 full sym=0 UNSAT  0.014
+17:25:15 p3-none TT_3_205 s=2 none sym=0 SAT pass 0.011
+17:25:15 p3-full TT_3_205 s=1 full sym=0 UNSAT  0.012
+17:25:15 p3-none TT_3_206 s=0 none sym=0 UNSAT  0.012
+17:25:15 p3-full TT_3_205 s=2 full sym=0 SAT pass 0.012
+17:25:15 p3-none TT_3_206 s=1 none sym=0 UNSAT  0.014
+17:25:15 p3-full TT_3_206 s=0 full sym=0 UNSAT  0.015
+17:25:15 p3-full TT_3_206 s=1 full sym=0 UNSAT  0.012
+17:25:15 p3-none TT_3_206 s=2 none sym=0 SAT pass 0.014
+17:25:15 p3-none TT_3_207 s=0 none sym=0 UNSAT  0.013
+17:25:15 p3-full TT_3_206 s=2 full sym=0 SAT pass 0.017
+17:25:15 p3-none TT_3_207 s=1 none sym=0 SAT pass 0.015
+17:25:15 p3-full TT_3_207 s=0 full sym=0 UNSAT  0.016
+17:25:15 p3-none TT_3_208 s=0 none sym=0 UNSAT  0.013
+17:25:15 p3-full TT_3_207 s=1 full sym=0 SAT pass 0.018
+17:25:15 p3-none TT_3_208 s=1 none sym=0 UNSAT  0.016
+17:25:15 p3-full TT_3_208 s=0 full sym=0 UNSAT  0.017
+17:25:15 p3-none TT_3_208 s=2 none sym=0 SAT pass 0.016
+17:25:15 p3-full TT_3_208 s=1 full sym=0 UNSAT  0.016
+17:25:15 p3-none TT_3_209 s=0 none sym=0 UNSAT  0.018
+17:25:15 p3-full TT_3_208 s=2 full sym=0 SAT pass 0.019
+17:25:15 p3-none TT_3_209 s=1 none sym=0 UNSAT  0.019
+17:25:15 p3-full TT_3_209 s=0 full sym=0 UNSAT  0.015
+17:25:15 p3-none TT_3_209 s=2 none sym=0 UNSAT  0.016
+17:25:15 p3-full TT_3_209 s=1 full sym=0 UNSAT  0.016
+17:25:15 p3-none TT_3_209 s=3 none sym=0 SAT pass 0.018
+17:25:15 p3-full TT_3_209 s=2 full sym=0 UNSAT  0.018
+17:25:15 p3-full TT_3_209 s=3 full sym=0 SAT pass 0.018
+17:25:15 p3-none TT_3_210 s=0 none sym=0 UNSAT  0.029
+17:25:15 p3-full TT_3_210 s=0 full sym=0 UNSAT  0.022
+17:25:15 p3-none TT_3_210 s=1 none sym=0 UNSAT  0.026
+17:25:15 p3-full TT_3_210 s=1 full sym=0 UNSAT  0.017
+17:25:15 p3-none TT_3_210 s=2 none sym=0 SAT pass 0.016
+17:25:15 p3-full TT_3_210 s=2 full sym=0 SAT pass 0.017
+17:25:15 p3-none TT_3_211 s=0 none sym=0 UNSAT  0.016
+17:25:15 p3-full TT_3_211 s=0 full sym=0 UNSAT  0.015
+17:25:15 p3-none TT_3_211 s=1 none sym=0 UNSAT  0.016
+17:25:15 p3-full TT_3_211 s=1 full sym=0 UNSAT  0.017
+17:25:15 p3-none TT_3_211 s=2 none sym=0 UNSAT  0.02
+17:25:15 p3-full TT_3_211 s=2 full sym=0 UNSAT  0.016
+17:25:15 p3-full TT_3_211 s=3 full sym=0 SAT pass 0.016
+17:25:15 p3-none TT_3_211 s=3 none sym=0 SAT pass 0.022
+17:25:15 p3-none TT_3_212 s=0 none sym=0 UNSAT  0.014
+17:25:15 p3-full TT_3_212 s=0 full sym=0 UNSAT  0.02
+17:25:15 p3-none TT_3_212 s=1 none sym=0 UNSAT  0.017
+17:25:15 p3-full TT_3_212 s=1 full sym=0 UNSAT  0.019
+17:25:15 p3-none TT_3_212 s=2 none sym=0 UNSAT  0.017
+17:25:15 p3-full TT_3_212 s=2 full sym=0 UNSAT  0.016
+17:25:15 p3-none TT_3_212 s=3 none sym=0 UNSAT  0.021
+17:25:16 p3-full TT_3_212 s=3 full sym=0 UNSAT  0.019
+17:25:16 p3-none TT_3_212 s=4 none sym=0 SAT pass 0.022
+17:25:16 p3-full TT_3_212 s=4 full sym=0 SAT pass 0.019
+17:25:16 p3-none TT_3_213 s=0 none sym=0 UNSAT  0.015
+17:25:16 p3-full TT_3_213 s=0 full sym=0 UNSAT  0.017
+17:25:16 p3-none TT_3_213 s=1 none sym=0 UNSAT  0.014
+17:25:16 p3-full TT_3_213 s=1 full sym=0 UNSAT  0.016
+17:25:16 p3-none TT_3_213 s=2 none sym=0 SAT pass 0.014
+17:25:16 p3-full TT_3_213 s=2 full sym=0 SAT pass 0.017
+17:25:16 p3-none TT_3_214 s=0 none sym=0 UNSAT  0.018
+17:25:16 p3-full TT_3_214 s=0 full sym=0 UNSAT  0.017
+17:25:16 p3-none TT_3_214 s=1 none sym=0 UNSAT  0.016
+17:25:16 p3-full TT_3_214 s=1 full sym=0 UNSAT  0.019
+17:25:16 p3-none TT_3_214 s=2 none sym=0 UNSAT  0.016
+17:25:16 p3-full TT_3_214 s=2 full sym=0 UNSAT  0.016
+17:25:16 p3-none TT_3_214 s=3 none sym=0 UNSAT  0.023
+17:25:16 p3-full TT_3_214 s=3 full sym=0 UNSAT  0.017
+17:25:16 p3-full TT_3_214 s=4 full sym=0 SAT pass 0.018
+17:25:16 p3-none TT_3_214 s=4 none sym=0 SAT pass 0.022
+17:25:16 p3-none TT_3_215 s=0 none sym=0 UNSAT  0.018
+17:25:16 p3-full TT_3_215 s=0 full sym=0 UNSAT  0.018
+17:25:16 p3-none TT_3_215 s=1 none sym=0 UNSAT  0.017
+17:25:16 p3-full TT_3_215 s=1 full sym=0 UNSAT  0.02
+17:25:16 p3-none TT_3_215 s=2 none sym=0 SAT pass 0.018
+17:25:16 p3-full TT_3_215 s=2 full sym=0 SAT pass 0.02
+17:25:16 p3-none TT_3_216 s=0 none sym=0 UNSAT  0.018
+17:25:16 p3-full TT_3_216 s=0 full sym=0 UNSAT  0.017
+17:25:16 p3-none TT_3_216 s=1 none sym=0 UNSAT  0.019
+17:25:16 p3-full TT_3_216 s=1 full sym=0 UNSAT  0.017
+17:25:16 p3-none TT_3_216 s=2 none sym=0 UNSAT  0.02
+17:25:16 p3-full TT_3_216 s=2 full sym=0 UNSAT  0.019
+17:25:16 p3-none TT_3_216 s=3 none sym=0 SAT pass 0.017
+17:25:16 p3-full TT_3_216 s=3 full sym=0 SAT pass 0.016
+17:25:16 p3-none TT_3_217 s=0 none sym=0 UNSAT  0.016
+17:25:16 p3-full TT_3_217 s=0 full sym=0 UNSAT  0.017
+17:25:16 p3-none TT_3_217 s=1 none sym=0 UNSAT  0.015
+17:25:16 p3-full TT_3_217 s=1 full sym=0 UNSAT  0.016
+17:25:16 p3-none TT_3_217 s=2 none sym=0 UNSAT  0.016
+17:25:16 p3-full TT_3_217 s=2 full sym=0 UNSAT  0.018
+17:25:16 p3-none TT_3_217 s=3 none sym=0 SAT pass 0.017
+17:25:16 p3-full TT_3_217 s=3 full sym=0 SAT pass 0.021
+17:25:16 p3-none TT_3_218 s=0 none sym=0 UNSAT  0.016
+17:25:16 p3-full TT_3_218 s=0 full sym=0 UNSAT  0.019
+17:25:16 p3-none TT_3_218 s=1 none sym=0 UNSAT  0.018
+17:25:16 p3-full TT_3_218 s=1 full sym=0 UNSAT  0.017
+17:25:16 p3-none TT_3_218 s=2 none sym=0 UNSAT  0.016
+17:25:16 p3-full TT_3_218 s=2 full sym=0 UNSAT  0.017
+17:25:16 p3-none TT_3_218 s=3 none sym=0 SAT pass 0.015
+17:25:16 p3-full TT_3_218 s=3 full sym=0 SAT pass 0.018
+17:25:16 p3-none TT_3_219 s=0 none sym=0 UNSAT  0.016
+17:25:16 p3-full TT_3_219 s=0 full sym=0 UNSAT  0.015
+17:25:16 p3-none TT_3_219 s=1 none sym=0 UNSAT  0.018
+17:25:16 p3-full TT_3_219 s=1 full sym=0 UNSAT  0.015
+17:25:16 p3-none TT_3_219 s=2 none sym=0 UNSAT  0.016
+17:25:16 p3-full TT_3_219 s=2 full sym=0 UNSAT  0.014
+17:25:16 p3-none TT_3_219 s=3 none sym=0 SAT pass 0.017
+17:25:16 p3-full TT_3_219 s=3 full sym=0 SAT pass 0.016
+17:25:16 p3-none TT_3_220 s=0 none sym=0 UNSAT  0.018
+17:25:16 p3-full TT_3_220 s=0 full sym=0 UNSAT  0.014
+17:25:16 p3-none TT_3_220 s=1 none sym=0 UNSAT  0.017
+17:25:16 p3-full TT_3_220 s=1 full sym=0 UNSAT  0.016
+17:25:16 p3-none TT_3_220 s=2 none sym=0 SAT pass 0.016
+17:25:16 p3-full TT_3_220 s=2 full sym=0 SAT pass 0.014
+17:25:16 p3-none TT_3_221 s=0 none sym=0 UNSAT  0.015
+17:25:16 p3-full TT_3_221 s=0 full sym=0 UNSAT  0.013
+17:25:16 p3-none TT_3_221 s=1 none sym=0 SAT pass 0.018
+17:25:16 p3-full TT_3_221 s=1 full sym=0 SAT pass 0.016
+17:25:16 p3-none TT_3_222 s=0 none sym=0 UNSAT  0.015
+17:25:16 p3-full TT_3_222 s=0 full sym=0 UNSAT  0.016
+17:25:16 p3-none TT_3_222 s=1 none sym=0 UNSAT  0.016
+17:25:16 p3-full TT_3_222 s=1 full sym=0 UNSAT  0.019
+17:25:16 p3-none TT_3_222 s=2 none sym=0 SAT pass 0.018
+17:25:16 p3-none TT_3_223 s=0 none sym=0 UNSAT  0.018
+17:25:16 p3-full TT_3_222 s=2 full sym=0 SAT pass 0.027
+17:25:16 p3-none TT_3_223 s=1 none sym=0 UNSAT  0.017
+17:25:16 p3-full TT_3_223 s=0 full sym=0 UNSAT  0.034
+17:25:16 p3-none TT_3_223 s=2 none sym=0 SAT pass 0.021
+17:25:16 p3-full TT_3_223 s=1 full sym=0 UNSAT  0.015
+17:25:16 p3-none TT_3_224 s=0 none sym=0 UNSAT  0.016
+17:25:16 p3-full TT_3_223 s=2 full sym=0 SAT pass 0.016
+17:25:16 p3-none TT_3_224 s=1 none sym=0 UNSAT  0.015
+17:25:16 p3-full TT_3_224 s=0 full sym=0 UNSAT  0.016
+17:25:16 p3-none TT_3_224 s=2 none sym=0 SAT pass 0.016
+17:25:16 p3-none TT_3_225 s=0 none sym=0 UNSAT  0.015
+17:25:16 p3-full TT_3_224 s=1 full sym=0 UNSAT  0.018
+17:25:16 p3-none TT_3_225 s=1 none sym=0 UNSAT  0.015
+17:25:16 p3-full TT_3_224 s=2 full sym=0 SAT pass 0.016
+17:25:16 p3-full TT_3_225 s=0 full sym=0 UNSAT  0.015
+17:25:16 p3-none TT_3_225 s=2 none sym=0 SAT pass 0.016
+17:25:16 p3-full TT_3_225 s=1 full sym=0 UNSAT  0.016
+17:25:16 p3-none TT_3_226 s=0 none sym=0 UNSAT  0.014
+17:25:16 p3-full TT_3_225 s=2 full sym=0 SAT pass 0.016
+17:25:16 p3-none TT_3_226 s=1 none sym=0 UNSAT  0.019
+17:25:16 p3-full TT_3_226 s=0 full sym=0 UNSAT  0.016
+17:25:16 p3-none TT_3_226 s=2 none sym=0 UNSAT  0.016
+17:25:16 p3-full TT_3_226 s=1 full sym=0 UNSAT  0.015
+17:25:16 p3-none TT_3_226 s=3 none sym=0 SAT pass 0.016
+17:25:16 p3-none TT_3_227 s=0 none sym=0 UNSAT  0.015
+17:25:16 p3-full TT_3_226 s=2 full sym=0 UNSAT  0.016
+17:25:16 p3-none TT_3_227 s=1 none sym=0 UNSAT  0.016
+17:25:16 p3-full TT_3_226 s=3 full sym=0 SAT pass 0.014
+17:25:16 p3-full TT_3_227 s=0 full sym=0 UNSAT  0.013
+17:25:16 p3-none TT_3_227 s=2 none sym=0 UNSAT  0.015
+17:25:16 p3-full TT_3_227 s=1 full sym=0 UNSAT  0.014
+17:25:16 p3-none TT_3_227 s=3 none sym=0 SAT pass 0.013
+17:25:16 p3-none TT_3_228 s=0 none sym=0 UNSAT  0.013
+17:25:16 p3-full TT_3_227 s=2 full sym=0 UNSAT  0.014
+17:25:16 p3-none TT_3_228 s=1 none sym=0 UNSAT  0.012
+17:25:16 p3-full TT_3_227 s=3 full sym=0 SAT pass 0.013
+17:25:16 p3-full TT_3_228 s=0 full sym=0 UNSAT  0.013
+17:25:16 p3-none TT_3_228 s=2 none sym=0 UNSAT  0.017
+17:25:17 p3-full TT_3_228 s=1 full sym=0 UNSAT  0.016
+17:25:17 p3-none TT_3_228 s=3 none sym=0 SAT pass 0.017
+17:25:17 p3-none TT_3_229 s=0 none sym=0 UNSAT  0.016
+17:25:17 p3-full TT_3_228 s=2 full sym=0 UNSAT  0.017
+17:25:17 p3-none TT_3_229 s=1 none sym=0 UNSAT  0.017
+17:25:17 p3-full TT_3_228 s=3 full sym=0 SAT pass 0.015
+17:25:17 p3-none TT_3_229 s=2 none sym=0 UNSAT  0.017
+17:25:17 p3-full TT_3_229 s=0 full sym=0 UNSAT  0.014
+17:25:17 p3-full TT_3_229 s=1 full sym=0 UNSAT  0.016
+17:25:17 p3-none TT_3_229 s=3 none sym=0 SAT pass 0.017
+17:25:17 p3-none TT_3_230 s=0 none sym=0 UNSAT  0.015
+17:25:17 p3-full TT_3_229 s=2 full sym=0 UNSAT  0.017
+17:25:17 p3-none TT_3_230 s=1 none sym=0 UNSAT  0.015
+17:25:17 p3-full TT_3_229 s=3 full sym=0 SAT pass 0.018
+17:25:17 p3-none TT_3_230 s=2 none sym=0 UNSAT  0.016
+17:25:17 p3-full TT_3_230 s=0 full sym=0 UNSAT  0.017
+17:25:17 p3-none TT_3_230 s=3 none sym=0 SAT pass 0.019
+17:25:17 p3-full TT_3_230 s=1 full sym=0 UNSAT  0.016
+17:25:17 p3-none TT_3_231 s=0 none sym=0 UNSAT  0.017
+17:25:17 p3-full TT_3_230 s=2 full sym=0 UNSAT  0.016
+17:25:17 p3-none TT_3_231 s=1 none sym=0 UNSAT  0.014
+17:25:17 p3-none TT_3_231 s=2 none sym=0 UNSAT  0.015
+17:25:17 p3-full TT_3_230 s=3 full sym=0 SAT pass 0.028
+17:25:17 p3-full TT_3_231 s=0 full sym=0 UNSAT  0.026
+17:25:17 p3-none TT_3_231 s=3 none sym=0 SAT pass 0.028
+17:25:17 p3-none TT_3_232 s=0 none sym=0 UNSAT  0.015
+17:25:17 p3-full TT_3_231 s=1 full sym=0 UNSAT  0.018
+17:25:17 p3-none TT_3_232 s=1 none sym=0 UNSAT  0.016
+17:25:17 p3-full TT_3_231 s=2 full sym=0 UNSAT  0.018
+17:25:17 p3-none TT_3_232 s=2 none sym=0 UNSAT  0.016
+17:25:17 p3-full TT_3_231 s=3 full sym=0 SAT pass 0.015
+17:25:17 p3-none TT_3_232 s=3 none sym=0 UNSAT  0.017
+17:25:17 p3-full TT_3_232 s=0 full sym=1 UNSAT  0.015
+17:25:17 p3-full TT_3_232 s=1 full sym=1 UNSAT  0.016
+17:25:17 p3-none TT_3_232 s=4 none sym=0 SAT pass 0.02
+17:25:17 p3-full TT_3_232 s=2 full sym=1 UNSAT  0.015
+17:25:17 p3-none TT_3_233 s=0 none sym=0 UNSAT  0.014
+17:25:17 p3-none TT_3_233 s=1 none sym=0 UNSAT  0.012
+17:25:17 p3-full TT_3_232 s=3 full sym=1 UNSAT  0.016
+17:25:17 p3-none TT_3_233 s=2 none sym=0 UNSAT  0.014
+17:25:17 p3-full TT_3_232 s=4 full sym=1 SAT pass 0.015
+17:25:17 p3-full TT_3_233 s=0 full sym=1 UNSAT  0.013
+17:25:17 p3-none TT_3_233 s=3 none sym=0 UNSAT  0.019
+17:25:17 p3-full TT_3_233 s=1 full sym=1 UNSAT  0.014
+17:25:17 p3-none TT_3_233 s=4 none sym=0 SAT pass 0.015
+17:25:17 p3-full TT_3_233 s=2 full sym=1 UNSAT  0.014
+17:25:17 p3-none TT_3_234 s=0 none sym=0 UNSAT  0.014
+17:25:17 p3-full TT_3_233 s=3 full sym=1 UNSAT  0.014
+17:25:17 p3-none TT_3_234 s=1 none sym=0 UNSAT  0.014
+17:25:17 p3-full TT_3_233 s=4 full sym=1 SAT pass 0.017
+17:25:17 p3-none TT_3_234 s=2 none sym=0 SAT pass 0.016
+17:25:17 p3-full TT_3_234 s=0 full sym=0 UNSAT  0.014
+17:25:17 p3-none TT_3_235 s=0 none sym=0 UNSAT  0.016
+17:25:17 p3-full TT_3_234 s=1 full sym=0 UNSAT  0.016
+17:25:17 p3-none TT_3_235 s=1 none sym=0 UNSAT  0.015
+17:25:17 p3-full TT_3_234 s=2 full sym=0 SAT pass 0.014
+17:25:17 p3-none TT_3_235 s=2 none sym=0 SAT pass 0.014
+17:25:17 p3-full TT_3_235 s=0 full sym=0 UNSAT  0.014
+17:25:17 p3-none TT_3_236 s=0 none sym=0 UNSAT  0.012
+17:25:17 p3-none TT_3_236 s=1 none sym=0 UNSAT  0.014
+17:25:17 p3-full TT_3_235 s=1 full sym=0 UNSAT  0.016
+17:25:17 p3-none TT_3_236 s=2 none sym=0 SAT pass 0.016
+17:25:17 p3-full TT_3_235 s=2 full sym=0 SAT pass 0.024
+17:25:17 p3-full TT_3_236 s=0 full sym=0 UNSAT  0.013
+17:25:17 p3-full TT_3_236 s=1 full sym=0 UNSAT  0.015
+17:25:17 p3-none TT_3_237 s=0 none sym=0 UNSAT  0.031
+17:25:17 p3-full TT_3_236 s=2 full sym=0 SAT pass 0.049
+17:25:17 p3-none TT_3_237 s=1 none sym=0 UNSAT  0.038
+17:25:17 p3-full TT_3_237 s=0 full sym=0 UNSAT  0.017
+17:25:17 p3-none TT_3_237 s=2 none sym=0 SAT pass 0.016
+17:25:17 p3-none TT_3_238 s=0 none sym=0 UNSAT  0.014
+17:25:17 p3-full TT_3_237 s=1 full sym=0 UNSAT  0.021
+17:25:17 p3-none TT_3_238 s=1 none sym=0 SAT pass 0.014
+17:25:17 p3-full TT_3_237 s=2 full sym=0 SAT pass 0.016
+17:25:17 p3-full TT_3_238 s=0 full sym=0 UNSAT  0.015
+17:25:17 p3-none TT_3_239 s=0 none sym=0 UNSAT  0.013
+17:25:17 p3-full TT_3_238 s=1 full sym=0 SAT pass 0.015
+17:25:17 p3-none TT_3_239 s=1 none sym=0 UNSAT  0.013
+17:25:17 p3-full TT_3_239 s=0 full sym=0 UNSAT  0.014
+17:25:17 p3-none TT_3_239 s=2 none sym=0 SAT pass 0.012
+17:25:17 p3-none TT_3_240 s=0 none sym=0 SAT pass 0.014
+17:25:17 p3-full TT_3_239 s=1 full sym=0 UNSAT  0.015
+17:25:17 p3-full TT_3_240 s=0 full sym=0 SAT pass 0.014
+17:25:17 p3-full TT_3_239 s=2 full sym=0 SAT pass 0.014
+17:25:17 p3-none TT_3_241 s=0 none sym=0 UNSAT  0.016
+17:25:17 p3-full TT_3_241 s=0 full sym=0 UNSAT  0.016
+17:25:17 p3-none TT_3_241 s=1 none sym=0 UNSAT  0.012
+17:25:17 p3-full TT_3_241 s=1 full sym=0 UNSAT  0.013
+17:25:17 p3-none TT_3_241 s=2 none sym=0 SAT pass 0.012
+17:25:17 p3-full TT_3_241 s=2 full sym=0 SAT pass 0.011
+17:25:17 p3-none TT_3_242 s=0 none sym=0 UNSAT  0.014
+17:25:17 p3-full TT_3_242 s=0 full sym=0 UNSAT  0.014
+17:25:17 p3-none TT_3_242 s=1 none sym=0 UNSAT  0.015
+17:25:17 p3-full TT_3_242 s=1 full sym=0 UNSAT  0.014
+17:25:17 p3-full TT_3_242 s=2 full sym=0 SAT pass 0.012
+17:25:17 p3-none TT_3_242 s=2 none sym=0 SAT pass 0.013
+17:25:17 p3-none TT_3_243 s=0 none sym=0 UNSAT  0.014
+17:25:17 p3-full TT_3_243 s=0 full sym=0 UNSAT  0.012
+17:25:17 p3-none TT_3_243 s=1 none sym=0 SAT pass 0.016
+17:25:17 p3-full TT_3_243 s=1 full sym=0 SAT pass 0.013
+17:25:17 p3-none TT_3_244 s=0 none sym=0 UNSAT  0.014
+17:25:17 p3-full TT_3_244 s=0 full sym=0 UNSAT  0.015
+17:25:17 p3-none TT_3_244 s=1 none sym=0 UNSAT  0.014
+17:25:17 p3-full TT_3_244 s=1 full sym=0 UNSAT  0.015
+17:25:17 p3-none TT_3_244 s=2 none sym=0 SAT pass 0.013
+17:25:17 p3-full TT_3_244 s=2 full sym=0 SAT pass 0.012
+17:25:17 p3-none TT_3_245 s=0 none sym=0 UNSAT  0.014
+17:25:17 p3-full TT_3_245 s=0 full sym=0 UNSAT  0.012
+17:25:17 p3-none TT_3_245 s=1 none sym=0 SAT pass 0.013
+17:25:17 p3-full TT_3_245 s=1 full sym=0 SAT pass 0.014
+17:25:17 p3-none TT_3_246 s=0 none sym=0 UNSAT  0.013
+17:25:17 p3-full TT_3_246 s=0 full sym=0 UNSAT  0.011
+17:25:17 p3-none TT_3_246 s=1 none sym=0 UNSAT  0.012
+17:25:17 p3-full TT_3_246 s=1 full sym=0 UNSAT  0.012
+17:25:17 p3-none TT_3_246 s=2 none sym=0 SAT pass 0.013
+17:25:17 p3-full TT_3_246 s=2 full sym=0 SAT pass 0.013
+17:25:17 p3-none TT_3_247 s=0 none sym=0 UNSAT  0.015
+17:25:17 p3-full TT_3_247 s=0 full sym=0 UNSAT  0.013
+17:25:18 p3-none TT_3_247 s=1 none sym=0 UNSAT  0.015
+17:25:18 p3-full TT_3_247 s=1 full sym=0 UNSAT  0.014
+17:25:18 p3-none TT_3_247 s=2 none sym=0 SAT pass 0.016
+17:25:18 p3-full TT_3_247 s=2 full sym=0 SAT pass 0.015
+17:25:18 p3-full TT_3_248 s=0 full sym=0 UNSAT  0.016
+17:25:18 p3-none TT_3_248 s=0 none sym=0 UNSAT  0.015
+17:25:18 p3-none TT_3_248 s=1 none sym=0 UNSAT  0.014
+17:25:18 p3-full TT_3_248 s=1 full sym=0 UNSAT  0.015
+17:25:18 p3-full TT_3_248 s=2 full sym=0 SAT pass 0.014
+17:25:18 p3-none TT_3_248 s=2 none sym=0 SAT pass 0.016
+17:25:18 p3-full TT_3_249 s=0 full sym=0 UNSAT  0.012
+17:25:18 p3-none TT_3_249 s=0 none sym=0 UNSAT  0.013
+17:25:18 p3-full TT_3_249 s=1 full sym=0 UNSAT  0.015
+17:25:18 p3-none TT_3_249 s=1 none sym=0 UNSAT  0.014
+17:25:18 p3-none TT_3_249 s=2 none sym=0 SAT pass 0.014
+17:25:18 p3-full TT_3_249 s=2 full sym=0 SAT pass 0.018
+17:25:18 p3-none TT_3_250 s=0 none sym=0 UNSAT  0.013
+17:25:18 p3-full TT_3_250 s=0 full sym=0 UNSAT  0.019
+17:25:18 p3-none TT_3_250 s=1 none sym=0 SAT pass 0.015
+17:25:18 p3-full TT_3_250 s=1 full sym=0 SAT pass 0.018
+17:25:18 p3-none TT_3_251 s=0 none sym=0 UNSAT  0.013
+17:25:18 p3-full TT_3_251 s=0 full sym=0 UNSAT  0.015
+17:25:18 p3-none TT_3_251 s=1 none sym=0 UNSAT  0.013
+17:25:18 p3-full TT_3_251 s=1 full sym=0 UNSAT  0.017
+17:25:18 p3-none TT_3_251 s=2 none sym=0 SAT pass 0.017
+17:25:18 p3-full TT_3_251 s=2 full sym=0 SAT pass 0.018
+17:25:18 p3-none TT_3_252 s=0 none sym=0 UNSAT  0.017
+17:25:18 p3-none TT_3_252 s=1 none sym=0 SAT pass 0.016
+17:25:18 p3-full TT_3_252 s=0 full sym=0 UNSAT  0.022
+17:25:18 p3-none TT_3_253 s=0 none sym=0 UNSAT  0.017
+17:25:18 p3-full TT_3_252 s=1 full sym=0 SAT pass 0.018
+17:25:18 p3-none TT_3_253 s=1 none sym=0 UNSAT  0.018
+17:25:18 p3-full TT_3_253 s=0 full sym=0 UNSAT  0.018
+17:25:18 p3-none TT_3_253 s=2 none sym=0 SAT pass 0.017
+17:25:18 p3-full TT_3_253 s=1 full sym=0 UNSAT  0.016
+17:25:18 p3-none TT_3_254 s=0 none sym=0 UNSAT  0.016
+17:25:18 p3-full TT_3_253 s=2 full sym=0 SAT pass 0.017
+17:25:18 p3-none TT_3_254 s=1 none sym=0 UNSAT  0.015
+17:25:18 p3-full TT_3_254 s=0 full sym=1 UNSAT  0.015
+17:25:18 p3-none TT_3_254 s=2 none sym=0 SAT pass 0.017
+17:25:18 p3-full TT_3_254 s=1 full sym=1 UNSAT  0.017
+17:25:18 p3-none TT_3_255 s=0 none sym=0 UNSAT  0.015
+17:25:18 p3-full TT_3_254 s=2 full sym=1 SAT pass 0.019
+17:25:18 p3-none TT_3_255 s=1 none sym=0 SAT pass 0.017
+17:25:18 p3-full TT_3_255 s=0 full sym=1 UNSAT  0.016
+17:25:18 p3-full TT_3_255 s=1 full sym=1 SAT pass 0.014

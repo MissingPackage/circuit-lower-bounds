@@ -1,0 +1,412 @@
+17:25:29 sym4-noS TT_4_0 s=0 full sym=0 UNSAT  0.02
+17:25:29 sym4-S TT_4_0 s=0 full sym=1 UNSAT  0.017
+17:25:29 sym4-noS TT_4_0 s=1 full sym=0 SAT pass 0.016
+17:25:29 sym4-S TT_4_0 s=1 full sym=1 SAT pass 0.014
+17:25:29 sym4-S TT_4_1 s=0 full sym=1 UNSAT  0.013
+17:25:29 sym4-noS TT_4_1 s=0 full sym=0 UNSAT  0.015
+17:25:29 sym4-noS TT_4_1 s=1 full sym=0 UNSAT  0.013
+17:25:29 sym4-S TT_4_1 s=1 full sym=1 UNSAT  0.016
+17:25:29 sym4-noS TT_4_1 s=2 full sym=0 UNSAT  0.014
+17:25:29 sym4-S TT_4_1 s=2 full sym=1 UNSAT  0.014
+17:25:29 sym4-noS TT_4_1 s=3 full sym=0 SAT pass 0.015
+17:25:29 sym4-S TT_4_1 s=3 full sym=1 SAT pass 0.014
+17:25:29 sym4-noS TT_4_278 s=0 full sym=0 UNSAT  0.014
+17:25:29 sym4-S TT_4_278 s=0 full sym=1 UNSAT  0.02
+17:25:29 sym4-noS TT_4_278 s=1 full sym=0 UNSAT  0.019
+17:25:29 sym4-S TT_4_278 s=1 full sym=1 UNSAT  0.015
+17:25:29 sym4-noS TT_4_278 s=2 full sym=0 UNSAT  0.015
+17:25:29 sym4-S TT_4_278 s=2 full sym=1 UNSAT  0.013
+17:25:29 sym4-S TT_4_278 s=3 full sym=1 UNSAT  0.014
+17:25:29 sym4-noS TT_4_278 s=3 full sym=0 UNSAT  0.015
+17:25:29 sym4-S TT_4_278 s=4 full sym=1 UNSAT  0.019
+17:25:29 sym4-noS TT_4_278 s=4 full sym=0 UNSAT  0.04
+17:25:29 sym4-S TT_4_278 s=5 full sym=1 UNSAT  0.032
+17:25:29 sym4-noS TT_4_278 s=5 full sym=0 UNSAT  0.146
+17:25:29 sym4-S TT_4_278 s=6 full sym=1 UNSAT  0.334
+17:25:29 sym4-S TT_4_278 s=7 full sym=1 SAT pass 0.043
+17:25:29 sym4-S TT_4_279 s=0 full sym=1 UNSAT  0.014
+17:25:29 sym4-S TT_4_279 s=1 full sym=1 UNSAT  0.015
+17:25:29 sym4-S TT_4_279 s=2 full sym=1 UNSAT  0.017
+17:25:29 sym4-S TT_4_279 s=3 full sym=1 UNSAT  0.016
+17:25:29 sym4-S TT_4_279 s=4 full sym=1 UNSAT  0.018
+17:25:29 sym4-S TT_4_279 s=5 full sym=1 UNSAT  0.043
+17:25:30 sym4-S TT_4_279 s=6 full sym=1 UNSAT  0.212
+17:25:30 sym4-S TT_4_279 s=7 full sym=1 SAT pass 0.076
+17:25:30 sym4-noS TT_4_279 s=0 full sym=0 UNSAT  0.012
+17:25:30 sym4-noS TT_4_279 s=1 full sym=0 UNSAT  0.012
+17:25:30 sym4-noS TT_4_279 s=2 full sym=0 UNSAT  0.013
+17:25:30 sym4-noS TT_4_279 s=3 full sym=0 UNSAT  0.015
+17:25:30 sym4-noS TT_4_279 s=4 full sym=0 UNSAT  0.032
+17:25:30 sym4-noS TT_4_279 s=5 full sym=0 UNSAT  0.156
+17:25:32 sym4-noS TT_4_278 s=6 full sym=0 UNSAT  2.78
+17:25:32 sym4-noS TT_4_278 s=7 full sym=0 SAT pass 0.049
+17:25:32 sym4-S TT_4_5736 s=0 full sym=1 UNSAT  0.016
+17:25:32 sym4-S TT_4_5736 s=1 full sym=1 UNSAT  0.015
+17:25:32 sym4-S TT_4_5736 s=2 full sym=1 UNSAT  0.015
+17:25:32 sym4-S TT_4_5736 s=3 full sym=1 UNSAT  0.022
+17:25:32 sym4-S TT_4_5736 s=4 full sym=1 UNSAT  0.019
+17:25:32 sym4-S TT_4_5736 s=5 full sym=1 UNSAT  0.079
+17:25:32 sym4-S TT_4_5736 s=6 full sym=1 SAT pass 0.084
+17:25:32 sym4-noS TT_4_5736 s=0 full sym=0 UNSAT  0.016
+17:25:32 sym4-noS TT_4_5736 s=1 full sym=0 UNSAT  0.017
+17:25:32 sym4-noS TT_4_5736 s=2 full sym=0 UNSAT  0.02
+17:25:32 sym4-noS TT_4_5736 s=3 full sym=0 UNSAT  0.022
+17:25:32 sym4-noS TT_4_5736 s=4 full sym=0 UNSAT  0.029
+17:25:32 sym4-noS TT_4_279 s=6 full sym=0 UNSAT  2.328
+17:25:32 sym4-noS TT_4_279 s=7 full sym=0 SAT pass 0.054
+17:25:32 sym4-S TT_4_5737 s=0 full sym=1 UNSAT  0.016
+17:25:32 sym4-S TT_4_5737 s=1 full sym=1 UNSAT  0.015
+17:25:32 sym4-S TT_4_5737 s=2 full sym=1 UNSAT  0.016
+17:25:32 sym4-S TT_4_5737 s=3 full sym=1 UNSAT  0.017
+17:25:32 sym4-noS TT_4_5736 s=5 full sym=0 UNSAT  0.17
+17:25:32 sym4-S TT_4_5737 s=4 full sym=1 UNSAT  0.022
+17:25:32 sym4-noS TT_4_5736 s=6 full sym=0 SAT pass 0.039
+17:25:32 sym4-S TT_4_5737 s=5 full sym=1 UNSAT  0.045
+17:25:32 sym4-noS TT_4_5737 s=0 full sym=0 UNSAT  0.014
+17:25:32 sym4-noS TT_4_5737 s=1 full sym=0 UNSAT  0.014
+17:25:33 sym4-noS TT_4_5737 s=2 full sym=0 UNSAT  0.017
+17:25:33 sym4-S TT_4_5737 s=6 full sym=1 SAT pass 0.054
+17:25:33 sym4-noS TT_4_5737 s=3 full sym=0 UNSAT  0.021
+17:25:33 sym4-S TT_4_6014 s=0 full sym=1 UNSAT  0.02
+17:25:33 sym4-noS TT_4_5737 s=4 full sym=0 UNSAT  0.024
+17:25:33 sym4-S TT_4_6014 s=1 full sym=1 UNSAT  0.022
+17:25:33 sym4-S TT_4_6014 s=2 full sym=1 UNSAT  0.014
+17:25:33 sym4-S TT_4_6014 s=3 full sym=1 UNSAT  0.017
+17:25:33 sym4-S TT_4_6014 s=4 full sym=1 UNSAT  0.022
+17:25:33 sym4-S TT_4_6014 s=5 full sym=1 UNSAT  0.051
+17:25:33 sym4-S TT_4_6014 s=6 full sym=1 SAT pass 0.035
+17:25:33 sym4-noS TT_4_5737 s=5 full sym=0 UNSAT  0.168
+17:25:33 sym4-noS TT_4_6014 s=0 full sym=0 UNSAT  0.017
+17:25:33 sym4-noS TT_4_6014 s=1 full sym=0 UNSAT  0.014
+17:25:33 sym4-noS TT_4_6014 s=2 full sym=0 UNSAT  0.017
+17:25:33 sym4-noS TT_4_5737 s=6 full sym=0 SAT pass 0.038
+17:25:33 sym4-noS TT_4_6014 s=3 full sym=0 UNSAT  0.015
+17:25:33 sym4-S TT_4_6015 s=0 full sym=1 UNSAT  0.015
+17:25:33 sym4-S TT_4_6015 s=1 full sym=1 UNSAT  0.014
+17:25:33 sym4-noS TT_4_6014 s=4 full sym=0 UNSAT  0.025
+17:25:33 sym4-S TT_4_6015 s=2 full sym=1 UNSAT  0.017
+17:25:33 sym4-S TT_4_6015 s=3 full sym=1 UNSAT  0.017
+17:25:33 sym4-S TT_4_6015 s=4 full sym=1 UNSAT  0.023
+17:25:33 sym4-S TT_4_6015 s=5 full sym=1 UNSAT  0.043
+17:25:33 sym4-noS TT_4_6014 s=5 full sym=0 UNSAT  0.12
+17:25:33 sym4-noS TT_4_6014 s=6 full sym=0 SAT pass 0.055
+17:25:33 sym4-noS TT_4_6015 s=0 full sym=0 UNSAT  0.023
+17:25:33 sym4-noS TT_4_6015 s=1 full sym=0 UNSAT  0.016
+17:25:33 sym4-noS TT_4_6015 s=2 full sym=0 UNSAT  0.018
+17:25:33 sym4-noS TT_4_6015 s=3 full sym=0 UNSAT  0.017
+17:25:33 sym4-noS TT_4_6015 s=4 full sym=0 UNSAT  0.035
+17:25:33 sym4-S TT_4_6015 s=6 full sym=1 UNSAT  0.473
+17:25:33 sym4-noS TT_4_6015 s=5 full sym=0 UNSAT  0.292
+17:25:34 sym4-S TT_4_6015 s=7 full sym=1 SAT pass 0.418
+17:25:34 sym4-S TT_4_26752 s=0 full sym=1 UNSAT  0.016
+17:25:34 sym4-S TT_4_26752 s=1 full sym=1 UNSAT  0.015
+17:25:34 sym4-S TT_4_26752 s=2 full sym=1 UNSAT  0.017
+17:25:34 sym4-S TT_4_26752 s=3 full sym=1 UNSAT  0.019
+17:25:34 sym4-S TT_4_26752 s=4 full sym=1 UNSAT  0.02
+17:25:34 sym4-S TT_4_26752 s=5 full sym=1 UNSAT  0.085
+17:25:35 sym4-S TT_4_26752 s=6 full sym=1 UNSAT  0.593
+17:25:35 sym4-S TT_4_26752 s=7 full sym=1 SAT pass 0.072
+17:25:35 sym4-noS TT_4_26752 s=0 full sym=0 UNSAT  0.014
+17:25:35 sym4-noS TT_4_26752 s=1 full sym=0 UNSAT  0.017
+17:25:35 sym4-noS TT_4_26752 s=2 full sym=0 UNSAT  0.015
+17:25:35 sym4-noS TT_4_26752 s=3 full sym=0 UNSAT  0.017
+17:25:35 sym4-noS TT_4_26752 s=4 full sym=0 UNSAT  0.027
+17:25:35 sym4-noS TT_4_26752 s=5 full sym=0 UNSAT  0.235
+17:25:37 sym4-noS TT_4_6015 s=6 full sym=0 UNSAT  3.886
+17:25:37 sym4-noS TT_4_6015 s=7 full sym=0 SAT pass 0.04
+17:25:37 sym4-S TT_4_26753 s=0 full sym=1 UNSAT  0.016
+17:25:37 sym4-S TT_4_26753 s=1 full sym=1 UNSAT  0.016
+17:25:37 sym4-S TT_4_26753 s=2 full sym=1 UNSAT  0.018
+17:25:37 sym4-S TT_4_26753 s=3 full sym=1 UNSAT  0.021
+17:25:37 sym4-S TT_4_26753 s=4 full sym=1 UNSAT  0.023
+17:25:37 sym4-S TT_4_26753 s=5 full sym=1 UNSAT  0.041
+17:25:38 sym4-S TT_4_26753 s=6 full sym=1 UNSAT  0.285
+17:25:38 sym4-S TT_4_26753 s=7 full sym=1 SAT pass 0.09
+17:25:38 sym4-noS TT_4_26753 s=0 full sym=0 UNSAT  0.016
+17:25:38 sym4-noS TT_4_26753 s=1 full sym=0 UNSAT  0.017
+17:25:38 sym4-noS TT_4_26753 s=2 full sym=0 UNSAT  0.018
+17:25:38 sym4-noS TT_4_26753 s=3 full sym=0 UNSAT  0.019
+17:25:38 sym4-noS TT_4_26753 s=4 full sym=0 UNSAT  0.032
+17:25:38 sym4-noS TT_4_26753 s=5 full sym=0 UNSAT  0.141
+17:25:39 sym4-noS TT_4_26752 s=6 full sym=0 UNSAT  4.36
+17:25:39 sym4-noS TT_4_26752 s=7 full sym=0 SAT pass 0.032
+17:25:39 sym4-S TT_4_27030 s=0 full sym=1 UNSAT  0.016
+17:25:39 sym4-S TT_4_27030 s=1 full sym=1 UNSAT  0.017
+17:25:39 sym4-S TT_4_27030 s=2 full sym=1 UNSAT  0.018
+17:25:39 sym4-S TT_4_27030 s=3 full sym=1 SAT pass 0.022
+17:25:39 sym4-noS TT_4_27030 s=0 full sym=0 UNSAT  0.018
+17:25:39 sym4-noS TT_4_27030 s=1 full sym=0 UNSAT  0.016
+17:25:40 sym4-noS TT_4_27030 s=2 full sym=0 UNSAT  0.019
+17:25:40 sym4-noS TT_4_27030 s=3 full sym=0 SAT pass 0.021
+17:25:40 sym4-S TT_4_27031 s=0 full sym=1 UNSAT  0.016
+17:25:40 sym4-S TT_4_27031 s=1 full sym=1 UNSAT  0.017
+17:25:40 sym4-S TT_4_27031 s=2 full sym=1 UNSAT  0.019
+17:25:40 sym4-S TT_4_27031 s=3 full sym=1 UNSAT  0.021
+17:25:40 sym4-S TT_4_27031 s=4 full sym=1 UNSAT  0.025
+17:25:40 sym4-S TT_4_27031 s=5 full sym=1 UNSAT  0.041
+17:25:40 sym4-S TT_4_27031 s=6 full sym=1 SAT pass 0.026
+17:25:40 sym4-noS TT_4_27031 s=0 full sym=0 UNSAT  0.013
+17:25:40 sym4-noS TT_4_27031 s=1 full sym=0 UNSAT  0.013
+17:25:40 sym4-noS TT_4_27031 s=2 full sym=0 UNSAT  0.014
+17:25:40 sym4-noS TT_4_27031 s=3 full sym=0 UNSAT  0.018
+17:25:40 sym4-noS TT_4_27031 s=4 full sym=0 UNSAT  0.03
+17:25:40 sym4-noS TT_4_27031 s=5 full sym=0 UNSAT  0.164
+17:25:40 sym4-noS TT_4_27031 s=6 full sym=0 SAT pass 0.044
+17:25:40 sym4-S TT_4_32488 s=0 full sym=1 UNSAT  0.017
+17:25:40 sym4-S TT_4_32488 s=1 full sym=1 UNSAT  0.017
+17:25:40 sym4-S TT_4_32488 s=2 full sym=1 UNSAT  0.017
+17:25:40 sym4-S TT_4_32488 s=3 full sym=1 UNSAT  0.014
+17:25:40 sym4-S TT_4_32488 s=4 full sym=1 UNSAT  0.018
+17:25:40 sym4-S TT_4_32488 s=5 full sym=1 UNSAT  0.038
+17:25:40 sym4-S TT_4_32488 s=6 full sym=1 SAT pass 0.036
+17:25:40 sym4-noS TT_4_32488 s=0 full sym=0 UNSAT  0.012
+17:25:40 sym4-noS TT_4_32488 s=1 full sym=0 UNSAT  0.012
+17:25:40 sym4-noS TT_4_32488 s=2 full sym=0 UNSAT  0.014
+17:25:40 sym4-noS TT_4_32488 s=3 full sym=0 UNSAT  0.016
+17:25:40 sym4-noS TT_4_32488 s=4 full sym=0 UNSAT  0.029
+17:25:40 sym4-noS TT_4_32488 s=5 full sym=0 UNSAT  0.156
+17:25:41 sym4-noS TT_4_32488 s=6 full sym=0 SAT pass 0.1
+17:25:41 sym4-S TT_4_32489 s=0 full sym=1 UNSAT  0.016
+17:25:41 sym4-S TT_4_32489 s=1 full sym=1 UNSAT  0.012
+17:25:41 sym4-S TT_4_32489 s=2 full sym=1 UNSAT  0.014
+17:25:41 sym4-noS TT_4_26753 s=6 full sym=0 UNSAT  2.452
+17:25:41 sym4-S TT_4_32489 s=3 full sym=1 UNSAT  0.021
+17:25:41 sym4-S TT_4_32489 s=4 full sym=1 UNSAT  0.019
+17:25:41 sym4-S TT_4_32489 s=5 full sym=1 UNSAT  0.034
+17:25:41 sym4-S TT_4_32489 s=6 full sym=1 UNSAT  0.267
+17:25:41 sym4-S TT_4_32489 s=7 full sym=1 SAT pass 0.056
+17:25:41 sym4-noS TT_4_32489 s=0 full sym=0 UNSAT  0.015
+17:25:41 sym4-noS TT_4_32489 s=1 full sym=0 UNSAT  0.015
+17:25:41 sym4-noS TT_4_26753 s=7 full sym=0 SAT pass 0.437
+17:25:41 sym4-noS TT_4_32489 s=2 full sym=0 UNSAT  0.017
+17:25:41 sym4-S TT_4_32766 s=0 full sym=1 UNSAT  0.013
+17:25:41 sym4-noS TT_4_32489 s=3 full sym=0 UNSAT  0.015
+17:25:41 sym4-S TT_4_32766 s=1 full sym=1 UNSAT  0.012
+17:25:41 sym4-S TT_4_32766 s=2 full sym=1 UNSAT  0.014
+17:25:41 sym4-noS TT_4_32489 s=4 full sym=0 UNSAT  0.025
+17:25:41 sym4-S TT_4_32766 s=3 full sym=1 UNSAT  0.016
+17:25:41 sym4-S TT_4_32766 s=4 full sym=1 UNSAT  0.019
+17:25:41 sym4-S TT_4_32766 s=5 full sym=1 SAT pass 0.026
+17:25:41 sym4-noS TT_4_32766 s=0 full sym=0 UNSAT  0.031
+17:25:41 sym4-noS TT_4_32766 s=1 full sym=0 UNSAT  0.017
+17:25:41 sym4-noS TT_4_32489 s=5 full sym=0 UNSAT  0.123
+17:25:41 sym4-noS TT_4_32766 s=2 full sym=0 UNSAT  0.018
+17:25:41 sym4-noS TT_4_32766 s=3 full sym=0 UNSAT  0.017
+17:25:41 sym4-noS TT_4_32766 s=4 full sym=0 UNSAT  0.023
+17:25:41 sym4-noS TT_4_32766 s=5 full sym=0 SAT pass 0.047
+17:25:41 sym4-S TT_4_32767 s=0 full sym=1 UNSAT  0.015
+17:25:41 sym4-S TT_4_32767 s=1 full sym=1 UNSAT  0.013
+17:25:41 sym4-S TT_4_32767 s=2 full sym=1 UNSAT  0.014
+17:25:41 sym4-S TT_4_32767 s=3 full sym=1 SAT pass 0.014
+17:25:41 sym4-noS TT_4_32767 s=0 full sym=0 UNSAT  0.011
+17:25:41 sym4-noS TT_4_32767 s=1 full sym=0 UNSAT  0.013
+17:25:41 sym4-noS TT_4_32767 s=2 full sym=0 UNSAT  0.018
+17:25:41 sym4-noS TT_4_32767 s=3 full sym=0 SAT pass 0.016
+17:25:41 sym4-S TT_4_32768 s=0 full sym=1 UNSAT  0.013
+17:25:41 sym4-S TT_4_32768 s=1 full sym=1 UNSAT  0.013
+17:25:41 sym4-S TT_4_32768 s=2 full sym=1 UNSAT  0.013
+17:25:41 sym4-S TT_4_32768 s=3 full sym=1 SAT pass 0.014
+17:25:41 sym4-noS TT_4_32768 s=0 full sym=0 UNSAT  0.013
+17:25:41 sym4-noS TT_4_32768 s=1 full sym=0 UNSAT  0.013
+17:25:41 sym4-noS TT_4_32768 s=2 full sym=0 UNSAT  0.018
+17:25:42 sym4-noS TT_4_32768 s=3 full sym=0 SAT pass 0.019
+17:25:42 sym4-S TT_4_32769 s=0 full sym=1 UNSAT  0.016
+17:25:42 sym4-S TT_4_32769 s=1 full sym=1 UNSAT  0.015
+17:25:42 sym4-S TT_4_32769 s=2 full sym=1 UNSAT  0.017
+17:25:42 sym4-S TT_4_32769 s=3 full sym=1 UNSAT  0.02
+17:25:42 sym4-S TT_4_32769 s=4 full sym=1 UNSAT  0.023
+17:25:42 sym4-S TT_4_32769 s=5 full sym=1 SAT pass 0.03
+17:25:42 sym4-noS TT_4_32769 s=0 full sym=0 UNSAT  0.02
+17:25:42 sym4-noS TT_4_32769 s=1 full sym=0 UNSAT  0.017
+17:25:42 sym4-noS TT_4_32769 s=2 full sym=0 UNSAT  0.019
+17:25:42 sym4-noS TT_4_32769 s=3 full sym=0 UNSAT  0.019
+17:25:42 sym4-noS TT_4_32769 s=4 full sym=0 UNSAT  0.028
+17:25:42 sym4-noS TT_4_32769 s=5 full sym=0 SAT pass 0.076
+17:25:42 sym4-S TT_4_33046 s=0 full sym=1 UNSAT  0.016
+17:25:42 sym4-S TT_4_33046 s=1 full sym=1 UNSAT  0.017
+17:25:42 sym4-S TT_4_33046 s=2 full sym=1 UNSAT  0.019
+17:25:42 sym4-S TT_4_33046 s=3 full sym=1 UNSAT  0.022
+17:25:42 sym4-S TT_4_33046 s=4 full sym=1 UNSAT  0.024
+17:25:42 sym4-S TT_4_33046 s=5 full sym=1 UNSAT  0.041
+17:25:42 sym4-S TT_4_33046 s=6 full sym=1 UNSAT  0.295
+17:25:42 sym4-S TT_4_33046 s=7 full sym=1 SAT pass 0.071
+17:25:42 sym4-noS TT_4_33046 s=0 full sym=0 UNSAT  0.013
+17:25:42 sym4-noS TT_4_33046 s=1 full sym=0 UNSAT  0.011
+17:25:42 sym4-noS TT_4_33046 s=2 full sym=0 UNSAT  0.016
+17:25:42 sym4-noS TT_4_33046 s=3 full sym=0 UNSAT  0.016
+17:25:42 sym4-noS TT_4_33046 s=4 full sym=0 UNSAT  0.027
+17:25:43 sym4-noS TT_4_33046 s=5 full sym=0 UNSAT  0.137
+17:25:44 sym4-noS TT_4_32489 s=6 full sym=0 UNSAT  2.794
+17:25:44 sym4-noS TT_4_32489 s=7 full sym=0 SAT pass 0.041
+17:25:44 sym4-S TT_4_33047 s=0 full sym=1 UNSAT  0.013
+17:25:44 sym4-S TT_4_33047 s=1 full sym=1 UNSAT  0.016
+17:25:44 sym4-S TT_4_33047 s=2 full sym=1 UNSAT  0.015
+17:25:44 sym4-S TT_4_33047 s=3 full sym=1 UNSAT  0.016
+17:25:44 sym4-S TT_4_33047 s=4 full sym=1 UNSAT  0.021
+17:25:44 sym4-S TT_4_33047 s=5 full sym=1 UNSAT  0.035
+17:25:44 sym4-S TT_4_33047 s=6 full sym=1 SAT pass 0.036
+17:25:44 sym4-noS TT_4_33047 s=0 full sym=0 UNSAT  0.015
+17:25:44 sym4-noS TT_4_33047 s=1 full sym=0 UNSAT  0.013
+17:25:44 sym4-noS TT_4_33047 s=2 full sym=0 UNSAT  0.014
+17:25:44 sym4-noS TT_4_33047 s=3 full sym=0 UNSAT  0.015
+17:25:44 sym4-noS TT_4_33047 s=4 full sym=0 UNSAT  0.026
+17:25:44 sym4-noS TT_4_33047 s=5 full sym=0 UNSAT  0.159
+17:25:45 sym4-noS TT_4_33047 s=6 full sym=0 SAT pass 0.092
+17:25:45 sym4-S TT_4_38504 s=0 full sym=1 UNSAT  0.013
+17:25:45 sym4-S TT_4_38504 s=1 full sym=1 UNSAT  0.014
+17:25:45 sym4-S TT_4_38504 s=2 full sym=1 UNSAT  0.013
+17:25:45 sym4-S TT_4_38504 s=3 full sym=1 UNSAT  0.017
+17:25:45 sym4-S TT_4_38504 s=4 full sym=1 UNSAT  0.024
+17:25:45 sym4-S TT_4_38504 s=5 full sym=1 UNSAT  0.041
+17:25:45 sym4-S TT_4_38504 s=6 full sym=1 SAT pass 0.037
+17:25:45 sym4-noS TT_4_38504 s=0 full sym=0 UNSAT  0.017
+17:25:45 sym4-noS TT_4_38504 s=1 full sym=0 UNSAT  0.013
+17:25:45 sym4-noS TT_4_38504 s=2 full sym=0 UNSAT  0.013
+17:25:45 sym4-noS TT_4_38504 s=3 full sym=0 UNSAT  0.015
+17:25:45 sym4-noS TT_4_38504 s=4 full sym=0 UNSAT  0.029
+17:25:45 sym4-noS TT_4_38504 s=5 full sym=0 UNSAT  0.174
+17:25:45 sym4-noS TT_4_38504 s=6 full sym=0 SAT pass 0.038
+17:25:45 sym4-S TT_4_38505 s=0 full sym=1 UNSAT  0.015
+17:25:45 sym4-S TT_4_38505 s=1 full sym=1 UNSAT  0.014
+17:25:45 sym4-S TT_4_38505 s=2 full sym=1 UNSAT  0.016
+17:25:45 sym4-S TT_4_38505 s=3 full sym=1 SAT pass 0.015
+17:25:45 sym4-noS TT_4_38505 s=0 full sym=0 UNSAT  0.013
+17:25:45 sym4-noS TT_4_38505 s=1 full sym=0 UNSAT  0.013
+17:25:45 sym4-noS TT_4_38505 s=2 full sym=0 UNSAT  0.014
+17:25:45 sym4-noS TT_4_38505 s=3 full sym=0 SAT pass 0.015
+17:25:45 sym4-S TT_4_38782 s=0 full sym=1 UNSAT  0.012
+17:25:45 sym4-S TT_4_38782 s=1 full sym=1 UNSAT  0.013
+17:25:45 sym4-S TT_4_38782 s=2 full sym=1 UNSAT  0.014
+17:25:45 sym4-S TT_4_38782 s=3 full sym=1 UNSAT  0.017
+17:25:45 sym4-noS TT_4_33046 s=6 full sym=0 UNSAT  2.625
+17:25:45 sym4-S TT_4_38782 s=4 full sym=1 UNSAT  0.024
+17:25:45 sym4-S TT_4_38782 s=5 full sym=1 UNSAT  0.034
+17:25:45 sym4-noS TT_4_33046 s=7 full sym=0 SAT pass 0.042
+17:25:45 sym4-noS TT_4_38782 s=0 full sym=0 UNSAT  0.013
+17:25:45 sym4-noS TT_4_38782 s=1 full sym=0 UNSAT  0.015
+17:25:45 sym4-noS TT_4_38782 s=2 full sym=0 UNSAT  0.016
+17:25:45 sym4-noS TT_4_38782 s=3 full sym=0 UNSAT  0.018
+17:25:45 sym4-noS TT_4_38782 s=4 full sym=0 UNSAT  0.026
+17:25:45 sym4-noS TT_4_38782 s=5 full sym=0 UNSAT  0.133
+17:25:46 sym4-S TT_4_38782 s=6 full sym=1 UNSAT  0.278
+17:25:46 sym4-S TT_4_38782 s=7 full sym=1 SAT pass 0.09
+17:25:46 sym4-S TT_4_38783 s=0 full sym=1 UNSAT  0.016
+17:25:46 sym4-S TT_4_38783 s=1 full sym=1 UNSAT  0.016
+17:25:46 sym4-S TT_4_38783 s=2 full sym=1 UNSAT  0.018
+17:25:46 sym4-S TT_4_38783 s=3 full sym=1 UNSAT  0.017
+17:25:46 sym4-S TT_4_38783 s=4 full sym=1 UNSAT  0.024
+17:25:46 sym4-S TT_4_38783 s=5 full sym=1 UNSAT  0.078
+17:25:46 sym4-S TT_4_38783 s=6 full sym=1 UNSAT  0.538
+17:25:46 sym4-S TT_4_38783 s=7 full sym=1 SAT pass 0.076
+17:25:46 sym4-noS TT_4_38783 s=0 full sym=0 UNSAT  0.014
+17:25:46 sym4-noS TT_4_38783 s=1 full sym=0 UNSAT  0.012
+17:25:46 sym4-noS TT_4_38783 s=2 full sym=0 UNSAT  0.016
+17:25:46 sym4-noS TT_4_38783 s=3 full sym=0 UNSAT  0.017
+17:25:46 sym4-noS TT_4_38783 s=4 full sym=0 UNSAT  0.03
+17:25:47 sym4-noS TT_4_38783 s=5 full sym=0 UNSAT  0.259
+17:25:48 sym4-noS TT_4_38782 s=6 full sym=0 UNSAT  2.64
+17:25:49 sym4-noS TT_4_38782 s=7 full sym=0 SAT pass 0.557
+17:25:49 sym4-S TT_4_59520 s=0 full sym=1 UNSAT  0.018
+17:25:49 sym4-S TT_4_59520 s=1 full sym=1 UNSAT  0.018
+17:25:49 sym4-S TT_4_59520 s=2 full sym=1 UNSAT  0.019
+17:25:49 sym4-S TT_4_59520 s=3 full sym=1 UNSAT  0.02
+17:25:49 sym4-S TT_4_59520 s=4 full sym=1 UNSAT  0.026
+17:25:49 sym4-S TT_4_59520 s=5 full sym=1 UNSAT  0.052
+17:25:49 sym4-S TT_4_59520 s=6 full sym=1 UNSAT  0.52
+17:25:50 sym4-S TT_4_59520 s=7 full sym=1 SAT pass 0.417
+17:25:50 sym4-noS TT_4_59520 s=0 full sym=0 UNSAT  0.018
+17:25:50 sym4-noS TT_4_59520 s=1 full sym=0 UNSAT  0.017
+17:25:50 sym4-noS TT_4_59520 s=2 full sym=0 UNSAT  0.017
+17:25:50 sym4-noS TT_4_59520 s=3 full sym=0 UNSAT  0.018
+17:25:50 sym4-noS TT_4_59520 s=4 full sym=0 UNSAT  0.037
+17:25:50 sym4-noS TT_4_59520 s=5 full sym=0 UNSAT  0.255
+17:25:52 sym4-noS TT_4_38783 s=6 full sym=0 UNSAT  4.962
+17:25:52 sym4-noS TT_4_38783 s=7 full sym=0 SAT pass 0.043
+17:25:52 sym4-S TT_4_59521 s=0 full sym=1 UNSAT  0.019
+17:25:52 sym4-S TT_4_59521 s=1 full sym=1 UNSAT  0.017
+17:25:52 sym4-S TT_4_59521 s=2 full sym=1 UNSAT  0.018
+17:25:52 sym4-S TT_4_59521 s=3 full sym=1 UNSAT  0.019
+17:25:52 sym4-S TT_4_59521 s=4 full sym=1 UNSAT  0.024
+17:25:52 sym4-S TT_4_59521 s=5 full sym=1 UNSAT  0.051
+17:25:52 sym4-S TT_4_59521 s=6 full sym=1 SAT pass 0.033
+17:25:52 sym4-noS TT_4_59521 s=0 full sym=0 UNSAT  0.013
+17:25:52 sym4-noS TT_4_59521 s=1 full sym=0 UNSAT  0.016
+17:25:52 sym4-noS TT_4_59521 s=2 full sym=0 UNSAT  0.014
+17:25:52 sym4-noS TT_4_59521 s=3 full sym=0 UNSAT  0.017
+17:25:52 sym4-noS TT_4_59521 s=4 full sym=0 UNSAT  0.025
+17:25:52 sym4-noS TT_4_59521 s=5 full sym=0 UNSAT  0.111
+17:25:52 sym4-noS TT_4_59521 s=6 full sym=0 SAT pass 0.033
+17:25:52 sym4-S TT_4_59798 s=0 full sym=1 UNSAT  0.016
+17:25:52 sym4-S TT_4_59798 s=1 full sym=1 UNSAT  0.041
+17:25:52 sym4-S TT_4_59798 s=2 full sym=1 UNSAT  0.039
+17:25:52 sym4-S TT_4_59798 s=3 full sym=1 UNSAT  0.027
+17:25:52 sym4-S TT_4_59798 s=4 full sym=1 UNSAT  0.023
+17:25:52 sym4-S TT_4_59798 s=5 full sym=1 UNSAT  0.047
+17:25:52 sym4-S TT_4_59798 s=6 full sym=1 SAT pass 0.054
+17:25:52 sym4-noS TT_4_59798 s=0 full sym=0 UNSAT  0.014
+17:25:52 sym4-noS TT_4_59798 s=1 full sym=0 UNSAT  0.016
+17:25:53 sym4-noS TT_4_59798 s=2 full sym=0 UNSAT  0.017
+17:25:53 sym4-noS TT_4_59798 s=3 full sym=0 UNSAT  0.018
+17:25:53 sym4-noS TT_4_59798 s=4 full sym=0 UNSAT  0.03
+17:25:53 sym4-noS TT_4_59798 s=5 full sym=0 UNSAT  0.18
+17:25:53 sym4-noS TT_4_59798 s=6 full sym=0 SAT pass 0.038
+17:25:53 sym4-S TT_4_59799 s=0 full sym=1 UNSAT  0.014
+17:25:53 sym4-S TT_4_59799 s=1 full sym=1 UNSAT  0.013
+17:25:53 sym4-S TT_4_59799 s=2 full sym=1 UNSAT  0.016
+17:25:53 sym4-S TT_4_59799 s=3 full sym=1 UNSAT  0.019
+17:25:53 sym4-S TT_4_59799 s=4 full sym=1 UNSAT  0.021
+17:25:53 sym4-S TT_4_59799 s=5 full sym=1 UNSAT  0.043
+17:25:53 sym4-S TT_4_59799 s=6 full sym=1 SAT pass 0.074
+17:25:53 sym4-noS TT_4_59799 s=0 full sym=0 UNSAT  0.016
+17:25:53 sym4-noS TT_4_59799 s=1 full sym=0 UNSAT  0.016
+17:25:53 sym4-noS TT_4_59799 s=2 full sym=0 UNSAT  0.017
+17:25:53 sym4-noS TT_4_59799 s=3 full sym=0 UNSAT  0.021
+17:25:53 sym4-noS TT_4_59799 s=4 full sym=0 UNSAT  0.029
+17:25:53 sym4-noS TT_4_59799 s=5 full sym=0 UNSAT  0.176
+17:25:53 sym4-noS TT_4_59799 s=6 full sym=0 SAT pass 0.04
+17:25:53 sym4-S TT_4_65256 s=0 full sym=1 UNSAT  0.015
+17:25:53 sym4-S TT_4_65256 s=1 full sym=1 UNSAT  0.015
+17:25:53 sym4-S TT_4_65256 s=2 full sym=1 UNSAT  0.014
+17:25:53 sym4-S TT_4_65256 s=3 full sym=1 UNSAT  0.017
+17:25:53 sym4-S TT_4_65256 s=4 full sym=1 UNSAT  0.023
+17:25:53 sym4-S TT_4_65256 s=5 full sym=1 UNSAT  0.042
+17:25:54 sym4-S TT_4_65256 s=6 full sym=1 UNSAT  0.225
+17:25:54 sym4-S TT_4_65256 s=7 full sym=1 SAT pass 0.082
+17:25:54 sym4-noS TT_4_65256 s=0 full sym=0 UNSAT  0.014
+17:25:54 sym4-noS TT_4_65256 s=1 full sym=0 UNSAT  0.015
+17:25:54 sym4-noS TT_4_65256 s=2 full sym=0 UNSAT  0.02
+17:25:54 sym4-noS TT_4_65256 s=3 full sym=0 UNSAT  0.02
+17:25:54 sym4-noS TT_4_65256 s=4 full sym=0 UNSAT  0.029
+17:25:54 sym4-noS TT_4_65256 s=5 full sym=0 UNSAT  0.15
+17:25:54 sym4-noS TT_4_59520 s=6 full sym=0 UNSAT  4.003
+17:25:54 sym4-noS TT_4_59520 s=7 full sym=0 SAT pass 0.03
+17:25:54 sym4-S TT_4_65257 s=0 full sym=1 UNSAT  0.014
+17:25:54 sym4-S TT_4_65257 s=1 full sym=1 UNSAT  0.014
+17:25:54 sym4-S TT_4_65257 s=2 full sym=1 UNSAT  0.016
+17:25:54 sym4-S TT_4_65257 s=3 full sym=1 UNSAT  0.018
+17:25:54 sym4-S TT_4_65257 s=4 full sym=1 UNSAT  0.018
+17:25:54 sym4-S TT_4_65257 s=5 full sym=1 UNSAT  0.035
+17:25:55 sym4-S TT_4_65257 s=6 full sym=1 UNSAT  0.311
+17:25:55 sym4-S TT_4_65257 s=7 full sym=1 SAT pass 0.04
+17:25:55 sym4-noS TT_4_65257 s=0 full sym=0 UNSAT  0.017
+17:25:55 sym4-noS TT_4_65257 s=1 full sym=0 UNSAT  0.016
+17:25:55 sym4-noS TT_4_65257 s=2 full sym=0 UNSAT  0.014
+17:25:55 sym4-noS TT_4_65257 s=3 full sym=0 UNSAT  0.024
+17:25:55 sym4-noS TT_4_65257 s=4 full sym=0 UNSAT  0.029
+17:25:55 sym4-noS TT_4_65257 s=5 full sym=0 UNSAT  0.137
+17:25:56 sym4-noS TT_4_65256 s=6 full sym=0 UNSAT  2.164
+17:25:56 sym4-noS TT_4_65256 s=7 full sym=0 SAT pass 0.054
+17:25:56 sym4-S TT_4_65534 s=0 full sym=1 UNSAT  0.015
+17:25:56 sym4-S TT_4_65534 s=1 full sym=1 UNSAT  0.014
+17:25:56 sym4-S TT_4_65534 s=2 full sym=1 UNSAT  0.014
+17:25:56 sym4-S TT_4_65534 s=3 full sym=1 SAT pass 0.013
+17:25:56 sym4-noS TT_4_65534 s=0 full sym=0 UNSAT  0.011
+17:25:56 sym4-noS TT_4_65534 s=1 full sym=0 UNSAT  0.012
+17:25:56 sym4-noS TT_4_65534 s=2 full sym=0 UNSAT  0.013
+17:25:56 sym4-noS TT_4_65534 s=3 full sym=0 SAT pass 0.015
+17:25:56 sym4-S TT_4_65535 s=0 full sym=1 UNSAT  0.014
+17:25:56 sym4-S TT_4_65535 s=1 full sym=1 SAT pass 0.015
+17:25:56 sym4-noS TT_4_65535 s=0 full sym=0 UNSAT  0.012
+17:25:56 sym4-noS TT_4_65535 s=1 full sym=0 SAT pass 0.016
+17:25:57 sym4-noS TT_4_65257 s=6 full sym=0 UNSAT  2.59
+17:25:58 sym4-noS TT_4_65257 s=7 full sym=0 SAT pass 0.043

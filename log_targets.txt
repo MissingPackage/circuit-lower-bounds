@@ -1,0 +1,172 @@
+17:26:05 targets XOR_3 s=0 full sym=1 UNSAT  0.021
+17:26:05 targets XOR_2 s=0 full sym=1 UNSAT  0.023
+17:26:05 targets XOR_3 s=1 full sym=1 UNSAT  0.017
+17:26:05 targets XOR_2 s=1 full sym=1 SAT pass 0.017
+17:26:05 targets XOR_4 s=0 full sym=1 UNSAT  0.017
+17:26:05 targets XOR_3 s=2 full sym=1 SAT pass 0.018
+17:26:05 targets XOR_5 s=0 full sym=1 UNSAT  0.014
+17:26:05 targets XOR_4 s=1 full sym=1 UNSAT  0.013
+17:26:05 targets XOR_5 s=1 full sym=1 UNSAT  0.015
+17:26:05 targets XOR_4 s=2 full sym=1 UNSAT  0.016
+17:26:05 targets XOR_5 s=2 full sym=1 UNSAT  0.015
+17:26:05 targets XOR_4 s=3 full sym=1 SAT pass 0.014
+17:26:05 targets XOR_6 s=0 full sym=1 UNSAT  0.013
+17:26:06 targets XOR_5 s=3 full sym=1 UNSAT  0.02
+17:26:06 targets XOR_6 s=1 full sym=1 UNSAT  0.022
+17:26:06 targets XOR_5 s=4 full sym=1 SAT pass 0.032
+17:26:06 targets XOR_6 s=2 full sym=1 UNSAT  0.023
+17:26:06 targets AND_2 s=0 full sym=1 UNSAT  0.018
+17:26:06 targets AND_2 s=1 full sym=1 SAT pass 0.014
+17:26:06 targets AND_3 s=0 full sym=1 UNSAT  0.015
+17:26:06 targets XOR_6 s=3 full sym=1 UNSAT  0.035
+17:26:06 targets AND_3 s=1 full sym=1 UNSAT  0.015
+17:26:06 targets AND_3 s=2 full sym=1 SAT pass 0.016
+17:26:06 targets XOR_6 s=4 full sym=1 UNSAT  0.037
+17:26:06 targets AND_4 s=0 full sym=1 UNSAT  0.015
+17:26:06 targets AND_4 s=1 full sym=1 UNSAT  0.016
+17:26:06 targets AND_4 s=2 full sym=1 UNSAT  0.016
+17:26:06 targets AND_4 s=3 full sym=1 SAT pass 0.02
+17:26:06 targets XOR_6 s=5 full sym=1 SAT pass 0.07
+17:26:06 targets AND_5 s=0 full sym=1 UNSAT  0.018
+17:26:06 targets AND_6 s=0 full sym=1 UNSAT  0.016
+17:26:06 targets AND_5 s=1 full sym=1 UNSAT  0.018
+17:26:06 targets AND_6 s=1 full sym=1 UNSAT  0.017
+17:26:06 targets AND_5 s=2 full sym=1 UNSAT  0.017
+17:26:06 targets AND_6 s=2 full sym=1 UNSAT  0.019
+17:26:06 targets AND_5 s=3 full sym=1 UNSAT  0.018
+17:26:06 targets AND_6 s=3 full sym=1 UNSAT  0.027
+17:26:06 targets AND_5 s=4 full sym=1 SAT pass 0.027
+17:26:06 targets MUX_3 s=0 full sym=0 UNSAT  0.015
+17:26:06 targets AND_6 s=4 full sym=1 UNSAT  0.042
+17:26:06 targets MUX_3 s=1 full sym=0 UNSAT  0.016
+17:26:06 targets MUX_3 s=2 full sym=0 UNSAT  0.015
+17:26:06 targets MUX_3 s=3 full sym=0 SAT pass 0.015
+17:26:06 targets MAJ_3 s=0 full sym=1 UNSAT  0.015
+17:26:06 targets AND_6 s=5 full sym=1 SAT pass 0.059
+17:26:06 targets MAJ_3 s=1 full sym=1 UNSAT  0.018
+17:26:06 targets SUM_3 s=0 full sym=1 UNSAT  0.016
+17:26:06 targets MAJ_3 s=2 full sym=1 UNSAT  0.016
+17:26:06 targets SUM_3 s=1 full sym=1 UNSAT  0.014
+17:26:06 targets MAJ_3 s=3 full sym=1 UNSAT  0.016
+17:26:06 targets SUM_3 s=2 full sym=1 UNSAT  0.016
+17:26:06 targets MAJ_3 s=4 full sym=1 SAT pass 0.015
+17:26:06 targets SUM_3 s=3 full sym=1 UNSAT  0.018
+17:26:06 targets MOD3_3_0 s=0 full sym=1 UNSAT  0.015
+17:26:06 targets SUM_3 s=4 full sym=1 UNSAT  0.022
+17:26:06 targets MOD3_3_0 s=1 full sym=1 UNSAT  0.013
+17:26:06 targets MOD3_3_0 s=2 full sym=1 UNSAT  0.017
+17:26:06 targets SUM_3 s=5 full sym=1 SAT pass 0.021
+17:26:06 targets MOD3_3_0 s=3 full sym=1 SAT pass 0.019
+17:26:06 targets MOD3_3_1 s=0 full sym=1 UNSAT  0.019
+17:26:06 targets MOD3_3_2 s=0 full sym=1 UNSAT  0.015
+17:26:06 targets MOD3_3_1 s=1 full sym=1 UNSAT  0.017
+17:26:06 targets MOD3_3_2 s=1 full sym=1 UNSAT  0.016
+17:26:06 targets MOD3_3_1 s=2 full sym=1 UNSAT  0.016
+17:26:06 targets MOD3_3_2 s=2 full sym=1 UNSAT  0.017
+17:26:06 targets MOD3_3_1 s=3 full sym=1 UNSAT  0.018
+17:26:06 targets MOD3_3_2 s=3 full sym=1 UNSAT  0.017
+17:26:06 targets MOD3_3_1 s=4 full sym=1 SAT pass 0.021
+17:26:06 targets MOD3_3_2 s=4 full sym=1 SAT pass 0.02
+17:26:06 targets MOD3_4_0 s=0 full sym=1 UNSAT  0.017
+17:26:06 targets MOD3_4_1 s=0 full sym=1 UNSAT  0.017
+17:26:06 targets MOD3_4_0 s=1 full sym=1 UNSAT  0.019
+17:26:06 targets MOD3_4_1 s=1 full sym=1 UNSAT  0.017
+17:26:06 targets MOD3_4_0 s=2 full sym=1 UNSAT  0.016
+17:26:06 targets MOD3_4_1 s=2 full sym=1 UNSAT  0.015
+17:26:06 targets MOD3_4_0 s=3 full sym=1 UNSAT  0.016
+17:26:06 targets MOD3_4_1 s=3 full sym=1 UNSAT  0.015
+17:26:06 targets MOD3_4_0 s=4 full sym=1 UNSAT  0.019
+17:26:06 targets MOD3_4_1 s=4 full sym=1 UNSAT  0.02
+17:26:06 targets MOD3_4_0 s=5 full sym=1 UNSAT  0.033
+17:26:06 targets MOD3_4_1 s=5 full sym=1 UNSAT  0.032
+17:26:06 targets MOD3_4_0 s=6 full sym=1 UNSAT  0.264
+17:26:07 targets MOD3_4_1 s=6 full sym=1 UNSAT  0.273
+17:26:07 targets MOD3_4_1 s=7 full sym=1 SAT pass 0.062
+17:26:07 targets MOD3_4_0 s=7 full sym=1 SAT pass 0.085
+17:26:07 targets MOD3_4_2 s=0 full sym=1 UNSAT  0.018
+17:26:07 targets THR2_4 s=0 full sym=1 UNSAT  0.018
+17:26:07 targets MOD3_4_2 s=1 full sym=1 UNSAT  0.02
+17:26:07 targets THR2_4 s=1 full sym=1 UNSAT  0.018
+17:26:07 targets MOD3_4_2 s=2 full sym=1 UNSAT  0.021
+17:26:07 targets THR2_4 s=2 full sym=1 UNSAT  0.017
+17:26:07 targets THR2_4 s=3 full sym=1 UNSAT  0.018
+17:26:07 targets MOD3_4_2 s=3 full sym=1 UNSAT  0.02
+17:26:07 targets THR2_4 s=4 full sym=1 UNSAT  0.023
+17:26:07 targets MOD3_4_2 s=4 full sym=1 UNSAT  0.021
+17:26:07 targets THR2_4 s=5 full sym=1 UNSAT  0.042
+17:26:07 targets MOD3_4_2 s=5 full sym=1 UNSAT  0.078
+17:26:07 targets MOD3_4_2 s=6 full sym=1 SAT pass 0.079
+17:26:07 targets THR3_4 s=0 full sym=1 UNSAT  0.016
+17:26:07 targets THR3_4 s=1 full sym=1 UNSAT  0.016
+17:26:07 targets THR3_4 s=2 full sym=1 UNSAT  0.018
+17:26:07 targets THR3_4 s=3 full sym=1 UNSAT  0.019
+17:26:07 targets THR3_4 s=4 full sym=1 UNSAT  0.024
+17:26:07 targets THR2_4 s=6 full sym=1 UNSAT  0.221
+17:26:07 targets THR3_4 s=5 full sym=1 UNSAT  0.046
+17:26:07 targets THR2_4 s=7 full sym=1 SAT pass 0.085
+17:26:07 targets SUM_4 s=0 full sym=1 UNSAT  0.02
+17:26:07 targets SUM_4 s=1 full sym=1 UNSAT  0.017
+17:26:07 targets SUM_4 s=2 full sym=1 UNSAT  0.017
+17:26:07 targets SUM_4 s=3 full sym=1 UNSAT  0.019
+17:26:07 targets SUM_4 s=4 full sym=1 UNSAT  0.039
+17:26:07 targets SUM_4 s=5 full sym=1 UNSAT  0.029
+17:26:07 targets SUM_4 s=6 full sym=1 UNSAT  0.06
+17:26:07 targets THR3_4 s=6 full sym=1 UNSAT  0.45
+17:26:08 targets SUM_4 s=7 full sym=1 UNSAT  0.381
+17:26:08 targets THR3_4 s=7 full sym=1 SAT pass 0.373
+17:26:08 targets MOD3_5_0 s=0 full sym=1 UNSAT  0.018
+17:26:08 targets MOD3_5_0 s=1 full sym=1 UNSAT  0.018
+17:26:08 targets MOD3_5_0 s=2 full sym=1 UNSAT  0.019
+17:26:08 targets MOD3_5_0 s=3 full sym=1 UNSAT  0.026
+17:26:08 targets MOD3_5_0 s=4 full sym=1 UNSAT  0.03
+17:26:08 targets MOD3_5_0 s=5 full sym=1 UNSAT  0.038
+17:26:08 targets MOD3_5_0 s=6 full sym=1 UNSAT  0.122
+17:26:09 targets MOD3_5_0 s=7 full sym=1 UNSAT  1.067
+17:26:12 targets SUM_4 s=8 full sym=1 UNSAT  4.853
+17:26:13 targets SUM_4 s=9 full sym=1 SAT pass 0.597
+17:26:13 targets MOD3_5_1 s=0 full sym=1 UNSAT  0.019
+17:26:13 targets MOD3_5_1 s=1 full sym=1 UNSAT  0.018
+17:26:13 targets MOD3_5_1 s=2 full sym=1 UNSAT  0.019
+17:26:13 targets MOD3_5_1 s=3 full sym=1 UNSAT  0.028
+17:26:13 targets MOD3_5_1 s=4 full sym=1 UNSAT  0.026
+17:26:13 targets MOD3_5_1 s=5 full sym=1 UNSAT  0.04
+17:26:13 targets MOD3_5_1 s=6 full sym=1 UNSAT  0.132
+17:26:15 targets MOD3_5_1 s=7 full sym=1 UNSAT  1.172
+17:26:41 targets MOD3_5_0 s=8 full sym=1 UNSAT  31.473
+17:26:51 targets MOD3_5_1 s=8 full sym=1 UNSAT  36.516
+17:26:56 targets MOD3_5_1 s=9 full sym=1 SAT pass 5.257
+17:26:56 targets MOD3_5_2 s=0 full sym=1 UNSAT  0.022
+17:26:56 targets MOD3_5_2 s=1 full sym=1 UNSAT  0.017
+17:26:56 targets MOD3_5_2 s=2 full sym=1 UNSAT  0.02
+17:26:56 targets MOD3_5_2 s=3 full sym=1 UNSAT  0.022
+17:26:56 targets MOD3_5_2 s=4 full sym=1 UNSAT  0.046
+17:26:57 targets MOD3_5_2 s=5 full sym=1 UNSAT  0.058
+17:26:57 targets MOD3_5_2 s=6 full sym=1 UNSAT  0.126
+17:26:58 targets MOD3_5_2 s=7 full sym=1 UNSAT  0.969
+17:27:22 targets MOD3_5_2 s=8 full sym=1 UNSAT  24.684
+17:49:14 targets MOD3_5_0 s=9 full sym=1 UNSAT  1352.967
+17:49:17 targets MOD3_5_0 s=10 full sym=1 SAT pass 3.465
+17:49:17 targets MAJ_5 s=0 full sym=1 UNSAT  0.018
+17:49:17 targets MAJ_5 s=1 full sym=1 UNSAT  0.018
+17:49:17 targets MAJ_5 s=2 full sym=1 UNSAT  0.021
+17:49:17 targets MAJ_5 s=3 full sym=1 UNSAT  0.026
+17:49:17 targets MAJ_5 s=4 full sym=1 UNSAT  0.039
+17:49:17 targets MAJ_5 s=5 full sym=1 UNSAT  0.04
+17:49:17 targets MAJ_5 s=6 full sym=1 UNSAT  0.129
+17:49:19 targets MAJ_5 s=7 full sym=1 UNSAT  1.74
+17:50:06 targets MAJ_5 s=8 full sym=1 UNSAT  47.12
+17:50:32 targets MAJ_5 s=9 full sym=1 SAT pass 25.573
+17:50:32 targets SUM_5 s=0 full sym=1 UNSAT  0.017
+17:50:32 targets SUM_5 s=1 full sym=1 UNSAT  0.02
+17:50:32 targets SUM_5 s=2 full sym=1 UNSAT  0.02
+17:50:32 targets SUM_5 s=3 full sym=1 UNSAT  0.024
+17:50:32 targets SUM_5 s=4 full sym=1 UNSAT  0.028
+17:50:32 targets SUM_5 s=5 full sym=1 UNSAT  0.044
+17:50:32 targets SUM_5 s=6 full sym=1 UNSAT  0.06
+17:50:32 targets SUM_5 s=7 full sym=1 UNSAT  0.232
+17:50:34 targets SUM_5 s=8 full sym=1 UNSAT  1.423
+17:50:48 targets SUM_5 s=9 full sym=1 UNSAT  14.151
+17:51:34 targets MOD3_5_2 s=9 full sym=1 UNSAT  1451.917
+17:52:09 targets MOD3_5_2 s=10 full sym=1 SAT pass 35.036
+17:54:53 targets SUM_5 s=10 full sym=1 UNSAT  245.564
+17:55:35 targets SUM_5 s=11 full sym=1 SAT pass 41.155
