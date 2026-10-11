@@ -1,0 +1,5 @@
+# WP2b frozen inputs, stamped 2026-10-11T20:34:00Z before the first table lookup
+177710f13263055bea56977b09dc00da90739023c690f14e3792bd18a6f07360  wp2b_preregistration_2026-10-11.txt
+bbb6dd9218571dba524eff14f048a45417becb01326cb0d499d3730b9a64e0aa  sources/GHKK_TRANSCRIPTION_2026-10-11.txt
+05b7f757b9510b3fa36493d645eb8692eb0e14e02e08ebad532747b1299a8df6  stable_check.py
+0cac5ce6aba0ce348b1d4b98845206333fe8c3d9a1b783271ac18e8bfa6a1c0f  /tmp/optimal5/knuthies.dat (optimal5 commit b7668d77d7e57d504c19e4cf4884d9e2d0991d88, not in repo)

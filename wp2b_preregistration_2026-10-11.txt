@@ -1,0 +1,113 @@
+WP2b PRE-REGISTRATION -- 2026-10-11 (frozen before the first table lookup)
+=========================================================================
+
+Work package: answer the WP2 k=5 question by table lookup instead of SAT. Knuth
+computed the exact minimum Boolean-chain length C(f) over the full binary basis for all
+616,126 NPN classes of 5-input functions (TAOCP 7.1.2, program BOOLCHAINS);
+apgoucher/optimal5 packages the result as knuthies.dat (616,124 records of 15 bytes;
+the two trivial classes, constant and literal, are implicit). The repository is cloned
+read-only at /tmp/optimal5 (not copied into this repo; commit hash, URL and licence are
+recorded in sources/SOURCES.md).
+
+Question: minimum of C(f) over all 1-stable 5-input functions (GHKK Definition 2, both
+signs, transcribed in sources/GHKK_TRANSCRIPTION_2026-10-11.txt); same over weakly
+1-stable (Definition 1) and over 2-stable functions; cost histogram of each class.
+
+Nothing in WP2b is a lower bound and nothing here may be described as one: the table
+gives exact minima per class (Knuth's exhaustive computation, not re-verified here), and
+the minimum over a class of functions is a ceiling statement about the GHKK gadget.
+
+Toolchain note (recorded before running): no C/C++ compiler is installed on this host
+(g++, gcc, clang, cc all absent), so human_readable.cpp cannot be built. The pre-
+registered alternative is a pure-Python decoder of knuthies.dat that mirrors bytes2gv()
+in optimal5.h; it is validated against Knuth's published histogram (checktab.py) before
+any use.
+
+Conventions
+-----------
+- WP1 truth table: integer whose bit t is f on row t, row t assigns x_{i+1} = (t >> i) & 1.
+- optimal5 truth table (from optimal5.h, calcs[1..5] = 0x0000ffff, 0x00ff00ff,
+  0x0f0f0f0f, 0x33333333, 0x55555555): bit b is f on the assignment
+  x_j = 1 - ((b >> (5 - j)) & 1), j = 1..5. The two conventions differ by an NPN
+  transformation (reverse the five index bits, then complement the index), so a class
+  is a class in both; every per-function value is converted explicitly and the
+  conversion is checked on gst1 and on the decoded circuits by simulation.
+- Cost convention (Knuth): gates over {AND, OR, XOR, AND-NOT} on a normalised chain;
+  constants and literals cost 0; negation is free (absorbed into gate types); the chain
+  is for the canonical representative and a negated output is a free final NOT.
+  WP1 (B2 encoder): any of the 16 binary gate types; negation is free inside gates but
+  a constant output or a negated input as output costs 1 gate (the encoder needs a gate
+  node). Expected mismatch therefore exactly on constants and negated literals.
+- "stable1" = 1-stable, Definition 2 as printed (|Y| <= 2, both signs); "stable1pos" =
+  positive sign only (Appendix A script (i)); "weak1" = Definition 1 (|Y| <= 1);
+  "stable2" = 2-stable (|Y| <= 3, both signs). The oracle is stable_check.py (WP2).
+
+Pre-registered predictions (translation of the harness prediction; the evidence decides)
+-----------------------------------------------------------------------------------------
+P1 (NPN invariance, mechanical test): 0 verdict changes of stable_check.py for stable1,
+    weak1 and stable2 over >= 2000 pairs (f, random NPN transformation) including
+    >= 200 positives per variant (stable1 positives: gst1 = TT_5_376339136, tt = 9178798
+    and their NPN images; weak1 positives from random k=5 functions); for stable1pos at
+    least one change: NOT gst1 is rejected by stable1pos but accepted by stable1.
+    Written argument: Definition 2 with both signs and Definition 1 are invariant under
+    input permutation (relabelling of Y, y, tau), input negation (shift tau by the
+    negation mask on X \ Y; a negated y flips the sign, which both-signs admits) and
+    output negation (swaps the two signs, resp. swaps tau_0 and tau_1). The positive-
+    sign-only variant is not invariant under output negation nor under negation of y.
+    If stable2 has no positive at k=5 (see P3), the stable2 test has negatives only
+    and the invariance of stable2 rests on the written argument.
+P2 (convention, before every use): the Python decoder of knuthies.dat (616,124 records
+    of 15 bytes + 2 trivial classes) reproduces EXACTLY Knuth's class histogram, cost
+    0..12 = 2, 2, 5, 20, 93, 389, 1988, 11382, 60713, 221541, 293455, 26535, 1
+    (checktab.py = TAOCP 7.1.2), and the orbit sizes sum to 2^32 with per-cost function
+    counts 12, 100, 1140, 11570, 109826, 995240, 8430800, 63401728, 383877392,
+    1519125536, 2123645248, 195366784, 1920. optimal5 costs equal ours on MAJ_5 = 9,
+    MOD3_5_0 = 10, MOD3_5_1 = 9, MOD3_5_2 = 10, XOR_5 = 4, AND_5 = 4, THR2_4 = 7,
+    THR3_4 = 7, MOD3_4_{0,1,2} = 7, 7, 6, MUX_3 = 3, MAJ_3 = 4, MOD3_3_{0,1,2} = 3, 4, 4,
+    XOR/AND_{2,3,4} = 1, 2, 3, gst1 = 11, tt = 9178798 = 11; on all 256 functions of
+    results_bfs3.csv and the 32 rows of results_sym4_min.csv equality everywhere except
+    exactly 7 degenerate rows (bfs3 tt 0, 255, 15, 51, 85 and sym4 TT_4_0, TT_4_65535:
+    ours 1 vs Knuth 0). SUM_n not applicable (multi-output). The weak WP1 rows (MAJ_5,
+    THR2_4, THR3_4, glyph count only) get confirmation: 9, 7, 7.
+P3 (main): min C(f) over the stable1 classes = 11, no stable1 class of cost <= 10, the
+    class of gst1 is among the argmin; min weak1 = 3 (dummy inputs allowed) and 4 (all
+    inputs essential); stable2 classes = 0. No numeric prediction for the counts and
+    histograms of stable1 and weak1 classes and functions (stated explicitly);
+    structural constraints only: #stable1 >= 1, stable2 subset stable1 subset weak1.
+
+What refutes each
+-----------------
+P1: any verdict change for stable1 / weak1 / stable2 (then the written argument is
+    wrong or the checker is not a function of the truth table); no change for stable1pos
+    on NOT gst1.
+P2: any histogram cell differing from checktab.py, orbit sum != 2^32, or any target
+    mismatch other than the 7 listed degenerate rows. A disagreement on a WP1 proof-
+    backed row (XOR, AND) would indicate a decoder or convention error; on a glyph-count
+    row (MAJ_5, THR2_4, THR3_4) it would be a contradiction of WP1 to report as such.
+P3: a stable1 class of cost <= 10 (then the GHKK Corollary 6 ceiling tightens to
+    min + alpha, and the argmin circuit must be verified by simulate.py, by
+    stable_check.py and by a WP1-encoder SAT run at s = min, never by the table alone);
+    a stable2 class at k=5; a weak1 minimum other than 3 / 4.
+
+Metric (read exactly as written in the brief)
+---------------------------------------------
+(1) Invariance script: per variant, N random NPN transformations per function; output
+    = integer count of pairs with different verdicts; 0 = pass.
+(2) Decoder: CSV with one row per representative (tt in optimal5 convention, tt in WP1
+    convention, n_gates, orbit size, verdicts stable1/weak1/stable2, essential count)
+    plus class-per-cost and function-per-cost histograms compared row by row with the
+    13 values of checktab.py (exact integer equality); orbit sum == 4294967296.
+(3) Convention cross-check: CSV (name, our value, optimal5 cost via NPN-orbit search in
+    the representative dictionary, match, note) for the listed targets, the 256 bfs3
+    and the 32 sym4 rows; metric = number of mismatches not explained by the 12
+    degenerate functions (expected 0) and number of degenerate mismatches (expected
+    exactly 7).
+(4) Result: min_cost = min(n_gates) over accepted rows per variant; argmin = classes at
+    that cost with the decoded circuit (transformed back to the WP1 convention);
+    histogram = count per cost (classes and functions). If min <= 10 for stable1 the
+    argmin circuit must pass simulate.py, stable_check.py --variant stable1 and a WP1-
+    encoder SAT run at s = min (< 60 s); only then is min <= 10 declared.
+
+Constraints: single-threaded; no SAT solving beyond quick (< 60 s) SAT-side checks; the
+full 2^32 enumeration is not started while run_wp2.py is running; results_wp2_k5.csv and
+log_wp2_k5.txt are not modified.
