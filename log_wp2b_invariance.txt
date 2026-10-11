@@ -1,0 +1,7 @@
+stable1: pairs=2400 positives=302 changes=0 examples=[]
+weak1: pairs=2400 positives=2247 changes=0 examples=[]
+stable2: pairs=2400 positives=0 changes=0 examples=[]
+stable1pos: pairs=2400 positives=15 changes=22 examples=[(376339136, [4, 0, 1, 3, 2], 20, 0, True, False), (4238444951, [3, 0, 4, 1, 2], 4, 0, True, False), (3158583733, [2, 4, 0, 1, 3], 17, 0, False, True)]
+named case {'gst1_stable1pos': True, 'not_gst1_stable1pos': False, 'not_gst1_stable1': True}
+elapsed_s=91.2 result=PASS
+exit=0
