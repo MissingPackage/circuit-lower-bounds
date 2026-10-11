@@ -1,0 +1,10 @@
+21:29:45 stable1 k=6 s=0 full ess=0 UNSAT   tt= 0.1s to=3600
+21:29:45 stable1 k=6 s=1 full ess=0 UNSAT   tt= 0.0s to=3600
+21:29:45 stable1 k=6 s=2 full ess=0 UNSAT   tt= 0.1s to=3600
+21:29:46 stable1 k=6 s=3 full ess=0 UNSAT   tt= 1.6s to=3600
+21:30:31 stable1 k=6 s=4 full ess=0 UNSAT   tt= 44.3s to=3600
+21:30:31 stable1 k=6 s=0 none ess=0 UNSAT   tt= 0.1s to=3600
+21:30:31 stable1 k=6 s=1 none ess=0 UNSAT   tt= 0.1s to=3600
+21:30:31 stable1 k=6 s=2 none ess=0 UNSAT   tt= 0.5s to=3600
+21:30:56 stable1 k=6 s=3 none ess=0 UNSAT   tt= 24.0s to=3600
+22:30:56 stable1 k=6 s=4 none ess=0 TIMEOUT   tt= 3600.2s to=3600
