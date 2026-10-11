@@ -1,0 +1,18 @@
+function TT_5_3939033088  stable1=True stable1pos=True weak1=True essential=[0, 1, 2, 3, 4]
+  s=0 UNSAT wall=0.1s timeout=60s
+  s=1 UNSAT wall=0.0s timeout=60s
+  s=2 UNSAT wall=0.0s timeout=60s
+  s=3 UNSAT wall=0.0s timeout=60s
+  s=4 UNSAT wall=0.1s timeout=60s
+  s=5 UNSAT wall=0.4s timeout=60s
+  s=6 UNSAT wall=7.8s timeout=60s
+  s=7 SAT wall=2.0s timeout=60s sim=pass independent_tt_match=True circuit={"n": 5, "gates": [[0, 2, [0, 1, 1, 1]], [0, 3, [0, 0, 0, 1]], [2, 3, [0, 0, 0, 1]], [1, 6, [0, 1, 1, 1]], [4, 7, [0, 1, 1, 1]], [5, 9, [0, 0, 0, 1]], [8, 10, [0, 0, 0, 1]]], "outputs": [11]}
+function TT_5_9178798  stable1=True stable1pos=False weak1=True essential=[0, 1, 2, 3, 4]
+  s=0 UNSAT wall=0.0s timeout=60s
+  s=1 UNSAT wall=0.0s timeout=60s
+  s=2 UNSAT wall=0.0s timeout=60s
+  s=3 UNSAT wall=0.0s timeout=60s
+  s=4 UNSAT wall=0.0s timeout=60s
+  s=5 UNSAT wall=0.2s timeout=60s
+  s=6 UNSAT wall=3.9s timeout=60s
+  s=7 SAT wall=9.0s timeout=60s sim=pass independent_tt_match=True circuit={"n": 5, "gates": [[1, 2, [0, 0, 1, 0]], [1, 3, [0, 0, 1, 0]], [2, 3, [0, 0, 0, 1]], [0, 5, [0, 1, 1, 1]], [4, 6, [0, 0, 1, 0]], [8, 9, [0, 0, 1, 0]], [7, 10, [0, 1, 0, 0]]], "outputs": [11]}

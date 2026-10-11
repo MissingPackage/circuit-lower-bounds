@@ -124,9 +124,10 @@ def main():
         sample |= {i for i in range(N) if verdict[variant][i]}
     sample |= {index[k] for k in (g.wp1_to_opt5(0), 0x0000ffff)}
     mism = Counter()
+    tests = {v: stable_check.tests_for(v, K) for v in verdict}     # built once (holds() rebuilds them per call)
     for i in sample:
         for variant in verdict:
-            if bool(verdict[variant][i]) != stable_check.holds(tts[i], K, variant):
+            if bool(verdict[variant][i]) != stable_check._holds(tts[i], tests[variant]):
                 mism[variant] += 1
         if essential[i] != len(stable_check.essential_vars(tts[i], K)):
             mism['essential'] += 1
@@ -151,18 +152,22 @@ def main():
 
     rows = []
 
-    def add(name, n, tt_n, ours, source):
+    def add(name, n, tt_n, ours, source, upper_bound=False):
         tt5 = pad_to_5(tt_n, n)
         i = lookup(tt5)
         knuth = ngates[i]
         deg = knuth == 0 and ours == 1
+        if upper_bound and knuth < ours:
+            deg = False
+            source += ' [our value is an UPPER BOUND only: SAT at that s, no UNSAT ladder below]'
         sim = ''
         if knuth >= 1:
             tr = find_transform(tts[i], tt5)
             circ = g.transform_circuit(g.chain_to_wp1_circuit(recs[i]), *tr)
             bits = [(tt5 >> t) & 1 for t in range(R)]
             sim = 'pass' if (sim_check(circ, [bits]) and stable_check.circuit_tt(circ) == tt5 and len(circ['gates']) == knuth) else 'FAIL'
-        note = 'degenerate: constant or negated literal costs 1 gate in WP1, 0 in Knuth' if deg else ('' if ours == knuth else 'UNEXPLAINED')
+        note = 'degenerate: constant or negated literal costs 1 gate in WP1, 0 in Knuth' if deg else ('' if ours == knuth else (
+            'upper bound only; table value below it is not a contradiction (see log_wp2b_sat.txt for the SAT ladder)' if upper_bound and knuth < ours else 'UNEXPLAINED'))
         rows.append(dict(name=name, n=n, tt_wp1=tt_n, ours=ours, source=source, optimal5=knuth, rep='%08x' % keys[i],
                          match=int(ours == knuth), degenerate=int(deg), sim=sim, note=note))
 
@@ -172,7 +177,7 @@ def main():
             continue
         add(r['f'], n, sum(b << t for t, b in enumerate(outs[0])), int(r['expected_s']), 'WP1 ' + r['verified'])
     add('gst1 TT_5_%d' % GST1, 5, GST1, 11, 'GHKK Lemma 4 (fixed ladder UNSAT through s=7 so far)')
-    add('WP2 stable1 SAT TT_5_%d' % WP2_SAT, 5, WP2_SAT, 11, 'WP2 SAT at s=11 (ladder below 11 still running)')
+    add('WP2 stable1 SAT TT_5_%d' % WP2_SAT, 5, WP2_SAT, 11, 'WP2 SAT at s=11 (single-s job; free-function ladder s<=8 still running)', upper_bound=True)
     for r in csv.DictReader(open('results_bfs3.csv')):
         add('bfs3 tt=%s' % r['tt'], 3, int(r['tt']), int(r['bfs_min']), 'results_bfs3.csv')
     seen = set()
