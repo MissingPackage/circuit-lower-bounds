@@ -1,0 +1,201 @@
+WP2c PRE-REGISTRATION -- 2026-10-11 (frozen before the first control and the first run)
+=========================================================================================
+
+Work package: close the gadget question globally.  WP2b established (Knuth's table via
+optimal5, validated; confirmed by simulate.py, stable_check.py and the WP1 SAT encoder
+with UNSAT at s = 0..6 and SAT at s = 7) that the minimum B2 circuit size over all
+1-stable (GHKK Definition 2, both signs) 5-input functions is 7, attained by the class
+0x00071357 (monotone AND/OR chain).  WP2 established by exhaustive enumeration that no
+1-stable function exists on 3 or 4 inputs.  GHKK Theorem 4 / Corollary 6 make the
+ceiling constant equal to gates(g) regardless of the gadget's input count, so the
+remaining question is: does any 1-stable function on k >= 6 inputs have <= 6 gates?
+
+What WP2c is NOT: no outcome of WP2c is a circuit lower bound.  The result is a
+statement about the plain gate-elimination method with the measure mu_alpha and
+1-substitutions (a ceiling on what that method can prove), nothing else.
+
+Conventions (unchanged from WP2 / WP2b)
+----------------------------------------
+- Truth-table row t assigns x_{i+1} = (t >> i) & 1 (WP1 convention).  A k-input
+  function is an integer whose bit t is the value on row t; 2^k rows (64 for k = 6,
+  128 for k = 7).  Python integers are unbounded, so 128-bit truth tables are exact.
+- "stable1" = 1-stable, Definition 2 as printed (every Y with |Y| <= 2, every y in Y,
+  some tau on X \ Y with g|tau == y or g|tau == not y).
+- mode full = WP1 symmetry breaking (N normal gates, D no degenerate gates, U every
+  gate used, O colex order; S off).  With U the encoding is NOT monotone in s.
+  mode none = plain encoding, all 16 gate types, monotone in s.
+- essential flag = 0 everywhere (1-stability implies that every input is essential, see
+  Argument A; the flag would be redundant).
+- TIMEOUT is recorded as TIMEOUT, never as UNSAT.  Hard per-instance timeout 3600 s,
+  1 worker (the other core is busy with the WP2 k = 5 ladders, which are not touched:
+  results_wp2_k5.csv, results_wp2_k5_min.csv, log_wp2_k5.txt stay as they are).
+- Solver: cadical195 via python-sat, as in WP1/WP2.  UNSAT answers are not
+  DRAT-certified (same caveat as WP1); the only counter-check of the symmetry-breaking
+  mode is the mode-none run of the same instance.
+
+Structural arguments written down before the runs
+--------------------------------------------------
+Argument A (the brief's bound k <= s + 1).
+  (A1) A 1-stable function depends on every one of its inputs.  Proof: take Y = {y}
+       (|Y| = 1 <= m + 1 = 2).  Definition 2 gives tau on X \ {y} with g|tau = y or
+       g|tau = not y; in both cases g|tau is not constant, so g depends on y
+       (GHKK Section 3.1: f depends on x if some restriction of all other variables
+       leaves a non-constant function).
+  (A2) A function that depends on k inputs needs at least k - 1 gates.  Proof: restrict
+       a circuit computing it to the cone of the output node.  Every input the function
+       depends on is in the cone (an input outside the cone does not influence the
+       output).  The cone is a connected DAG with k + g' nodes and 2 g' edges, where g'
+       is the number of gates in the cone (each gate has in-degree 2; inputs have
+       in-degree 0).  Connectivity gives 2 g' >= k + g' - 1, i.e. g' >= k - 1, and the
+       circuit has at least g' gates.
+  (A3) Hence a 1-stable function on k inputs has gates(g) >= k - 1, i.e. a gadget with
+       s gates has k <= s + 1.  For s <= 6 this leaves k <= 7.  With WP2 (no 1-stable
+       function for k <= 4) and WP2b (minimum 7 at k = 5), the open instances for
+       "<= 6 gates" are exactly (k, s) in {(6, 5), (6, 6), (7, 6)}.  The instances
+       (6, s <= 4) and (7, s <= 5) are UNSAT by (A3) and serve as sanity rows.
+
+Argument B (tree lemma; my addition, written before the runs, hand-checked only).
+  Claim: no function computed by a circuit with exactly k - 1 gates on the k inputs it
+  depends on (k >= 2) is 1-stable.  Hence (k, k - 1) is UNSAT for every k >= 2; in
+  particular (6, 5) and (7, 6) are UNSAT, and the only instance on which the SAT runs
+  carry information beyond the hand arguments is (6, 6).
+  Proof.  Let C compute f, f depends on all k inputs, and C has k - 1 gates.  By (A2)
+  the cone of the output has g' = k - 1 gates, 2k - 2 edges and 2k - 1 nodes, so it is
+  a tree: every node except the output has out-degree exactly 1 (fan-out 1), and the
+  cone contains every gate of C.  Every gate op of the cone is non-degenerate (depends
+  on both of its arguments): if a gate ignored one argument, the inputs below that
+  argument would have no other path to the output (tree) and f would not depend on
+  them.  Pick any input x; it feeds exactly one gate G = op(u, x) (either argument
+  order).  Let y be an input in the closed cone of u (if u is an input, y = u).  Take
+  Y = {y, x}, which has |Y| = 2 <= m + 1, and the element y of Y.  Suppose some tau on
+  X \ Y gives g|tau = y or g|tau = not y.  Under tau, u is a function of y alone:
+  u|tau in {0, 1, y, not y}.
+    - If u|tau is constant, G|tau = op(const, x) is a function of x alone; y reaches
+      the output only through G (tree), so f|tau is a function of x alone and does not
+      depend on y.  Contradiction.
+    - If u|tau = y or not y, then G|tau = op(+-y, x).  Because op is non-degenerate,
+      op(a, .) is non-constant for some value a, and +-y takes that value for one value
+      of y, so G|tau depends on x.  Above G, every node is a function of G|tau and
+      constants only (x feeds only G; y reaches the output only through G), so
+      f|tau = F(G|tau) with F : {0,1} -> {0,1}.  If F is constant, f|tau does not
+      depend on y; if F is a bijection, f|tau depends on x.  Contradiction either way.
+  So Definition 2 fails for (Y, y), and f is not 1-stable.  QED.
+  Consistency with existing data: (3, 2), (4, 3) UNSAT in results_wp2_k34.csv (both
+  modes), (5, 4) UNSAT in results_wp2_k5.csv (mode full); the exhaustive counts of WP2
+  (0 1-stable functions at k = 3, 4) and the WP2b minimum 7 = k + 2 at k = 5 agree.
+  Status: a hand proof; the SAT rows (6, 5) and (7, 6) are its mechanical check at
+  k = 6, 7.  If either row returns a verified SAT, Argument B is wrong and the SAT
+  result wins.
+
+Remark on (6, 6) (no claim): by the count in (A2), a 6-gate circuit on 6 inputs that
+depends on all of them has an output cone with 5 or 6 gates; 5 gates is the tree case
+(Argument B), 6 gates means a tree plus exactly one extra edge (exactly one node of
+out-degree 2).  Whether such a circuit can be 1-stable is decided by the SAT run.
+
+Instances and run order (1 worker, 3600 s each, essential = 0, variant stable1)
+---------------------------------------------------------------------------------
+Every instance is its own job (smin = smax), so a TIMEOUT at one s cannot skip
+another s.  Order: sanity rows k = 6, s = 0..4, mode full; k = 6, s = 0..4, mode none;
+k = 7, s = 0..5, mode full; k = 7, s = 0..5, mode none; then (6, 5) full, (6, 5) none,
+(7, 6) full, (7, 6) none, (6, 6) full, (6, 6) none.  28 rows in total, all appended to
+results_wp2c.csv (FIELDS of run_wp2.py: variant, k, s, mode, essential, res, wall_s,
+timeout_s, solve_s, vars, clauses, aux_vars, sim, checker, tt, circuit); per-job
+summary in results_wp2c_min.csv; stdout in log_wp2c.txt.
+
+Controls before any run (stage B, log_wp2c_controls.txt, results_wp2c_smoke.csv)
+---------------------------------------------------------------------------------
+C1  stable_check.py at k = 6 on x1x2x3 + x4x5x6 (+ = XOR), WP1 integer
+    9187484529235886208: expected weak1 accept, stable1 reject.
+C2  gst1 (TT_5_376339136), the WP2b argmin TT_5_3939033088 (class 0x00071357) and the
+    WP2 SAT-found TT_5_9178798 padded with a dummy sixth input (tt6 = tt5 | tt5 << 32:
+    1616364281701235392, 16918018294760923136, 39422637235769006): expected stable1
+    reject at k = 6 (Y = {x6} has no tau making g|tau = +-x6), essential = [0..4] (five
+    inputs), and the unpadded tables still stable1 accept at k = 5.  Same with a dummy
+    seventh input at k = 7 (tt7 = tt6 | tt6 << 64): stable1 reject.
+C3  One positive k = 6 control found by uniform random sampling of 64-bit truth tables
+    and accepted by stable_check.py --variant stable1 (expected to exist: a crude
+    independence estimate gives roughly 2% of random 6-input functions 1-stable, so a
+    few hundred samples suffice); its essential set must be all six inputs (by A1), and
+    it must be weak1 accept (every m-stable function is weakly m-stable, GHKK).
+C4  Encoder smoke test at k = 6 and k = 7: the free path Enc(k, 1, s) plus
+    stability.add_variant(stable1) builds for s = 0..6 in both modes with the variable
+    and clause counts recorded (no prediction on the numbers; they are recorded for the
+    grader); the fixed path via funcs.build('TT_6_<int>') / ('TT_7_<int>') builds on the
+    padded tables of C2 (names TT_6_1616364281701235392, TT_7_<...>) with 64 / 128 rows.
+C5  End-to-end free-path smoke run at k = 6 in both modes: weak1, essential = 0, s = 3
+    expected SAT with sim pass and checker accept (WP2 P2w: weakly 1-stable minimum 3
+    when dummy inputs are allowed, witness e.g. x2 x3 xor x1 x4), and AND_6 fixed
+    ladder: UNSAT at s = 4, SAT at s = 5 in mode full (known value, 5 gates).  These
+    rows go to results_wp2c_smoke.csv, not to results_wp2c.csv.
+
+Pre-registered predictions (verbatim from the WP2c brief; the evidence decides)
+-------------------------------------------------------------------------------
+P1 (mathematical, both modes): every open instance (6,5), (6,6), (7,6) and every sanity
+   row (6, s=0..4), (7, s=0..5) that completes within 3600 s returns UNSAT, in mode full
+   and in mode none, and no SAT row appears anywhere.  Probability that no verified SAT
+   exists (the global claim is true): 0.97.
+P2 (operational, the brief's declaration rule): all six open rows (3 instances x 2
+   modes) complete UNSAT within 3600 s each with 1 worker while the WP2 k=5 job keeps 2
+   cores busy: probability 0.12; per-row completion probabilities: (6,5) full 0.75,
+   none 0.60; (7,6) full 0.50, none 0.35; (6,6) full 0.30, none 0.20.  Expected failure
+   mode is TIMEOUT, concentrated on (6,6) and then (7,6), never SAT.
+P3 (sanity rows): (6, s<=4) and (7, s<=4) in both modes each finish UNSAT in < 300 s
+   (probability 0.90 for all 18 rows); (7,5) both modes within 3600 s: 0.65.
+P4 (ordering, within one k and mode): wall_s is non-decreasing in s, the row s = k-1
+   (tree case) is at least 10x slower than s = k-2, and mode none is slower than or
+   equal to mode full on every UNSAT row with s >= 4 (probability 0.80 for all three
+   ordering statements).
+P5 (hypothetical SAT, not expected): if a SAT row appears it will fail at least one of
+   the three verifications (sim, independent checker, fixed-function WP1 ladder) or be
+   contradicted by the other mode, i.e. it will be a defect, not a gadget.
+
+Addendum from Argument B (mine, same evidence rule): (6, 5) and (7, 6) are UNSAT with
+certainty up to encoder correctness; the only instance whose outcome is not fixed by a
+hand argument is (6, 6).
+
+What refutes each
+-----------------
+P1: any SAT row in results_wp2c.csv that passes the three verifications (sim pass,
+    checker accept, fixed-function ladder consistent) in either mode.  A TIMEOUT leaves
+    the instance open and does not refute P1 (but blocks the global claim).
+P2: any of the six open rows ending TIMEOUT or ERROR (refutes the "all complete" part);
+    per-row completion is graded row by row.
+P3: any sanity row with res != UNSAT, or wall_s >= 300 for the 18 rows s <= 4, or (7,5)
+    not UNSAT within 3600 s in either mode.
+P4: any (k, mode) with wall_s decreasing in s on consecutive UNSAT rows; any k, mode
+    with wall_s(s = k-1) < 10 x wall_s(s = k-2); any UNSAT row with s >= 4 where mode
+    none is faster than mode full on the same (k, s).  Rows with wall_s below 1 s are
+    compared as recorded (no rounding exemption).
+P5: a SAT row that passes all three verifications and is not contradicted by the other
+    mode (this would also refute P1 and Argument B if s = k - 1).
+Argument B: a verified SAT at (6, 5) or (7, 6).
+Controls: any control verdict different from the expected one in C1-C5 stops the runs
+    until the cause is found (the checker or encoder would be unfit for k = 6, 7).
+
+Declared result per instance (the brief's rule, verbatim in substance)
+-----------------------------------------------------------------------
+- UNSAT only if res = UNSAT in BOTH modes within the timeout.  In mode none (monotone
+  in s) UNSAT at s = 6 also subsumes s < 6; in mode full it does not.
+- SAT only if a SAT row has sim = pass, checker = accept for stable1 on the independent
+  bit-parallel truth table, and the fixed-function WP1 encoder ladder on the found
+  truth table (funcs.build TT_k_<int>) gives UNSAT at every s' < s in mode full and SAT
+  at s (plus UNSAT at s - 1 in mode none for exactness).
+- TIMEOUT or ERROR in either mode, or an instance not run, = open.
+- SAT in one mode and UNSAT in the other at the same (k, s) = encoder defect, no
+  declaration.
+- Global claim "7 is the minimum gadget size for this framework" is made only if all
+  three open instances (6, 5), (6, 6), (7, 6) are declared UNSAT.  Otherwise the README
+  states Arguments A and B as hand (proof-level) claims and lists the undecided SAT
+  instances as open.
+- Grading = line-by-line comparison of P1-P5 against the CSV rows (res, wall_s,
+  timeout_s, sim, checker) and the control outputs.
+
+Staging (1 worker, ~2 h wall expected, hard 3600 s per instance)
+-----------------------------------------------------------------
+Stage A: this file + wp2c_frozen.stamp.                                   commit
+Stage B: controls C1-C5 (wp2c_controls.py -> log_wp2c_controls.txt,
+         results_wp2c_smoke.csv).                                          commit
+Stage C: sanity rows (22 rows) -> results_wp2c.csv, log_wp2c.txt.          commit
+Stage D: open rows (6) in the stated order; if a SAT row appears, the
+         verification ladder on the found function -> log_wp2c_sat.txt.    commit
+Stage E: README.md (WP table row, section on the GHKK ceiling).            commit
