@@ -1,0 +1,20 @@
+verify results_wp2c_smoke.csv SAT rows: 4
+row weak1 k=6 s=3 mode=full tt=17216961131958902302 sim=pass independent_tt_match=True checker=accept
+  fixed TT_6_17216961131958902302 mode=full s=0 UNSAT wall=0.1s sim=
+  fixed TT_6_17216961131958902302 mode=full s=1 UNSAT wall=0.1s sim=
+  fixed TT_6_17216961131958902302 mode=full s=2 UNSAT wall=0.1s sim=
+  fixed TT_6_17216961131958902302 mode=full s=3 SAT wall=0.1s sim=pass
+  fixed TT_6_17216961131958902302 mode=none s=2 UNSAT wall=0.1s sim=
+  fixed TT_6_17216961131958902302 mode=none s=3 SAT wall=0.1s sim=pass
+  verdict: VERIFIED (sim=True, checker=True, ladder=True)
+row weak1 k=6 s=3 mode=none tt=8680820740552357751 sim=pass independent_tt_match=True checker=accept
+  fixed TT_6_8680820740552357751 mode=full s=0 UNSAT wall=0.0s sim=
+  fixed TT_6_8680820740552357751 mode=full s=1 UNSAT wall=0.1s sim=
+  fixed TT_6_8680820740552357751 mode=full s=2 UNSAT wall=0.1s sim=
+  fixed TT_6_8680820740552357751 mode=full s=3 SAT wall=0.1s sim=pass
+  fixed TT_6_8680820740552357751 mode=none s=2 UNSAT wall=0.1s sim=
+  fixed TT_6_8680820740552357751 mode=none s=3 SAT wall=0.1s sim=pass
+  verdict: VERIFIED (sim=True, checker=True, ladder=True)
+row fixed_AND_6 k=6 s=5 mode=full: fixed-function row, no claimed truth table, skipped
+row fixed_AND_7 k=7 s=6 mode=full: fixed-function row, no claimed truth table, skipped
+all SAT rows verified: True
