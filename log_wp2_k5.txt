@@ -1,0 +1,9 @@
+19:51:52 stable1 k=5 s=11 full ess=0 SAT pass accept tt=9178798 9.5s to=3600
+19:51:52 fixed_gst1 k=5 s=0 full ess=0 UNSAT   tt= 0.0s to=7200
+19:51:52 fixed_gst1 k=5 s=1 full ess=0 UNSAT   tt= 0.0s to=7200
+19:51:52 fixed_gst1 k=5 s=2 full ess=0 UNSAT   tt= 0.0s to=7200
+19:51:52 fixed_gst1 k=5 s=3 full ess=0 UNSAT   tt= 0.0s to=7200
+19:51:52 fixed_gst1 k=5 s=4 full ess=0 UNSAT   tt= 0.0s to=7200
+19:51:52 fixed_gst1 k=5 s=5 full ess=0 UNSAT   tt= 0.2s to=7200
+19:51:55 fixed_gst1 k=5 s=6 full ess=0 UNSAT   tt= 2.9s to=7200
+19:53:10 fixed_gst1 k=5 s=7 full ess=0 UNSAT   tt= 75.0s to=7200
