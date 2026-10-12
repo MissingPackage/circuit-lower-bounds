@@ -1,0 +1,794 @@
+[
+ {
+  "id": "1a",
+  "label": "Case 1, x protected feeds at least two gates",
+  "kind": "leaf",
+  "paper_leaf": "1",
+  "status": "verified",
+  "reason": "",
+  "completions": 20849,
+  "pruned": 1294,
+  "vacuous": 22,
+  "discharged": {
+   "1a/x <- 0": 20827
+  },
+  "covered": {},
+  "certified_types": [
+   7
+  ],
+  "certified_gain": "types 7(x20827); weakest completion 2 + -8*aT + 1*aI + 1*aQ, slack at alpha* 0",
+  "claimed_types": [
+   7
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 14.6,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "1b",
+  "label": "Case 1, x protected feeds an and-type gate",
+  "kind": "leaf",
+  "paper_leaf": "1",
+  "status": "verified",
+  "reason": "",
+  "completions": 15101,
+  "pruned": 248,
+  "vacuous": 165,
+  "discharged": {
+   "1b/x <- c trivialising T": 14936
+  },
+  "covered": {},
+  "certified_types": [
+   7
+  ],
+  "certified_gain": "types 7(x14936); weakest completion 2 + -8*aT + 1*aI + 1*aQ, slack at alpha* 0",
+  "claimed_types": [
+   7
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 17.9,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "2",
+  "label": "Case 2, protected x is a 0-variable; substitute its partner",
+  "kind": "leaf",
+  "paper_leaf": "2",
+  "status": "verified",
+  "reason": "",
+  "completions": 2,
+  "pruned": 2,
+  "vacuous": 0,
+  "discharged": {
+   "2/x2 <- 0": 2
+  },
+  "covered": {},
+  "certified_types": [
+   2
+  ],
+  "certified_gain": "types 2(x2); weakest completion 2*aI + 1*aQ, slack at alpha* 65/43",
+  "claimed_types": [
+   2
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 0.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "3",
+  "label": "Case 3, x feeds and-gate T with out(x)+out(T) >= 4",
+  "kind": "leaf",
+  "paper_leaf": "3",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 35031 completions, 0 uncovered so far",
+  "completions": 35031,
+  "pruned": 2446,
+  "vacuous": 59,
+  "discharged": {
+   "3/x <- c trivialising T": 34972
+  },
+  "covered": {},
+  "certified_types": [
+   3
+  ],
+  "certified_gain": "types 3(x34972); weakest completion 4 + -16*aT + 2*aI, slack at alpha* 260/43",
+  "claimed_types": [
+   3
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "4",
+  "label": "Case 4, and-gate T fed by inputs x, y with out(x) = 1",
+  "kind": "leaf",
+  "paper_leaf": "4",
+  "status": "verified",
+  "reason": "",
+  "completions": 1735,
+  "pruned": 1843,
+  "vacuous": 51,
+  "discharged": {
+   "4/y <- c trivialising T": 1684
+  },
+  "covered": {},
+  "certified_types": [
+   2
+  ],
+  "certified_gain": "types 2(x1684); weakest completion 1 + -4*aT + 2*aI, slack at alpha* 39/43",
+  "claimed_types": [
+   2
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 6.4,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5",
+  "label": "Case 5, troubled T fed by x, y; default: x or y trivialising T",
+  "kind": "internal",
+  "paper_leaf": false,
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 12380 completions, 0 uncovered so far",
+  "completions": 12380,
+  "pruned": 8564,
+  "vacuous": 1,
+  "discharged": {
+   "5/y <- c trivialising T": 4812,
+   "5/x <- c trivialising T": 7567
+  },
+  "covered": {},
+  "certified_types": [
+   3,
+   4
+  ],
+  "certified_gain": "types 3(x6559),4(x5820); weakest completion 3 + 1*aT + 1*aI, slack at alpha* 0",
+  "claimed_types": [
+   3,
+   4
+  ],
+  "exhaustive": false,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "R",
+  "label": "Root anchor: an and-type gate T and its two inputs",
+  "kind": "root",
+  "paper_leaf": false,
+  "status": "verified",
+  "reason": "",
+  "completions": 83,
+  "pruned": 2,
+  "vacuous": 0,
+  "discharged": {},
+  "covered": {
+   "4": 9,
+   "3": 34,
+   "1": 18,
+   "R.out": 10,
+   "R67": 10,
+   "5": 2
+  },
+  "certified_types": [],
+  "certified_gain": "",
+  "claimed_types": [],
+  "exhaustive": true,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 10,
+  "residual_examples": [
+   "T:and(n1,n2) out=1 bits=??; n1:var out=1 prot=False; n2:?(?,?) out=None bits=??",
+   "T:and(n1,n2) out=2 bits=??; n1:var out=1 prot=False; n2:?(?,?) out=None bits=??",
+   "T:and(n1,n2) out=1 bits=??; n1:var out=2 prot=False; n2:?(?,?) out=None bits=??",
+   "T:and(n1,n2) out=1 bits=??; n1:?(?,?) out=None bits=??; n2:var out=1 prot=False",
+   "T:and(n1,n2) out=2 bits=??; n1:?(?,?) out=None bits=??; n2:var out=1 prot=False",
+   "T:and(n1,n2) out=1 bits=??; n1:?(?,?) out=None bits=??; n2:var out=2 prot=False",
+   "T:and(n1,n2) out=0 bits=??; n1:?(?,?) out=None bits=??; n2:?(?,?) out=None bits=??",
+   "T:and(n1,n2) out=1 bits=??; n1:?(?,?) out=None bits=??; n2:?(?,?) out=None bits=??",
+   "T:and(n1,n2) out=2 bits=??; n1:?(?,?) out=None bits=??; n2:?(?,?) out=None bits=??",
+   "T:and(n1,n2) out=3 bits=??; n1:?(?,?) out=None bits=??; n2:?(?,?) out=None bits=??"
+  ],
+  "seconds": 0.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.1",
+  "label": "Case 5.1, B = C",
+  "kind": "leaf",
+  "paper_leaf": "5.1",
+  "status": "verified",
+  "reason": "",
+  "completions": 1966,
+  "pruned": 1397,
+  "vacuous": 540,
+  "discharged": {
+   "5.1/x <- c trivialising T": 200,
+   "5.1/y <- c trivialising T": 372,
+   "5.1/x <- y + c trivialising T": 824,
+   "5/x <- c trivialising T": 30
+  },
+  "covered": {},
+  "certified_types": [
+   2
+  ],
+  "certified_gain": "types 2(x1396); weakest completion 3 + -12*aT + 2*aI, slack at alpha* 117/43",
+  "claimed_types": [
+   2
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 16.8,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.2",
+  "label": "Case 5.2, D feeds B and C",
+  "kind": "internal",
+  "paper_leaf": false,
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 14275 completions, 0 uncovered so far",
+  "completions": 14275,
+  "pruned": 452,
+  "vacuous": 218,
+  "discharged": {
+   "5/x <- c trivialising T": 318,
+   "5/y <- c trivialising T": 12857
+  },
+  "covered": {
+   "5.2.2": 882
+  },
+  "certified_types": [],
+  "certified_gain": "",
+  "claimed_types": [],
+  "exhaustive": false,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.3",
+  "label": "Case 5.3, B feeds D, D feeds C",
+  "kind": "leaf",
+  "paper_leaf": "5.3",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 12953 completions, 0 uncovered so far",
+  "completions": 12953,
+  "pruned": 1084,
+  "vacuous": 311,
+  "discharged": {
+   "5/x <- c trivialising T": 1699,
+   "5.3/y <- c trivialising T": 10943
+  },
+  "covered": {},
+  "certified_types": [
+   3,
+   4
+  ],
+  "certified_gain": "types 3(x1630),4(x9313); weakest completion 4 + -16*aT + 1*aI, slack at alpha* 0",
+  "claimed_types": [
+   3,
+   4
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.4",
+  "label": "Case 5.4, no wire between B and D",
+  "kind": "internal",
+  "paper_leaf": false,
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 12879 completions, 0 uncovered so far",
+  "completions": 12879,
+  "pruned": 608,
+  "vacuous": 1170,
+  "discharged": {
+   "5/y <- c trivialising T": 1122,
+   "5/x <- c trivialising T": 10587
+  },
+  "covered": {},
+  "certified_types": [],
+  "certified_gain": "",
+  "claimed_types": [],
+  "exhaustive": false,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "R.out",
+  "label": "Unlabelled: the output gate is an and-gate fed by an input (excluded by the invariant)",
+  "kind": "leaf",
+  "paper_leaf": null,
+  "status": "verified",
+  "reason": "all completions discharged by ancestors or vacuous",
+  "completions": 30,
+  "pruned": 0,
+  "vacuous": 30,
+  "discharged": {},
+  "covered": {},
+  "certified_types": [],
+  "certified_gain": "",
+  "claimed_types": [
+   4
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 0.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.2.1",
+  "label": "Case 5.2.1, out(B) >= 2 (impossible: default applies)",
+  "kind": "leaf",
+  "paper_leaf": "5.2.1",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 11602 completions, 0 uncovered so far",
+  "completions": 11602,
+  "pruned": 274,
+  "vacuous": 1995,
+  "discharged": {
+   "5/x <- c trivialising T": 9443,
+   "5/y <- c trivialising T": 164
+  },
+  "covered": {},
+  "certified_types": [],
+  "certified_gain": "",
+  "claimed_types": [],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.2.2",
+  "label": "Case 5.2.2, out(B) = 1",
+  "kind": "leaf",
+  "paper_leaf": "5.2.2",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 2712 completions, 0 uncovered so far",
+  "completions": 2712,
+  "pruned": 154,
+  "vacuous": 83,
+  "discharged": {
+   "5/y <- c trivialising T": 2583,
+   "5/x <- c trivialising T": 9,
+   "5.2.2/z <- c trivialising E; y <- c trivialising T": 37
+  },
+  "covered": {},
+  "certified_types": [
+   1
+  ],
+  "certified_gain": "types 1(x37); weakest completion 5 + -20*aT + 3*aI, slack at alpha* 195/43",
+  "claimed_types": [
+   1
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.4.1",
+  "label": "Case 5.4.1, D passes a variable z to a new troubled and-gate E",
+  "kind": "internal",
+  "paper_leaf": false,
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 9674 completions, 0 uncovered so far",
+  "completions": 9674,
+  "pruned": 11131,
+  "vacuous": 119,
+  "discharged": {
+   "5/x <- c trivialising T": 5180,
+   "5/y <- c trivialising T": 4375
+  },
+  "covered": {},
+  "certified_types": [],
+  "certified_gain": "",
+  "claimed_types": [],
+  "exhaustive": false,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.4.2",
+  "label": "Case 5.4.2, B (fed by a variable t) feeds a new troubled gate E fed by a variable z",
+  "kind": "internal",
+  "paper_leaf": false,
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 1687 completions, 0 uncovered so far",
+  "completions": 1687,
+  "pruned": 20923,
+  "vacuous": 25,
+  "discharged": {
+   "5/x <- c trivialising T": 1630,
+   "5/y <- c trivialising T": 32
+  },
+  "covered": {},
+  "certified_types": [],
+  "certified_gain": "",
+  "claimed_types": [],
+  "exhaustive": false,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.4.1.1",
+  "label": "Case 5.4.1.1, out(z) >= 2 (then out(D) = 1)",
+  "kind": "internal",
+  "paper_leaf": false,
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 10009 completions, 0 uncovered so far",
+  "completions": 10009,
+  "pruned": 5832,
+  "vacuous": 369,
+  "discharged": {
+   "5/x <- c trivialising T": 4953,
+   "5/y <- c trivialising T": 4687
+  },
+  "covered": {},
+  "certified_types": [],
+  "certified_gain": "",
+  "claimed_types": [],
+  "exhaustive": false,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.4.1.2",
+  "label": "Case 5.4.1.2, out(z) = 1, out(D) >= 2, D and-type",
+  "kind": "leaf",
+  "paper_leaf": "5.4.1.2",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 9407 completions, 0 uncovered so far",
+  "completions": 9407,
+  "pruned": 5126,
+  "vacuous": 1,
+  "discharged": {
+   "5.4.1.2/z <- c trivialising D": 8917,
+   "5/x <- c trivialising T": 360,
+   "5/y <- c trivialising T": 129
+  },
+  "covered": {},
+  "certified_types": [
+   3
+  ],
+  "certified_gain": "types 3(x8917); weakest completion 4 + -16*aT + 1*aI, slack at alpha* 0",
+  "claimed_types": [
+   3
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.4.1.3",
+  "label": "Case 5.4.1.3, out(z) = 1, out(D) >= 2, D xor-type, z protected",
+  "kind": "leaf",
+  "paper_leaf": "5.4.1.3",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 10665 completions, 0 uncovered so far",
+  "completions": 10665,
+  "pruned": 0,
+  "vacuous": 5330,
+  "discharged": {
+   "5/x <- c trivialising T": 6,
+   "5.4.1.3/x <- c trivialising T; z <- c trivialising E": 5329
+  },
+  "covered": {},
+  "certified_types": [
+   6
+  ],
+  "certified_gain": "types 6(x5329); weakest completion 5 + -20*aT + 2*aI + 1*aQ, slack at alpha* 0",
+  "claimed_types": [
+   6
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.4.1.4",
+  "label": "Case 5.4.1.4, out(z) = 1, out(D) >= 2, D xor-type, z unprotected",
+  "kind": "leaf",
+  "paper_leaf": "5.4.1.4",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 7083 completions, 0 uncovered so far",
+  "completions": 7083,
+  "pruned": 973,
+  "vacuous": 50,
+  "discharged": {
+   "5/x <- c trivialising T": 1094,
+   "5/y <- c trivialising T": 153,
+   "5.4.1.4/z <- (x+a)(y+b)+c (quadratic, computed at T) trivialising E": 5786
+  },
+  "covered": {},
+  "certified_types": [
+   5
+  ],
+  "certified_gain": "types 5(x5786); weakest completion 5 + -20*aT + 1*aI + -1*aQ, slack at alpha* 0",
+  "claimed_types": [
+   5
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.4.2.1",
+  "label": "Case 5.4.2.1, out(B) >= 2",
+  "kind": "leaf",
+  "paper_leaf": "5.4.2.1",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 9170 completions, 0 uncovered so far",
+  "completions": 9170,
+  "pruned": 715,
+  "vacuous": 11,
+  "discharged": {
+   "5/x <- c trivialising T": 1079,
+   "5.4.2.1/x <- t + c trivialising E": 8080
+  },
+  "covered": {},
+  "certified_types": [
+   3
+  ],
+  "certified_gain": "types 3(x8080); weakest completion 4 + -16*aT + 1*aI, slack at alpha* 0",
+  "claimed_types": [
+   3
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.4.2.2",
+  "label": "Case 5.4.2.2, out(B) = 1",
+  "kind": "leaf",
+  "paper_leaf": "5.4.2.2",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 5595 completions, 0 uncovered so far",
+  "completions": 5595,
+  "pruned": 620,
+  "vacuous": 27,
+  "discharged": {
+   "5/x <- c trivialising T": 430,
+   "5.4.2.2/y <- c trivialising T; z <- c trivialising E": 35,
+   "5/y <- c trivialising T": 5103
+  },
+  "covered": {},
+  "certified_types": [
+   1
+  ],
+  "certified_gain": "types 1(x35); weakest completion 6 + -24*aT + 3*aI, slack at alpha* 234/43",
+  "claimed_types": [
+   1
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.4.1.1.0",
+  "label": "Case 5.4.1.1, unlabelled sub-case: E fed by another variable t directly",
+  "kind": "leaf",
+  "paper_leaf": null,
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 5156 completions, 0 uncovered so far",
+  "completions": 5156,
+  "pruned": 6299,
+  "vacuous": 2,
+  "discharged": {
+   "5/x <- c trivialising T": 675,
+   "5/y <- c trivialising T": 1919,
+   "5.4.1.1.0/t <- c trivialising E": 2560
+  },
+  "covered": {},
+  "certified_types": [
+   3
+  ],
+  "certified_gain": "types 3(x2560); weakest completion 4 + -16*aT + 1*aI, slack at alpha* 0",
+  "claimed_types": [
+   3
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.4.1.1.1",
+  "label": "Case 5.4.1.1.1, E fed via B (B fed by t), out(B) >= 2",
+  "kind": "leaf",
+  "paper_leaf": "5.4.1.1.1",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 1911 completions, 0 uncovered so far",
+  "completions": 1911,
+  "pruned": 9799,
+  "vacuous": 136,
+  "discharged": {
+   "5/x <- c trivialising T": 18,
+   "5/y <- c trivialising T": 150,
+   "5.4.1.1.1/x <- t + c trivialising E": 1607
+  },
+  "covered": {},
+  "certified_types": [
+   3
+  ],
+  "certified_gain": "types 3(x1607); weakest completion 4 + -16*aT + 1*aI, slack at alpha* 0",
+  "claimed_types": [
+   3
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ },
+ {
+  "id": "5.4.1.1.2",
+  "label": "Case 5.4.1.1.2, E fed via B (B fed by t), out(B) = 1",
+  "kind": "leaf",
+  "paper_leaf": "5.4.1.1.2",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 90 s with 3224 completions, 0 uncovered so far",
+  "completions": 3224,
+  "pruned": 910,
+  "vacuous": 399,
+  "discharged": {
+   "5/y <- c trivialising T": 799,
+   "5/x <- c trivialising T": 234,
+   "5.4.1.1.2/y <- c trivialising T; z <- c trivialising E": 1792
+  },
+  "covered": {},
+  "certified_types": [
+   1
+  ],
+  "certified_gain": "types 1(x1792); weakest completion 5 + -20*aT + 3*aI, slack at alpha* 195/43",
+  "claimed_types": [
+   1
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 90.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 90.0
+ }
+]

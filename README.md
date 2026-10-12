@@ -84,7 +84,8 @@ random cases, 0 failures; independent brute force over all circuits with <=
 | WP2c | Gadget question closed for all k: 1-stable with <= 6 gates needs k <= 7 (hand argument A), (k, k-1) excluded (hand argument B), remaining SAT instances at k = 6, 7 | done with open instances: 0 SAT rows; (6,5) UNSAT in mode full (1341 s); (6,6) and (7,6) TIMEOUT in mode full; mode-none cross-checks time out from s = 4; global claim not made by the pre-registered rule, A and B stand as hand proofs |
 | WP2d | Mechanical closure of the gadget question for every k: exhaustive enumeration of circuit DAG structures at (6,5), (6,6), (7,6) plus regression instances, re-derived independently of the WP2c reviewer's scripts | done: 0 1-stable functions among 29,005 / 1,399,372 / 437,025 distinct functions (and 0 at (4,4), (5,5), (5,6)); enumerator completeness validated against Knuth's cumulative class histogram at k = 5 (s = 0..7, every class hit, 0 containment violations, the 7-gate argmin found at s = 7) and against bfs3 at k = 3; global claim "7 is the minimum gadget size" declared on the enumeration (documented deviation from the WP2c both-SAT-modes rule) |
 | WP2e | Gates-only ceiling of plain gate elimination (GHKK Section 3.2 "5n"): what Theorem 1 gives with the cheapest weakly 1-stable gadget | done: Section 3.2's 5 is a non-tight MAJ_3 size bound; Theorem 1 with mu = gates gives gates(g); minimum over weakly 1-stable g is 3 (MUX_3; 0 weakly 1-stable tables with <= 2 gates, exhaustive), so the ceiling is 3n; a limit on a proof method, not a lower bound |
-| WP3 | Automated search for gate-elimination potentials and case analyses | planned |
+| WP3 | Automated search for gate-elimination potentials and case analyses | scoping done (`wp3/scoping_2026-10-12.md`) |
+| WP3.1 | Machine checker for gate-elimination case certificates, calibrated on FGHK rev. 2 Cases 1-5 | tool built; partial calibration: 4 of 15 labelled leaves verified (Cases 1, 2, 4, 5.1), 0 rejected, 11 not checked within the 90 s per-node budget (Case 3 and the rest of Case 5); root exhaustive with an explicit Cases 6-7 residual; negative controls 14 of 15 rejected, 0 accepted; LP reproduces 3 + 1/86 exactly from the transcribed types. A tool, not a lower bound |
 
 ## WP1 summary
 
@@ -554,6 +555,110 @@ section at the top stays 7n), or about whether constructions other than
 f <> g with a weakly 1-stable g could cap the method below 3n.  This limits a
 proof method; it is NOT a circuit lower bound.
 
+## WP3.1 summary (a checker for gate-elimination case certificates)
+
+Question: can the case analysis of a gate-elimination proof be checked by a
+machine, one case at a time? Calibration object: Find, Golovnev, Hirsch,
+Kulikov, ECCC TR15-166 revision 2 (August 2022), Cases 1-5 of the
+(3 + 1/86)n proof (PDF p.23-30). Pre-registration with page-quoted
+transcription of the circuit model, measure, normalization order, substitution
+types and Cases 1-5: `wp3/wp31_preregistration_2026-10-12.txt` (frozen, sha256 in
+`wp3/wp31_frozen.stamp`). **This is a tool and a calibration, not a lower bound.**
+
+What the checker is (`wp3/gecheck/`). A certificate is one JSON file per node of
+the case tree (schema `wp3/gecheck/certificate.schema.json`). Each node holds:
+- a local pattern: typed gates and variables, out-degrees, protected flags,
+  quadratic partners, edges, identifications, forbidden edges;
+- the earlier cases whose triggers are forbidden (the paper's case order);
+- alternative actions: a sequence of substitutions x <- c, x <- t + c, or a
+  quadratic z <- (x+a)(y+b)+c computed at an and-gate, plus the claimed types;
+- the children, and declared pattern automorphisms (verified to be automorphisms).
+
+For every node the checker enumerates the completions of the pattern lazily. A
+fact is branched on only when an action or a matcher needs it: gate type,
+polarity, out-degree up to cap 3, identity of an unknown neighbour (including
+identification with an existing node), protected flag, partner. For each
+completion it then:
+1. applies the substitutions;
+2. applies FGHK Transformations 1-5 in their stated order to the gates within
+   radius 1 of the pattern;
+3. computes a lower bound on the decrease of mu = g + aQ q + aT t + aI i. The
+   bound is the exact value on the partially normalized circuit, or the per-rule
+   bound beta = 1 - 4 aT per removed gate (Prop. 3.4.3), plus beta per gate that
+   is certainly removed later (Lemma 3.5.1);
+4. compares the bound with the claimed type bound for all 0 <= aT <= 1/4,
+   aI, aQ >= 0, in exact rationals.
+
+A leaf is verified if every completion is discharged by its own action or an
+ancestor's, or is vacuous (the output would become constant, the only
+disperser property used, p.22). An internal node is exhaustive if every
+completion it does not discharge matches a child. The checker has no code path
+keyed to a case label (grep over `wp3/gecheck/*.py` finds none). So 0 of 15
+leaves need bespoke code (pre-registered P5: at most 2).
+
+Results (`wp3/logs/wp31_stageC.json`, 90 s budget per node, 2 cores):
+
+| Node | Paper claim | Checker | Completions |
+|---|---|---|---|
+| Case 1 (1a: two gates, 1b: and-gate) | type 7 | verified, type 7 | 20,849 + 15,101 |
+| Case 2 | type 2 | verified, type 2 | 2 |
+| Case 3 | type 3 | not checked (budget); 0 failures in 35,031 explored | - |
+| Case 4 | type 2 | verified, type 2 | 1,735 |
+| Case 5.1 | type 2 | verified, type 2 (needs the affine x <- y + c on some completions) | 1,966 |
+| Cases 5.2.1, 5.2.2, 5.3, 5.4.1.1.1, 5.4.1.1.2, 5.4.1.2, 5.4.1.3, 5.4.1.4, 5.4.2.1, 5.4.2.2 | 1/3/4/5/6 | not checked (budget); 0 failures in 1,911-12,953 explored per leaf; every claimed type reached | - |
+| Root (and-gate anchor) | Cases 1-5 + residual | exhaustive | 83 |
+
+Internal nodes:
+- The root is exhaustive. Its 83 completions are covered by Cases 1-5 plus an
+  unlabelled "output and-gate fed by an input" leaf (vacuous by the invariant).
+  The 10 residual completions all have an internal-gate input to the and-gate;
+  they are handed to Cases 6-7 (WP3.2).
+- Case 5 and its internal subcases 5.2, 5.4, 5.4.1, 5.4.1.1, 5.4.2 were not
+  finished within the budget. They had 0 uncovered completions in the explored
+  part.
+
+What it could not express or check:
+- xor-reconstruction (Lemma 3.4.2): not needed in Cases 1-5;
+- cyclic xor fragments: completions are acyclic;
+- out-degrees above 3 for unconstrained nodes;
+- 5 of the 15 labelled leaves and the internal Case 5 nodes within 90 s per
+  node.
+
+Negative controls (`wp3/logs/wp31_negative_controls.json`): 15 corrupted
+certificates (wrong gain x4, wrong substituted variable x2, fixed instead of
+trivialising constant, affine substitution of a protected variable, quadratic
+substitution from an input, weakened pattern, dropped precondition, missing
+leaf at the root x2, non-automorphic symmetry, wrong trivialisation target).
+Results: 14 rejected, each with a counter-completion and a reason naming the
+corruption; 0 accepted; 1 undecided ("Case 3 claims type 4", which may not be a
+false claim, since with four or more gates and exact troubled-gate accounting
+type 4 can hold).
+
+The controls also exposed two checker bugs, fixed before the reported run:
+- a pattern sum constraint was not enforced when generating completions;
+- the matcher let two edges into one gate come from the same node, which
+  over-pruned completions.
+
+LP (`wp3/logs/wp31_lp.json`, exact vertex enumeration, cross-checked by grid):
+- all seven types (eq. (3) of p.15): 259/86 = 3 + 1/86 exactly at
+  aT = 1/43, aQ = 65/43, aI = 6 + 2/43;
+- types 1, 2, 3, 4, 7 only (pre-registered P4b): 103/34 = 3 + 1/34 at
+  aT = 1/17.
+
+Note made at transcription time, before any run: Cases 1-5 themselves contain
+types 5 and 6 (Case 5.4.1.4 and 5.4.1.3, p.29). The premise of P4b, "Cases 1-5
+use only 1, 2, 3, 4, 7", is therefore wrong, although its arithmetic is right.
+The types certified by the verified leaves alone (2 and 7) leave the LP
+unbounded, so the constant is reproduced from the transcribed type bounds, not
+from certificates.
+
+Caveats:
+- The checker trusts Prop. 3.4.2, Prop. 3.4.3 and Lemma 3.5.1.
+- Within a rule, the order among gates is the node-creation order; the paper
+  fixes none.
+- Transformations 1 and 4 are applied only when decidable from known facts.
+  This is sound, since normalization never increases mu, but it is lossy.
+
 ## Layout
 
 - `encoder.py`, `solve.py`, `simulate.py`, `funcs.py` — encoder, per-instance
@@ -581,6 +686,10 @@ proof method; it is NOT a circuit lower bound.
   `log_wp2d*.txt`, `wp2d/E_k_s.npy` (my sets), `wp2d/R_k_s.npy` (the reviewer's
   sets, reproduced), `wp2d/C_6_6_*.npy` (canonical forms) — WP2d outputs;
   `wp2d/reviewer_scripts/` — the WP2c reviewer's scripts, verbatim, unreviewed
+- `wp3/` — WP3: scoping study; WP3.1 pre-registration and stamp, `gecheck/`
+  (lazy-completion checker `engine.py` + `checker.py`, negative controls
+  `mutants.py`, exact LP `lp.py`, certificate schema), `certs/` (Cases 1-5
+  certificates of FGHK rev. 2), `logs/` (stage C run, controls, LP)
 - `sources/` — transcribed reference values with citations; third-party
   documents are not redistributed (see `sources/SOURCES.md`)
 

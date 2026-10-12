@@ -206,6 +206,13 @@ def _check_partial(pat, M, comp, ask, newname):
         if newname in (u, v) and u in M and v in M:
             if not _edge(comp, ask, M[u], M[v]):
                 return False
+    # two pattern edges into the same gate occupy two input slots: their sources
+    # must be different nodes (a normalized circuit never feeds a gate twice)
+    for u1, v1 in pat.edges:
+        for u2, v2 in pat.edges:
+            if v1 == v2 and u1 < u2 and newname in (u1, u2, v1) and \
+                    u1 in M and u2 in M and M[u1] == M[u2]:
+                return False
     for u, v in pat.no_edge:
         if newname in (u, v) and u in M and v in M:
             if comp.nodes[M[v]].kind == 'gate' and _edge(comp, ask, M[u], M[v]):

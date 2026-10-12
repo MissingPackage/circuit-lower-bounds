@@ -1,0 +1,50 @@
+1a           leaf      verified                   compl=20849   pruned=1294    vac=22      14.6s types 7(x20827); weakest completion 2 + -8*aT + 1*aI + 1*aQ, slack at alpha* 0 
+    discharged by: {'1a/x <- 0': 20827}
+1b           leaf      verified                   compl=15101   pruned=248     vac=165     17.9s types 7(x14936); weakest completion 2 + -8*aT + 1*aI + 1*aQ, slack at alpha* 0 
+    discharged by: {'1b/x <- c trivialising T': 14936}
+2            leaf      verified                   compl=2       pruned=2       vac=0        0.0s types 2(x2); weakest completion 2*aI + 1*aQ, slack at alpha* 65/43 
+    discharged by: {'2/x2 <- 0': 2}
+3            leaf      not-checked (time budget)  compl=35031   pruned=2446    vac=59      90.0s types 3(x34972); weakest completion 4 + -16*aT + 2*aI, slack at alpha* 260/43 | stopped after 90 s with 35031 completions, 0 uncovered so far
+    discharged by: {'3/x <- c trivialising T': 34972}
+4            leaf      verified                   compl=1735    pruned=1843    vac=51       6.4s types 2(x1684); weakest completion 1 + -4*aT + 2*aI, slack at alpha* 39/43 
+    discharged by: {'4/y <- c trivialising T': 1684}
+5            internal  not-checked (time budget)  compl=12380   pruned=8564    vac=1       90.0s types 3(x6559),4(x5820); weakest completion 3 + 1*aT + 1*aI, slack at alpha* 0 | stopped after 90 s with 12380 completions, 0 uncovered so far
+    discharged by: {'5/y <- c trivialising T': 4812, '5/x <- c trivialising T': 7567}
+R            root      verified                   compl=83      pruned=2       vac=0        0.0s  
+    covered by children: {'4': 9, '3': 34, '1': 18, 'R.out': 10, 'R67': 10, '5': 2}
+5.1          leaf      verified                   compl=1966    pruned=1397    vac=540     16.8s types 2(x1396); weakest completion 3 + -12*aT + 2*aI, slack at alpha* 117/43 
+    discharged by: {'5.1/x <- c trivialising T': 200, '5.1/y <- c trivialising T': 372, '5.1/x <- y + c trivialising T': 824, '5/x <- c trivialising T': 30}
+5.2          internal  not-checked (time budget)  compl=14275   pruned=452     vac=218     90.0s  | stopped after 90 s with 14275 completions, 0 uncovered so far
+    covered by children: {'5.2.2': 882}
+    discharged by: {'5/x <- c trivialising T': 318, '5/y <- c trivialising T': 12857}
+5.3          leaf      not-checked (time budget)  compl=12953   pruned=1084    vac=311     90.0s types 3(x1630),4(x9313); weakest completion 4 + -16*aT + 1*aI, slack at alpha* 0 | stopped after 90 s with 12953 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 1699, '5.3/y <- c trivialising T': 10943}
+5.4          internal  not-checked (time budget)  compl=12879   pruned=608     vac=1170    90.0s  | stopped after 90 s with 12879 completions, 0 uncovered so far
+    discharged by: {'5/y <- c trivialising T': 1122, '5/x <- c trivialising T': 10587}
+R.out        leaf      verified                   compl=30      pruned=0       vac=30       0.0s  | all completions discharged by ancestors or vacuous
+5.2.1        leaf      not-checked (time budget)  compl=11602   pruned=274     vac=1995    90.0s  | stopped after 90 s with 11602 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 9443, '5/y <- c trivialising T': 164}
+5.2.2        leaf      not-checked (time budget)  compl=2712    pruned=154     vac=83      90.0s types 1(x37); weakest completion 5 + -20*aT + 3*aI, slack at alpha* 195/43 | stopped after 90 s with 2712 completions, 0 uncovered so far
+    discharged by: {'5/y <- c trivialising T': 2583, '5/x <- c trivialising T': 9, '5.2.2/z <- c trivialising E; y <- c trivialising T': 37}
+5.4.1        internal  not-checked (time budget)  compl=9674    pruned=11131   vac=119     90.0s  | stopped after 90 s with 9674 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 5180, '5/y <- c trivialising T': 4375}
+5.4.2        internal  not-checked (time budget)  compl=1687    pruned=20923   vac=25      90.0s  | stopped after 90 s with 1687 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 1630, '5/y <- c trivialising T': 32}
+5.4.1.1      internal  not-checked (time budget)  compl=10009   pruned=5832    vac=369     90.0s  | stopped after 90 s with 10009 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 4953, '5/y <- c trivialising T': 4687}
+5.4.1.2      leaf      not-checked (time budget)  compl=9407    pruned=5126    vac=1       90.0s types 3(x8917); weakest completion 4 + -16*aT + 1*aI, slack at alpha* 0 | stopped after 90 s with 9407 completions, 0 uncovered so far
+    discharged by: {'5.4.1.2/z <- c trivialising D': 8917, '5/x <- c trivialising T': 360, '5/y <- c trivialising T': 129}
+5.4.1.3      leaf      not-checked (time budget)  compl=10665   pruned=0       vac=5330    90.0s types 6(x5329); weakest completion 5 + -20*aT + 2*aI + 1*aQ, slack at alpha* 0 | stopped after 90 s with 10665 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 6, '5.4.1.3/x <- c trivialising T; z <- c trivialising E': 5329}
+5.4.1.4      leaf      not-checked (time budget)  compl=7083    pruned=973     vac=50      90.0s types 5(x5786); weakest completion 5 + -20*aT + 1*aI + -1*aQ, slack at alpha* 0 | stopped after 90 s with 7083 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 1094, '5/y <- c trivialising T': 153, '5.4.1.4/z <- (x+a)(y+b)+c (quadratic, computed at T) trivialising E': 5786}
+5.4.2.1      leaf      not-checked (time budget)  compl=9170    pruned=715     vac=11      90.0s types 3(x8080); weakest completion 4 + -16*aT + 1*aI, slack at alpha* 0 | stopped after 90 s with 9170 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 1079, '5.4.2.1/x <- t + c trivialising E': 8080}
+5.4.2.2      leaf      not-checked (time budget)  compl=5595    pruned=620     vac=27      90.0s types 1(x35); weakest completion 6 + -24*aT + 3*aI, slack at alpha* 234/43 | stopped after 90 s with 5595 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 430, '5.4.2.2/y <- c trivialising T; z <- c trivialising E': 35, '5/y <- c trivialising T': 5103}
+5.4.1.1.0    leaf      not-checked (time budget)  compl=5156    pruned=6299    vac=2       90.0s types 3(x2560); weakest completion 4 + -16*aT + 1*aI, slack at alpha* 0 | stopped after 90 s with 5156 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 675, '5/y <- c trivialising T': 1919, '5.4.1.1.0/t <- c trivialising E': 2560}
+5.4.1.1.1    leaf      not-checked (time budget)  compl=1911    pruned=9799    vac=136     90.0s types 3(x1607); weakest completion 4 + -16*aT + 1*aI, slack at alpha* 0 | stopped after 90 s with 1911 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 18, '5/y <- c trivialising T': 150, '5.4.1.1.1/x <- t + c trivialising E': 1607}
+5.4.1.1.2    leaf      not-checked (time budget)  compl=3224    pruned=910     vac=399     90.0s types 1(x1792); weakest completion 5 + -20*aT + 3*aI, slack at alpha* 195/43 | stopped after 90 s with 3224 completions, 0 uncovered so far
+    discharged by: {'5/y <- c trivialising T': 799, '5/x <- c trivialising T': 234, '5.4.1.1.2/y <- c trivialising T; z <- c trivialising E': 1792}
