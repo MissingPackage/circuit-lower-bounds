@@ -1,0 +1,6 @@
+k,s,reviewer_topologies,reviewer_distinct,reviewer_reported,reported_reproduced,my_structures,my_distinct,sets_equal,mine_subset_of_theirs,theirs_minus_mine,canonical_mine,canonical_theirs,canonical_equal,status
+4,4,38,2901,,,35,2365,0,1,536,417,417,1,reviewer set reproduced here from the verbatim scripts
+5,5,188,73089,,,148,58009,0,1,15080,6228,6228,1,reviewer set reproduced here from the verbatim scripts
+6,5,16,29005,29005,1,15,29005,1,1,0,-1,-1,1,reviewer set reproduced here from the verbatim scripts
+7,6,61,437025,437025,1,52,437025,1,1,0,-1,-1,,reviewer set reproduced here from the verbatim scripts
+6,6,1038,1857928,1857928,1,672,1399372,0,1,458556,86316,86316,1,reviewer set reproduced here from the verbatim scripts

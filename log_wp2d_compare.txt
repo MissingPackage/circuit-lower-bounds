@@ -1,0 +1,5 @@
+    0.0s (4,4) reviewer: topologies=38 distinct=2901 reported= reproduced= | mine: structures=35 distinct=2365 | equal=0 mine_subset_of_theirs=1 theirs_minus_mine=536 canonical_classes mine=417 theirs=417 canon_equal=1 (0.0 s)
+    1.2s (5,5) reviewer: topologies=188 distinct=73089 reported= reproduced= | mine: structures=148 distinct=58009 | equal=0 mine_subset_of_theirs=1 theirs_minus_mine=15080 canonical_classes mine=6228 theirs=6228 canon_equal=1 (1.1 s)
+    1.2s (6,5) reviewer: topologies=16 distinct=29005 reported=29005 reproduced=1 | mine: structures=15 distinct=29005 | equal=1 mine_subset_of_theirs=1 theirs_minus_mine=0 canonical_classes mine=-1 theirs=-1 canon_equal=1 (0.0 s)
+    4.7s (7,6) reviewer: topologies=61 distinct=437025 reported=437025 reproduced=1 | mine: structures=52 distinct=437025 | equal=1 mine_subset_of_theirs=1 theirs_minus_mine=0 canonical_classes mine=-1 theirs=-1 canon_equal= (3.5 s)
+  678.9s (6,6) reviewer: topologies=1038 distinct=1857928 reported=1857928 reproduced=1 | mine: structures=672 distinct=1399372 | equal=0 mine_subset_of_theirs=1 theirs_minus_mine=458556 canonical_classes mine=86316 theirs=86316 canon_equal=1 (674.2 s)

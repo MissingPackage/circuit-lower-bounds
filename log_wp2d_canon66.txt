@@ -1,0 +1,1 @@
+wp2d/E_6_6.npy: 1399372 distinct tables -> 86316 canonical classes under input permutation (393.1 s)
