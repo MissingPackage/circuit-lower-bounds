@@ -15,8 +15,10 @@ For the plain gate-elimination method with the measure mu_alpha = gates + alpha
 * inputs and 1-substitutions (GHKK Theorem 4 / Corollary 6), the smallest
 1-stable gadget (Definition 2, both signs) has exactly 7 gates: no 1-stable
 function on any number of inputs has a B2 circuit with <= 6 gates, and the
-7-gate class 0x00071357 on 5 inputs exists.  The ceiling of the method is
-therefore 7 + alpha per substitution, about 7n.  Evidence chain: k <= 4 none
+7-gate class 0x00071357 on 5 inputs exists.  Hence no 1-stable gadget can
+push the Theorem 4 bound below 7 + alpha per substitution: 7n is the best
+ceiling obtainable from Theorem 4 / Corollary 6 with a 1-stable gadget (it
+does not show that the method cannot be limited further by other means).  Evidence chain: k <= 4 none
 (WP2, exhaustive over all truth tables); k = 5 minimum 7 (WP2b, Knuth's table,
 SAT-confirmed); k >= 6: a 1-stable function depends on every input, so s gates
 force k <= s + 1 (Argument A, hand proof), which leaves (k, s) in {(6, 5),
@@ -369,7 +371,8 @@ is the minimum gadget size for this framework" is declared on the strength of
 the enumeration; this is a documented deviation from the WP2c rule (UNSAT in
 both SAT modes), and the WP2c section above keeps its statement that (6, 6)
 was open at that time.  The Corollary 6 ceiling with mu_alpha and
-1-substitutions is exactly 7n: a limit on the method, not a lower bound.
+1-substitutions obtainable from a 1-stable gadget is 7n and cannot be lowered
+by a better gadget: a limit on the method, not a lower bound.
 Not verified: the k = 5 minimum is Knuth's table plus non-DRAT UNSAT answers
 (WP2b); the enumeration itself is validated by the controls above, not
 independently re-derived a third time.  Dependency added: numpy (vectorised
