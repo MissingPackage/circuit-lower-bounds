@@ -1,0 +1,328 @@
+WP3.1 PRE-REGISTRATION (frozen before any checker code is run)
+Date: 2026-10-12
+Object: a machine checker for gate-elimination case certificates, calibrated on
+Find, Golovnev, Hirsch, Kulikov, "Improving 3n Circuit Complexity Lower Bounds",
+ECCC TR15-166, Revision 2 (dated August 16, 2022), PDF fetched from
+https://eccc.weizmann.ac.il/report/2015/166/revision/2/download, stored locally as
+sources/fghk-r2.pdf (not redistributed), sha256
+9393c685b07682dc01ae0888450ed4475b774ea9e0e2b8d491cecf4a29ee0404, 44 PDF pages,
+text extraction sources/fghk-r2.txt (pypdf, made during the WP3 scoping study).
+Page numbers below are PDF pages (they coincide with the printed page numbers).
+Nothing in this WP is a lower bound. WP3.1 produces a tool and a calibration.
+
+Proof-status vocabulary used for every item:
+  read p.N      = read in the text of FGHK rev. 2 on PDF page N
+  read p.N (*)  = read from the pypdf text extraction where the extraction mangles
+                  fractions (e.g. "143" for 1/43); the reading was fixed by
+                  arithmetic consistency with the other printed values; no page
+                  renderer was available on the host to look at the glyphs
+  inferred [VERIFY] = my own reading or derivation, not stated in the paper
+  design        = a decision of this WP about the checker, not a claim about FGHK
+
+======================================================================
+PART 1. TRANSCRIPTION OF FGHK REV. 2
+======================================================================
+
+1.1 Circuit model
+-----------------
+M1 (read p.7) Circuits over the full binary basis B2 (all 16 binary operations).
+   Inputs have in-degree 0, internal gates in-degree 2 with numbered incoming edges.
+   G(C) = number of internal gates, I(C) = number of input gates.
+M2 (read p.7) and-type operation: g(x,y) = (c1 + x)(c2 + y) + c3 (over GF(2));
+   xor-type: g(x,y) = x + y + c1. "Passing": depends on exactly one input.
+   "Trivial": computes a constant operation. out(G) = out-degree; k-gate, k+-gate,
+   k-variable likewise. One gate of out-degree zero is designated as the output.
+M3 (read p.7) Diagram convention: a gate drawn in a picture may have additional
+   out-going wires; a number drawn above a gate is its exact out-degree.
+M4 (read p.8-9) Cyclic xor-circuits: all gates affine (xor, equivalence, passing,
+   trivial allowed); "fair" = the square linear system has full rank. A semicircuit
+   is a fair cyclic xor-circuit X (containing all inputs) composed with an ordinary
+   circuit C, no wires from C back to X. From Section 3 on, "circuit" means fair
+   semicircuit (read p.9).
+M5 (read p.11) rdq-source (Def. 3.1.1): variables split into F (free), L (linear),
+   Q (quadratic); each x_j in Q has x_j = (x_i + c_i)(x_k + c_k) + c_j with i,k in F,
+   i != k, each free variable in the right-hand side of at most one quadratic
+   equality; each x_j in L has an affine equality over F and Q. Variables in the
+   right-hand side of a quadratic equality are "protected". Dimension = |F|.
+M6 (read p.12) Lemma 3.1.1: from a free x_j one may add (1) x_j = c; (2) x_j = affine
+   over F u Q, x_j unprotected; (3) x_j = (x_i+c_i)(x_k+c_k)+c_j with i,j,k in F, x_j
+   unprotected [the text says i,j,k in F; that x_i, x_k must not be protected
+   already follows from the read-once condition of Def. 3.1.1, inferred [VERIFY]];
+   (4) x_j = x_i + c for the two protected variables of one quadratic equality.
+   Item 1 on a protected x_j turns its quadratic equality affine (the partner is
+   then no longer protected; read p.12, proof item 1, and p.13 Lemma 3.1.2 context).
+M7 (read p.13) Lemma 3.1.2: an affine disperser for dimension d is an rdq-disperser
+   for dimension 2d.
+M8 (read p.22) Invariant used inside the case analysis: s >= d + 2, so after at
+   most two more equalities the disperser is not constant; hence a gate that becomes
+   constant is not the output and feeds at least one gate. This is the ONLY
+   property of the function class the checker uses (design).
+
+1.2 Troubled gate (Definition 3.2.1, read p.13)
+-----------------------------------------------
+T1 An internal gate G is troubled iff (a) G is and-type with out-degree 1,
+   (b) both gates feeding G are input gates, (c) both these inputs have out-degree 2.
+
+1.3 Measure (read p.13)
+-----------------------
+U1 mu(C, R) = g + alpha_Q * q + alpha_T * t + alpha_I * i, with g = internal gates of
+   C, q = quadratic equalities of R, t = troubled gates of C, i = influential inputs
+   of C. An input is influential iff it feeds at least one gate or is protected.
+U2 (read p.13) beta := 1 - 4 alpha_T is the guaranteed decrease per gate removed by a
+   normalizing transformation (Prop. 3.4.3); alpha_T < 1/4.
+U3 (read p.15, eq. (3)) Theorem 3.1: mu(C, F_2^n) >= delta (n - d - 2) with
+   delta := alpha_I + min{ alpha_I/2, 4 beta, 3 + alpha_T, 2 beta + alpha_Q,
+                           5 beta - alpha_Q, 2.5 beta + alpha_Q/2 },
+   0 <= alpha_Q, alpha_I, 0 <= alpha_T <= 1/4.  [fractions: read p.15 (*)]
+U4 (read p.14) Lemma 3.2.1: t < n/2 + 5d/2 for a circuit computing an affine
+   disperser for dimension d.
+U5 (read p.15) Corollary 3.2.1: size >= (delta - alpha_T/2 - alpha_I) n - o(n).
+   LP (read p.15): maximise delta - alpha_T/2 - alpha_I subject to
+   beta + 4 alpha_T = 1; alpha_T, alpha_Q, alpha_I, beta >= 0;
+   delta <= alpha_I + min{ alpha_I/2, 4 beta, 3 + alpha_T, 2 beta + alpha_Q,
+                           5 beta - alpha_Q, 2.5 beta + alpha_Q/2 }.
+U6 Optimal values printed on p.15 (read p.15 (*)):
+   alpha_T = 1/43, alpha_Q = 1 + 22 alpha_T = 65/43, alpha_I = 6 + 2 alpha_T = 6 + 2/43,
+   beta = 1 - 4 alpha_T = 39/43, delta = 9 + 3 alpha_T = 9 + 3/43.
+   Arithmetic check (inferred [VERIFY], my arithmetic): delta - alpha_I = 3 + 1/43;
+   alpha_I/2 = 3 + 1/43; 3 + alpha_T = 3 + 1/43; 5 beta - alpha_Q = 130/43 = 3 + 1/43;
+   2.5 beta + alpha_Q/2 = 130/43; 4 beta = 156/43; 2 beta + alpha_Q = 143/43.
+   Objective delta - alpha_T/2 - alpha_I = 3 + 1/43 - 1/86 = 3 + 1/86.
+U7 (read p.15) Theorem 1.1: (3 + 1/86) n - o(n).
+
+1.4 Substitution types and their gains (read p.22-23)
+-----------------------------------------------------
+Delta mu = decrease of mu after the substitution(s) and the subsequent normalization.
+ type 1: two affine substitutions, influential inputs drop by 3: Delta mu >= 3 alpha_I
+         (1.5 alpha_I per substitution).
+ type 2: one affine substitution, influential inputs drop by 2: Delta mu >= 2 alpha_I.
+ type 3: one affine substitution removing four internal gates: Delta mu >= 4 beta + alpha_I.
+ type 4: one constant substitution removing three internal gates including at least
+         one troubled gate and introducing no new troubled gate:
+         Delta mu >= alpha_I + 3 + alpha_T.
+ type 5: one quadratic substitution removing five gates: Delta mu >= 5 beta - alpha_Q + alpha_I.
+ type 6: two affine substitutions removing five gates and turning one quadratic
+         equality affine: Delta mu >= 5 beta + alpha_Q + 2 alpha_I (per substitution
+         2.5 beta + alpha_Q/2 + alpha_I).
+ type 7: one affine substitution removing two gates and turning one quadratic
+         equality affine: Delta mu >= 2 beta + alpha_Q + alpha_I.
+ (read p.23) "delta is defined ... as the minimum of the lower bounds on Delta mu
+ given in the seven cases above." Note (inferred [VERIFY]): type 2 (2 alpha_I, i.e.
+ alpha_I + alpha_I) is absent from eq. (3); it is dominated by type 1's alpha_I/2 term.
+ A constant substitution counts as affine (inferred [VERIFY]; Cases 1, 2, 3 call
+ constant substitutions type 7/2/3).
+
+1.5 Substitution mechanics (read p.16-17, 19-21)
+------------------------------------------------
+S1 (read p.16) x <- c: every gate fed by x gets the operation g(c, t) and the wire
+   from x is removed (Prop. 3.4.1: same gates, same topology otherwise).
+S2 (read p.16-17) x <- G + c for a gate or input G not reachable from x: every wire
+   from x is replaced by a wire from G (operand negated if c = 1). Prop. 3.4.2:
+   this may introduce a new troubled gate only if out(x) = 1, x feeds an and-gate,
+   and G is an input 1-gate.
+S3 (read p.19-21) affine substitution via xor-reconstruction (Lemma 3.4.2,
+   Figure 4); not used by Cases 1-5 (inferred, from reading Cases 1-5 p.23-30:
+   every affine substitution there is x <- t + c with t an input). Out of scope
+   of WP3.1 (WP3.2).
+S4 (read p.29, Case 5.4.1.4) the quadratic substitution z <- (x+a)(y+b)+c+b' is
+   implemented with out(z) = 1 ("we do not need to replace other occurrences of
+   z"); x and y become protected. Checker implementation (design): S2 with G = the
+   and-gate T computing (x+a)(y+b)+c, plus the rdq bookkeeping (q + 1, x and y
+   protected).
+
+1.6 Normalizing transformations, in the stated order (read p.17-18, 21)
+-----------------------------------------------------------------------
+Each transformation eliminates a gate G with inputs I1, I2.
+ N1 (Transformation 1) G has no outgoing edge and is not the output: remove G.
+ N2 (Transformation 2) G is trivial, i.e. computes a constant function of the
+    circuit inputs: remove G and embed the constant into every successor.
+ N3 (Transformation 3) G is passing: remove G, reattach its outgoing wires to the
+    input it depends on (possibly negated at the successors; and-type stays and-type,
+    xor-type stays xor-type). If G is the output, the input (or its negation) becomes
+    the output.
+ N4 (Transformation 4) G is a 1-gate feeding a single gate Q != G, and Q is also fed
+    by one of G's inputs ("useless"): rewire Q to the other input of G (Q's operation
+    may change), remove G.
+ N5 (Transformation 5) both inputs of G coincide: replace g(x,y) by g(x,x), then
+    apply N3 or N2.
+ ORDER (read p.21): normalize(C) = "while at least one of the Transformations 1-5
+    is applicable to C, apply the first such transformation". The checker applies
+    the lowest-numbered applicable transformation; among several gates for the same
+    transformation the paper fixes no order; the checker uses node creation order
+    (design; inferred [VERIFY] that the gate order is immaterial for the claims).
+ ACCOUNTING per rule (read p.18-19, Prop. 3.4.3): each of N1-N5 removes exactly one
+    internal gate and introduces at most four new troubled gates; only I1, I2 (if
+    and-type) and the gates they feed after the transformation can become troubled.
+    Hence Delta mu >= beta per transformation. N1-N5 never increase the number of
+    influential inputs (read p.21, Lemma 3.5.1: normalize does not increase mu).
+ (read p.23) "We also rely on the specified order of applications of the
+    normalizing transformations where applicable."
+ (read p.23) Observation used everywhere: a gate fed by a gate that is constant on
+    R computes 0, 1, Q or not-Q and is removed by N2 or N3.
+
+1.7 Case statements, Cases 1-5 (read p.23-30)
+---------------------------------------------
+Every case assumes that the conditions of the previous cases fail (read p.23) and
+that C is normalized (read p.22). Leaves are listed with: local configuration;
+substitution; claimed type.  Labelled leaves (15, as counted by the scoping study):
+
+ L1  Case 1 (read p.23-24). A protected variable x feeds an and-type gate or at least
+     two gates. (a) x feeds two gates A, B: x <- 0, A and B become passing, removed
+     by N3: type 7. (b) x feeds an and-type gate A: x <- c trivialising A, A
+     constant, its descendant passing: N2 and N3, type 7.
+ L2  Case 2 (read p.24). A quadratic equality with protected x, x' where x is a
+     0-variable: x' <- 0, the equality becomes affine; neither x nor x' is
+     influential: type 2. Consequence stated (p.24): afterwards all protected
+     variables are 1-variables feeding xor-gates.
+ L3  Case 3 (read p.24). A variable x feeds an and-type gate T with
+     out(x) + out(T) >= 4: x <- c trivialising T; four gates removed: type 3.
+     Consequence stated (p.24): afterwards variables feeding and-gates have
+     out-degree 1 or 2.
+ L4  Case 4 (read p.24). And-type T fed by inputs x, y with out(x) = 1 (out(y) >= 1):
+     y <- c trivialising T; x and y stop being influential: type 2.
+ Case 5 (read p.24-25), internal. And-type T fed by inputs x, y; then out(T) = 1 and
+     out(x) = out(y) = 2 (T troubled). D = successor of T, B = other successor of x,
+     C = other successor of y. Normalized: B != D, C != D (N4). Default (p.25):
+     x <- c trivialising T removes B, T, D; if a fourth gate is removed: type 3; if no
+     new troubled gate appears: type 4; the same for y. The subcases treat the
+     situation where both fail.
+ L5  Case 5.1 (read p.26). B = C: one of x <- a, y <- b', x <- y + a + b + 1
+     trivialises T and B: type 2.
+     Case 5.2 (read p.26), internal: D feeds B and C; a new troubled gate needs D
+     fed by a variable u passed (via B) to an and-gate E; out(D) <= 2.
+ L6  Case 5.2.1 (read p.26-27). out(B) >= 2: shown impossible (contradiction with
+     B != D); no substitution.
+ L7  Case 5.2.2 (read p.27). out(B) = 1: constants to z (B becomes a 0-gate) and to y
+     (trivialising T); x stops being influential: type 1.
+ L8  Case 5.3 (read p.27). B feeds D, D feeds C: y <- c trivialising T removes T, D,
+     C, no new troubled gate: type 4 (by contradiction with the case assumption).
+     Case 5.4 (read p.27), internal: no wire between B and D (after possibly
+     swapping x and y). Case 5.4.1, internal: D feeds a new troubled gate E under
+     the substitution of x; E gets a variable z from D.
+     Case 5.4.1.1 (read p.28), internal: out(z) >= 2; then out(D) = 1 and E is fed by
+     another variable t directly or via B. Unlabelled sub-leaf (direct t): t <- c
+     trivialising E; E, its descendant, D (N1), T (N1): type 3.
+ L9  Case 5.4.1.1.1 (read p.28). E fed via B, out(B) >= 2, B xor-type (Case 3):
+     x <- t + c makes B constant and trivialises E: type 3.
+ L10 Case 5.4.1.1.2 (read p.28). E fed via B, out(B) = 1: constants to z and y
+     trivialising T and E (the text says "z and y ... T and E, respectively";
+     inferred [VERIFY]: the order that works is y trivialising T, then z
+     trivialising E): B becomes a 0-gate, x a 0-variable: type 1.
+     After 5.4.1.1: out(z) = 1 and out(D) >= 2 (read p.28).
+ L11 Case 5.4.1.2 (read p.29). D and-type: z <- c trivialising D removes D, both its
+     successors, and T (N1): type 3.
+ L12 Case 5.4.1.3 (read p.29). z protected (D xor-type): x <- c trivialising T (the
+     text says "trivializing x", read as T, inferred [VERIFY]) removes B, T, D; then
+     z <- c trivialising E removes E and its descendants: five gates, one quadratic
+     equality removed: type 6.
+ L13 Case 5.4.1.4 (read p.29). z unprotected, D xor-type computing
+     (x+a)(y+b)+z+c: quadratic substitution z <- (x+a)(y+b)+c+b'; D and E constant,
+     T a 0-gate; five gates: type 5.
+     Case 5.4.2 (read p.29-30), internal: B feeds the new troubled gate E, B is fed by
+     a variable t, E by a variable z.
+ L14 Case 5.4.2.1 (read p.30). out(B) >= 2, B xor-type: x <- t + c trivialising E;
+     B, E and their descendants: type 3.
+ L15 Case 5.4.2.2 (read p.30). out(B) = 1: constants to z and y trivialising T and E
+     (same reading as L10): B a 0-gate, x a 0-variable: type 1.
+
+TRANSCRIPTION NOTE (made while transcribing, before any checker run): the types
+occurring in Cases 1-5 are {1, 2, 3, 4, 5, 6, 7}, not {1, 2, 3, 4, 7}: Case 5.4.1.3
+is type 6 and Case 5.4.1.4 is type 5 (read p.29). The predict agent's P4b
+restricts the LP to {1, 2, 3, 4, 7} "as the types that occur in Cases 1-5"; that
+premise is contradicted by the text. P4b is graded as stated (LP over types
+1, 2, 3, 4, 7) and, separately, the LP over the types actually certified in
+Cases 1-5 is reported. Predictions are not edited.
+
+Case 6 and Case 7 (read p.30-40) start from a topologically minimal and-type gate A
+with at least one internal-gate input; they are out of scope (WP3.2).
+
+======================================================================
+PART 2. CHECKER DESIGN DECLARED BEFORE RUNNING (design)
+======================================================================
+D1 Certificate = node of a case tree: full local pattern (labelled nodes: variables
+   with out-degree domain, protected flag, quadratic partner; gates with type
+   and/xor and out-degree domain; edges; declared distinctness; forbidden edges),
+   inherited "pre" assumptions (normalized; triggers of earlier cases forbidden),
+   a list of alternative actions (each: a sequence of substitutions x <- c,
+   x <- t + c, x <- G + c with rdq kind const/affine/quadratic, and a set of claimed
+   types), and children.
+D2 Completions: every completion of the pattern consistent with the degree domains
+   is enumerated lazily: an attribute (type, operation constants, out-degree,
+   identity of an unknown neighbour including identification with an existing node,
+   protected flag, partner) is branched on only when the simulation or a matcher
+   needs it. Pattern nodes not declared distinct may be identified.
+   Out-degrees of unconstrained nodes are enumerated up to a cap (4); "k+" means
+   k..cap. Completions are acyclic (cyclic xor fragments are not enumerated: a
+   declared limitation). Transformations are applied to gates within a radius R
+   (default 1, set per certificate) of the pattern; degenerate gates beyond R are
+   counted as pending removals.
+D3 Soundness of partial normalization (from Lemma 3.5.1 and Prop. 3.4.3, read
+   p.18, 21): Delta mu >= (mu_before - mu_partial) + beta * pending, where
+   mu_partial is computed exactly on the partially normalized circuit (troubled
+   status and influence of every touched node re-evaluated) and each pending
+   degenerate gate will be removed by some later transformation, each worth at
+   least beta. The checker trusts Prop. 3.4.3 and Lemma 3.5.1; it does not
+   re-prove them.
+D4 Claim check: the computed lower bound A(alpha) and the claimed type bound L(alpha)
+   are linear in (alpha_T, alpha_I, alpha_Q); a completion passes a type if
+   A - L >= 0 on the whole domain 0 <= alpha_T <= 1/4, alpha_I, alpha_Q >= 0
+   (exact rational arithmetic). An action passes a completion if some claimed
+   type passes. A completion of a node is discharged if one of the node's actions
+   or one of its ancestors' actions passes it (descendants may assume the ancestors'
+   defaults failed, as the paper does).
+D5 Exhaustiveness (part of the certificate): every completion of a node's pattern
+   that is not discharged must match one of its children (subgraph match with lazy
+   branching; declared pattern automorphisms such as x <-> y are tried) or contain a
+   trigger of an earlier case. A leaf has no children, so all its completions must
+   be discharged. At the root (anchor: an and-type gate A and its two inputs),
+   unmatched completions must fall into the declared residual "A has an internal
+   gate input" (Cases 6-7, not certified here), listed explicitly.
+D6 No code path is keyed to a case label. Certificates are JSON files.
+D7 Per-leaf completion cap 10^7: above it the leaf is recorded
+   not-checked-at-this-radius.
+D8 Negative controls: >= 10 corrupted certificates (wrong gain, wrong substitution,
+   wrong constant target, missing leaf, missing node in the pattern, dropped
+   precondition, wrong substitution kind, illegal rdq substitution, wrong symmetry,
+   wrong order of substitutions, ...) each must be rejected with a reason naming the
+   corruption.
+D9 LP: solved exactly in rational arithmetic by vertex enumeration, cross-checked by
+   a grid search.
+
+======================================================================
+PART 3. PREDICTIONS (verbatim, as received from the predict agent; not edited)
+======================================================================
+P1: 15/15 leaves of Cases 1-5 return VERIFIED, with 0 rejected and 0 not-expressible.
+Each certified gain is at least the paper's claimed type: Case 1 type 7, Case 2
+type 2, Case 3 type 3, Case 4 type 2, Case 5 subcases types 1/2/3/4 as stated.
+P2: at least 10 of 10 corrupted certificates (wrong gain, wrong substitution, missing
+leaf, and the other corruption kinds) are rejected, each with a machine-stated
+reason that names the corruption. 0 are accepted.
+P3: the exhaustiveness check passes for every internal node of Cases 1-5. Within
+Case 5, the children cover every configuration Case 5 admits. At the root, the
+configurations not covered by Cases 1-5 come out as an explicit residual handed to
+Cases 6-7, and no configuration is silently dropped.
+P4 (LP, two pre-registered variants). P4a: the full FGHK LP (rev. 2 eq. (3) and the
+LP on p.~18) is solved exactly. It uses the certified gains for types 1, 2, 3, 4, 7
+and the transcribed but uncertified type 5/6 gains (Cases 6-7). It gives
+max delta - alpha_T/2 - alpha_I = 3 + 1/86 exactly (3.011627...) at alpha_T = 1/43.
+P4b: the LP restricted to the types that occur in Cases 1-5 (1, 2, 3, 4, 7) gives
+3 + 1/34 (3.029411...) at alpha_T = 1/17. So Cases 1-5 alone do not determine
+3 + 1/86, and the quadratic family (types 5/6, from Cases 6-7) is binding. This is my
+own arithmetic on the transcribed LP, status inferred [VERIFY].
+P5: case-specific code is needed for at most 2 of 15 leaves (< 20%). The likeliest
+candidates are Case 2 (reasoning about quadratic equalities of the rdq-source) and
+Case 3 (descendant cascade through shared descendants).
+
+Kill criteria (verbatim from the WP brief): any corrupted certificate accepted; more
+than 20% of leaves need bespoke code; a leaf whose claimed gain the checker refutes
+AND the refutation survives a second reading of the paper (reported as a finding
+with the counter-pattern, never silently fixed).
+
+Metric reading (verbatim from the WP brief): one log row per leaf, status in
+{verified, rejected, not-expressible}, with the reason and the certified linear
+gain; verified count read from that log. Corrupted certificates: accepted vs
+rejected, and whether each rejection reason matches the injected corruption.
+Exhaustiveness: a boolean per internal node, plus the explicit root residual
+pattern set. LP: exact rational optimum compared with 3 + 1/86 (P4a) and 3 + 1/34
+(P4b). Bespoke code: leaves whose verification calls a code path keyed to a case
+label, divided by 15.

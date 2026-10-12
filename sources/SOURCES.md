@@ -41,3 +41,14 @@ WP2b (added 2026-10-11):
   BOOLCHAINS, https://www-cs-faculty.stanford.edu/~knuth/programs.html), as packaged by
   optimal5; they are used as given and are not re-verified here beyond the histogram and
   the cross-checks listed in ../results_wp2b_crosscheck.csv.
+
+WP3.1 (added 2026-10-12):
+
+- Find, Golovnev, Hirsch, Kulikov, "Improving 3n Circuit Complexity Lower Bounds",
+  ECCC TR15-166, Revision 2 (August 16, 2022),
+  https://eccc.weizmann.ac.il/report/2015/166/revision/2/download, 44 pages, sha256
+  9393c685b07682dc01ae0888450ed4475b774ea9e0e2b8d491cecf4a29ee0404, stored locally as
+  fghk-r2.pdf with the pypdf text extraction fghk-r2.txt (both excluded from the repo).
+  The circuit model, measure, normalization rules, substitution types and Cases 1-5 are
+  transcribed with page references in ../wp3/wp31_preregistration_2026-10-12.txt (frozen,
+  sha256 in ../wp3/wp31_frozen.stamp).
