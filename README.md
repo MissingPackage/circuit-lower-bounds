@@ -57,6 +57,23 @@ method; it is NOT a circuit lower bound for any function.  It refines the
 sentence "that bound is unaffected here" in the section above, which was
 written for WP2d and is kept as it was.
 
+Scope of the 3n statement (do not quote it without these qualifiers): it
+covers gate-elimination arguments in the GHKK framework (PDF p.5-6) with the
+pure gates measure, one substitution per step, and an induction step that
+must hold for every function (the class contains h = f <> MUX_3 for arbitrary
+f).  It does not cover measures with an input term such as gates + alpha *
+inputs (Find-Golovnev-Hirsch-Kulikov 2016, Li-Yang 2022; there Theorem 4 with
+a 1-stable gadget applies, 7n after WP2d), nor m >= 2 substitutions per step
+(Stockmeyer), nor function-specific steps.  Consistency check: Blum's 3n -
+o(n) (1984) uses the gates measure and gains 3 gates per substitution, exactly
+the ceiling, and GHKK (PDF p.4, p.6) place his argument outside the framework
+because its second case counts gates of out-degree >= 2 using a property of
+the specific function rather than a substitution gain.  The ceiling and Blum
+therefore agree on 3 for gates-only arguments of this type.  Reviewed
+adversarially (independent re-implementation of the repair check, 19,200
+random cases, 0 failures; independent brute force over all circuits with <=
+2 gates on <= 4 inputs, 0 weakly 1-stable functions).
+
 ## Work packages
 
 | WP  | Object searched | Status |
