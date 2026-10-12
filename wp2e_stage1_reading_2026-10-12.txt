@@ -1,0 +1,216 @@
+WP2e STAGE 1 -- reading of GHKK Sections 3.1-3.3 (2026-10-12)
+==============================================================
+
+Question of the WP: GHKK Section 3.2 states a 5-gate ceiling per substitution for the
+gates-only measure (gadget MAJ_3); Theorem 1 with a weakly 1-stable gadget of 3 gates
+(MUX_3, WP2b) would seem to give 3.  Which is it, and why?
+
+Source and provenance.  Golovnev, Hirsch, Knop, Kulikov, "On the Limits of Gate
+Elimination" (JCSS 2018; MFCS 2016).  PDF re-fetched on 2026-10-12 from
+https://golovnev.org/papers/limits.pdf into a scratch directory: 365,743 bytes, 20 pages,
+sha256 fb0b1b2b4b18036f72a39cfc55a3e47512a5bb69e6195ce3abc23f3f80428e03 -- identical to
+the file used in WP2 (sources/SOURCES.md, sources/GHKK_TRANSCRIPTION_2026-10-11.txt).
+Text re-extracted page by page with pypdf 6.20.0 for this reading (pages 2 and 6-9),
+independently of the WP2 text dump; the WP2 dump sources/ghkk-limits.txt was used only
+to locate passages.
+
+Page convention (as in WP2): "PDF p.N" is the N-th page of the file; the printed page
+number is N-1.  Quotes are copied from the extraction; ligatures (fi, ff) restored, the
+diamond composition symbol written "<>", Greek letters spelled out (rho, tau, mu).
+Anything inferred rather than read is marked [VERIFY]; arguments that are ours and not
+in the paper are marked [OURS].
+
+Status legend for each metric item:  READ (quoted, page given) / [VERIFY] (not settled
+from the text).
+
+
+-----------------------------------------------------------------------------------------
+(a) The Section 3.2 claim: measure, substitution class, circuit model, the number 5,
+    and the property of MAJ_3 the proof uses
+-----------------------------------------------------------------------------------------
+
+a1. Circuit model -- READ, PDF p.2 (printed p.1), Section 1:
+    "A binary Boolean circuit is a directed acyclic graph with nodes of in-degree either
+    0 or 2. Nodes of in-degree 0 are called inputs and are labeled by variables
+    x1,...,xn. Nodes of in-degree 2 are called gates and are labeled by binary Boolean
+    functions. [...] The size of a circuit C is defined as the number of gates in C and
+    is denoted by gates(C)."
+    So the model is B2 (every binary Boolean function allowed as a gate), size = gates.
+    Section 3.2 does not restate the model or name a basis; it uses gates(C) as defined
+    here.  (Constants are not nodes of the model: a constant output needs a gate.)
+
+a2. Substitution class -- READ, PDF p.6 (printed p.5), Section 3.1:
+    "A substitution rho of a set of variables R subseteq X is a set of |R| restrictions
+    of the form r_i = f_i(x1,...,xn), one restriction for each variable r_i in R, where
+    f_i depends only on variables from X \ R. [...] The size of a substitution is |R|.
+    Substitutions of size m are called m-substitutions."
+
+a3. The Section 3.2 claim -- READ, PDF p.7 (printed p.6), Section 3.2 "Introductory
+    Example":
+    "Consider a function f in B_n and let f <> MAJ_3 in B_3n be a function resulting
+    from f by replacing each of its input variables x_i by the majority function of
+    three fresh variables x_i1, x_i2, x_i3: (f <> MAJ_3)(x11,...,xn3) =
+    f(MAJ_3(x11,x12,x13),...,MAJ_3(xn1,xn2,xn3)), see Fig. 1. Consider a circuit C of
+    the smallest size computing f <> MAJ_3. We claim that no substitution x_ij <- rho,
+    where rho is any function of all the remaining variables, can remove from C more
+    than 5 gates: gates(C) - gates(C|x_ij<-rho) <= 5."
+    - Measure: gates (READ, same sentence).
+    - Substitution class: one variable x_ij replaced by "any function of all the
+      remaining variables" = a 1-substitution in the Section 3.1 sense (R = {x_ij},
+      f_i depends only on X \ R), i.e. m = 1 with arbitrary (not only constant, affine
+      or quadratic) substituted functions.  MATCHES the Section 3.1 m-substitution with
+      m = 1 (READ, a2 + a3).
+    - Circuit model: Section 1 binary circuits (a1).  [VERIFY] "C|x_ij<-rho" is not
+      defined in the paper; the claim is only meaningful as a statement about functions
+      (a circuit for h|rho has at least gates(h|rho) gates, so
+      gates(C) - gates(C|rho) <= gates(h) - gates(h|rho)), which is the form Theorem 1
+      states.
+
+a4. The proof and the number 5 -- READ, PDF p.7 (printed p.6), continuing:
+    "We are going to prove this by showing that one can attach a gadget of size 5 to the
+    circuit C|x_ij<-rho and obtain a circuit that computes f. This is explained in
+    Fig. 2. Formally, assume, without loss of generality, that the substituted variable
+    is x11. We then take a circuit C' computing f|x11<-rho and use the value of a gadget
+    computing MAJ_3(x11,x12,x13) instead of x12 and x13. This way we suppress the effect
+    of the substitution x11<-rho, and the resulting circuit C'' computes the initial
+    function f <> MAJ_3. Since the majority of three bits can be computed in five gates,
+    we get: gates(C) <= gates(C'') <= gates(C|x11<-rho) + 5."
+    Figure 2 caption, PDF p.8 (printed p.7): "(c) By adding another gadget to a circuit
+    with x1 substituted, we force it to compute the majority of x1,x2,x3."
+    - Where the 5 comes from: READ -- "the majority of three bits can be computed in
+      five gates", i.e. 5 is the size of the circuit the authors attach for MAJ_3.  It
+      is NOT gates(MAJ_3) + 1 for any stated reason: the proof adds the gadget and
+      nothing else (the gadget output is wired directly into the two unsubstituted
+      positions; no negation, no constant, no extra gate).  The paper gives no circuit
+      and no reason for 5 rather than the optimum.
+    - gates(MAJ_3) over B2 is 4, not 5: WP1 SAT ladder (results_targets.csv, MAJ_3: UNSAT
+      at s = 0..3, SAT at s = 4, simulation pass), bfs3 exhaustive table
+      (results_bfs3.csv, tt 232 -> 4), Knuth 7.1.2 draft p.11 C(z1) = 4
+      (targets_frozen_2026-10-11.csv).  So the 5 is an upper bound on gates(MAJ_3) that
+      is not tight in the paper's own model.  Why the authors wrote 5 is not stated
+      [VERIFY: not settled from the text; a 5-gate circuit would be e.g. a De Morgan
+      circuit with an explicit negation, or simply an unoptimised count].
+    - Property of MAJ_3 used: READ -- "use the value of a gadget computing
+      MAJ_3(x11,x12,x13) instead of x12 and x13".  This is the identity
+      MAJ_3(rho, G, G) = G for every value rho, where G = MAJ_3(x11,x12,x13) is computed
+      from the original inputs; by symmetry of MAJ_3 the same holds for x12, x13.  This
+      is exactly weak 1-stability (Definition 1, m = 1) with tau_0 = (0,0) and
+      tau_1 = (1,1) on the two unsubstituted positions, so that wiring G into both
+      realises tau_G; it is the special case of the Theorem 1 repair (b3 below).  The
+      paper itself says "Similarly to Lemma 1" at the start of the Theorem 1 proof (PDF
+      p.9) and "In this section we generalize the result of Lemma 1 to arbitrary
+      subadditive measures" (PDF p.8), so Section 3.2 / Lemma 1 are presented as the
+      gates-only instance of Theorem 1.
+    - Related: Lemma 1 (PDF p.7-8) generalises to MAJ_{2m+1} with the size bound
+      4.5(2m+1) [their ref 11], giving 4.5(2m+1)m per m-substitution; for m = 1 that is
+      13.5, weaker than the 5 of the introductory example.  READ.
+
+
+-----------------------------------------------------------------------------------------
+(b) Theorem 1: hypotheses, the definition of "subadditive", and whether gates satisfies it
+-----------------------------------------------------------------------------------------
+
+b1. Definition of subadditive -- READ, PDF p.8 (printed p.7), Section 3.3:
+    "A function mu : U_{n,m in N} B_{n,m} -> R is called a subadditive complexity
+    measure, if
+    - for all functions s and t, mu((s,t)) <= mu(s) + mu(t), where (s,t) is the 'merge'
+      of s and t that comprises (independent) inputs and outputs of both functions,
+    - for all functions f and g, mu(h) <= mu(f) + mu(g), where h(x,y) = f(g(x),y).
+    That is, if h can be computed by application of some (multi-output) function g to a
+    part of the inputs, and then evaluating f, then the measure of h must not exceed the
+    sum of measures of f and g."
+    (bars over s, t, g, x, y dropped: they denote vectors / multi-output functions.)
+
+b2. Gates is declared subadditive -- READ, PDF p.8 (printed p.7), same paragraph:
+    "Clearly, the measures mu(f) = gates(f) and mu_alpha(f) = gates(f) + alpha *
+    inputs(f) are subadditive, and so are many other natural measures."
+
+b3. Theorem 1 hypotheses -- READ, PDF p.9 (printed p.8):
+    "Theorem 1. Let mu be a subadditive measure, f in B_n be any function, g in B_k be a
+    weakly m-stable function, and h = f <> g in B_nk. Then for every m-substitution rho,
+    mu(h) - mu(h|rho) <= m * mu(g)."
+    Hypotheses: (i) mu subadditive (both bullets of b1); (ii) f arbitrary; (iii) g weakly
+    m-stable (Definition 1, PDF p.8: "for every Y subseteq X of size |Y| <= m, there
+    exist two assignments tau_0, tau_1 : X \ Y -> {0,1} to the remaining variables such
+    that g|tau_0(Y) == 0 and g|tau_1(Y) == 1"); (iv) h = f <> g (definition PDF p.8:
+    "replacing each of its input variables by g applied to k fresh variables");
+    (v) rho any m-substitution in the Section 3.1 sense (arbitrary functions).
+    Proof (PDF p.9), key sentences: "We take the circuit H and add a circuit computing
+    g(x11,...,x1k). Now, for every variable x in {x1r+1,...,x1k} in the circuit H, we
+    wire g(x11,...,x1k) xor tau_0(x) instead of x if tau_0(x) != tau_1(x), and wire
+    tau_0(x) otherwise [...] Thus, we can compute h using the circuit H and m instances
+    of a circuit computing g, in particular, h is a composition of the function h|rho
+    computed by H and the multi-output function g^(m) comprising m instances of g. By
+    subadditivity of mu, mu(h) - mu(h|rho) <= m * mu(g)."
+
+b4. Does gates satisfy the hypothesis?  READ: the paper asserts it (b2).  [OURS] Both
+    bullets hold for gates over B2 by juxtaposition / wiring of optimal circuits.  One
+    gap in the paper's write-up, not in its conclusion: the function actually composed
+    with h|rho is the wiring map whose outputs are g, g xor 1 or constants tau_0(x), not
+    g itself, and in the Section 1 model a constant or a negated output can cost a gate.
+    For gates over B2 this costs nothing: an edge carrying a constant c into a gate of H
+    is removed by changing that gate's type to the binary function obtained by fixing
+    that argument to c (the edge is re-pointed to any existing node, the gate count is
+    unchanged); an edge carrying g xor 1 is absorbed into the reading gate's type; if
+    H's output node itself is an input wired to (g xor 1) the top gate of the gadget is
+    negated and every reader of it re-typed; if it is an input wired to a constant, h is
+    constant and gates(h) <= 1 <= gates(h|rho) + gates(g).  Hence, for gates over B2,
+    gates(h) - gates(h|rho) <= m * gates(g) holds as stated.  (Hand argument, not
+    machine-checked.)
+
+
+-----------------------------------------------------------------------------------------
+(c) Resolution of the 3n-vs-5n gap
+-----------------------------------------------------------------------------------------
+
+c1. Theorem 1 applies to the gates-only measure with m = 1 and any weakly 1-stable g:
+    mu = gates is declared subadditive (b2), 1-substitutions with arbitrary functions
+    are m-substitutions with m = 1 (a2), and the conclusion is
+        gates(h) - gates(h|rho) <= gates(g)    for every 1-substitution rho of h = f <> g.
+    None of the candidate explanations listed in the WP brief holds:
+    - gates is not excluded from "subadditive": the paper names it explicitly (b2);
+    - Theorem 1's substitution class is the same as Section 3.2's (both are Section 3.1
+      substitutions with arbitrary functions; a2, a3, b3);
+    - the 5 is not gates(MAJ_3) + 1 for any structural reason: the Section 3.2 proof
+      attaches only the gadget, and the paper's justification for 5 is the sentence
+      "the majority of three bits can be computed in five gates" (a4), an upper bound on
+      gates(MAJ_3) that is not tight (gates(MAJ_3) = 4 over B2).
+
+c2. Clean statement.  For the plain gates measure over B2 and 1-substitutions with
+    arbitrary substituted functions, the ceiling constant obtainable from Theorem 1 with
+    a gadget g is
+        F(g) = gates(g),     for gadgets with property P = weakly 1-stable (Definition 1,
+                             m = 1).
+    With MAJ_3 this gives 4 already (not 5); with MUX_3 (weakly 1-stable, gates 3, WP2
+    and WP1) it gives 3.  The gap is real: the paper's own Theorem 1 yields a 3n ceiling
+    for the gates measure and 1-substitutions, but the paper never instantiates
+    Theorem 1 with mu = gates and m = 1; its only explicit gates-only constant for m = 1
+    is the 5 of the introductory example (and 13.5 from Lemma 1).  The 3 was left on
+    the table.  [VERIFY: whether later papers (Golovnev-Kulikov-Williams ITCS 2021,
+    Kulikov's 2018 slides) state 5n verbatim was not re-read here; the WP brief and the
+    README say so.]
+
+c3. Consequence for the WP: stage 1 yields a clean statement of the required form
+    ("ceiling constant = F(gadget) for gadgets with property P"), with P = weak
+    1-stability and F = gates.  Stage 2 is therefore run (pre-registration in
+    wp2e_preregistration_2026-10-12.txt).
+
+Scope reminder.  Everything here limits a proof method (gate elimination with the
+gates measure and one substitution per step, for an induction step proved for all
+functions); none of it is a circuit lower bound for any function.
+
+
+-----------------------------------------------------------------------------------------
+Metric checklist (stage 1)
+-----------------------------------------------------------------------------------------
+1. Section 3.2 claim and its substitution class, matching Section 3.1 with m = 1:
+   READ, PDF p.7 (claim) and PDF p.6 (definition).  Match: yes.
+2. Sentence giving 5 as the MAJ_3 circuit size: READ, PDF p.7 ("Since the majority of
+   three bits can be computed in five gates"; also "a gadget of size 5").
+3. Explicit statement that gates is subadditive: READ, PDF p.8 ("Clearly, the measures
+   mu(f) = gates(f) and mu_alpha(f) = gates(f) + alpha * inputs(f) are subadditive").
+4. Theorem 1 hypotheses: READ, PDF p.9 (statement) and PDF p.8 (Definition 1,
+   subadditivity, the <> composition).
+Open [VERIFY] items: the reason the authors wrote 5 rather than 4 (not in the text);
+the meaning of "C|x_ij<-rho" as a circuit (undefined; the function-level form is used);
+the verbatim 5n statements of later work (not re-read).
