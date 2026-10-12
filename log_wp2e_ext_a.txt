@@ -1,0 +1,52 @@
+=== start (2,4) 14:18:45
+(2,4) structures=66 leaves=41250 distinct=8 enum_s=0.0
+(2,4) weak1_new=0 weak1_stable_check=0 disagreements=0 all_inputs_essential=0 check_s=0.0 first_hits=[]
+=== end (2,4) rc=0 14:18:45
+=== start (3,4) 14:18:45
+(3,4) structures=85 leaves=53125 distinct=128 enum_s=0.0
+(3,4) weak1_new=16 weak1_stable_check=16 disagreements=0 all_inputs_essential=16 check_s=0.0 first_hits=[46, 58, 78, 92, 114, 116, 142, 172, 178, 184, 202, 212, 216, 226, 228, 232]
+=== end (3,4) rc=0 14:18:45
+=== start (4,4) 14:18:45
+(4,4) structures=35 leaves=21875 distinct=2365 enum_s=0.0
+(4,4) weak1_new=528 weak1_stable_check=528 disagreements=0 all_inputs_essential=528 check_s=0.1 first_hits=[750, 754, 922, 990, 1262, 1268, 1436, 1470, 1782, 2296, 2638, 2668, 2670, 2798, 3118, 3178, 3182, 3310, 3822, 3838]
+=== end (4,4) rc=0 14:18:46
+=== start (5,4) 14:18:46
+(5,4) structures=5 leaves=3125 distinct=2225 enum_s=0.0
+(5,4) weak1_new=480 weak1_stable_check=480 disagreements=0 all_inputs_essential=480 check_s=0.2 first_hits=[978670, 987422, 1013624, 1022358, 1031092, 1039826, 14741230, 15737554, 15737586, 15746228, 15746292, 15754902, 15754998, 15763576, 15763704, 15789598, 15789822, 15921906, 16053492, 16185078]
+=== end (5,4) rc=0 14:18:46
+=== start (2,5) 14:18:46
+(2,5) structures=672 leaves=2100000 distinct=8 enum_s=0.2
+(2,5) weak1_new=0 weak1_stable_check=0 disagreements=0 all_inputs_essential=0 check_s=0.0 first_hits=[]
+=== end (2,5) rc=0 14:18:46
+=== start (3,5) 14:18:46
+(3,5) structures=973 leaves=3040625 distinct=128 enum_s=0.2
+(3,5) weak1_new=16 weak1_stable_check=16 disagreements=0 all_inputs_essential=16 check_s=0.0 first_hits=[46, 58, 78, 92, 114, 116, 142, 172, 178, 184, 202, 212, 216, 226, 228, 232]
+=== end (3,5) rc=0 14:18:47
+=== start (4,5) 14:18:47
+(4,5) structures=538 leaves=1681250 distinct=12140 enum_s=0.2
+(4,5) weak1_new=4904 weak1_stable_check=4904 disagreements=0 all_inputs_essential=4856 check_s=0.7 first_hits=[574, 590, 626, 714, 718, 734, 738, 750, 754, 758, 762, 766, 814, 854, 874, 886, 906, 922, 934, 938]
+=== end (4,5) rc=0 14:18:48
+=== start (5,5) 14:18:48
+(5,5) structures=148 leaves=462500 distinct=58009 enum_s=0.1
+(5,5) weak1_new=18860 weak1_stable_check=18860 disagreements=0 all_inputs_essential=18636 check_s=5.2 first_hits=[187858, 192238, 192754, 193266, 196354, 196386, 196594, 235930, 253406, 310196, 323310, 323828, 324852, 327428, 327492, 327668, 367004, 375742, 454902, 456438]
+=== end (5,5) rc=0 14:18:53
+=== start (6,5) 14:18:53
+(6,5) structures=15 leaves=46875 distinct=29005 enum_s=0.0
+(6,5) weak1_new=7552 weak1_stable_check=7552 disagreements=0 all_inputs_essential=7552 check_s=5.2 first_hits=[64138178286, 64710840606, 66428827512, 67001489814, 67574152116, 68146814418, 966081310446, 1031364813522, 1031364813554, 1031937475764, 1031937475828, 1032510138006, 1032510138102, 1033082800248, 1033082800376, 1034800786974, 1034800787198, 1043458093810, 1052081714420, 1060705335030]
+=== end (6,5) rc=0 14:18:59
+=== start (2,6) 14:18:59
+(2,6) structures=8766 leaves=136968750 distinct=8 enum_s=9.9
+(2,6) weak1_new=0 weak1_stable_check=0 disagreements=0 all_inputs_essential=0 check_s=0.0 first_hits=[]
+=== end (2,6) rc=0 14:19:09
+=== start (3,6) 14:19:09
+(3,6) structures=13529 leaves=211390625 distinct=128 enum_s=19.0
+(3,6) weak1_new=16 weak1_stable_check=16 disagreements=0 all_inputs_essential=16 check_s=0.0 first_hits=[46, 58, 78, 92, 114, 116, 142, 172, 178, 184, 202, 212, 216, 226, 228, 232]
+=== end (3,6) rc=0 14:19:28
+=== start (4,6) 14:19:28
+(4,6) structures=8708 leaves=136062500 distinct=28368 enum_s=20.2
+(4,6) weak1_new=13756 weak1_stable_check=13756 disagreements=0 all_inputs_essential=13692 check_s=2.5 first_hits=[558, 570, 574, 590, 606, 622, 626, 630, 634, 638, 654, 670, 686, 690, 694, 698, 702, 714, 718, 726]
+=== end (4,6) rc=0 14:19:51
+=== start (7,6) 14:19:51
+(7,6) structures=52 leaves=812500 distinct=437025 enum_s=0.9
+(7,6) weak1_new=128800 weak1_stable_check=128800 disagreements=0 all_inputs_essential=128800 check_s=156.4 first_hits=[275471378167395970798, 277930944043890577694, 285309641673374398328, 287769207549869005206, 290228773426363612084, 292688339302858218962, 4149287633646401810158, 4429678143566786994898, 4429678143566786994930, 4432137709443281601716, 4432137709443281601780, 4434597275319776208534, 4434597275319776208630, 4437056841196270815352, 4437056841196270815480, 4444435538825754635806, 4444435538825754636030, 4481618387664526045938, 4518656556157621302516, 4555694724650716559094]
+=== end (7,6) rc=0 14:22:32

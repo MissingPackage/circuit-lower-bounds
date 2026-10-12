@@ -1,0 +1,12 @@
+(2,1) structures=1 leaves=5 distinct=5 enum_s=0.0
+(2,1) weak1_new=0 weak1_stable_check=0 disagreements=0 all_inputs_essential=0 check_s=0.0 first_hits=[]
+(2,2) structures=2 leaves=50 distinct=7 enum_s=0.0
+(2,2) weak1_new=0 weak1_stable_check=0 disagreements=0 all_inputs_essential=0 check_s=0.0 first_hits=[]
+(3,2) structures=1 leaves=25 distinct=25 enum_s=0.0
+(3,2) weak1_new=0 weak1_stable_check=0 disagreements=0 all_inputs_essential=0 check_s=0.0 first_hits=[]
+(2,3) structures=9 leaves=1125 distinct=8 enum_s=0.0
+(2,3) weak1_new=0 weak1_stable_check=0 disagreements=0 all_inputs_essential=0 check_s=0.0 first_hits=[]
+(3,3) structures=9 leaves=1125 distinct=115 enum_s=0.0
+(3,3) weak1_new=12 weak1_stable_check=12 disagreements=0 all_inputs_essential=12 check_s=0.0 first_hits=[46, 58, 78, 92, 114, 116, 172, 184, 202, 216, 226, 228]
+(4,3) structures=2 leaves=250 distinct=205 enum_s=0.0
+(4,3) weak1_new=32 weak1_stable_check=32 disagreements=0 all_inputs_essential=32 check_s=0.0 first_hits=[3822, 4382, 7918, 8914, 8946, 11554, 12066, 17588, 17652, 19268, 20292, 30576, 30584, 30856, 34696, 34936, 35064, 36744, 46148, 48048]

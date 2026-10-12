@@ -1,0 +1,7 @@
+n=1 all rho gadget=MUX_3 n=1 wirings=[{1: ('G', 0), 2: ('G', 0)}, {0: ('const', 0), 2: ('G', 0)}, {0: ('const', 1), 1: ('G', 0)}] checks=1536 failures=0
+n=2 random rho gadget=MUX_3 n=2 wirings=[{1: ('G', 0), 2: ('G', 0)}, {0: ('const', 0), 2: ('G', 0)}, {0: ('const', 1), 1: ('G', 0)}] checks=12288000 failures=0
+n=1 all rho gadget=MAJ_3 n=1 wirings=[{1: ('G', 0), 2: ('G', 0)}, {0: ('G', 0), 2: ('G', 0)}, {0: ('G', 0), 1: ('G', 0)}] checks=1536 failures=0
+n=2 random rho gadget=MAJ_3 n=2 wirings=[{1: ('G', 0), 2: ('G', 0)}, {0: ('G', 0), 2: ('G', 0)}, {0: ('G', 0), 1: ('G', 0)}] checks=12288000 failures=0
+repair_check PASS
+NEGATIVE CONTROL (tampered wiring) gadget=MUX_3 n=1 wirings=[{1: ('G', 0), 2: ('const', 0)}, {0: ('const', 1), 2: ('G', 0)}, {0: ('const', 1), 1: ('G', 0)}] checks=1536 failures=192
+negative control PASS (failures detected)

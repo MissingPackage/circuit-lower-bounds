@@ -1,0 +1,9 @@
+MUX_3 tt=216, NOT MUX_3 tt=39; orbit under input permutation and output negation: [27, 29, 39, 53, 71, 83, 172, 184, 202, 216, 226, 228]
+E(2,1): 5 tables (2 inputs, cannot contain a 3-input essential function)
+E(2,2): 7 tables (2 inputs, cannot contain a 3-input essential function)
+E(3,1): 0 tables, intersection with the MUX_3 orbit: []
+E(3,2): 25 tables, intersection with the MUX_3 orbit: []
+witness circuit (3 gates): {"n": 3, "gates": [[0, 1, [0, 0, 0, 1]], [0, 2, [0, 1, 0, 0]], [3, 4, [0, 1, 1, 1]]], "outputs": [5]}
+  g1 = AND(x1, x2); g2 = NOTAND(x1, x3); g3 = OR(g1, g2)
+  simulate.py=True stable_check.circuit_tt==tt: True new checker weak1=True stable_check weak1=True
+witness PASS

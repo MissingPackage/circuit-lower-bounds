@@ -1,0 +1,9 @@
+V1 MAJ_3 tt=232 verdict=accept expected=accept ok
+   witnesses {'()': ({0: 0, 1: 0, 2: 0}, {0: 0, 1: 1, 2: 1}), '(0,)': ({1: 0, 2: 0}, {1: 1, 2: 1}), '(1,)': ({0: 0, 2: 0}, {0: 1, 2: 1}), '(2,)': ({0: 0, 1: 0}, {0: 1, 1: 1})}
+V1 MUX_3 tt=216 verdict=accept expected=accept ok
+   witnesses {'()': ({0: 0, 1: 0, 2: 0}, {0: 0, 1: 0, 2: 1}), '(0,)': ({1: 0, 2: 0}, {1: 1, 2: 1}), '(1,)': ({0: 0, 2: 0}, {0: 0, 2: 1}), '(2,)': ({0: 1, 1: 0}, {0: 1, 1: 1})}
+V1 XOR_3 tt=150 verdict=reject expected=reject ok
+V1 AND_3 tt=128 verdict=reject expected=reject ok
+V2 k=3 functions=256 weak1_new=32 disagreements_with_stable_check=0 [] elapsed_s=0.0
+V2 k=4 functions=65536 weak1_new=34488 disagreements_with_stable_check=0 [] elapsed_s=2.8
+validate PASS
