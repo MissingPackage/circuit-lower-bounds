@@ -18,7 +18,12 @@ function on any number of inputs has a B2 circuit with <= 6 gates, and the
 7-gate class 0x00071357 on 5 inputs exists.  Hence no 1-stable gadget can
 push the Theorem 4 bound below 7 + alpha per substitution: 7n is the best
 ceiling obtainable from Theorem 4 / Corollary 6 with a 1-stable gadget (it
-does not show that the method cannot be limited further by other means).  Evidence chain: k <= 4 none
+does not show that the method cannot be limited further by other means).
+Scope: this is the mu_alpha / 1-substitution ceiling of GHKK Corollary 6 (11n
+in their paper).  For the plain gate-count measure GHKK Section 3.2 already
+gives a 5n ceiling via f composed with MAJ_3, and 5n is the figure quoted by
+later work (Golovnev-Kulikov-Williams, ITCS 2021); that bound is unaffected
+here.  Evidence chain: k <= 4 none
 (WP2, exhaustive over all truth tables); k = 5 minimum 7 (WP2b, Knuth's table,
 SAT-confirmed); k >= 6: a 1-stable function depends on every input, so s gates
 force k <= s + 1 (Argument A, hand proof), which leaves (k, s) in {(6, 5),
