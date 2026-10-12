@@ -1,6 +1,6 @@
 #!/bin/bash
 # usage: queue.sh LOG "k s" "k s" ...
-cd /home/claude/progetti/circuit-lower-bounds
+cd "$(dirname "$0")"
 P=.venv/bin/python
 LOG=$1; shift
 for ks in "$@"; do
