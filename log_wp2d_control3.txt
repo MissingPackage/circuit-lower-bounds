@@ -1,0 +1,9 @@
+     0.0s k=3 s<=0: |E(3,<=s, unused allowed)|=5 expanded=8
+     0.0s k=3 s<=1: |E(3,<=s, unused allowed)|=10 expanded=38
+     0.0s k=3 s<=2: |E(3,<=s, unused allowed)|=35 expanded=152
+     0.0s k=3 s<=3: |E(3,<=s, unused allowed)|=117 expanded=232
+     0.0s k=3 s<=4: |E(3,<=s, unused allowed)|=129 expanded=256
+     0.0s k=3: rows matching bfs_min = 251 of 256; mismatches tt=[0, 15, 51, 85, 255] (bfs [1, 1, 1, 1, 1], enum [0, 0, 0, 0, 0])
+     0.0s k=3: functions never produced: 0
+     0.2s k=3 s=5: structures=973 distinct=128 not already covered by s<=4: 0
+    18.4s k=3 s=6: structures=13529 distinct=128 not already covered by s<=4: 0

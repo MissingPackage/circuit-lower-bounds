@@ -1,0 +1,29 @@
+     0.0s structure counts (enumerator vs wp2d_struct_count.py)
+     0.0s   (2,1) 1 1 ok
+     0.0s   (3,2) 1 1 ok
+     0.0s   (3,3) 9 9 ok
+     0.0s   (3,4) 85 85 ok
+     0.0s   (4,3) 2 2 ok
+     0.0s   (4,4) 35 35 ok
+     0.0s   (4,5) 538 538 ok
+     0.0s   (5,4) 5 5 ok
+     0.0s   (5,5) 148 148 ok
+     0.0s   (6,5) 15 15 ok
+     0.0s   (6,6) 672 672 ok
+     0.0s   (7,6) 52 52 ok
+     0.0s   E(2,1) = [2, 4, 6, 8, 14] expected [2, 4, 6, 8, 14] ok
+     0.0s   (4,4) structures with a node outside the cone: 0
+     0.0s   (5,5) structures with a node outside the cone: 0
+     0.0s   (6,6) structures with a node outside the cone: 0
+     0.0s   (7,6) structures with a node outside the cone: 0
+     0.0s   (3,2) dfs distinct=25 vec distinct=25 structures=1 leaves=25 same
+     0.0s   (3,3) dfs distinct=115 vec distinct=115 structures=9 leaves=1125 same
+     0.0s   (3,4) dfs distinct=128 vec distinct=128 structures=85 leaves=53125 same
+     0.1s   (4,3) dfs distinct=205 vec distinct=205 structures=2 leaves=250 same
+     0.1s   (4,4) dfs distinct=2365 vec distinct=2365 structures=35 leaves=21875 same
+     0.3s   (4,5) dfs distinct=12140 vec distinct=12140 structures=538 leaves=1681250 same
+     0.4s   (5,4) dfs distinct=2225 vec distinct=2225 structures=5 leaves=3125 same
+     0.6s   (5,5) dfs distinct=58009 vec distinct=58009 structures=148 leaves=462500 same
+     0.7s   (6,5) dfs distinct=29005 vec distinct=29005 structures=15 leaves=46875 same
+     4.1s   (7,6) dfs distinct=437025 vec distinct=437025 structures=52 leaves=812500 same
+     4.6s selftest PASS
