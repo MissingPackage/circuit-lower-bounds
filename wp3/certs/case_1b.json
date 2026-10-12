@@ -1,0 +1,44 @@
+{
+ "id": "1b",
+ "parent": "1",
+ "inherit": false,
+ "kind": "leaf",
+ "paper_leaf": "1",
+ "label": "Case 1, x protected feeds an and-type gate",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.23-24",
+ "pattern": {
+  "nodes": {
+   "x": {
+    "kind": "var",
+    "prot": true
+   },
+   "T": {
+    "kind": "gate",
+    "type": "and"
+   }
+  },
+  "edges": [
+   [
+    "x",
+    "T"
+   ]
+  ]
+ },
+ "actions": [
+  {
+   "name": "x <- c trivialising T",
+   "steps": [
+    {
+     "var": "x",
+     "kind": "const",
+     "value": {
+      "trivialize": "T"
+     }
+    }
+   ],
+   "types": [
+    7
+   ]
+  }
+ ]
+}

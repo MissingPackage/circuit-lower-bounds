@@ -1,0 +1,56 @@
+{
+ "id": "4",
+ "parent": "R",
+ "inherit": false,
+ "kind": "leaf",
+ "paper_leaf": "4",
+ "label": "Case 4, and-gate T fed by inputs x, y with out(x) = 1",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.24",
+ "pre": [
+  "1",
+  "2",
+  "3"
+ ],
+ "pattern": {
+  "nodes": {
+   "x": {
+    "kind": "var",
+    "out": 1
+   },
+   "y": {
+    "kind": "var"
+   },
+   "T": {
+    "kind": "gate",
+    "type": "and"
+   }
+  },
+  "edges": [
+   [
+    "x",
+    "T"
+   ],
+   [
+    "y",
+    "T"
+   ]
+  ]
+ },
+ "actions": [
+  {
+   "name": "y <- c trivialising T",
+   "steps": [
+    {
+     "var": "y",
+     "kind": "const",
+     "value": {
+      "trivialize": "T"
+     }
+    }
+   ],
+   "types": [
+    2
+   ]
+  }
+ ]
+}

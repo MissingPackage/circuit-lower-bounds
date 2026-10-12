@@ -1,0 +1,39 @@
+{
+ "id": "5.4.2",
+ "parent": "5.4",
+ "kind": "internal",
+ "label": "Case 5.4.2, B (fed by a variable t) feeds a new troubled gate E fed by a variable z",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.29-30",
+ "pattern": {
+  "nodes": {
+   "t": {
+    "kind": "var"
+   },
+   "z": {
+    "kind": "var"
+   },
+   "E": {
+    "kind": "gate",
+    "type": "and"
+   }
+  },
+  "edges": [
+   [
+    "t",
+    "B"
+   ],
+   [
+    "B",
+    "E"
+   ],
+   [
+    "z",
+    "E"
+   ]
+  ]
+ },
+ "children": [
+  "5.4.2.1",
+  "5.4.2.2"
+ ]
+}

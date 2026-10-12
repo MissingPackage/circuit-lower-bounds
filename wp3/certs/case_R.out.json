@@ -1,0 +1,44 @@
+{
+ "id": "R.out",
+ "parent": "R",
+ "inherit": false,
+ "kind": "leaf",
+ "paper_leaf": null,
+ "label": "Unlabelled: the output gate is an and-gate fed by an input (excluded by the invariant)",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.22 (s >= d+2: a gate that becomes constant is not the output)",
+ "pattern": {
+  "nodes": {
+   "x": {
+    "kind": "var"
+   },
+   "T": {
+    "kind": "gate",
+    "type": "and",
+    "out": 0
+   }
+  },
+  "edges": [
+   [
+    "x",
+    "T"
+   ]
+  ]
+ },
+ "actions": [
+  {
+   "name": "x <- c trivialising T",
+   "steps": [
+    {
+     "var": "x",
+     "kind": "const",
+     "value": {
+      "trivialize": "T"
+     }
+    }
+   ],
+   "types": [
+    4
+   ]
+  }
+ ]
+}

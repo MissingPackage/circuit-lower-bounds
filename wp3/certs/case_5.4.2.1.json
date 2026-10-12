@@ -1,0 +1,36 @@
+{
+ "id": "5.4.2.1",
+ "parent": "5.4.2",
+ "kind": "leaf",
+ "paper_leaf": "5.4.2.1",
+ "label": "Case 5.4.2.1, out(B) >= 2",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.30",
+ "pattern": {
+  "nodes": {
+   "B": {
+    "out": [
+     2,
+     null
+    ]
+   }
+  }
+ },
+ "actions": [
+  {
+   "name": "x <- t + c trivialising E",
+   "steps": [
+    {
+     "var": "x",
+     "kind": "affine",
+     "value": {
+      "trivialize": "E"
+     },
+     "src": "t"
+    }
+   ],
+   "types": [
+    3
+   ]
+  }
+ ]
+}

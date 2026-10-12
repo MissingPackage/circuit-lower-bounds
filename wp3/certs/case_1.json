@@ -1,0 +1,12 @@
+{
+ "id": "1",
+ "parent": "R",
+ "inherit": false,
+ "kind": "union",
+ "label": "Case 1 (protected variable)",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.23-24",
+ "children": [
+  "1a",
+  "1b"
+ ]
+}

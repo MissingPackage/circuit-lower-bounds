@@ -1,0 +1,23 @@
+{
+ "id": "R",
+ "label": "Root anchor: an and-type gate T and its two inputs",
+ "kind": "root",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.23-30 (case order), p.30 (Cases 6-7 start)",
+ "pattern": {
+  "nodes": {
+   "T": {
+    "kind": "gate",
+    "type": "and"
+   }
+  }
+ },
+ "children": [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "R.out",
+  "R67"
+ ]
+}

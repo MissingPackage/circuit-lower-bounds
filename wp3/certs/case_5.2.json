@@ -1,0 +1,23 @@
+{
+ "id": "5.2",
+ "parent": "5",
+ "kind": "internal",
+ "label": "Case 5.2, D feeds B and C",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.26",
+ "pattern": {
+  "edges": [
+   [
+    "D",
+    "B"
+   ],
+   [
+    "D",
+    "C"
+   ]
+  ]
+ },
+ "children": [
+  "5.2.1",
+  "5.2.2"
+ ]
+}

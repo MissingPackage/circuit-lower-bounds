@@ -1,0 +1,25 @@
+{
+ "id": "R67",
+ "parent": "R",
+ "inherit": false,
+ "kind": "residual",
+ "label": "Residual: T has an internal-gate input (Cases 6-7, WP3.2, not certified here)",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.30-40",
+ "pattern": {
+  "nodes": {
+   "T": {
+    "kind": "gate",
+    "type": "and"
+   },
+   "Q": {
+    "kind": "gate"
+   }
+  },
+  "edges": [
+   [
+    "Q",
+    "T"
+   ]
+  ]
+ }
+}

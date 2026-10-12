@@ -1,0 +1,19 @@
+{
+ "id": "5.2.1",
+ "parent": "5.2",
+ "kind": "leaf",
+ "paper_leaf": "5.2.1",
+ "label": "Case 5.2.1, out(B) >= 2 (impossible: default applies)",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.26-27",
+ "pattern": {
+  "nodes": {
+   "B": {
+    "out": [
+     2,
+     null
+    ]
+   }
+  }
+ },
+ "actions": []
+}

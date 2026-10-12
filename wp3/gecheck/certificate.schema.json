@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "wp3/gecheck/certificate.schema.json",
+  "title": "Gate-elimination case certificate (one node of a case tree)",
+  "description": "WP3.1. One JSON file per node. The full pattern of a node is the pattern of its parent (if inherit is true) extended by its own 'pattern'. Semantics: wp3/wp31_preregistration_2026-10-12.txt, Part 2, and gecheck/checker.py.",
+  "type": "object",
+  "required": ["id", "kind"],
+  "properties": {
+    "id": {"type": "string"},
+    "label": {"type": "string"},
+    "source": {"type": "string", "description": "paper, revision and page"},
+    "kind": {"enum": ["root", "internal", "leaf", "union", "residual"],
+             "description": "union: the case is the union of its children (no own check); residual: configurations handed to a later WP, listed but not certified"},
+    "parent": {"type": "string"},
+    "inherit": {"type": "boolean", "default": true},
+    "paper_leaf": {"type": ["string", "null"], "description": "label of the paper leaf this node certifies (null: an unlabelled sub-case)"},
+    "pre": {"type": "array", "items": {"type": "string"},
+            "description": "ids of earlier cases whose trigger patterns are forbidden in every completion (the case order of the paper)"},
+    "radius": {"type": "integer", "minimum": 0, "default": 1,
+               "description": "normalizing transformations are applied to gates within this distance of the pattern"},
+    "deg_cap": {"type": "integer", "minimum": 1, "description": "largest out-degree enumerated for nodes whose out-degree is not fixed"},
+    "pattern": {"$ref": "#/$defs/pattern"},
+    "actions": {"type": "array", "items": {"$ref": "#/$defs/action"},
+                "description": "alternative actions; a completion is discharged if one of them (or an ancestor's) achieves one of its claimed types"},
+    "symmetries": {"type": "array", "items": {"type": "object", "additionalProperties": {"type": "string"}},
+                   "description": "pattern automorphisms (node renamings) tried when matching children; checked to be automorphisms"},
+    "children": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "pattern": {
+      "type": "object",
+      "properties": {
+        "nodes": {"type": "object", "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "kind": {"enum": ["var", "gate"]},
+            "type": {"oneOf": [{"enum": ["and", "xor"]}, {"type": "array", "items": {"enum": ["and", "xor"]}}]},
+            "out": {"oneOf": [{"type": "integer", "minimum": 0},
+                              {"type": "array", "prefixItems": [{"type": "integer"}, {"type": ["integer", "null"]}]}],
+                    "description": "exact out-degree, or [lo, hi] with hi null meaning up to deg_cap"},
+            "prot": {"type": "boolean", "description": "protected variable (right-hand side of a quadratic equality)"}
+          }}},
+        "edges": {"type": "array", "items": {"type": "array", "minItems": 2, "maxItems": 2},
+                  "description": "[u, v]: u feeds v; each edge into v occupies one input slot"},
+        "same": {"type": "array", "items": {"type": "array", "minItems": 2, "maxItems": 2}, "description": "identified nodes"},
+        "distinct": {"type": "array", "items": {"type": "array", "minItems": 2, "maxItems": 2}},
+        "no_edge": {"type": "array", "items": {"type": "array", "minItems": 2, "maxItems": 2}},
+        "partner": {"type": "array", "items": {"type": "array", "minItems": 2, "maxItems": 2},
+                    "description": "two protected variables of one quadratic equality"},
+        "sum_ge": {"type": "array", "items": {"type": "array", "prefixItems": [{"type": "array"}, {"type": "integer"}]},
+                   "description": "[[n1, n2, ...], k]: out(n1) + out(n2) + ... >= k"}
+      }
+    },
+    "action": {
+      "type": "object",
+      "required": ["steps", "types"],
+      "properties": {
+        "name": {"type": "string"},
+        "types": {"type": "array", "items": {"enum": [1, 2, 3, 4, 5, 6, 7]},
+                  "description": "FGHK rev. 2 substitution types (p.22-23) claimed for this action"},
+        "steps": {"type": "array", "items": {
+          "type": "object",
+          "required": ["var", "kind"],
+          "properties": {
+            "var": {"type": "string"},
+            "kind": {"enum": ["const", "affine", "quadratic"],
+                     "description": "const: var <- c; affine: var <- src + c with src an input; quadratic: var <- (u+a)(v+b)+c computed at the and-gate src fed by inputs u, v"},
+            "src": {"type": "string"},
+            "value": {"oneOf": [{"enum": [0, 1]},
+                                {"type": "object", "properties": {"trivialize": {"type": "string"}}, "required": ["trivialize"]}],
+                      "description": "the constant c, or the gate that the constant must make constant (the checker tries both c and requires the gate to be removed by Transformation 2)"}
+          }}}
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+ "id": "5.4.1.1.2",
+ "parent": "5.4.1.1",
+ "kind": "leaf",
+ "paper_leaf": "5.4.1.1.2",
+ "label": "Case 5.4.1.1.2, E fed via B (B fed by t), out(B) = 1",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.28",
+ "pattern": {
+  "nodes": {
+   "t": {
+    "kind": "var"
+   },
+   "B": {
+    "out": 1
+   }
+  },
+  "edges": [
+   [
+    "t",
+    "B"
+   ],
+   [
+    "B",
+    "E"
+   ]
+  ]
+ },
+ "actions": [
+  {
+   "name": "y <- c trivialising T; z <- c trivialising E",
+   "steps": [
+    {
+     "var": "y",
+     "kind": "const",
+     "value": {
+      "trivialize": "T"
+     }
+    },
+    {
+     "var": "z",
+     "kind": "const",
+     "value": {
+      "trivialize": "E"
+     }
+    }
+   ],
+   "types": [
+    1
+   ]
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "id": "5.2.2",
+ "parent": "5.2",
+ "kind": "leaf",
+ "paper_leaf": "5.2.2",
+ "label": "Case 5.2.2, out(B) = 1",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.27",
+ "pattern": {
+  "nodes": {
+   "B": {
+    "out": 1
+   },
+   "E": {
+    "kind": "gate",
+    "type": "and"
+   },
+   "z": {
+    "kind": "var"
+   }
+  },
+  "edges": [
+   [
+    "B",
+    "E"
+   ],
+   [
+    "z",
+    "E"
+   ]
+  ]
+ },
+ "actions": [
+  {
+   "name": "z <- c trivialising E; y <- c trivialising T",
+   "steps": [
+    {
+     "var": "z",
+     "kind": "const",
+     "value": {
+      "trivialize": "E"
+     }
+    },
+    {
+     "var": "y",
+     "kind": "const",
+     "value": {
+      "trivialize": "T"
+     }
+    }
+   ],
+   "types": [
+    1
+   ]
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "id": "5.4.1.2",
+ "parent": "5.4.1",
+ "kind": "leaf",
+ "paper_leaf": "5.4.1.2",
+ "label": "Case 5.4.1.2, out(z) = 1, out(D) >= 2, D and-type",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.29",
+ "pattern": {
+  "nodes": {
+   "z": {
+    "out": 1
+   },
+   "D": {
+    "out": [
+     2,
+     null
+    ],
+    "type": "and"
+   }
+  }
+ },
+ "actions": [
+  {
+   "name": "z <- c trivialising D",
+   "steps": [
+    {
+     "var": "z",
+     "kind": "const",
+     "value": {
+      "trivialize": "D"
+     }
+    }
+   ],
+   "types": [
+    3
+   ]
+  }
+ ]
+}

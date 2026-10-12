@@ -1,0 +1,257 @@
+[
+ {
+  "control": "m_wrong_gain_4",
+  "corruption": "Case 4 claims type 3 (four gates) instead of type 2",
+  "checked": [
+   "4"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "below types [3]",
+  "verdicts": [
+   [
+    "4",
+    "rejected",
+    "completion not discharged (1 of 3): x:var out=1 prot=False; y:var out=1 prot=False; T:and(x,y) out=1 bits=00; n3:and(T,n4) out=1 bits=0?; n4:var out=1 prot=False; n5:?(n3,?) out=None bits=?? [own action y <- c trivialising T failed: gain 3 + -4*aT + 3*aI (g=2 t=0 i=3 q=0 pending=1) below types [3]; y=1 does not trivialise T]"
+   ]
+  ]
+ },
+ {
+  "control": "m_wrong_gain_1a",
+  "corruption": "Case 1a claims type 3 instead of type 7",
+  "checked": [
+   "1a"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "below types [3]",
+  "verdicts": [
+   [
+    "1a",
+    "rejected",
+    "completion not discharged (1 of 3): x:var out=2 prot=True partner=n1; n1:var out=2 prot=True partner=x; n2:and(x,n1) out=1 bits=0?; n3:and(x,n1) out=1 bits=0?; n4:?(n2,n3) out=None bits=?? [own action x <- 0 failed: gain 3 + -2*aT + 2*aI + 1*aQ (g=2 t=2 i=2 q=1 pending=1) below types [3]]"
+   ]
+  ]
+ },
+ {
+  "control": "m_wrong_gain_2",
+  "corruption": "Case 2 claims type 7 (two gates) instead of type 2",
+  "checked": [
+   "2"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "below types [7]",
+  "verdicts": [
+   [
+    "2",
+    "rejected",
+    "completion not discharged (1 of 1): x:var out=0 prot=True partner=x2; x2:var out=0 prot=True partner=x [own action x2 <- 0 failed: gain 2*aI + 1*aQ (g=0 t=0 i=2 q=1 pending=0) below types [7]]"
+   ]
+  ]
+ },
+ {
+  "control": "m_wrong_gain_3_type4",
+  "corruption": "Case 3 claims type 4 instead of type 3",
+  "checked": [
+   "3"
+  ],
+  "outcome": "not-decided",
+  "reason_names_corruption": false,
+  "expected_keyword": "below types [4]",
+  "verdicts": [
+   [
+    "3",
+    "not-checked (time budget)",
+    "stopped after 150 s with 54974 completions, 0 uncovered so far"
+   ]
+  ]
+ },
+ {
+  "control": "m_wrong_subst_var_4",
+  "corruption": "Case 4 substitutes x (the 1-variable) instead of y",
+  "checked": [
+   "4"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "below types [2]",
+  "verdicts": [
+   [
+    "4",
+    "rejected",
+    "completion not discharged (1 of 33): x:var out=1 prot=False; y:var out=2 prot=None; T:and(x,y) out=1 bits=00; n3:?(y,n4) out=0 bits=??; n4:var out=2 prot=None; n5:and(T,n4) out=1 bits=0?; n6:?(n5,?) out=None bits=?? [own action y <- c trivialising T failed: gain 3 + -4*aT + 1*aI (g=2 t=0 i=1 q=0 pending=1) below types [2]; x=1 does not trivialise T]"
+   ]
+  ]
+ },
+ {
+  "control": "m_wrong_subst_var_2",
+  "corruption": "Case 2 substitutes the 0-variable x instead of its partner",
+  "checked": [
+   "2"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "below types [2]",
+  "verdicts": [
+   [
+    "2",
+    "rejected",
+    "completion not discharged (1 of 2): x:var out=0 prot=True partner=x2; x2:var out=1 prot=True partner=x [own action x2 <- 0 failed: gain 1*aI + 1*aQ (g=0 t=0 i=1 q=1 pending=0) below types [2]]"
+   ]
+  ]
+ },
+ {
+  "control": "m_fixed_constant_4",
+  "corruption": "Case 4 uses the fixed constant y <- 0 instead of the trivialising one",
+  "checked": [
+   "4"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "below types [2]",
+  "verdicts": [
+   [
+    "4",
+    "rejected",
+    "completion not discharged (1 of 4): x:var out=1 prot=None; y:var out=1 prot=False; T:and(x,y) out=1 bits=01; n3:?(T,n4) out=None bits=??; n4:var out=None prot=None [own action y <- c trivialising T failed: gain 1 + 1*aI (g=1 t=0 i=1 q=0 pending=0) below types [2]]"
+   ]
+  ]
+ },
+ {
+  "control": "m_wrong_kind_1a",
+  "corruption": "Case 1a uses an affine substitution of a protected variable",
+  "checked": [
+   "1a"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "illegal",
+  "verdicts": [
+   [
+    "1a",
+    "rejected",
+    "completion not discharged (1 of 1): x:var out=2 prot=True [own action x <- 0 failed: illegal: affine substitution of protected variable x (Lemma 3.1.1 items 2-3)]"
+   ]
+  ]
+ },
+ {
+  "control": "m_quadratic_from_var_51",
+  "corruption": "Case 5.1 makes a quadratic substitution whose source is an input (illegal rdq step)",
+  "checked": [
+   "5.1"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "illegal",
+  "verdicts": [
+   [
+    "5.1",
+    "rejected",
+    "completion not discharged (1 of 1412): x:var out=2 prot=False; y:var out=2 prot=False; T:and(x,y) out=1 bits=01; D:and(T,B) out=2 bits=10; B:and(x,y) out=1 bits=10; n5:and(D,n6) out=1 bits=0?; n6:var out=2 prot=None; n7:and(D,n6) out=1 bits=0?; n8:?(n5,n7) out=None bits=?? [own action x <- y + c trivialising T failed: illegal: quadratic source y is not a gate; illegal: quadratic source y is not a gate]"
+   ]
+  ]
+ },
+ {
+  "control": "m_weakened_pattern_4",
+  "corruption": "Case 4 pattern drops out(x) = 1",
+  "checked": [
+   "4"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "not discharged",
+  "verdicts": [
+   [
+    "4",
+    "rejected",
+    "completion not discharged (1 of 33): x:var out=2 prot=None; y:var out=1 prot=False; T:and(x,y) out=1 bits=00; n3:?(x,n4) out=0 bits=??; n4:var out=2 prot=None; n5:and(T,n4) out=1 bits=0?; n6:?(n5,?) out=None bits=?? [own action y <- c trivialising T failed: gain 3 + -4*aT + 1*aI (g=2 t=0 i=1 q=0 pending=1) below types [2]; y=1 does not trivialise T]"
+   ]
+  ]
+ },
+ {
+  "control": "m_dropped_pre_4",
+  "corruption": "Case 4 drops the precondition \"not Case 1\" (x may be protected)",
+  "checked": [
+   "4"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "not discharged",
+  "verdicts": [
+   [
+    "4",
+    "rejected",
+    "completion not discharged (1 of 5): x:var out=1 prot=True; y:var out=1 prot=False; T:and(x,y) out=1 bits=00; n3:and(T,n4) out=1 bits=0?; n4:var out=1 prot=True; n5:?(n3,?) out=None bits=?? [own action y <- c trivialising T failed: gain 3 + -4*aT + 1*aI (g=2 t=0 i=1 q=0 pending=1) below types [2]; y=1 does not trivialise T]"
+   ]
+  ]
+ },
+ {
+  "control": "m_missing_leaf_root_4",
+  "corruption": "Case 4 removed from the root case list (missing leaf)",
+  "checked": [
+   "R"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "uncovered completion",
+  "verdicts": [
+   [
+    "R",
+    "rejected",
+    "uncovered completion (1 of 2): T:and(n1,n2) out=1 bits=??; n1:var out=1 prot=False; n2:var out=1 prot=False"
+   ]
+  ]
+ },
+ {
+  "control": "m_missing_leaf_root_3",
+  "corruption": "Case 3 removed from the root case list (missing leaf)",
+  "checked": [
+   "R"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "uncovered completion",
+  "verdicts": [
+   [
+    "R",
+    "rejected",
+    "uncovered completion (1 of 16): T:and(n1,n2) out=2 bits=??; n1:var out=2 prot=False; n2:var out=2 prot=False"
+   ]
+  ]
+ },
+ {
+  "control": "m_bad_symmetry_5",
+  "corruption": "Case 5 declares x <-> y without B <-> C",
+  "checked": [
+   "5"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "not an automorphism",
+  "verdicts": [
+   [
+    "load",
+    "rejected",
+    "5: declared symmetry {'x': 'y', 'y': 'x'} is not an automorphism (edges)"
+   ]
+  ]
+ },
+ {
+  "control": "m_trivialise_wrong_target_1b",
+  "corruption": "Case 1b trivialises the wrong node",
+  "checked": [
+   "1b"
+  ],
+  "outcome": "rejected",
+  "reason_names_corruption": true,
+  "expected_keyword": "does not trivialise",
+  "verdicts": [
+   [
+    "1b",
+    "rejected",
+    "completion not discharged (1 of 3): x:var out=1 prot=True partner=n2; T:and(x,n2) out=1 bits=00; n2:var out=None prot=True partner=x; n3:and(T,n4) out=1 bits=0?; n4:var out=None prot=None; n5:?(n3,?) out=None bits=?? [own action x <- c trivialising T failed: x=0 does not trivialise x; x=1 does not trivialise x]"
+   ]
+  ]
+ }
+]

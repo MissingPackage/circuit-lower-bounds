@@ -1,0 +1,56 @@
+{
+ "id": "3",
+ "parent": "R",
+ "inherit": false,
+ "kind": "leaf",
+ "paper_leaf": "3",
+ "label": "Case 3, x feeds and-gate T with out(x)+out(T) >= 4",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.24",
+ "pre": [
+  "1",
+  "2"
+ ],
+ "pattern": {
+  "nodes": {
+   "x": {
+    "kind": "var"
+   },
+   "T": {
+    "kind": "gate",
+    "type": "and"
+   }
+  },
+  "edges": [
+   [
+    "x",
+    "T"
+   ]
+  ],
+  "sum_ge": [
+   [
+    [
+     "x",
+     "T"
+    ],
+    4
+   ]
+  ]
+ },
+ "actions": [
+  {
+   "name": "x <- c trivialising T",
+   "steps": [
+    {
+     "var": "x",
+     "kind": "const",
+     "value": {
+      "trivialize": "T"
+     }
+    }
+   ],
+   "types": [
+    3
+   ]
+  }
+ ]
+}

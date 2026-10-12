@@ -1,0 +1,46 @@
+{
+ "id": "2",
+ "parent": "R",
+ "inherit": false,
+ "kind": "leaf",
+ "paper_leaf": "2",
+ "label": "Case 2, protected x is a 0-variable; substitute its partner",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.24",
+ "pre": [
+  "1"
+ ],
+ "pattern": {
+  "nodes": {
+   "x": {
+    "kind": "var",
+    "prot": true,
+    "out": 0
+   },
+   "x2": {
+    "kind": "var",
+    "prot": true
+   }
+  },
+  "partner": [
+   [
+    "x",
+    "x2"
+   ]
+  ]
+ },
+ "actions": [
+  {
+   "name": "x2 <- 0",
+   "steps": [
+    {
+     "var": "x2",
+     "kind": "const",
+     "value": 0
+    }
+   ],
+   "types": [
+    2
+   ]
+  }
+ ]
+}

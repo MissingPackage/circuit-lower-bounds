@@ -1,0 +1,34 @@
+{
+ "id": "5.4.1",
+ "parent": "5.4",
+ "kind": "internal",
+ "label": "Case 5.4.1, D passes a variable z to a new troubled and-gate E",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.27",
+ "pattern": {
+  "nodes": {
+   "z": {
+    "kind": "var"
+   },
+   "E": {
+    "kind": "gate",
+    "type": "and"
+   }
+  },
+  "edges": [
+   [
+    "z",
+    "D"
+   ],
+   [
+    "D",
+    "E"
+   ]
+  ]
+ },
+ "children": [
+  "5.4.1.1",
+  "5.4.1.2",
+  "5.4.1.3",
+  "5.4.1.4"
+ ]
+}

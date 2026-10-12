@@ -1,0 +1,38 @@
+{
+ "id": "5.3",
+ "parent": "5",
+ "kind": "leaf",
+ "paper_leaf": "5.3",
+ "label": "Case 5.3, B feeds D, D feeds C",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.27",
+ "pattern": {
+  "edges": [
+   [
+    "B",
+    "D"
+   ],
+   [
+    "D",
+    "C"
+   ]
+  ]
+ },
+ "actions": [
+  {
+   "name": "y <- c trivialising T",
+   "steps": [
+    {
+     "var": "y",
+     "kind": "const",
+     "value": {
+      "trivialize": "T"
+     }
+    }
+   ],
+   "types": [
+    4,
+    3
+   ]
+  }
+ ]
+}

@@ -1,0 +1,110 @@
+{
+ "id": "5",
+ "parent": "R",
+ "inherit": false,
+ "kind": "internal",
+ "label": "Case 5, troubled T fed by x, y; default: x or y trivialising T",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.24-25",
+ "pre": [
+  "1",
+  "2",
+  "3",
+  "4"
+ ],
+ "pattern": {
+  "nodes": {
+   "x": {
+    "kind": "var",
+    "out": 2
+   },
+   "y": {
+    "kind": "var",
+    "out": 2
+   },
+   "T": {
+    "kind": "gate",
+    "type": "and",
+    "out": 1
+   },
+   "D": {
+    "kind": "gate"
+   },
+   "B": {
+    "kind": "gate"
+   },
+   "C": {
+    "kind": "gate"
+   }
+  },
+  "edges": [
+   [
+    "x",
+    "T"
+   ],
+   [
+    "y",
+    "T"
+   ],
+   [
+    "T",
+    "D"
+   ],
+   [
+    "x",
+    "B"
+   ],
+   [
+    "y",
+    "C"
+   ]
+  ]
+ },
+ "actions": [
+  {
+   "name": "x <- c trivialising T",
+   "steps": [
+    {
+     "var": "x",
+     "kind": "const",
+     "value": {
+      "trivialize": "T"
+     }
+    }
+   ],
+   "types": [
+    3,
+    4
+   ]
+  },
+  {
+   "name": "y <- c trivialising T",
+   "steps": [
+    {
+     "var": "y",
+     "kind": "const",
+     "value": {
+      "trivialize": "T"
+     }
+    }
+   ],
+   "types": [
+    3,
+    4
+   ]
+  }
+ ],
+ "symmetries": [
+  {
+   "x": "y",
+   "y": "x",
+   "B": "C",
+   "C": "B"
+  }
+ ],
+ "children": [
+  "5.1",
+  "5.2",
+  "5.3",
+  "5.4"
+ ]
+}

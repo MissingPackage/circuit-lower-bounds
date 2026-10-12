@@ -1,0 +1,64 @@
+{
+ "id": "5.1",
+ "parent": "5",
+ "kind": "leaf",
+ "paper_leaf": "5.1",
+ "label": "Case 5.1, B = C",
+ "source": "FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) p.26",
+ "pattern": {
+  "same": [
+   [
+    "B",
+    "C"
+   ]
+  ]
+ },
+ "actions": [
+  {
+   "name": "x <- c trivialising T",
+   "steps": [
+    {
+     "var": "x",
+     "kind": "const",
+     "value": {
+      "trivialize": "T"
+     }
+    }
+   ],
+   "types": [
+    2
+   ]
+  },
+  {
+   "name": "y <- c trivialising T",
+   "steps": [
+    {
+     "var": "y",
+     "kind": "const",
+     "value": {
+      "trivialize": "T"
+     }
+    }
+   ],
+   "types": [
+    2
+   ]
+  },
+  {
+   "name": "x <- y + c trivialising T",
+   "steps": [
+    {
+     "var": "x",
+     "kind": "affine",
+     "value": {
+      "trivialize": "T"
+     },
+     "src": "y"
+    }
+   ],
+   "types": [
+    2
+   ]
+  }
+ ]
+}
