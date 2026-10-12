@@ -8,3 +8,11 @@
 21:30:31 stable1 k=6 s=2 none ess=0 UNSAT   tt= 0.5s to=3600
 21:30:56 stable1 k=6 s=3 none ess=0 UNSAT   tt= 24.0s to=3600
 22:30:56 stable1 k=6 s=4 none ess=0 TIMEOUT   tt= 3600.2s to=3600
+# 22:31:32 runner stopped by hand right after row 10 (the (6,4) mode-none sanity row took the full 3600 s; the k=7 mode-none sanity rows would have cost up to 2 h more before any open row). Relaunched with the remaining 18 jobs reordered: k=7 full s=0..5, then (6,5) full, (6,5) none, (7,6) full, (7,6) none, (6,6) full, (6,6) none, then k=7 none s=0..5. Per-instance timeout 3600 s and 1 worker unchanged. The pre-registered order is in wp2c_preregistration_2026-10-11.txt; this is an operational deviation, recorded here. results_wp2c_min.csv has no summary row for (6,4) none because the runner was stopped before writing it; the instance row in results_wp2c.csv is authoritative.
+22:31:33 stable1 k=7 s=0 full ess=0 UNSAT   tt= 0.1s to=3600
+22:31:33 stable1 k=7 s=1 full ess=0 UNSAT   tt= 0.1s to=3600
+22:31:33 stable1 k=7 s=2 full ess=0 UNSAT   tt= 0.3s to=3600
+22:31:42 stable1 k=7 s=3 full ess=0 UNSAT   tt= 9.0s to=3600
+22:35:38 stable1 k=7 s=4 full ess=0 UNSAT   tt= 235.6s to=3600
+23:35:38 stable1 k=7 s=5 full ess=0 TIMEOUT   tt= 3600.1s to=3600
+23:57:58 stable1 k=6 s=5 full ess=0 UNSAT   tt= 1340.6s to=3600
