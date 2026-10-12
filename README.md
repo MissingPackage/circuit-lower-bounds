@@ -39,6 +39,24 @@ made on the strength of the enumeration (a documented deviation from the WP2c
 rule that demanded UNSAT in both SAT modes); the k = 5 value rests on Knuth's
 table as published plus non-DRAT-certified UNSAT answers.
 
+## What is established (gates-only measure, status after WP2e)
+
+For the plain gate-count measure, B2 circuits and one substitution per step
+(the substituted variable replaced by an arbitrary function of the others),
+GHKK's own Theorem 1 (subadditive measure, weakly m-stable gadget; the paper
+names gates as subadditive, PDF p.8) gives the ceiling gates(g) per
+substitution for every weakly 1-stable gadget g.  The 5 of GHKK Section 3.2
+(PDF p.7) is the authors' "the majority of three bits can be computed in five
+gates", an upper bound on gates(MAJ_3) that is not tight (gates(MAJ_3) = 4).
+With MUX_3 (x1 ? x2 : x3, 3 gates, SAT-proven and exhaustive) the ceiling
+becomes 3 per substitution, i.e. 3n instead of the 5n quoted by later work,
+and 3 is the minimum over all weakly 1-stable gadgets on any number of inputs
+(exhaustive enumeration: none with <= 2 gates).  The Section 3.2 proof
+re-derived for MUX_3 is in the WP2e summary below.  This limits a proof
+method; it is NOT a circuit lower bound for any function.  It refines the
+sentence "that bound is unaffected here" in the section above, which was
+written for WP2d and is kept as it was.
+
 ## Work packages
 
 | WP  | Object searched | Status |
@@ -48,6 +66,7 @@ table as published plus non-DRAT-certified UNSAT answers.
 | WP2b | WP2 k=5 question answered by lookup in Knuth's table of optimal 5-input chains (via optimal5) | done: min over 1-stable classes = 7 (gst1 has 11); confirmed by SAT, simulation and checker |
 | WP2c | Gadget question closed for all k: 1-stable with <= 6 gates needs k <= 7 (hand argument A), (k, k-1) excluded (hand argument B), remaining SAT instances at k = 6, 7 | done with open instances: 0 SAT rows; (6,5) UNSAT in mode full (1341 s); (6,6) and (7,6) TIMEOUT in mode full; mode-none cross-checks time out from s = 4; global claim not made by the pre-registered rule, A and B stand as hand proofs |
 | WP2d | Mechanical closure of the gadget question for every k: exhaustive enumeration of circuit DAG structures at (6,5), (6,6), (7,6) plus regression instances, re-derived independently of the WP2c reviewer's scripts | done: 0 1-stable functions among 29,005 / 1,399,372 / 437,025 distinct functions (and 0 at (4,4), (5,5), (5,6)); enumerator completeness validated against Knuth's cumulative class histogram at k = 5 (s = 0..7, every class hit, 0 containment violations, the 7-gate argmin found at s = 7) and against bfs3 at k = 3; global claim "7 is the minimum gadget size" declared on the enumeration (documented deviation from the WP2c both-SAT-modes rule) |
+| WP2e | Gates-only ceiling of plain gate elimination (GHKK Section 3.2 "5n"): what Theorem 1 gives with the cheapest weakly 1-stable gadget | done: Section 3.2's 5 is a non-tight MAJ_3 size bound; Theorem 1 with mu = gates gives gates(g); minimum over weakly 1-stable g is 3 (MUX_3; 0 weakly 1-stable tables with <= 2 gates, exhaustive), so the ceiling is 3n; a limit on a proof method, not a lower bound |
 | WP3 | Automated search for gate-elimination potentials and case analyses | planned |
 
 ## WP1 summary
@@ -382,6 +401,141 @@ Not verified: the k = 5 minimum is Knuth's table plus non-DRAT UNSAT answers
 (WP2b); the enumeration itself is validated by the controls above, not
 independently re-derived a third time.  Dependency added: numpy (vectorised
 evaluator and controls); the main runs also have the pure-Python evaluator.
+
+## WP2e summary (the gates-only ceiling: 5n -> 3n)
+
+Question: GHKK Section 3.2 shows, for h = f <> MAJ_3, that no 1-substitution
+removes more than 5 gates, and later work quotes this as "gate elimination
+cannot prove better than 5n".  Their Theorem 1 (subadditive mu, weakly
+m-stable g) would give gates(g) with a weakly 1-stable g; WP2 found MUX_3
+(3 gates).  Which constant is right, and what is the smallest gadget?
+Stage 1 reading: `wp2e_stage1_reading_2026-10-12.txt` (PDF re-fetched,
+sha256 identical to WP2).  Pre-registration: `wp2e_preregistration_2026-10-12.txt`
+(`wp2e_frozen.stamp`, stamped before any stage 2 code).  Nothing here is a
+lower bound: it limits a proof method.
+
+Stage 1 (reading, page-quoted; status READ unless marked):
+
+- Section 3.2 (PDF p.7): measure gates; substitution "x_ij <- rho, where rho
+  is any function of all the remaining variables", which is a Section 3.1
+  1-substitution (PDF p.6); circuit model of Section 1 (PDF p.2, binary
+  circuits, every binary gate type).  The proof wires "the value of a gadget
+  computing MAJ_3(x11,x12,x13) instead of x12 and x13", i.e. uses
+  MAJ_3(rho, G, G) = G, a special case of weak 1-stability.  The 5 is
+  "Since the majority of three bits can be computed in five gates": the size
+  of the attached gadget, nothing added.  gates(MAJ_3) over B2 is 4 (WP1 SAT
+  ladder, bfs3), so 5 is not tight; why the authors wrote 5 is not stated
+  [VERIFY].
+- Subadditivity (PDF p.8): both bullets (merge, composition) are required;
+  "Clearly, the measures mu(f) = gates(f) and mu_alpha(f) = gates(f) +
+  alpha * inputs(f) are subadditive".  Theorem 1 (PDF p.9): subadditive mu,
+  any f, weakly m-stable g, every m-substitution rho:
+  mu(h) - mu(h|rho) <= m * mu(g).  The proof composes h|rho with a wiring map
+  whose outputs are g, g xor 1 or constants; for gates over B2 these cost
+  nothing extra (constants and negations are absorbed into gate types: our
+  hand argument, stage 1 b4, not in the paper).
+- Resolution: none of "gates is not subadditive", "different substitution
+  class" or "5 = gates(MAJ_3) + 1 for a structural reason" holds.  The ceiling
+  constant is F(g) = gates(g) for weakly 1-stable g; MAJ_3 gives 4, MUX_3
+  gives 3.  The paper never instantiates Theorem 1 with mu = gates and m = 1;
+  the 3 was left on the table.
+
+Stage 2 (enumeration only, no SAT; per-instance budget 1800 s, 2 cores).
+New checker `wp2e_weak1.py`, written from Definition 1 with no code shared
+with `stable_check.py` (row-by-row evaluation, returns tau_0 / tau_1
+witnesses).  Validation (`log_wp2e_validate.txt`): MAJ_3 accept, MUX_3 accept,
+XOR_3 reject, AND_3 reject (exit codes 0, 0, 1, 1); 0 disagreements with
+`stable_check.py` weak1 on all 256 tables at k = 3 (32 weakly 1-stable) and
+all 65,536 at k = 4 (34,488).  Reductions (pre-registration W1-W3, hand
+arguments): a weakly 1-stable g restricted to its essential inputs stays
+weakly 1-stable at no larger cost, k essential inputs need >= k - 1 gates, and
+WP2d R1-R2 plus invariance under output negation and input permutation make
+the WP2d enumerator complete for the question.  Runs (`wp2e_run.py`,
+`wp2e_queue.sh`, enumerator `wp2d_enum.enum_dfs` unchanged; `results_wp2e.csv`,
+`log_wp2e_main.txt`, `log_wp2e_ext_a.txt`, `log_wp2e_ext_b.txt`; status of every
+row: exhaustive; both checkers on every distinct table, 0 disagreements on
+all 21 instances):
+
+| (k, s) | structures | distinct functions | weakly 1-stable | of which all inputs essential |
+|--------|-----------:|-------------------:|----------------:|------------------------------:|
+| (2, 1) | 1     | 5         | 0       | 0       |
+| (2, 2) | 2     | 7         | 0       | 0       |
+| (3, 2) | 1     | 25        | 0       | 0       |
+| (2, 3) | 9     | 8         | 0       | 0       |
+| (3, 3) | 9     | 115       | 12      | 12      |
+| (4, 3) | 2     | 205       | 32      | 32      |
+| (2, 4) | 66    | 8         | 0       | 0       |
+| (3, 4) | 85    | 128       | 16      | 16      |
+| (4, 4) | 35    | 2,365     | 528     | 528     |
+| (5, 4) | 5     | 2,225     | 480     | 480     |
+| (2, 5) | 672   | 8         | 0       | 0       |
+| (3, 5) | 973   | 128       | 16      | 16      |
+| (4, 5) | 538   | 12,140    | 4,904   | 4,856   |
+| (5, 5) | 148   | 58,009    | 18,860  | 18,636  |
+| (6, 5) | 15    | 29,005    | 7,552   | 7,552   |
+| (2, 6) | 8,766 | 8         | 0       | 0       |
+| (3, 6) | 13,529 | 128      | 16      | 16      |
+| (4, 6) | 8,708 | 28,368    | 13,756  | 13,692  |
+| (5, 6) | 3,403 | 845,540   | 399,924 | 394,412 |
+| (6, 6) | 672   | 1,399,372 | 516,524 | 511,020 |
+| (7, 6) | 52    | 437,025   | 128,800 | 128,800 |
+
+The mandatory instances are s <= 3; s = 4..6 are context and cannot change the
+minimum.  Distinct counts at (4, 4), (5, 5), (5, 6), (6, 5), (6, 6), (7, 6)
+equal the WP2d main runs.  The (3, 3) hits are 46, 58, 78, 92, 114, 116, 172,
+184, 202, 216, 226, 228; 172, 184, 202, 216, 226, 228 are the MUX_3 orbit
+under input permutation (with output negation absorbed by the enumerator);
+the other six are MUX_3 with one data input negated (up to input
+permutation and output negation; checked mechanically).  MUX_3 witness
+(`log_wp2e_witness.txt`): `g1 = AND(x1, x2); g2 = NOTAND(x1, x3); g3 = OR(g1, g2)`
+from `find_witness`, passes `simulate.py`, both checkers accept; no element of
+the MUX_3 orbit lies in E(3, 1) or E(3, 2).  gates(MUX_3) = 3 is also SAT-proven
+(WP1, `results_targets.csv`: UNSAT at s = 0, 1, 2, SAT at s = 3) and exhaustive
+(bfs3, tt 216 -> 3).  Declared: minimum gates over weakly 1-stable functions on
+any number of inputs = 3 (proof status: exhaustive enumeration for the lower
+side, verified witness plus SAT for the upper side; the reductions are hand
+arguments).
+
+Section 3.2 proof re-derived for MUX_3 (hand argument).  MUX_3(a, b, c) =
+a ? b : c.  Let h = f <> MUX_3 in B_3n, rho any 1-substitution x_bp <- rho(z)
+(z = the other 3n - 1 variables), without loss of generality b = 1, and H an
+optimal circuit for h|rho.  Build C'': keep the input x_1p, add the 3 gates of
+G = MUX_3(x11, x12, x13) computed from the inputs, and rewire H:
+- p = 1 (select substituted): every edge leaving x12 or x13 now leaves G;
+- p = 2: every edge leaving x13 now leaves G; every gate reading x11 gets the
+  type obtained by fixing that argument to 0 (the edge is re-pointed to any
+  existing node, so the gate keeps in-degree 2 and the count is unchanged);
+- p = 3: every edge leaving x12 now leaves G; x11 fixed to 1 in the same way.
+No negation is needed in any case (the checker's tau_0 and tau_1 differ only
+where tau_0 = 0, tau_1 = 1).  C'' is acyclic (G reads inputs only).  If H's
+output node is one of the rewired inputs it becomes G, or a constant for x11,
+in which case h itself is constant (below) and gates(h) <= 1.  Correctness:
+C'' computes h|rho(z') where z' is z with block 1 rewired; there block 1's
+gadget sees the substituted coordinate equal to some bit r = rho(z') and
+evaluates to MUX_3(r, G, G) = G (p = 1), MUX_3(0, r, G) = G (p = 2) or
+MUX_3(1, G, r) = G (p = 3); the other blocks are untouched; so
+h|rho(z') = f(G, MUX_3(x21, x22, x23), ...) = h(x).  Hence
+gates(h) <= gates(C'') = gates(h|rho) + 3, i.e.
+gates(h) - gates(h|rho) <= 3 for every 1-substitution rho, and also h|rho is
+constant only if h is.  With gates(f) <= gates(h) <= gates(f) + 3n (fix
+x_i1 = 1, x_i3 = 0 to recover f), Remark 1 of GHKK supplies f, hence h, of
+virtually any complexity: an induction step "some 1-substitution removes
+>= gain gates from every non-constant function" with gain > 3 is false, so
+gate elimination with the gates measure and 1-substitutions cannot prove
+better than 3n.  Mechanical check of the functional identity (not of the gate
+count; `wp2e_repair_check.py`, `log_wp2e_repair.txt`): wiring taken from the
+checker's witnesses, x1 -> x2 = x3 = G, x2 -> x1 = 0, x3 = G, x3 -> x1 = 1,
+x2 = G; 0 failures for n = 1 (all f, all rho) and n = 2 (all 16 f, both
+blocks, every position, 2000 random rho each; 12,288,000 checks), same for
+MAJ_3; a tampered wiring is caught (192 failures, negative control).
+
+Outcome against the pre-registration: P1-P5 hold.  Limits and caveats: the
+reductions W1-W3 and the gate-count part of the repair are hand arguments; the
+completeness of the enumerator rests on WP2d's controls; this says nothing
+about m >= 2, about measures other than gates (the mu_alpha ceiling of the
+section at the top stays 7n), or about whether constructions other than
+f <> g with a weakly 1-stable g could cap the method below 3n.  This limits a
+proof method; it is NOT a circuit lower bound.
 
 ## Layout
 
