@@ -1,0 +1,41 @@
+     0.0s (4,4) dfs: structures=35 leaves=21875 distinct=2365 enum_s=0.0 saved wp2d/E_4_4.npy
+     0.0s (4,4) dfs: stable1 hits=0 check_s=0.0 all-inputs-essential=2200
+     0.0s (4,4) dfs: vectorised stable1 hits=0 (cross-check)
+     0.0s (4,4) vec: structures=35 leaves=21875 distinct=2365 enum_s=0.0 saved wp2d/E_4_4_vec.npy
+     0.1s (4,4) vec: stable1 hits=0 check_s=0.0 all-inputs-essential=2200
+     0.1s (4,4) vec: vectorised stable1 hits=0 (cross-check)
+     0.1s (5,5) dfs: structures=148 leaves=462500 distinct=58009 enum_s=0.1 saved wp2d/E_5_5.npy
+     0.8s (5,5) dfs: stable1 hits=0 check_s=0.2 all-inputs-essential=55932
+     0.8s (5,5) dfs: vectorised stable1 hits=0 (cross-check)
+     0.9s (5,5) vec: structures=148 leaves=462500 distinct=58009 enum_s=0.1 saved wp2d/E_5_5_vec.npy
+     1.6s (5,5) vec: stable1 hits=0 check_s=0.2 all-inputs-essential=55932
+     1.6s (5,5) vec: vectorised stable1 hits=0 (cross-check)
+     0.0s (6,5) dfs: structures=15 leaves=46875 distinct=29005 enum_s=0.0 saved wp2d/E_6_5.npy
+     0.8s (6,5) dfs: stable1 hits=0 check_s=0.2 all-inputs-essential=29005
+     0.8s (6,5) dfs: vectorised stable1 hits=0 (cross-check)
+     0.8s (6,5) vec: structures=15 leaves=46875 distinct=29005 enum_s=0.0 saved wp2d/E_6_5_vec.npy
+     1.6s (6,5) vec: stable1 hits=0 check_s=0.2 all-inputs-essential=29005
+     1.6s (6,5) vec: vectorised stable1 hits=0 (cross-check)
+     3.5s (7,6) dfs: structures=52 leaves=812500 distinct=437025 enum_s=3.5 saved wp2d/E_7_6.npy
+    29.2s (7,6) dfs: stable1 hits=0 check_s=5.4 all-inputs-essential=437025
+    31.3s (7,6) vec: structures=52 leaves=812500 distinct=437025 enum_s=2.0 saved wp2d/E_7_6_vec.npy
+    57.2s (7,6) vec: stable1 hits=0 check_s=5.4 all-inputs-essential=437025
+     8.6s (6,6) dfs: structures=672 leaves=10500000 distinct=1399372 enum_s=8.6 saved wp2d/E_6_6.npy
+    46.9s (6,6) dfs: stable1 hits=0 check_s=10.1 all-inputs-essential=1366464
+    47.2s (6,6) dfs: vectorised stable1 hits=0 (cross-check)
+    50.1s (6,6) vec: structures=672 leaves=10500000 distinct=1399372 enum_s=2.8 saved wp2d/E_6_6_vec.npy
+    85.7s (6,6) vec: stable1 hits=0 check_s=8.3 all-inputs-essential=1366464
+    86.1s (6,6) vec: vectorised stable1 hits=0 (cross-check)
+     8.9s (5,6) dfs: structures=3403 leaves=53171875 distinct=845540 enum_s=8.9 saved wp2d/E_5_6.npy
+    20.0s (5,6) dfs: stable1 hits=0 check_s=2.7 all-inputs-essential=826609
+    20.1s (5,6) dfs: vectorised stable1 hits=0 (cross-check)
+    29.7s (5,6) vec: structures=3403 leaves=53171875 distinct=845540 enum_s=9.6 saved wp2d/E_5_6_vec.npy
+    39.8s (5,6) vec: stable1 hits=0 check_s=2.6 all-inputs-essential=826609
+    39.9s (5,6) vec: vectorised stable1 hits=0 (cross-check)
+# dfs and vec set files compared byte-for-byte after the run (2026-10-12T02:59:25Z); only the dfs files are committed:
+E_4_4.npy == E_4_4_vec.npy identical
+E_5_5.npy == E_5_5_vec.npy identical
+E_5_6.npy == E_5_6_vec.npy identical
+E_6_5.npy == E_6_5_vec.npy identical
+E_6_6.npy == E_6_6_vec.npy identical
+E_7_6.npy == E_7_6_vec.npy identical

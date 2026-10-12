@@ -1,0 +1,13 @@
+k,s,evaluator,structures,leaves,distinct,stable1,stable1_vec,all_inputs_essential,enum_s,check_s,hits,status,set_file
+4,4,dfs,35,21875,2365,0,0,2200,0.0,0.0,,exhaustive,wp2d/E_4_4.npy
+4,4,vec,35,21875,2365,0,0,2200,0.0,0.0,,exhaustive,wp2d/E_4_4_vec.npy
+5,5,dfs,148,462500,58009,0,0,55932,0.1,0.2,,exhaustive,wp2d/E_5_5.npy
+5,5,vec,148,462500,58009,0,0,55932,0.1,0.2,,exhaustive,wp2d/E_5_5_vec.npy
+6,5,dfs,15,46875,29005,0,0,29005,0.0,0.2,,exhaustive,wp2d/E_6_5.npy
+6,5,vec,15,46875,29005,0,0,29005,0.0,0.2,,exhaustive,wp2d/E_6_5_vec.npy
+7,6,dfs,52,812500,437025,0,-1,437025,3.5,5.4,,exhaustive,wp2d/E_7_6.npy
+7,6,vec,52,812500,437025,0,-1,437025,2.0,5.4,,exhaustive,wp2d/E_7_6_vec.npy
+6,6,dfs,672,10500000,1399372,0,0,1366464,8.6,10.1,,exhaustive,wp2d/E_6_6.npy
+6,6,vec,672,10500000,1399372,0,0,1366464,2.8,8.3,,exhaustive,wp2d/E_6_6_vec.npy
+5,6,dfs,3403,53171875,845540,0,0,826609,8.9,2.7,,exhaustive,wp2d/E_5_6.npy
+5,6,vec,3403,53171875,845540,0,0,826609,9.6,2.6,,exhaustive,wp2d/E_5_6_vec.npy
