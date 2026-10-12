@@ -1,1 +1,2 @@
 python-sat==1.9.dev15
+numpy==2.5.4

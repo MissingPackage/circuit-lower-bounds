@@ -1,0 +1,235 @@
+WP2d PRE-REGISTRATION -- 2026-10-12 (frozen before the first enumeration run)
+=============================================================================
+
+Work package: mechanical closure of the gadget question for every k by exhaustive
+enumeration of circuit structures, re-derived independently of the reviewer's scripts
+(wp2d/reviewer_scripts/, kept verbatim, NOT read before my own enumerator has produced its
+first full counts).  Claim to establish or refute: no 1-stable function (GHKK Definition 2,
+both signs; sources/GHKK_TRANSCRIPTION_2026-10-11.txt) has a B2 circuit with <= 6 gates,
+for any number of inputs k.
+
+What WP2d is NOT: no outcome of WP2d is a circuit lower bound.  The result limits the
+plain gate-elimination method with the measure mu_alpha and 1-substitutions (GHKK
+Theorem 4 / Corollary 6), nothing else.
+
+Status of the inputs (proof status of every value used)
+-------------------------------------------------------
+- k <= 4: no 1-stable function at all [exhaustive over all truth tables, WP2].
+- k = 5: minimum circuit size over 1-stable functions = 7, one class 0x00071357
+  (WP1 integer TT_5_3939033088) [Knuth's table via optimal5, WP2b; the circuit of the
+  argmin is SAT-confirmed with UNSAT at s <= 6 in mode full, not DRAT-certified].
+- Argument A (k <= s + 1 for a 1-stable function computed with s gates) [hand argument,
+  WP2c, reviewer-checked]; Argument B (tree lemma, (k, k - 1) impossible) [hand argument,
+  WP2c, reviewer-checked]; (6, 5) UNSAT in mode full, 1341 s [SAT-proven, no DRAT].
+- Reviewer's enumeration counts: (6,5) 0 of 29,005 distinct functions 1-stable; (6,6) 0 of
+  1,857,928; (7,6) 0 of 437,025; (4,4) and (5,5) 0 [reviewer-reported, UNREVIEWED; they
+  stay so until reproduced here].
+
+Conventions (unchanged from WP2 / WP2b / WP2c)
+-----------------------------------------------
+- WP1 truth-table integer: bit t = f on row t, row t assigns x_{i+1} = (t >> i) & 1;
+  2^k rows (Python integers, exact for k = 7 / 128 rows).
+- stable1 = Definition 2 with m = 1, both signs, as printed.  Oracle for all verdicts:
+  stable_check.holds(tt, k, 'stable1') (independent brute-force checker of WP2).
+- Circuit: k inputs = nodes 0..k-1, gate i = node k+i reads two distinct earlier nodes
+  a < b; the output is the last gate.  A circuit "uses" an input if the input is in the
+  output cone.
+
+Reductions R1-R3 (statements and proofs; they justify what the enumerator does NOT visit)
+-----------------------------------------------------------------------------------------
+Terminology.  A B2 gate type is one of the 16 Boolean functions of two arguments.  A gate
+type is DEGENERATE if it does not depend on both arguments: the 2 constants, the 2
+projections and the 2 negated projections (6 types).  The 10 non-degenerate types are
+AND, OR, XOR and their 7 variants with negated inputs or output: a AND NOT b, NOT a AND b,
+NOR = NOT(a OR b), NAND = NOT(a AND b), XNOR = NOT(a XOR b), a OR NOT b = NOT(NOT a AND b),
+NOT a OR b = NOT(a AND NOT b).  The NORMALISED set is N = {AND, OR, XOR, a AND NOT b,
+NOT a AND b}; these are exactly the 5 non-degenerate types with value 0 on (0, 0)
+(Knuth's "normal" binary operators).  Every non-degenerate type is either in N or the
+negation of a type in N (the 10 types split into the 5 pairs {AND, NAND}, {OR, NOR},
+{XOR, XNOR}, {a AND NOT b, NOT a OR b}, {NOT a AND b, a OR NOT b}).
+
+R1 (normalisation).  Let C be a circuit with s gates, every gate of a non-degenerate type
+with two distinct argument nodes, computing f.  Then there is a circuit C' with the same
+DAG structure (same gates, same argument nodes in the same positions) whose gate types
+are all in N and which computes f or NOT f.
+  Proof.  Process the gates in topological order and keep a flag n(v) in {0, 1} for every
+  node v, n(x_i) = 0 for inputs, meaning "the node of C' carries the value of the node of
+  C xor n(v)".  For gate g = op(a, b) of C, define op'(p, q) = op(p xor n(a), q xor n(b)).
+  op' is non-degenerate (negating an argument does not change dependence), so op' = T or
+  op' = NOT T for a unique T in N.  Give g the type T in C' and set n(g) = [op' = NOT T].
+  By induction, the value of g in C' is value_C(g) xor n(g).  The output o of C' carries
+  f xor n(o), i.e. f or NOT f.  No gate is added or removed and the argument nodes are
+  unchanged.  QED.
+  Consequence for the enumerator: gate types range over N only (5 types; both orders of
+  the asymmetric type are present because a < b is fixed), with every output negation
+  absorbed downstream.  Constants and projections are not gates of N and are handled
+  explicitly: the only functions with a 0-gate circuit are the projections x_i (and,
+  by convention of the k = 3 comparison, the constants, which cost 1 gate in bfs3 and 0 in
+  Knuth's convention); they are added at s = 0 by hand (E(k, 0) = {0, 1, x_1, ..., x_k}
+  for the controls).  None of them is 1-stable for k >= 2: a constant depends on no
+  input and a projection on k >= 2 inputs fails Argument A1.  (Remark, recorded for
+  completeness: on k = 1 the projection x_1 satisfies Definition 2 vacuously with 0
+  gates; it is outside the framework, where a 0-gate gadget gives h = f and Theorem 4
+  says nothing, and outside every instance here, k >= 3.)
+
+R2 (degenerate gates can be bypassed).  Let C be a circuit with s >= 1 gates computing f
+such that some gate is degenerate, where "degenerate" means either its type is one of the
+6 degenerate types or its two argument nodes coincide (op(v, v) is in {0, 1, v, NOT v}
+for every op).  Then either f is a constant or a literal (x_i or NOT x_i), or f or NOT f
+is computed by a circuit with at most s - 1 gates all of whose gates are non-degenerate
+with distinct argument nodes.
+  Proof.  Let g be a degenerate gate; its value is a constant c or a literal v / NOT v of
+  a node v below g.
+  (i) Value +-v: replace every edge g -> h (h reads g) by v -> h and negate the
+  corresponding argument of h's type if the value is NOT v (the 16 types are closed under
+  argument negation; if h then reads v twice, h becomes degenerate of the second kind).
+  If g is the output, the new output is v, and the computed function is f or NOT f
+  (absorbed as output negation); if v is an input, f is a literal.  Remove g.
+  (ii) Value constant c: every reader h = op(g, w) becomes op(c, w), a function of w
+  alone, hence degenerate of the first kind; replace h's type by that function of w (a
+  constant or +-w) and remove g.  If g is the output, f is constant.
+  Each step removes one gate and keeps the circuit computing f or NOT f (negations are
+  absorbed into reading gates or into the output).  Iterate while a degenerate gate
+  exists; the process terminates (the gate count decreases) with no degenerate gate left,
+  or with f constant or a literal.  Finally drop every gate outside the output cone (it
+  does not influence the output).  QED.
+  Consequence: a MINIMUM-size circuit of a non-constant, non-literal f has only
+  non-degenerate gates with distinct arguments, every gate in the output cone, and every
+  input that f depends on in the output cone (an input outside the cone cannot influence
+  f).  Together with R1, f or NOT f has a minimum-size circuit over N with these
+  structural properties.  Hence enumerating, for each (k, s), all DAG structures with k
+  inputs and s gates in which every node lies in the output cone, with gate types in N,
+  produces (up to R3 below) every function of circuit size exactly s that depends on all
+  k inputs; the union over s' <= s produces every function of size <= s.
+
+R3 (invariance of 1-stability).  For a k-input function g, the properties "1-stable"
+(Definition 2, both signs) and "weakly 1-stable" (Definition 1) are invariant under
+permutation of the inputs, negation of inputs and negation of the output.
+  Proof (restated from npn_invariance.py).  Permutation: relabel Y, y and tau.  Input
+  negation with mask N: replace tau by tau xor N on X \ Y; if y is negated, g|tau = y
+  becomes g|tau = NOT y, admitted by Definition 2 (both signs); Definition 1 has no sign.
+  Output negation: swaps the two admitted signs of Definition 2 and swaps tau_0 and tau_1
+  in Definition 1.  QED.  The positive-sign-only variant stable1pos is NOT invariant (WP2b:
+  22 changes at k = 5).
+  Consequence: it suffices to test one representative per input relabelling (the
+  enumerator fixes the labelling by first use: input j is first read no later than input
+  j + 1) and the positive sign only (the enumerator never produces NOT f separately: f and
+  NOT f have the same verdict).
+  Mechanical test (P1 below): generalisation of npn_invariance.py to k = 6 and 7.
+
+Enumerator design (written before reading wp2d/reviewer_scripts/)
+-----------------------------------------------------------------
+E(k, s) := set of WP1 truth tables of circuits with exactly k inputs (all in the output
+cone), exactly s gates (all in the cone), gate types in N, both argument nodes distinct,
+inputs labelled by first use.  E(k, <= s) := union over s' <= s, plus E(k, 0) =
+{0, all-ones, x_1, ..., x_k} by the convention above.
+"Unused inputs allowed" at k inputs := union over j <= k of E(j, <= s) padded to k inputs
+on the first j inputs (a function depending on exactly j inputs is a padded j-input
+function; its minimum circuit uses exactly those j inputs; the class-level and
+permutation-expanded comparisons below cover every placement).
+Structure search: depth-first over gates; after placing gate i (node k+i) with r = s-i-1
+gates to come, the number D of nodes without a reader (unused inputs included) must
+satisfy D <= r + 1 (each future gate reduces D by at most one net), and D = 1 after the
+last gate.  Canonical topological order: if gate i does not read node k+i-1, require
+(a_{i-1}, b_{i-1}) <= (a_i, b_i) lexicographically (sound: the lexicographically smallest
+representation of a circuit over all topological orders and input relabellings satisfies
+this and the first-use rule simultaneously; an out-of-order independent adjacent pair or
+an out-of-order first use would give a smaller representation).  Structure counts under
+these rules, computed with /tmp/wp2d_struct_count.py before this file was written (not
+predictions, design data): (4,4) 35, (4,5) 538, (4,6) 8708, (4,7) 156254, (5,4) 5,
+(5,5) 148, (5,6) 3403, (5,7) 76309, (6,5) 15, (6,6) 672, (7,6) 52, (3,2) 1, (3,3) 9,
+(3,4) 85.  Note (6,5) and (7,6) are forced to be trees and (6,6) a tree plus one edge
+(Argument B / WP2c remark), consistent with the small counts.
+Two evaluators over the same structure generator: a pure-Python bit-parallel DFS
+(reference, used for the main runs) and a numpy per-structure vectorised evaluator over
+all 5^s type assignments (used for the heavy k = 5 control at s = 6, 7 and for k = 4 at
+s = 6, 7); they are compared set-for-set on every instance both can run.
+Verdicts: stable_check.holds on every distinct truth table for the main runs; for the
+large k = 5 sets a numpy vectorisation of stable_check.tests_for (the checker's own
+mask/pattern lists), cross-validated against stable_check.holds on a random sample and
+on every positive.
+
+Pre-registered predictions (verbatim from the brief; graded line by line)
+------------------------------------------------------------------------
+"Falsifiable statements, to be graded line by line against the CSV/log rows
+(probabilities: 0.95 that every 1-stable count below is 0 and every completeness control
+passes; 0.60 that the reviewer's three distinct-function counts are reproduced to the
+integer without any convention alignment).
+P1 (R3 mechanical, generalisation of npn_invariance.py to k = 6 and k = 7, >= 2000
+random (f, NPN transform) pairs per k, pool seeded with random tables and NPN images of
+found positives): 0 verdict changes for stable1 and weak1 at both k, with >= 50 stable1
+positives at each k; stable1pos shows >= 1 change (as at k = 5).
+P2 (completeness control at k = 5, unused inputs allowed, s = 0..7): the number of NPN
+classes of results_wp2b_classes.csv hit by the enumerator output is exactly 2, 4, 9, 29,
+122, 511, 2499, 13881 for s = 0..7 (cumulative Knuth histogram of
+results_wp2b_knuth_hist.csv), every produced truth table has Knuth cost <= s
+(containment, 0 violations), 0 produced truth tables are stable1 for s <= 6, and at s = 7
+every stable1 truth table found canonicalises to class 0x00071357 (WP1 TT_5_3939033088),
+with exactly 1 stable1 class.  At k = 3 the enumerator cost (min s with f or NOT f
+produced; constants and projections at s = 0) equals bfs_min of results_bfs3.csv on 251
+of 256 rows; the 5 exceptions are exactly tt 0, 255, 85, 51, 15 (constants and negated
+literals: bfs 1, enumerator 0).
+P3 (main runs, all inputs used, positive output sign): stable1 count = 0 at (4,4), (5,5),
+(5,6), (6,5), (6,6), (7,6).  Distinct-truth-table counts under the reviewer's labelling
+convention (prediction cited from the reviewer's report, status reported-unreviewed):
+(6,5) 29,005; (6,6) 1,857,928; (7,6) 437,025; (4,4) and (5,5) counts not predicted,
+their stable1 count 0.  If my labelling convention differs, the two output sets coincide
+after mapping both to one canonical form (sets dumped and compared, not only the
+integers).
+P4 (outcome): all P1-P3 hold, and the README declares '7 is the minimum gadget size for
+this framework' on the strength of the enumeration, recorded as a documented deviation
+from the WP2c both-SAT-modes rule, with the WP2c statement that (6,6) was open at that
+time kept verbatim."
+
+My additional operational predictions (same evidence rule):
+P5 the per-class decomposition of P2 by number of essential inputs, read from
+   results_wp2b_classes.csv before any run, is: classes with exactly 5 essential inputs
+   and cost <= s: 0, 0, 0, 0, 59, 373, 2289, 13659 (s = 0..7); with exactly 4: 0, 0, 0,
+   17, 49, 124, 196, 208; exactly 3: 0, 0, 5, 8, 10, 10, 10, 10; exactly 2: 0, 0, 2, ...
+   (2 from s = 1); exactly 1: 1; exactly 0: 1.  The enumerator's E(j, <= s) hits exactly
+   these per-j counts (this is where a structural omission would show: a missed DAG shape
+   at (5, 7) would appear as a shortfall in 13659).
+P6 the two evaluators (pure-Python DFS, numpy vectorised) produce identical sets on every
+   instance run with both; the k = 4 union E(4, <= 7) expanded over all input
+   permutations and output negation contains all 65536 four-input functions (every
+   4-input function has cost <= 7, Knuth).
+P7 wall time: every main run (6,5), (7,6), (6,6), (4,4), (5,5) finishes in < 15 min
+   including the stable checks; (5,6) in < 30 min; the (5,7) control in < 60 min.
+
+What refutes
+------------
+- The claim: a truth table in some E(k, <= 6) with stable_check.holds(tt, k, 'stable1')
+  True that passes simulate.py on its generating circuit, stable_check.py check, and the
+  fixed-function WP1 encoder ladder (UNSAT at s' < s in mode full, SAT at s with sim
+  pass).  Such a function would be a gadget cheaper than 7 and would tighten the ceiling.
+- The enumerator: a Knuth class of cost <= s at k = 5 (or <= 4 inputs) not hit by
+  E(<= s); a containment violation; a bfs3 row (other than the 5 listed) with a different
+  cost; a set difference between the two evaluators.  Any of these voids the claim until
+  the cause is found.
+- The comparison with the reviewer: a distinct-count mismatch that survives mapping both
+  outputs to one canonical form (first-use labelling + positive sign, or full NPN where
+  feasible) is reported as unexplained and blocks the "reproduced" status of the
+  reviewer's numbers (the main claim then rests on my enumeration alone, and says so).
+- P1: any verdict change for stable1 or weak1; fewer than 50 positives at either k.
+
+Outcome rule
+------------
+All counts zero with controls passing => the global claim "7 is the minimum gadget size
+for this framework" is declared on the strength of the enumeration (R1-R3 as proofs,
+P2/P5/P6 as the mechanical completeness controls), documented as a deviation from the
+WP2c rule (UNSAT in both SAT modes), and the Corollary 6 ceiling with mu_alpha and
+1-substitutions is exactly 7n: a limit on the method, not a lower bound.  Any gadget
+with <= 6 gates must pass the three verifications above before being reported.
+
+Staging (2 cores, ~3 h wall; commit after each stage, no push)
+--------------------------------------------------------------
+Stage A: this file + wp2d_frozen.stamp (sha256 of this file).
+Stage B: wp2d_npn_invariance.py at k = 6, 7 -> log_wp2d_invariance.txt (P1).
+Stage C: wp2d_enum.py (enumerator, both evaluators, self-tests), controls: k = 3 vs
+         bfs3 (results_wp2d_bfs3.csv), k = 4 all functions, k = 5 classes vs Knuth
+         (results_wp2d_control5.csv, log_wp2d_control.txt) (P2, P5, P6).
+Stage D: main runs -> results_wp2d_main.csv, log_wp2d_main.txt (P3); any hit ->
+         verification ladder -> log_wp2d_hit.txt.
+Stage E: read wp2d/reviewer_scripts/, compare counts, dump/canonicalise sets on mismatch
+         -> results_wp2d_compare.csv, log_wp2d_compare.txt.
+Stage F: README.md (WP table row, WP2d section, "What is established" paragraph).
