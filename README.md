@@ -16,6 +16,7 @@ with the raw artifacts (frozen targets, CSV results, logs) committed.
 | WP1 | SAT encoder for exact circuit size of small functions, validated against known values | done, confirmed by independent grader |
 | WP2 | Cheaper m-stable gadgets (tighter ceiling for plain gate elimination, GHKK 2016) | in progress (k=5 SAT ladders running) |
 | WP2b | WP2 k=5 question answered by lookup in Knuth's table of optimal 5-input chains (via optimal5) | done: min over 1-stable classes = 7 (gst1 has 11); confirmed by SAT, simulation and checker |
+| WP2c | Gadget question closed for all k: 1-stable with <= 6 gates needs k <= 7 (hand argument A), (k, k-1) excluded (hand argument B), remaining SAT instances at k = 6, 7 | done with open instances: 0 SAT rows; (6,5) UNSAT in mode full (1341 s); (6,6) and (7,6) TIMEOUT in mode full; mode-none cross-checks time out from s = 4; global claim not made by the pre-registered rule, A and B stand as hand proofs |
 | WP3 | Automated search for gate-elimination potentials and case analyses | planned |
 
 ## WP1 summary
@@ -119,6 +120,100 @@ DRAT-certified (same caveat as WP1); the stable2 invariance test had no
 positive instances at k = 5. The running WP2 SAT ladders (`results_wp2_k5.csv`)
 were not touched.
 
+## WP2c summary (the gadget question for every k)
+
+Question: does any 1-stable function (GHKK Definition 2, both signs) on k >= 6
+inputs have <= 6 gates, i.e. can the WP2b gadget (7 gates, k = 5) be beaten at
+all?  Pre-registration: `wp2c_preregistration_2026-10-11.txt`
+(`wp2c_frozen.stamp`).  Nothing here is a lower bound.
+
+Hand arguments (written in the pre-registration before the runs, hand-checked
+only, no machine proof):
+
+- **A** (k <= s + 1): a 1-stable function depends on every input (Definition 2
+  with |Y| = 1 leaves a non-constant function of y), and a function that depends
+  on k inputs needs >= k - 1 gates (the output cone is a connected DAG with
+  k + g' nodes and 2 g' edges, so g' >= k - 1).  Hence a 1-stable gadget with
+  s gates has k <= s + 1; with WP2 (no 1-stable function for k <= 4) and WP2b
+  (minimum 7 at k = 5) the only candidates for "<= 6 gates" are
+  (k, s) in {(6, 5), (6, 6), (7, 6)}.
+- **B** (tree lemma, (k, k - 1) impossible): if the circuit has exactly k - 1
+  gates, the cone is a tree (every node has fan-out 1).  Take any input x, its
+  unique gate G = op(u, x) and an input y below u; for Y = {y, x} and the element
+  y, under any restriction tau of the other inputs u becomes 0, 1, y or not y:
+  constant kills y, a literal makes G depend on x (op non-degenerate) and the
+  rest of the tree is a function of G alone.  So Definition 2 fails and the
+  function is not 1-stable.  This disposes of (6, 5) and (7, 6) by hand; the only
+  instance not fixed by A and B is (6, 6) (a tree plus one extra edge).
+
+SAT runs (`results_wp2c.csv`, `log_wp2c.txt`, `results_wp2c_min.csv`; runner
+`run_wp2.py`, 1 worker, hard 3600 s per instance, variant stable1, essential
+flag 0, modes `full` = WP1 symmetry breaking and `none` = plain encoding):
+
+| (k, s)   | mode full                  | mode none                  | declaration (brief rule) |
+|----------|----------------------------|----------------------------|--------------------------|
+| (6, 0-3) | UNSAT, <= 1.6 s            | UNSAT, <= 24.0 s           | sanity (UNSAT by A)      |
+| (6, 4)   | UNSAT, 44.3 s              | TIMEOUT 3600 s             | sanity (UNSAT by A)      |
+| (7, 0-3) | UNSAT, <= 9.0 s            | UNSAT, <= 54.8 s           | sanity (UNSAT by A)      |
+| (7, 4)   | UNSAT, 235.6 s             | not run (budget)           | sanity (UNSAT by A)      |
+| (7, 5)   | TIMEOUT 3600 s             | not run (budget)           | sanity (UNSAT by A)      |
+| (6, 5)   | UNSAT, 1340.6 s            | not run (budget)           | open (brief rule); UNSAT by B |
+| (7, 6)   | TIMEOUT 3600 s             | not run (budget)           | open (brief rule); UNSAT by B |
+| (6, 6)   | TIMEOUT 3600 s             | not run (budget)           | open                     |
+
+No SAT row appeared anywhere (P1 holds; P5 not exercised).  Controls before the
+runs (`wp2c_controls.py`, `log_wp2c_controls.txt`, `results_wp2c_smoke.csv`,
+50 checks, 0 failures): the checker at k = 6, 7 rejects x1x2x3 xor x4x5x6
+(weak1 accept), rejects gst1, the WP2b argmin and the WP2 function padded with
+dummy inputs (exactly the six (Y, y) tests involving the dummy input fail),
+accepts a random 6-input function (104 of 2000 random 64-bit tables are
+1-stable); the encoder builds 64- and 128-row free and fixed instances; the
+k = 6 weak1 search gives SAT at s = 3 in both modes with sim pass and checker
+accept, and AND_6 / AND_7 give the known values 5 / 6.
+
+Operational deviations (recorded in `log_wp2c.txt`): the pre-registered run
+order put all sanity rows first; after the (6, 4) mode-none row used its full
+3600 s the runner was stopped and relaunched twice so that the open instances,
+in particular (6, 6) mode full, ran before the k = 7 mode-none sanity rows.
+Instance timeouts and the 1-worker setting were not changed.  The summary file
+`results_wp2c_min.csv` lacks the (6, 4) none row (runner stopped right after
+the instance row); `results_wp2c.csv` is authoritative.
+
+### What is now established about the GHKK ceiling
+
+- For the measure mu_alpha(C) = gates(C) + alpha * inputs(C) and 1-substitutions,
+  GHKK Theorem 4 gives, for h = f <> g with g 1-stable,
+  mu_alpha(h) - mu_alpha(h|rho) <= gates(g) + alpha for every 1-substitution
+  rho, and Corollary 6 instantiates it with gst1 (11 gates): the method cannot
+  prove better than 11n with these tools.  With the WP2b gadget (7 gates, class
+  0x00071357) the same corollary gives 7 + alpha per substitution, i.e. a
+  ceiling of about 7n for plain gate elimination with mu_alpha and
+  1-substitutions.  This is a limit on the method, not a lower bound on any
+  function; the composition argument is GHKK's and is not re-proved here.
+- Whether 7 can be lowered further.  For k <= 5 the answer is machine-checked:
+  no 1-stable function for k <= 4 (WP2, exhaustive) and minimum 7 at k = 5
+  (WP2b, Knuth's table, SAT-confirmed).  For k >= 6, Argument A limits a
+  cheaper gadget to k in {6, 7} and Argument B excludes (6, 5) and (7, 6), so
+  the whole question reduces to one instance: is some 6-input function computed
+  by a 6-gate circuit (a tree plus one extra edge) 1-stable?  The SAT runs agree
+  with A on all 19 completed rows (0 SAT) and with B on (6, 5) in mode full
+  (UNSAT, 1341 s); (6, 6) timed out in mode full and the mode-none
+  cross-checks of the open instances did not complete.  By the pre-registered
+  rule (UNSAT in both modes) no open instance is declared and the claim "7 is
+  the minimum gadget size for this framework" is NOT made.  What stands is:
+  7 is the minimum for k <= 5 (machine-checked); for every k the only
+  remaining candidate below 7 is (k, s) = (6, 6), open, with A and B as
+  hand proofs that have not been machine-checked beyond the rows above.
+- Remaining open: m >= 2 substitutions (2-stable gadgets: none exist for
+  k <= 5 by WP2/WP2b; k >= 6 not searched here), non-subadditive potentials
+  (the Li-Yang 3.1n proof uses a measure outside Theorem 4's hypotheses), and
+  gadgets for measures other than mu_alpha.
+- Not verified: UNSAT answers are not DRAT-certified; the symmetry-breaking
+  mode `full` has no independent counter-check at k >= 5 except the mode-none
+  runs listed above, which time out from s = 4 at k = 6 and were not run for
+  k = 7, s >= 4; Arguments A and B are
+  hand proofs with no machine check beyond the SAT rows they predict.
+
 ## Layout
 
 - `encoder.py`, `solve.py`, `simulate.py`, `funcs.py` — encoder, per-instance
@@ -135,6 +230,10 @@ were not touched.
   decoder check against the optimal5 README; `results_wp2b_*.csv`,
   `log_wp2b*.txt` — WP2b outputs (`results_wp2b_classes.csv` has one row per
   NPN class, 616,126 rows)
+- `wp2c_controls.py`, `wp2c_verify_sat.py`, `analyze_wp2c.py` — WP2c: controls at
+  k = 6, 7, verification ladder for SAT rows (exercised on the smoke rows,
+  `log_wp2c_verify_smoke.txt`), metric reader; `results_wp2c*.csv`,
+  `log_wp2c*.txt` — WP2c outputs
 - `sources/` — transcribed reference values with citations; third-party
   documents are not redistributed (see `sources/SOURCES.md`)
 

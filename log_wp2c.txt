@@ -18,3 +18,9 @@
 23:57:58 stable1 k=6 s=5 full ess=0 UNSAT   tt= 1340.6s to=3600
 # 00:02:30 runner stopped by hand a second time, during (6,5) mode none (started 23:57:58, about 4 minutes lost; no row written for it). Reason: from the measured rows ((6,4) none and (7,5) full TIMEOUT at 3600 s, (6,5) full UNSAT at 1341 s) the rows (6,5) none, (7,6) full, (7,6) none and (6,6) none are expected to time out, and (6,6) full, the only instance not fixed by Arguments A and B, was queued behind three of them. Relaunched with the remaining 11 jobs reordered: (6,6) full, (7,6) full, (6,5) none, (6,6) none, (7,6) none, then k=7 none s=0..5. Per-instance timeout 3600 s and 1 worker unchanged; the second core is idle since the WP2 k=5 job reached its deadline at 22:41.
 01:02:30 stable1 k=6 s=6 full ess=0 TIMEOUT   tt= 3600.1s to=3600
+# 01:03:28 runner stopped by hand a third time, about 1 minute into (7,6) mode full (no row written). (6,6) mode full timed out at 3600 s; every remaining mode-none row ((6,5), (6,6), (7,6), (7,4), (7,5)) is expected to time out like (6,4) none did, and no remaining row can change a declaration under the brief's both-modes rule. The campaign is 3.5 h into a 2 h budget. Relaunched with (7,6) full and the k=7 mode-none sanity rows s=0..3 only; the five rows above are NOT RUN (budget) and are reported as open, never as UNSAT.
+02:03:28 stable1 k=7 s=6 full ess=0 TIMEOUT   tt= 3600.1s to=3600
+02:03:29 stable1 k=7 s=0 none ess=0 UNSAT   tt= 0.3s to=3600
+02:03:29 stable1 k=7 s=1 none ess=0 UNSAT   tt= 0.1s to=3600
+02:03:30 stable1 k=7 s=2 none ess=0 UNSAT   tt= 0.9s to=3600
+02:04:24 stable1 k=7 s=3 none ess=0 UNSAT   tt= 54.8s to=3600
