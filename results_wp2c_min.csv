@@ -15,3 +15,4 @@ stable1,7,full,0,,UNSAT<=3
 stable1,7,full,0,,UNSAT<=4
 stable1,7,full,0,,TIMEOUT@5
 stable1,6,full,0,,UNSAT<=5
+stable1,6,full,0,,TIMEOUT@6
