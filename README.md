@@ -14,7 +14,7 @@ with the raw artifacts (frozen targets, CSV results, logs) committed.
 | WP  | Object searched | Status |
 |-----|-----------------|--------|
 | WP1 | SAT encoder for exact circuit size of small functions, validated against known values | done, confirmed by independent grader |
-| WP2 | Cheaper m-stable gadgets (tighter ceiling for plain gate elimination, GHKK 2016) | in progress (k=5 SAT ladders running) |
+| WP2 | Cheaper m-stable gadgets (tighter ceiling for plain gate elimination, GHKK 2016) | done: no 1-stable function on 3 or 4 inputs (exhaustive + SAT); at k=5 the SAT search found an 11-gate 1-stable function in 9.5 s but the free-function ladder stopped at s=5 (s=6 timed out); the k=5 question was then answered by WP2b |
 | WP2b | WP2 k=5 question answered by lookup in Knuth's table of optimal 5-input chains (via optimal5) | done: min over 1-stable classes = 7 (gst1 has 11); confirmed by SAT, simulation and checker |
 | WP2c | Gadget question closed for all k: 1-stable with <= 6 gates needs k <= 7 (hand argument A), (k, k-1) excluded (hand argument B), remaining SAT instances at k = 6, 7 | done with open instances: 0 SAT rows; (6,5) UNSAT in mode full (1341 s); (6,6) and (7,6) TIMEOUT in mode full; mode-none cross-checks time out from s = 4; global claim not made by the pre-registered rule, A and B stand as hand proofs |
 | WP3 | Automated search for gate-elimination potentials and case analyses | planned |
@@ -39,6 +39,46 @@ check); symmetry breaking at n=5 has no independent counter-check; three
 target values (MAJ_5, THR2_4, THR3_4) rest only on an operator-glyph count
 extracted from a figure of Knuth's draft 7.1.2 (independently confirmed by the
 WP2b table lookup: 9, 7, 7).
+
+## WP2 summary (SAT search for cheaper m-stable gadgets)
+
+Question: GHKK (Golovnev, Hirsch, Knop, Kulikov, "On the Limits of Gate
+Elimination") report a 1-stable function on 5 inputs computable with 11 gates
+(Lemma 4) and derive Corollary 6: plain gate elimination with the measure
+mu_alpha = gates + alpha*inputs and single substitutions cannot prove 11n. Is
+there a 1-stable function (Definition 2) with fewer gates? Pre-registration:
+`wp2_preregistration_2026-10-11.txt` (`wp2_frozen.stamp`); definitions
+transcribed verbatim in `sources/GHKK_TRANSCRIPTION_2026-10-11.txt`. Nothing
+here is a lower bound.
+
+Code added: a free-function path in `encoder.py` (regression: 216/216 fixed
+target instances produce identical CNF), `stability.py` (SAT-side encoding of
+Definitions 1 and 2 plus an essential-inputs flag), `stable_check.py` (an
+independent bit-parallel brute-force checker sharing no code with the SAT side,
+cross-validated 3557/3557 against a naive re-implementation), `appendix_a.py`
+(verbatim port of the two GHKK Appendix A scripts; both pass, and the Appendix
+11-gate circuit passes `simulate.py` and the checker).
+
+Results (`results_wp2_k34.csv`, `log_wp2_counts.txt`, `results_wp2_k5.csv`,
+`log_wp2_k5.txt`):
+
+- k = 3, 4: no 1-stable function exists (exhaustive over all 256 and 65,536
+  truth tables; SAT UNSAT at s <= 4 and s <= 7 in both modes). No 2-stable
+  function on <= 4 inputs. Weakly 1-stable minimum 3 at k = 3 (MUX_3) and 3 at
+  k = 4 with every input essential.
+- k = 5: the joint search (free function + 1-stability) is SAT at s = 11 in
+  9.5 s (truth table 9178798; WP2b later showed its exact cost is 7). The
+  free-function ladder is UNSAT at s <= 5 (312 s at s = 5) and timed out at
+  s = 6 (6280 s). The fixed ladder on GHKK's gst1 is UNSAT at s <= 7 (75 s at
+  s = 7), timed out at s = 8 (7200 s) and at s = 11 (3600 s); s = 9, 10 were
+  skipped at the run deadline. 2-stable: UNSAT at every s run (<= 10).
+  Positive-sign 1-stable (the Appendix A notion): SAT at s = 11 in 29 s.
+- 0 SAT rows fail simulation or the checker; 0 timeouts recorded as UNSAT.
+
+Grader verdict at grading time: inconclusive (k = 5 still running). The k = 5
+question was then answered by table lookup in WP2b. Not verified: UNSAT rows
+carry no DRAT certificate; symmetry breaking at k = 5 has no independent
+counter-check (the mode-none free search did not finish).
 
 ## WP2b summary (table lookup for k = 5)
 
