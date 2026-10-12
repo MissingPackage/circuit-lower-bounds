@@ -9,6 +9,29 @@ The motivating question is the gate-elimination ladder 3n -> 3.011n -> 3.1n
 work package states up front what would refute it; results are only claimed
 with the raw artifacts (frozen targets, CSV results, logs) committed.
 
+## What is established (gadget question, status after WP2d)
+
+For the plain gate-elimination method with the measure mu_alpha = gates + alpha
+* inputs and 1-substitutions (GHKK Theorem 4 / Corollary 6), the smallest
+1-stable gadget (Definition 2, both signs) has exactly 7 gates: no 1-stable
+function on any number of inputs has a B2 circuit with <= 6 gates, and the
+7-gate class 0x00071357 on 5 inputs exists.  The ceiling of the method is
+therefore 7 + alpha per substitution, about 7n.  Evidence chain: k <= 4 none
+(WP2, exhaustive over all truth tables); k = 5 minimum 7 (WP2b, Knuth's table,
+SAT-confirmed); k >= 6: a 1-stable function depends on every input, so s gates
+force k <= s + 1 (Argument A, hand proof), which leaves (k, s) in {(6, 5),
+(6, 6), (7, 6)}; all three are closed by exhaustive enumeration of every circuit
+DAG with every node in the output cone and normalised gate types (WP2d, reductions
+R1-R3 proved in `wp2d_preregistration_2026-10-12.txt`, enumerator validated
+against Knuth's cost histogram at k = 5 and against bfs3 at k = 3): 0 of
+29,005 + 1,399,372 + 437,025 produced functions are 1-stable, (6, 5) also UNSAT
+by SAT (WP2c).  This is a limit on what that proof method can give, NOT a lower
+bound on any function; it says nothing about m >= 2 substitutions,
+non-subadditive potentials or other measures.  Caveats: the global claim is
+made on the strength of the enumeration (a documented deviation from the WP2c
+rule that demanded UNSAT in both SAT modes); the k = 5 value rests on Knuth's
+table as published plus non-DRAT-certified UNSAT answers.
+
 ## Work packages
 
 | WP  | Object searched | Status |
@@ -17,6 +40,7 @@ with the raw artifacts (frozen targets, CSV results, logs) committed.
 | WP2 | Cheaper m-stable gadgets (tighter ceiling for plain gate elimination, GHKK 2016) | done: no 1-stable function on 3 or 4 inputs (exhaustive + SAT); at k=5 the SAT search found an 11-gate 1-stable function in 9.5 s but the free-function ladder stopped at s=5 (s=6 timed out); the k=5 question was then answered by WP2b |
 | WP2b | WP2 k=5 question answered by lookup in Knuth's table of optimal 5-input chains (via optimal5) | done: min over 1-stable classes = 7 (gst1 has 11); confirmed by SAT, simulation and checker |
 | WP2c | Gadget question closed for all k: 1-stable with <= 6 gates needs k <= 7 (hand argument A), (k, k-1) excluded (hand argument B), remaining SAT instances at k = 6, 7 | done with open instances: 0 SAT rows; (6,5) UNSAT in mode full (1341 s); (6,6) and (7,6) TIMEOUT in mode full; mode-none cross-checks time out from s = 4; global claim not made by the pre-registered rule, A and B stand as hand proofs |
+| WP2d | Mechanical closure of the gadget question for every k: exhaustive enumeration of circuit DAG structures at (6,5), (6,6), (7,6) plus regression instances, re-derived independently of the WP2c reviewer's scripts | done: 0 1-stable functions among 29,005 / 1,399,372 / 437,025 distinct functions (and 0 at (4,4), (5,5), (5,6)); enumerator completeness validated against Knuth's cumulative class histogram at k = 5 (s = 0..7, every class hit, 0 containment violations, the 7-gate argmin found at s = 7) and against bfs3 at k = 3; global claim "7 is the minimum gadget size" declared on the enumeration (documented deviation from the WP2c both-SAT-modes rule) |
 | WP3 | Automated search for gate-elimination potentials and case analyses | planned |
 
 ## WP1 summary
@@ -254,6 +278,103 @@ the instance row); `results_wp2c.csv` is authoritative.
   k = 7, s >= 4; Arguments A and B are
   hand proofs with no machine check beyond the SAT rows they predict.
 
+## WP2d summary (mechanical closure by exhaustive enumeration)
+
+Question: the WP2c instances (6, 5), (6, 6), (7, 6) left by Argument A, closed
+here by exhaustive enumeration of circuit DAG structures instead of SAT, with
+the enumeration re-derived from scratch (the adversarial reviewer's scripts in
+`wp2d/reviewer_scripts/` were read only after my enumerator had produced its
+first full counts).  Pre-registration: `wp2d_preregistration_2026-10-12.txt`
+(`wp2d_frozen.stamp`).  Nothing here is a lower bound.
+
+Reductions (statements and proofs in the pre-registration): R1 every circuit of
+non-degenerate gates has a same-structure circuit over the 5 normal types
+{AND, OR, XOR, a AND NOT b, NOT a AND b} computing f or NOT f (output negations
+absorbed downstream; constants and projections handled at s = 0 by hand); R2 a
+degenerate gate (degenerate type, or both arguments the same node) can be
+bypassed, so a minimum circuit has only non-degenerate gates with distinct
+arguments, every gate and every essential input in the output cone; R3
+1-stability and weak 1-stability are invariant under input permutation, input
+negation and output negation (tested mechanically at k = 6, 7:
+`wp2d_npn_invariance.py`, `log_wp2d_invariance.txt`, 2000 (f, random NPN
+transform) pairs per k, 0 verdict changes for stable1 (430 / 1322 positives)
+and weak1, stable1pos not invariant: 4 / 57 changes; every stable1 positive is
+weak1 and depends on every input).  Hence it suffices to enumerate, per (k, s),
+every DAG with k inputs and s gates in which every node lies in the output cone,
+inputs labelled by first use, gate types from the 5 normal types, and to test
+the positive sign only.
+
+Enumerator (`wp2d_enum.py`): depth-first structure search with the counting
+bound "nodes without a reader <= remaining gates + 1" and a canonical
+topological order (adjacent independent gates in non-decreasing order; sound by
+a lexicographic-minimum argument), then all 5^s type assignments, with two
+evaluators over the same structure generator (pure-Python bit-parallel DFS and a
+numpy per-structure vectorisation); self-test `log_wp2d_selftest.txt` (structure
+counts against the stand-alone counter `wp2d_struct_count.py`, dfs == vec on 10
+instances, witnesses re-simulate with `simulate.py` and `stable_check.py`).
+Verdicts: `stable_check` test lists applied to every distinct truth table, plus
+a numpy vectorisation of the same lists as a cross-check (validated on 38,400
+sampled tables, 0 mismatches).
+
+Completeness controls (`log_wp2d_control3.txt`, `results_wp2d_bfs3.csv`,
+`log_wp2d_control5.txt`, `results_wp2d_control5.csv`):
+
+- k = 3: the enumerator cost (min s with f or NOT f produced, constants and
+  projections at s = 0) equals `bfs_min` of `results_bfs3.csv` on 251 of 256
+  rows; the 5 exceptions are exactly tt 0, 255, 85, 51, 15 (constants and
+  negated literals: 1 gate in bfs3, 0 here), as pre-registered.
+- k = 5 (unused inputs allowed, i.e. the padded union over j <= 5 inputs with
+  all j used): the NPN classes of `results_wp2b_classes.csv` hit by E(<= s) are
+  exactly 2, 4, 9, 29, 122, 511, 2499 for s = 0..6 (the cumulative Knuth
+  histogram), also per number of essential inputs (5 essential: 0, 0, 0, 0, 59,
+  373, 2289; 4 essential: 0, 0, 0, 17, 49, 124, 196; 3: 0, 0, 5, 8, 10, 10, 10),
+  with 0 containment violations (every produced table lies in the orbit of a
+  class of cost <= s) and 0 stable1 tables among the 870,677 produced for
+  s <= 6.  At s = 7 (run after a container restart, `log_wp2d_control5.txt`, 1702 s): 13,881 classes hit of 13,881 (5 essential: 13,659; 4: 208), 0 containment violations over 9,219,713 produced tables, and 192 stable1 tables, all canonicalising to the single class 0x00071357 (the WP2b argmin): the enumerator reaches the first gadget exactly at the size where it exists.
+- Every 4-input function appears by s = 7 (all 65,536 after expansion over
+  permutations and negation: cover 65,536/65,536 at s = 7, j = 4); all 256 three-input functions by
+  s = 4 (s = 5, 6 add nothing).
+
+Main runs (`results_wp2d_main.csv`, `log_wp2d_main.txt`, sets in
+`wp2d/E_k_s.npy`; status: exhaustive):
+
+| (k, s) | structures | leaves (structures x 5^s) | distinct functions | depend on all k inputs | stable1 |
+|--------|-----------:|--------------------------:|-------------------:|-----------------------:|--------:|
+| (4, 4) | 35  | 21,875     | 2,365     | 2,200     | 0 |
+| (5, 5) | 148 | 462,500    | 58,009    | 55,932    | 0 |
+| (5, 6) | 3,403 | 53,171,875 | 845,540 | 826,609   | 0 |
+| (6, 5) | 15  | 46,875     | 29,005    | 29,005    | 0 |
+| (6, 6) | 672 | 10,500,000 | 1,399,372 | 1,366,464 | 0 |
+| (7, 6) | 52  | 812,500    | 437,025   | 437,025   | 0 |
+
+Both evaluators give byte-identical sets on all six instances; the stable1
+count is 0 by the per-table checker and by the vectorised predicate (k <= 6).
+(6, 5) and (7, 6) are forced to be trees and every produced function depends
+on all inputs, consistent with the tree lemma; (6, 6) is a tree plus one edge.
+
+Comparison with the reviewer's enumeration (`wp2d_compare.py`,
+`results_wp2d_compare.csv`, `log_wp2d_compare.txt`; the reviewer's scripts rerun
+verbatim, their sets in `wp2d/R_k_s.npy`): (6, 5) 29,005 and (7, 6) 437,025
+reproduced to the integer with identical sets; the reviewer's `topo.py` has no
+canonical topological-order rule, so on non-tree instances it visits several
+first-use labellings of the same DAG and its sets are strict supersets of mine
+by permutation images only: (4, 4) 2,901 vs 2,365 and (5, 5) 73,089 vs 58,009
+with identical canonical forms under input permutation (417 and 6,228 classes);
+(6, 6): 1,857,928 vs 1,399,372, again a strict superset by permutation images only, with identical canonical forms (86,316 classes on both sides, `results_wp2d_compare.csv`, `canon_equal = 1`).  The reviewer's "0 stable1" counts are thereby reproduced
+and the status of their numbers moves from reported-unreviewed to reproduced.
+
+Outcome: P1-P3 hold (P3's integer prediction for (6, 6) only after the
+convention alignment foreseen in the pre-registration).  The global claim "7
+is the minimum gadget size for this framework" is declared on the strength of
+the enumeration; this is a documented deviation from the WP2c rule (UNSAT in
+both SAT modes), and the WP2c section above keeps its statement that (6, 6)
+was open at that time.  The Corollary 6 ceiling with mu_alpha and
+1-substitutions is exactly 7n: a limit on the method, not a lower bound.
+Not verified: the k = 5 minimum is Knuth's table plus non-DRAT UNSAT answers
+(WP2b); the enumeration itself is validated by the controls above, not
+independently re-derived a third time.  Dependency added: numpy (vectorised
+evaluator and controls); the main runs also have the pure-Python evaluator.
+
 ## Layout
 
 - `encoder.py`, `solve.py`, `simulate.py`, `funcs.py` — encoder, per-instance
@@ -274,6 +395,13 @@ the instance row); `results_wp2c.csv` is authoritative.
   k = 6, 7, verification ladder for SAT rows (exercised on the smoke rows,
   `log_wp2c_verify_smoke.txt`), metric reader; `results_wp2c*.csv`,
   `log_wp2c*.txt` — WP2c outputs
+- `wp2d_enum.py`, `wp2d_struct_count.py`, `wp2d_npn_invariance.py`,
+  `wp2d_canon.py`, `wp2d_compare.py` — WP2d: enumerator (two evaluators),
+  stand-alone structure counter, R3 test at k = 6, 7, canonical form under input
+  permutation, comparison with the reviewer's scripts; `results_wp2d_*.csv`,
+  `log_wp2d*.txt`, `wp2d/E_k_s.npy` (my sets), `wp2d/R_k_s.npy` (the reviewer's
+  sets, reproduced), `wp2d/C_6_6_*.npy` (canonical forms) — WP2d outputs;
+  `wp2d/reviewer_scripts/` — the WP2c reviewer's scripts, verbatim, unreviewed
 - `sources/` — transcribed reference values with citations; third-party
   documents are not redistributed (see `sources/SOURCES.md`)
 
