@@ -1,0 +1,15 @@
+k=6: 60 stable1 positives found in 1325 random tables (0.0 s)
+k=6 stable1: pairs=2000 positives=430 changes=0 examples=[]
+k=6 weak1: pairs=2000 positives=1997 changes=0 examples=[]
+k=6 stable2: pairs=2000 positives=0 changes=0 examples=[]
+k=6 stable1pos: pairs=2000 positives=5 changes=4 examples=[(14091714188109175345, [1, 5, 4, 0, 3, 2], 40, 1, True, False), (9902848965213185576, [2, 3, 4, 0, 1, 5], 57, 1, True, False)]
+k=6: of 60 stable1 positives, weak1=60, all-inputs-essential=60
+k=6: elapsed_s=0.5
+k=7: 60 stable1 positives found in 103 random tables (0.0 s)
+k=7 stable1: pairs=2000 positives=1322 changes=0 examples=[]
+k=7 weak1: pairs=2000 positives=2000 changes=0 examples=[]
+k=7 stable2: pairs=2000 positives=0 changes=0 examples=[]
+k=7 stable1pos: pairs=2000 positives=39 changes=57 examples=[(333784510094505256199438847495917040149, [0, 5, 3, 1, 4, 2, 6], 71, 1, True, False), (68791080548570068330547747331496276801, [5, 4, 0, 3, 1, 6, 2], 118, 0, False, True)]
+k=7: of 60 stable1 positives, weak1=60, all-inputs-essential=60
+k=7: elapsed_s=1.2
+result=PASS
