@@ -1,0 +1,108 @@
+WP2e PRE-REGISTRATION (stage 2) -- 2026-10-12
+=============================================
+
+Written after stage 1 (wp2e_stage1_reading_2026-10-12.txt, committed 2ce09f7) and before
+any stage 2 code was written or run.  Frozen by sha256 in wp2e_frozen.stamp.
+Nothing in this WP is a lower bound: it bounds what one proof method can give.
+
+1. Target (from stage 1, c2)
+----------------------------
+Setting: gate elimination with the plain gates measure over B2, one substitution per
+step, the substituted function arbitrary (Section 3.1 1-substitutions).
+Property P: g is weakly 1-stable (GHKK Definition 1 with m = 1, PDF p.8): for every
+Y subseteq X with |Y| <= 1 there are tau_0, tau_1 : X \ Y -> {0,1} with g|tau_0 == 0
+and g|tau_1 == 1 on Y.  (|Y| = 0 included: g is not constant.)
+Ceiling map: F(g) = gates(g) (Theorem 1, m = 1, mu = gates, declared subadditive on
+PDF p.8; the B2 wiring details are argued in stage 1, b4).
+Quantity: F* = min { gates(g) : g weakly 1-stable, any number k of inputs }.
+Best known before this WP: GHKK state 5 (Section 3.2, MAJ_3, PDF p.7); MAJ_3 itself has
+gates 4 (WP1 SAT ladder, bfs3); MUX_3 has gates 3 (WP1 SAT ladder: UNSAT at s = 0, 1, 2,
+SAT at s = 3, sim pass, results_targets.csv; bfs3 tt 216 -> 3) and is weakly 1-stable
+per stable_check.py (WP2).
+
+2. Reductions (hand arguments)
+------------------------------
+W1 (dummy inputs).  If g is weakly 1-stable and depends exactly on the variables E, the
+restriction g' of g to E (dummies fixed to 0) is weakly 1-stable on E and
+gates(g') <= gates(g).  Proof: for Y subseteq E, |Y| <= 1, take the tau_0, tau_1 given
+for g on Y and drop the dummy coordinates (g does not depend on them).  A circuit for g
+with the dummies set to 0 computes g'; a gate with a constant argument is a unary
+function of its other argument and is bypassed (constant, literal or negation absorbed
+downstream), so no gate is added.  Hence F* is attained by a weakly 1-stable function
+that depends on all its k inputs.
+W2 (k <= s + 1).  A function depending on all k inputs needs >= k - 1 gates
+(Argument A of WP2c: the output cone is connected with k + s' nodes and 2 s' edges).
+Weak 1-stability forces non-constancy (Y = {}), and a single literal x is not weakly
+1-stable (Y = {x}: nothing left to assign), so k >= 2 and s >= 1.
+W3 (enumerator coverage).  By WP2d R1-R2 (proved in wp2d_preregistration_2026-10-12.txt)
+every function of cost s on k essential inputs, or its negation, lies in some E(k', s')
+with k' = k, s' = s produced by wp2d_enum.py (all nodes in the output cone, normalised
+gate types, first-use input labelling).  Weak 1-stability is invariant under output
+negation (swap tau_0 and tau_1) and under input permutation (relabel Y and tau), so
+testing the produced tables directly is complete.
+Consequence: F* <= 3 is witnessed by MUX_3 if the checker accepts it; F* >= 3 holds iff
+no table of E(k, s) is weakly 1-stable for s in {1, 2} and every k in 2..s+1, i.e. the
+instances (2,1), (2,2), (3,2).
+
+3. New checker (written from Definition 1, no code shared with stable_check.py)
+------------------------------------------------------------------------------
+wp2e_weak1.py: a truth table is evaluated row by row as a Python function of an
+assignment dict; for every Y with |Y| <= 1 it enumerates all assignments tau of X \ Y,
+restricts, and records whether g|tau is constant 0 / constant 1 on all 2^|Y| completions;
+it returns accept/reject and the witnesses tau_0, tau_1 per Y.
+Validation (must pass before the runs are trusted):
+  V1 MAJ_3 accept, MUX_3 accept, XOR_3 reject, AND_3 reject (exit codes 0, 0, 1, 1).
+  V2 agreement with stable_check.py --variant weak1 on all 256 functions at k = 3 and on
+     all 65,536 functions at k = 4 (0 disagreements required).
+  V3 on every produced table of every run, both checkers are applied (0 disagreements).
+
+4. Runs (enumeration only, no SAT), budget
+-----------------------------------------
+Mandatory: every (k, s) with s in {1, 2, 3}, 2 <= k <= s + 1:
+  (2,1) (2,2) (3,2) (2,3) (3,3) (4,3).
+Extension, as budget allows, in this order: s = 4 (k = 2..5), s = 5 (k = 2..6),
+s = 6 (k = 2..7).  These are context only (counts of weakly 1-stable tables per
+instance); they cannot change F*.
+Evaluator: wp2d_enum.enum_dfs (pure-Python reference evaluator, unchanged).
+Per-instance budget: 1800 s wall (hard timeout of the child process); 2 cores, about
+3 hours wall for the whole stage.  Per instance recorded: structures, leaves, distinct
+tables, weak1 count by the new checker, weak1 count by stable_check, disagreements,
+up to 20 witness tables, wall time, status.
+Declaration rules (as WP2d): a count is declared only for a run that completed
+(status exhaustive); TIMEOUT or not-run instances are open.  F* >= 3 is declared only
+if all three of (2,1), (2,2), (3,2) completed with count 0.  F* <= 3 is declared only
+with a verified witness: a 3-gate circuit found by wp2d_enum.find_witness that passes
+simulate.py and is accepted by the new checker.
+
+5. Repair re-derivation for any gadget that lowers the constant
+---------------------------------------------------------------
+Before any constant below GHKK's 5 is stated, the Section 3.2 proof is re-written in full
+for the new gadget (wp2e results section of the README and the hand-back), with the
+repair wiring for every substituted position and the count of added gates.  As a
+mechanical sanity check of the functional identity (not of the gate count),
+wp2e_repair_check.py verifies h(x) = h|rho(wire(x)) for h = f <> g with
+g in {MUX_3, MAJ_3}: n = 1 (f = identity) over all rho of the two remaining variables,
+and n = 2 over all 16 functions f, both blocks, every position, 2000 random rho per
+(f, block, position), with the wiring derived from the checker's tau_0 / tau_1.
+
+6. Predictions
+--------------
+P1 V1-V3 pass with 0 disagreements.
+P2 Weak1 count 0 on (2,1), (2,2), (3,2); hence F* >= 3.
+P3 Weak1 count >= 1 on (3,3); MUX_3 (tt 216) or its negation (tt 39), or a
+   permutation of one of them, is among the hits; a 3-gate witness circuit for 216
+   passes simulate.py and the checker.  (4,3) also has hits (e.g. x1x2 xor x3x4, which
+   WP2b reports as weakly 1-stable with every input essential at cost 3); (2,3) has 0
+   (a 2-input function is never weakly 1-stable: for Y = {x1}, x2 can take only two
+   values, and forcing both 0 and 1 on Y needs g(.,0) and g(.,1) to be the two
+   different constants, so g = x2 or NOT x2, which fails Y = {x2}).
+P4 Hence F* = 3: the ceiling obtainable this way is 3 per substitution (3n), below
+   GHKK's stated 5 (and below the 4 of MAJ_3).
+P5 MUX_3 repair (x1 select, so MUX_3 = x1 ? x2 : x3; G = MUX_3(x1,x2,x3) computed fresh
+   with 3 gates): x1 substituted -> x2 = x3 = G; x2 substituted -> x1 = 0, x3 = G;
+   x3 substituted -> x1 = 1, x2 = G.  No negation is needed; constants are absorbed
+   into gate types of H; the added gates are exactly the 3 of G in each case.
+   wp2e_repair_check.py reports 0 failures.
+What would refute: any weak1 hit at s <= 2 (then F* <= 2 and P2 fails); no hit at
+(3,3) and (4,3) (then MUX_3 would not be weak1 or the enumerator would miss it --
+either is a defect to report, not to absorb); any V1-V3 disagreement.
