@@ -8,3 +8,4 @@ sources/*.pdf
 sources/fasc0c.txt
 sources/arxiv-*.txt
 sources/ghkk-limits.txt
+wp2d/E_*_vec.npy
