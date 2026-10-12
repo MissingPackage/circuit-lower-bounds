@@ -62,7 +62,7 @@ covers gate-elimination arguments in the GHKK framework (PDF p.5-6) with the
 pure gates measure, one substitution per step, and an induction step that
 must hold for every function (the class contains h = f <> MUX_3 for arbitrary
 f).  It does not cover measures with an input term such as gates + alpha *
-inputs (Find-Golovnev-Hirsch-Kulikov 2016, Li-Yang 2022; there Theorem 4 with
+inputs (Find-Golovnev-Hirsch-Kulikov, ECCC TR15-166, use revision 2 of August 2022 "Improving 3n Circuit Complexity Lower Bounds", which fixes a gap in Case 7.2.4.2 of the 2015 text credited there to Li and Yang; Li-Yang 2022; there Theorem 4 with
 a 1-stable gadget applies, 7n after WP2d), nor m >= 2 substitutions per step
 (Stockmeyer), nor function-specific steps.  Consistency check: Blum's 3n -
 o(n) (1984) uses the gates measure and gains 3 gates per substitution, exactly
