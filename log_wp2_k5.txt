@@ -7,3 +7,37 @@
 19:51:52 fixed_gst1 k=5 s=5 full ess=0 UNSAT   tt= 0.2s to=7200
 19:51:55 fixed_gst1 k=5 s=6 full ess=0 UNSAT   tt= 2.9s to=7200
 19:53:10 fixed_gst1 k=5 s=7 full ess=0 UNSAT   tt= 75.0s to=7200
+20:51:43 fixed_gst1 k=5 s=11 full ess=0 TIMEOUT   tt= 3600.1s to=3600
+20:51:43 stable1 k=5 s=0 full ess=0 UNSAT   tt= 0.3s to=6600
+20:51:43 stable1 k=5 s=1 full ess=0 UNSAT   tt= 0.1s to=6599
+20:51:43 stable1 k=5 s=2 full ess=0 UNSAT   tt= 0.1s to=6599
+20:51:43 stable1 k=5 s=3 full ess=0 UNSAT   tt= 0.3s to=6599
+20:51:50 stable1 k=5 s=4 full ess=0 UNSAT   tt= 6.6s to=6599
+20:57:02 stable1 k=5 s=5 full ess=0 UNSAT   tt= 312.2s to=6592
+21:53:10 fixed_gst1 k=5 s=8 full ess=0 TIMEOUT   tt= 7200.2s to=7200
+21:53:11 weak1 k=5 s=0 full ess=0 UNSAT   tt= 0.8s to=2912
+21:53:12 weak1 k=5 s=1 full ess=0 UNSAT   tt= 0.0s to=2911
+21:53:12 weak1 k=5 s=2 full ess=0 UNSAT   tt= 0.1s to=2911
+21:53:12 weak1 k=5 s=3 full ess=0 SAT pass accept tt=4289352960 0.1s to=2911
+21:53:12 weak1 k=5 s=0 full ess=1 UNSAT   tt= 0.0s to=2911
+21:53:12 weak1 k=5 s=1 full ess=1 UNSAT   tt= 0.0s to=2911
+21:53:12 weak1 k=5 s=2 full ess=1 UNSAT   tt= 0.1s to=2911
+21:53:12 weak1 k=5 s=3 full ess=1 UNSAT   tt= 0.4s to=2911
+21:53:12 weak1 k=5 s=4 full ess=1 SAT pass accept tt=3322595014 0.1s to=2910
+21:53:12 stable2 k=5 s=0 full ess=0 UNSAT   tt= 0.0s to=2910
+21:53:12 stable2 k=5 s=1 full ess=0 UNSAT   tt= 0.0s to=2910
+21:53:12 stable2 k=5 s=2 full ess=0 UNSAT   tt= 0.0s to=2910
+21:53:12 stable2 k=5 s=3 full ess=0 UNSAT   tt= 0.0s to=2910
+21:53:13 stable2 k=5 s=4 full ess=0 UNSAT   tt= 0.0s to=2910
+21:53:13 stable2 k=5 s=5 full ess=0 UNSAT   tt= 0.0s to=2910
+21:53:13 stable2 k=5 s=6 full ess=0 UNSAT   tt= 0.0s to=2910
+21:53:13 stable2 k=5 s=7 full ess=0 UNSAT   tt= 0.1s to=2910
+21:53:13 stable2 k=5 s=8 full ess=0 UNSAT   tt= 0.1s to=2910
+21:53:13 stable2 k=5 s=9 full ess=0 UNSAT   tt= 0.1s to=2910
+21:53:13 stable2 k=5 s=10 full ess=0 UNSAT   tt= 0.4s to=2909
+21:53:42 stable1pos k=5 s=11 full ess=0 SAT pass accept tt=3974146050 28.8s to=2909
+22:41:43 stable1 k=5 s=6 full ess=0 TIMEOUT   tt= 6280.3s to=6280
+22:41:43 fixed_gst1 k=5 s=9 full ess=0 TIMEOUT   tt= 2880.4s to=2880
+22:41:43 stable1 k=5 s=9 SKIPPED (run deadline)
+22:41:43 fixed_gst1 k=5 s=10 SKIPPED (run deadline)
+22:41:43 stable1 k=5 s=10 SKIPPED (run deadline)

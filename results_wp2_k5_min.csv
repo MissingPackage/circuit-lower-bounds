@@ -1,2 +1,13 @@
 variant,k,mode,essential,min_s,status
 stable1,5,full,0,11,SAT
+fixed_gst1,5,full,0,,TIMEOUT@11
+fixed_gst1,5,full,0,,TIMEOUT@8
+weak1,5,full,0,3,SAT
+weak1,5,full,1,4,SAT
+stable2,5,full,0,,UNSAT<=10
+stable1pos,5,full,0,11,SAT
+fixed_gst1,5,full,0,,TIMEOUT@9
+stable1,5,full,0,,TIMEOUT@6
+stable1,5,full,0,,SKIPPED@9
+fixed_gst1,5,full,0,,SKIPPED@10
+stable1,5,full,0,,SKIPPED@10
