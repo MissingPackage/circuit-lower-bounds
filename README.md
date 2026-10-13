@@ -86,6 +86,7 @@ random cases, 0 failures; independent brute force over all circuits with <=
 | WP2e | Gates-only ceiling of plain gate elimination (GHKK Section 3.2 "5n"): what Theorem 1 gives with the cheapest weakly 1-stable gadget | done: Section 3.2's 5 is a non-tight MAJ_3 size bound; Theorem 1 with mu = gates gives gates(g); minimum over weakly 1-stable g is 3 (MUX_3; 0 weakly 1-stable tables with <= 2 gates, exhaustive), so the ceiling is 3n; a limit on a proof method, not a lower bound |
 | WP3 | Automated search for gate-elimination potentials and case analyses | scoping done (`wp3/scoping_2026-10-12.md`) |
 | WP3.1 | Machine checker for gate-elimination case certificates, calibrated on FGHK rev. 2 Cases 1-5 | tool built; partial calibration: 4 of 15 labelled leaves verified (Cases 1, 2, 4, 5.1), 0 rejected, 11 not checked within the 90 s per-node budget (Case 3 and the rest of Case 5); root exhaustive with an explicit Cases 6-7 residual; negative controls 14 of 15 rejected, 0 accepted; LP reproduces 3 + 1/86 exactly from the transcribed types. A tool, not a lower bound |
+| WP3.2 | The WP3.1 checker reformulated as a SAT counterexample search (CaDiCaL), calibrated on FGHK rev. 2 Cases 1-5 | tool built; 10 of 15 labelled leaves UNSAT (Cases 1, 2, 4, 5.1, 5.2.1, 5.3, 5.4.1.1.1, 5.4.1.2, 5.4.1.4, 5.4.2.1), plus the unlabelled 5.4.1.1.0; DRAT proofs emitted but not checked (no checker offline); 1 SAT (5.2.2): a counter-completion the WP3.1 engine confirms, caused by the certificate language, not by the paper; 4 not closed in 600 s (3, 5.4.1.1.2, 5.4.1.3, 5.4.2.2), so the pre-registered kill criterion 'encoding not local enough' is met; negative controls: 14 of 14 SAT with engine-replayed violations, plus 1 structural reject; Case 5 internal nodes: 5, 5.2, 5.4.2 exhaustive; 5.4.1 and 5.4.1.1 not exhaustive (certificate-language gaps confirmed by the engine); 5.4 not closed; LP over the certified types {2, 3, 4, 5, 7} = 181/60 (not 259/86). A tool, not a lower bound |
 
 ## WP1 summary
 
@@ -612,7 +613,7 @@ Internal nodes:
 - The root is exhaustive. Its 83 completions are covered by Cases 1-5 plus an
   unlabelled "output and-gate fed by an input" leaf (vacuous by the invariant).
   The 10 residual completions all have an internal-gate input to the and-gate;
-  they are handed to Cases 6-7 (WP3.2).
+  they are handed to Cases 6-7 (now WP3.3; WP3.2 became the SAT reformulation).
 - Case 5 and its internal subcases 5.2, 5.4, 5.4.1, 5.4.1.1, 5.4.2 were not
   finished within the budget. They had 0 uncovered completions in the explored
   part.
@@ -681,6 +682,205 @@ transcription in the same file has 5.4.1.3 as type 6 and 5.4.1.4 as type 5,
 and P4b's premise ("types 5 and 6 only from Cases 6-7") is therefore wrong;
 the arithmetic of both LPs stands (259/86 and 103/34).
 
+## WP3.2 summary (the WP3.1 checker as a counterexample search by SAT)
+
+Question: the WP3.1 checker enumerated completions lazily, had no bound on the
+remainder and did not finish Cases 3 and 5 on 2 cores. Can the same
+certification be posed as a SAT instance "there is a completion that no action
+of the node (or of an ancestor) discharges", with UNSAT = certified and a SAT
+answer replayed by the WP3.1 engine as an independent check?
+Pre-registration (design E1-E12, predictions P1-P9, kill criteria), frozen
+before any encoder code: `wp3/wp32_preregistration_2026-10-13.txt`, sha256 in
+`wp3/wp32_frozen.stamp`. **This is a tool and a calibration, not a lower
+bound.**
+
+Encoding (`wp3/gesat/encoder.py`, CaDiCaL 1.9.5 through python-sat; one
+instance per certificate node and identification partition of its pattern):
+- The universe is a pool of node slots:
+  - the pattern;
+  - block A: the level-1 nodes, with a static size bound, so it is never too small;
+  - block Q: partners of pattern variables;
+  - block B: everything else, size F_B, grown 0, 2, 4, ..., 32 on demand.
+- Per slot: kind, gate type, the and-gate bits, exact out-degree (cap 3),
+  protected flag and partner.
+- Each gate input is a pointer into the pool or *hidden* (an unrevealed node).
+  Hidden successors are an out-degree count minus the revealed readers.
+- Original-circuit constraints on the revealed part:
+  - acyclicity (binary rank);
+  - no gate reading a node twice;
+  - no Transformation 4 configuration;
+  - one output;
+  - the pattern;
+  - the triggers of the earlier cases (the `pre` lists).
+- Simulation: one copy per (action of the node or an ancestor, trivialising
+  constant). After each substitution step:
+  - the fixpoint of Transformations 1, 2, 3, 5 on the eligible gates (radius
+    1, as WP3.1), computed declaratively: a forward pass resolves each input
+    through removed gates and classifies constant / passing / identical inputs;
+    a backward pass applies Transformation 1;
+  - a gate removed at an earlier step keeps its removal kind.
+  Transformation 4 is not simulated after a substitution. If an eligible 1-gate
+  is useless in the final state, one more removed gate (worth beta) is
+  credited.
+- Measure: g, pending gates, influential inputs lost minus gained, quadratic
+  equalities, and troubled gates, in two accountings:
+  - exact (troubled before minus after on the revealed gates);
+  - conservative (Delta t >= -4g, Prop. 3.4.3).
+  Each claimed type is compared with the gain over the whole admissible region
+  (0 <= aT <= 1/4, aI, aQ >= 0), exactly as `engine.dominates`.
+- Requirements (`R1`: successors revealed; `R2`: inputs revealed for gates that
+  may become newly troubled) make the exact accounting valid. A model may
+  leave a requirement unmet only if block B is full of justified nodes. Such a
+  model (OVF) is never reported as a counterexample: the driver retries with
+  a larger block B.
+- Symmetry: lex-leader prefix over interchangeable slots inside blocks A and B;
+  partitions enumerated outside the solver, as in WP3.1.
+
+Replay (`wp3/gesat/replay.py`): every SAT model is converted into a WP3.1
+`Comp` holding exactly the revealed facts. The unmodified WP3.1 engine then
+runs its own analysis, admissibility and `pre` triggers, and its lazy DFS over
+the facts the model left open. The verdict is `violation` (the engine also
+fails to discharge or cover), `not-a-violation` (spurious: an encoder bug) or
+`undecided`.
+
+Results (final code, commit 4b75663; one file per certificate in
+`wp3/logs/wp32/<id>.json`, summary `wp3/logs/wp32_summary.json`; 600 s per
+certificate, summed over its partitions and block-B sizes; 2 cores):
+
+| Node | Paper type | Result | Solve s | Note |
+|---|---|---|---|---|
+| 1 (1a + 1b) | 7 | UNSAT | 0.0 + 0.1 | |
+| 2 | 2 | UNSAT | 0.0 | |
+| 3 | 3 | timeout | 600 | OVF models up to block B = 8; B = 16 did not close |
+| 4 | 2 | UNSAT | 0.1 | |
+| 5.1 | 2 | UNSAT | 148 | |
+| 5.2.1 | - | UNSAT | 64 | discharged by the Case 5 defaults |
+| 5.2.2 | 1 | SAT, replayed as violation | 32 | certificate-language gap, see below |
+| 5.3 | 4/3 | UNSAT | 109 | |
+| 5.4.1.1.0 (unlabelled) | 3 | UNSAT | 67 | |
+| 5.4.1.1.1 | 3 | UNSAT | 6 | |
+| 5.4.1.1.2 | 1 | timeout | 600 | partition 1 of 2 UNSAT, the generic partition not closed |
+| 5.4.1.2 | 3 | UNSAT | 19 | |
+| 5.4.1.3 | 6 | timeout | 600 | partitions 1-2 of 3 UNSAT, the generic partition not closed |
+| 5.4.1.4 | 5 | UNSAT | 57 | |
+| 5.4.2.1 | 3 | UNSAT | 16 | |
+| 5.4.2.2 | 1 | timeout | 600 | partitions 1-3 of 4 UNSAT, the generic partition not closed |
+| 5 (internal) | exhaustive | UNSAT | 3 | |
+| 5.2 (internal) | exhaustive | UNSAT | 197 | |
+| 5.4 (internal) | exhaustive | timeout | 600 | partitions 1-3 of 4 UNSAT |
+| 5.4.1 (internal) | exhaustive | SAT, replayed as violation | 4 | certificate-language gap |
+| 5.4.1.1 (internal) | exhaustive | SAT, replayed as violation | 8 | certificate-language gap |
+| 5.4.2 (internal) | exhaustive | UNSAT | 7 | |
+
+Totals:
+- 10 of 15 labelled leaves are UNSAT, plus 5.4.1.1.0.
+- The 4 leaves WP3.1 had verified (1, 2, 4, 5.1) are UNSAT.
+- The 15 controls: 14 SAT, each replayed by the engine as a real violation;
+  `m_bad_symmetry_5` rejected by the structural automorphism check (reason
+  "not an automorphism (edges)").
+- The control WP3.1 left undecided, `m_wrong_gain_3_type4`, is decided SAT and
+  replayed as a violation. x <- c removes three gates plus one pending gate
+  with no change in troubled gates: the gain is 4 - 4 aT + 2 aI against
+  type 4's 3 + aT + aI. That is below type 4 whenever aT > (1 + aI)/5, e.g.
+  aT = 1/4, aI = 0, while it holds at FGHK's own alpha.
+- Solve times: median 3.5 s; 5 of 37 instances reached 600 s.
+- Every UNSAT is `unsat-uncertified`. DRAT proofs (up to 3 million lines) are
+  written to `wp3/logs/wp32/proofs/` (not committed). No DRAT checker can be
+  installed offline: no C compiler, no drat-trim or cake_lpr binary.
+
+What the SAT answers on real nodes are (each replayed by the unmodified WP3.1
+engine; none is a finding about the paper):
+- 5.2.2: z <- c trivialises E. The Transformation 1 cascade then also removes
+  B, C, D and T, so y has no successor left. The certificate's second step
+  "y <- c" is then illegal (y not influential), so the action as written
+  fails, and the engine agrees. One substitution already removes the
+  influence of z, x and y (Delta i = 3) and seven gates, more than type 1
+  needs. The WP3.1 action language cannot say "skip a step whose variable is
+  no longer influential".
+- 5.4.1 and 5.4.1.1, two gaps of the same kind:
+  - In the B = C partition, the certificates do not exclude the earlier
+    sibling Case 5.1 (WP3.1 encodes the case order only through top-level
+    `pre` lists).
+  - In the generic partition, under x <- c the new troubled gate is fed
+    through B, which is Case 5.4.2's situation. But the 5.4.1 pattern
+    (z -> D -> E, E an and-gate) is syntactic and also matches, so the
+    completion lands in the 5.4.1 subtree.
+
+  With the option `--siblings` (earlier siblings' patterns forbidden with the
+  shared names fixed, FGHK p.23), the B = C answers disappear; 5.4.1 and
+  5.4.1.1 stay SAT with the second kind of counter-completion (results in
+  `wp3/logs/wp32_siblings/`).
+
+Kill criterion: four leaves (3, 5.4.1.1.2, 5.4.1.3, 5.4.2.2) did not close in
+600 s, more than the pre-registered three. In three of them every partition
+with an identification closed and the generic partition did not. In Case 3 the
+overflow witnesses forced block B to 16 slots, and that instance (0.47M
+clauses) did not close. So the encoding is not local enough for the generic
+two-step configurations of Case 5.4 and for Case 3. No time was added.
+
+LP (exact, `gecheck/lp.py`) over the certified types {2, 3, 4, 5, 7}: 181/60
+at aT = 1/30, aQ = 13/10. Type 6 (5.4.1.3) and type 1 (5.2.2, 5.4.1.1.2,
+5.4.2.2) are not certified. Over all seven types the LP still gives 259/86.
+
+Pre-registered predictions:
+- P1: true (Case 1, 2, 4, 5.1 UNSAT).
+- P2: true. 14 of 14 rejected; 13 + 1 SAT with replayed violations (including
+  the two root controls), plus the structural reject.
+- P3: decided SAT, replayed as a violation, by the predicted mechanism.
+- P4: false (10 of 15; 5.4.1.1.0 UNSAT).
+- P5: false (3 of 6: 5, 5.2, 5.4.2).
+- P6: false (5 instances at 600 s; median 3.5 s).
+- P7: false (181/60 over the reduced set).
+- P8: true.
+- P9: true. Seven post-freeze fixes; controls re-run after each, logs in
+  `wp3/logs/wp32_superseded/`.
+
+Post-freeze changes to the encoder (all in `git log wp3/gesat/`, each followed
+by a control re-run):
+1. Fix 1. The Transformation 4 configuration of the original circuit is
+   forbidden for every eligible 1-gate. Trigger: two controls replayed as
+   engine-pruned N4.
+2. Fix 2. One gate (worth beta) is credited when an eligible 1-gate is useless
+   in the final state. Trigger: 5.4.1, discharged by the engine through N4.
+   The `--siblings` option was added in the same commit.
+3. Fix 3. The original-circuit N4 constraint also covers block-B 1-gates.
+   Trigger: control `m_dropped_pre_4`.
+4. Performance. Block-B size schedule 0, 2, 4, ...; a symbolic trivialising
+   constant. The latter dropped the other constant's vacuity check and gave a
+   spurious SAT on `m_weakened_pattern_4`; it was replaced by a forward-only
+   simulation of the complement.
+5. Fix 4, soundness, found by me while reviewing, not by a control. Block-A
+   gates had been forced to reveal both inputs, which needs block-B space, so
+   a small block B could make a real completion unrepresentable. Inputs may
+   now be hidden, and are revealed only for gates that may become newly
+   troubled.
+6. Fix 5. That requirement narrowed to and-gates of out-degree 1 reading a
+   node replaced by a variable. Trigger: 5.3 needed block B >= 16.
+7. Fix 6. A gate passing-removed at step 1 whose passed input becomes constant
+   at step 2 resolves to that constant (the value had been unconstrained).
+   Trigger: 5.4.1.3 and 5.4.1.1.2.
+8. Fix 7, soundness. Hidden successors of a passing-removed gate count for the
+   node it resolves to; they had been dropped, which could create spurious
+   Transformation 1 removals in overflow models. Trigger: 5.2.2.
+
+Soundness of UNSAT, within the WP3.1 model (out-degree cap 3, acyclic
+completions, radius 1), is a hand argument [VERIFY]:
+- every real completion has a truthful revealed view;
+- if the requirement closure fits in block B, the simulation on that view is
+  exact;
+- otherwise a justified truncation that fills block B is an overflow model,
+  where only the conservative accounting (a lower bound on any view) may
+  credit an action;
+- either way a real violation gives a model.
+
+Trust assumptions, as in WP3.1: Prop. 3.4.2, Prop. 3.4.3, Lemma 3.5.1, and A0
+(any state reached by valid transformations bounds the decrease after FGHK's
+ordered normalization). Additional hand arguments [VERIFY]:
+- Transformations 1, 2, 3, 5 have an order-independent fixpoint;
+- the frozen-status passes equal the engine's sequential steps.
+
+This is a tool; nothing here is a lower bound.
+
 ## Layout
 
 - `encoder.py`, `solve.py`, `simulate.py`, `funcs.py` — encoder, per-instance
@@ -712,6 +912,11 @@ the arithmetic of both LPs stands (259/86 and 103/34).
   (lazy-completion checker `engine.py` + `checker.py`, negative controls
   `mutants.py`, exact LP `lp.py`, certificate schema), `certs/` (Cases 1-5
   certificates of FGHK rev. 2), `logs/` (stage C run, controls, LP)
+- `wp3/` (WP3.2) — pre-registration and stamp (`wp32_*`), `gesat/` (SAT encoder
+  `encoder.py` + `cnf.py`, engine replay `replay.py`, driver `run.py` / `batch.py`,
+  metric reader `summary.py`), `logs/wp32/` (one result file per certificate
+  and control, run logs), `logs/wp32_siblings/` (option `--siblings`),
+  `logs/wp32_superseded/` (runs before the final code, record of the fixes)
 - `sources/` — transcribed reference values with citations; third-party
   documents are not redistributed (see `sources/SOURCES.md`)
 
