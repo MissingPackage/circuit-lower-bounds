@@ -1,0 +1,241 @@
+WP3.2 PRE-REGISTRATION (frozen before any encoder code is written)
+Date: 2026-10-13
+Object: the WP3.1 certificate checker reformulated as a counterexample search by
+SAT, calibrated on FGHK rev. 2 (ECCC TR15-166 rev. 2, Aug 2022) Cases 1-5, with
+the WP3.1 certificates (wp3/certs/, 27 files, unchanged) and the WP3.1 negative
+controls (wp3/gecheck/mutants.py, 15 controls). Nothing in this WP is a lower
+bound. WP3.2 delivers a tool.
+
+Inputs read before writing this file: README.md (WP3.1 section and the long-run
+paragraph), wp3/scoping_2026-10-12.md, wp3/wp31_preregistration_2026-10-12.txt
+(frozen; its transcription Part 1 is reused here unchanged), wp3/gecheck/
+(engine.py, checker.py, lp.py, mutants.py, schema), wp3/certs/, wp3/logs/.
+
+Proof-status vocabulary (per item):
+  read-with-page   = read in FGHK rev. 2 at the stated PDF page (via the WP3.1
+                     transcription, which carries the page references)
+  exhaustive       = established by exhaustive enumeration
+  sat-proven       = a satisfying assignment exists and was replayed
+  unsat-uncertified= the SAT solver returned UNSAT, no independent proof check
+  unsat-drat       = UNSAT with a DRAT proof checked by an external checker
+  hand-argument    = an argument written here, not machine-checked
+  inferred [VERIFY]= my own reading or derivation, open
+  design           = a decision of this WP about the tool
+
+Measurement taken before freezing (design input, not a result): instrumenting
+the WP3.1 engine for 25 s per node on 1a, 4, 3, 5.1, 5.3, 5.4.1.2, 5.4.1.4,
+5.4.2.2 shows (i) Transformation 4 does fire after substitutions (5.3: 3,174
+N4 events in 3,601 completions; 5.4.2.2: 75), (ii) the lazily revealed
+completions have at most 10-19 nodes, (iii) 1-4 identification partitions of
+the pattern per node.
+
+======================================================================
+PART 1. ENCODING (design)
+======================================================================
+E1 One SAT instance per (certificate node, identification partition of the
+   node's full pattern). The partitions and the static pattern facts (kinds,
+   types, out-degree ranges, protected flags, partners, edges, no_edge,
+   sum_ge) are taken from the WP3.1 code (checker.initial_comps), so both tools
+   start from the same pattern semantics. A node is SAT if one partition is.
+
+E2 Universe = a pool of node slots, three blocks:
+   - pattern slots (one per partition block);
+   - block A: the level-1 nodes (neighbours of pattern nodes). Its size is a
+     static bound computed from the pattern (free input slots of pattern
+     gates + free successor slots of pattern nodes up to the degree cap), so
+     block A can never be too small (hand-argument);
+   - block B: everything else (level >= 2), F_B slots (a run parameter), plus
+     a small partner block for partners of pattern variables.
+   Per slot: used, var/gate, gate type (and/xor), the two and-type bits (the
+   input value that trivialises the gate, as in engine.py), exact out-degree
+   od in 0..cap (cap 3, as in WP3.1), protected flag, partner pointer (pool
+   variable or "outside"), full/stub flag for gates. A full gate has two input
+   pointers into the pool; a stub gate has unrevealed inputs. Hidden
+   successors: ext(v) = od(v) - (number of full pool gates reading v) >= 0.
+   Acyclicity by an order-encoded rank. The original circuit is normalized on
+   the revealed part: no gate reads one node twice, no N4 configuration, at
+   most one 0-gate (the output), pattern constraints, and the triggers of the
+   earlier cases (the node's 'pre' list, as in WP3.1) are forbidden on the
+   revealed part (an over-approximation of the completion set: sound for
+   UNSAT; hand-argument).
+   All pattern gates and block-A gates are full; all pattern nodes have all
+   successors revealed (ext = 0). Eligible gates for normalization = pattern
+   gates + block-A gates = the gates at distance <= 1 from the pattern, the
+   same radius R = 1 as WP3.1 (the certificates do not set 'radius').
+
+E3 Simulation, one copy per (action of the node or of an ancestor, choice of
+   the trivialising constants): after each substitution step, the fixpoint
+   of Transformations 1, 2, 3, 5 on the eligible gates, computed
+   declaratively: a forward pass in rank order (each gate's inputs resolved
+   through removed gates: alive -> itself, constant-removed -> the constant,
+   passing-removed -> its passed input with the polarity folded in; then
+   classification const / passing / identical-inputs / alive), and a
+   backward pass for Transformation 1 (an eligible gate with no surviving
+   successor that is not the output). For Transformations 1, 2, 3, 5 the
+   fixpoint does not depend on the order of application (hand-argument:
+   forward degeneracy flows from inputs to outputs, Transformation 1 only
+   removes successor-less gates). Multi-step actions: one pass per step, the
+   removal kind of a gate removed at step k is frozen for later steps (as in
+   the sequential engine, where a passing-removed gate cannot later be
+   'trivialised').
+   Transformation 4 is NOT applied after substitutions in the first version
+   (sound: under the trust assumption A0 below every state reached by valid
+   transformations gives a valid lower bound; lossy: it may produce spurious
+   SAT answers, which the replay detects).
+   Substitutions: x <- c, x <- t + c (t an input), z <- (u+a)(v+b)+c computed at
+   an and-gate whose current inputs are two unprotected variables (FGHK S1,
+   S2, S4 as transcribed in the WP3.1 pre-registration). Legality as in
+   engine.py (influential substituted variable; no affine/quadratic
+   substitution of a protected variable; quadratic source an alive and-gate
+   fed by two unprotected input variables not including the substituted one).
+   A trivialisation target must be removed by Transformation 2 at or before
+   its step. The output: a gate of out-degree 0; if it becomes constant (or a
+   substituted variable is the output) the completion is vacuous and is not
+   a counterexample (FGHK p.22, the only disperser property used, as WP3.1).
+
+E4 Measure decrease (per simulation), two accountings as in engine.py:
+   - conservative (sound on any revealed part, Prop. 3.4.2/3.4.3/Lemma 3.5.1):
+     g = removed eligible gates, p = pending (revealed non-eligible gates that
+     read a constant or one node twice, or became 0-gates), i = influential
+     inputs lost minus gained, q = quadratic equalities removed (const on a
+     protected variable +1, quadratic substitution -1), and
+     Delta t >= -4 g - (Prop. 3.4.2 term of engine.py);
+   - exact: Delta t = troubled before - troubled after over the revealed full
+     gates, valid only if every requirement R1/R2 below is met.
+   Gain form (1, aT, aI, aQ) = (g + p, Delta t - 4 p, i, q), compared with the
+   claimed type's linear form for ALL admissible alphas (0 <= aT <= 1/4,
+   aI, aQ >= 0) exactly, as engine.dominates does: the counterexample side
+   asks for a point of the region where the gain is strictly below the type.
+   Alphas are quantified over the region, not fixed to FGHK's values.
+
+E5 Requirements (what must be revealed for exact accounting):
+   R1 every successor of a node that is removed, substituted, or (variables)
+      whose out-degree changes with old or new value 2, is a revealed full
+      gate (ext = 0);
+   R2 every gate whose out-degree changes is full.
+   Capacity: block B may be too small. A model may leave a requirement unmet
+   only if every block-B slot is used, every used block-B slot is justified
+   (an input of a full gate, a full gate reading an R1 node, or a partner),
+   and then only the conservative accounting may credit an action. Such a
+   model is reported as OVF (pool too small), never as a counterexample.
+   Soundness of UNSAT for every completion in the WP3.1 model (acyclic,
+   out-degree cap 3) regardless of F_B: hand-argument [VERIFY] (a violating
+   completion either has a closed revealed part that fits, giving a normal
+   model, or a justified truncation that fills block B, giving an OVF model).
+
+E6 Counterexample instance for a leaf: some partition and completion such
+   that no simulation is vacuous and every (action, constants) of the node
+   and of its ancestors (inherit chain, as WP3.1) fails: illegal, or a target
+   not trivialised, or the gain below every claimed type of that action.
+   UNSAT = leaf certified (for the partition set, cap 3, R = 1).
+   Exhaustiveness instance for an internal node: the same plus "no child
+   matches" (child patterns, unions expanded, with the node's declared
+   symmetries, matched on the revealed part with the shared names fixed, as
+   checker.analyse does). All child-pattern nodes used in Cases 1-5 are within
+   distance 1 of the parent pattern, hence revealed (hand-argument, checked
+   per certificate by the encoder: it refuses a child with a node it cannot
+   force into the revealed part).
+
+E7 Symmetry breaking (completions up to isomorphism): fresh slots inside a
+   block are interchangeable; consecutive slots are ordered non-increasingly
+   by the lexicographic order of a signature (used, gate, adjacency to the
+   pattern slots, and for block B also to block A). This is a prefix of the
+   lex-leader constraint for each adjacent transposition, hence sound
+   (hand-argument). Partitions of the pattern are enumerated outside the
+   solver (first-use canonical, as WP3.1).
+
+E8 Solver: python-sat, CaDiCaL 1.9.5 ('cadical195'), from the project .venv,
+   one call per instance, hard timeout 600 s per certificate (reported as
+   timeout). DRAT proofs are emitted for UNSAT answers (written to
+   wp3/logs/wp32/proofs/, possibly compressed). An external checker is used
+   only if one can be installed without network; otherwise drat_status =
+   'unsat-uncertified'.
+
+E9 Replay (independent check of every SAT answer): the model is converted to
+   a WP3.1 engine completion (gecheck.engine.Comp) holding exactly the
+   revealed facts; the WP3.1 engine then runs its own analysis (checker.
+   analyse, admissibility, pre triggers) and its lazy DFS over the facts the
+   model left open, with a time budget. Verdict 'violation' if the engine
+   finds a completion it does not discharge (leaf) or does not cover
+   (internal node); 'not-a-violation' if it discharges/covers every branch;
+   'undecided' on timeout. A SAT answer replayed as not-a-violation is an
+   encoder bug (spurious), not a finding. engine.py and checker.py are not
+   modified (they are the oracle).
+
+E10 No code path keyed to a case label (as WP3.1); everything case-specific
+    comes from the JSON certificates. Certificates unchanged.
+
+E11 Output: one file per certificate and per control, wp3/logs/wp32/<id>.json,
+    written as soon as it finishes, with status (UNSAT / SAT / OVF / timeout),
+    solve_s, encode_s, n_vars, n_clauses, certified (claimed) types,
+    drat_status, per-partition details, and for SAT the counter-completion
+    and the engine replay verdict. Progress printed while running.
+
+E12 Trust assumptions (inherited from WP3.1, not re-proved): Prop. 3.4.2,
+    Prop. 3.4.3, Lemma 3.5.1 (read-with-page p.16-21 via WP3.1), and
+    A0: every state reached from the substituted circuit by valid
+    transformations gives a lower bound on the decrease of mu after FGHK's
+    ordered normalization (WP3.1 relied on the same when restricting to
+    radius 1 and skipping undecidable N1/N4; inferred [VERIFY]).
+    Declared limits: out-degree cap 3, acyclic completions, radius 1.
+
+======================================================================
+PART 2. PREDICTIONS (verbatim, as received; not edited)
+======================================================================
+Registered before any encoder code; each item can be graded on its own.
+P1: the 4 WP3.1-verified leaves (Case 1 [1a+1b], 2, 4, 5.1) are UNSAT.
+P2: the 14 controls WP3.1 rejected are all rejected again, none UNSAT. 13 come
+out SAT with a counter-completion that engine.py replays as a real violation.
+m_bad_symmetry_5 is rejected by a structural automorphism check (or SAT on the
+symmetry-image instance), with the reason named.
+P3: the undecided control m_wrong_gain_3_type4 gets a decision with a reason.
+Directional guess, about 60%: SAT, because quantifying over the region lets
+aT -> 1/4, aI = 0 push a four-gate completion (4 beta + 2 aI) below type 4
+(3 + aT + aI); engine.py replays it as a violation. If it comes out UNSAT, the
+reason must be named (exact troubled-gate accounting).
+P4: 15/15 labelled leaves of Cases 1-5 are UNSAT, each at least its paper type:
+1:7, 2:2, 3:3, 4:2, 5.1:2, 5.2.1:-, 5.2.2:1, 5.3:3/4, 5.4.1.1.1:3,
+5.4.1.1.2:1, 5.4.1.2:3, 5.4.1.3:6, 5.4.1.4:5, 5.4.2.1:3, 5.4.2.2:1. The
+unlabelled 5.4.1.1.0 is also UNSAT.
+P5: the Case 5 internal nodes (5, 5.2, 5.4, 5.4.1, 5.4.1.1, 5.4.2) are
+exhaustive: 'admitted by the parent, undischarged by own or ancestor action,
+matching no child' is UNSAT.
+P6: every instance solves in under 600 s on 2 cores. Sharper: max solve time
+< 60 s, median < 5 s. Python encoding time may exceed solve time.
+P7: the exact LP over the certified types {1..7} gives 259/86 (aT = 1/43,
+aQ = 65/43). This holds conditionally on P4: if 5.4.1.3 (type 6) or 5.4.1.4
+(type 5) is not certified, the LP is reported over the reduced type set and P7
+is graded false.
+P8: DRAT proofs are emitted, but no external checker can be installed offline.
+This machine has no gcc/cc and no drat-trim/cake_lpr binary; only make exists.
+So every UNSAT is recorded as 'unsat-uncertified'.
+P9 (process): at least 1 post-freeze code fix to the encoder, found because a
+control or a verified leaf disagrees with the engine replay (a spurious SAT).
+Controls are re-run after every fix. WP3.1 needed 2 such fixes.
+
+Kill criteria (verbatim from the WP brief): a negative control that comes out
+UNSAT (encoder too strong) or a verified leaf that comes out SAT with a
+replayed real violation that survives a second reading of the paper (a
+finding, reported with the pattern, never patched); instances that do not
+close in 600 s on more than 3 leaves (then the encoding is not local enough:
+report, do not add time).
+
+Metric (verbatim from the WP brief): One file wp3/logs/wp32/<id>.json per
+certificate and per control, with fields: status (UNSAT / SAT / timeout),
+solve_s, encode_s, n_vars, n_clauses, certified type, drat_status, and for SAT
+the counter-completion plus the engine.py replay verdict (violation /
+not-a-violation). Grading: P1/P4/P5 count of UNSAT among the listed ids;
+P2/P3 per control, SAT plus replay verdict == violation, or the structural
+reject reason; P6 max and median solve_s over all instances, count with
+solve_s >= 600; P7 exact Fraction output of lp.py over the set of certified
+types, compared with 259/86; P8 drat_status values; P9 git log of wp3/gesat/
+after the frozen stamp, plus the re-run control logs. Mechanical agreement
+check: every SAT counter-completion is passed to engine.py; a SAT that the
+engine replays as not-a-violation counts as an encoder bug (spurious), not a
+finding.
+
+Note recorded at freezing time (not an edit of the predictions): environment
+check on 2026-10-13 shows no gcc/cc/clang/tcc, no drat-trim/cake_lpr/
+lrat-check binaries, and network access to pypi.org (HTTP 200). The brief's
+condition for using an external checker is an offline install; none is
+available offline, consistent with P8's premise.
