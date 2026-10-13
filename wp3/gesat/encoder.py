@@ -27,7 +27,7 @@ class EncodingError(Exception):
 
 
 class Instance:
-    def __init__(self, tree, node, comp, FB, cap=3, mode='leaf'):
+    def __init__(self, tree, node, comp, FB, cap=3, mode='leaf', siblings=False):
         self.tree = tree
         self.node = node
         self.comp = comp
@@ -58,6 +58,8 @@ class Instance:
                     self.sims.append(Sim(self, owner, ai, act, combo))
         self.ovf_constraints()
         self.pre_constraints()
+        if siblings:
+            self.sibling_constraints()
         if mode == 'internal':
             self.child_constraints()
         for sm in self.sims:
@@ -637,6 +639,36 @@ class Instance:
         for cid, tp in ck.node_pre(self.tree, self.node):
             self.forbid_embedding(tp, {})
 
+    def sibling_constraints(self):
+        """Option (post-freeze, documented): every case assumes that the earlier
+        cases fail (FGHK p.23). For the node and each ancestor reached by
+        inheritance, the patterns of the earlier siblings are forbidden with the
+        shared names fixed (and the parent's declared symmetries), exactly as a
+        child is matched. Not applied by the WP3.1 engine."""
+        m = self.node
+        while m.parent is not None and m.inherit:
+            par = m.parent
+            sigmas = [{}] + par.symmetries
+            for sib in par.children:
+                if sib is m:
+                    break
+                members = sib.children if sib.kind == 'union' else [sib]
+                for mem in members:
+                    shared = [nm for nm in mem.full.nodes if nm in self.comp.names]
+                    for sg in sigmas:
+                        fixed = {}
+                        bad = False
+                        for nm in shared:
+                            src = sg.get(nm, nm)
+                            if src not in self.comp.names:
+                                bad = True
+                                break
+                            fixed[nm] = self.pid2slot[self.comp.names[src]]
+                        if bad:
+                            continue
+                        self.forbid_embedding(mem.full, fixed)
+            m = par
+
     def child_constraints(self):
         n = self.node
         sigmas = [{}] + n.symmetries
@@ -772,6 +804,27 @@ class Sim:
                 continue
             pend.append(c.AND([I.full[g], c.OR([last.cc[(g, 0)], last.cc[(g, 1)], last.sm[g],
                                                  c.AND([-last.oge[g][1], -last.isout[g]])])]))
+        # post-freeze fix 2: Transformation 4 is not simulated after the
+        # substitution, but if some eligible alive 1-gate is useless in the final
+        # state (its only reader also reads one of its resolved inputs), one more
+        # gate will be removed (worth beta by Prop. 3.4.3): credited like a pending gate
+        n4c = []
+        for g in self.E:
+            reads = []
+            for q in I.gslots:
+                if q == g:
+                    continue
+                for k in (0, 1):
+                    rq = last.ct[(q, k)][g]
+                    for jg in (0, 1):
+                        s = c.new()
+                        c.add([-last.cc[(q, 1 - k)], -s])
+                        for w in range(I.N):
+                            c.imp_eq([last.ct[(q, 1 - k)][w]], s, last.ct[(g, jg)][w])
+                        reads.append(c.AND([last.falive[q], rq, s]))
+            n4c.append(c.AND([last.falive[g], last.oge[g][1], -last.oge[g][2], -last.isout[g], c.OR(reads)]))
+        pend.append(c.OR(n4c))
+        self.n4credit = pend[-1]
         lost, gained = [], []
         for v in I.vslots:
             if v in self.subst:

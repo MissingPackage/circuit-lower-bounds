@@ -68,7 +68,7 @@ def solve(I, budget, proof_path):
     return res['r'], dt, res['model'], drat
 
 
-def run_node(cert_dir, nid, out_dir, fb0, timeout, replay_s, tag=None, log=print):
+def run_node(cert_dir, nid, out_dir, fb0, timeout, replay_s, tag=None, log=print, siblings=False):
     try:
         tree = ck.load_tree(cert_dir)
     except ck.CertificateError as e:
@@ -86,14 +86,14 @@ def run_node(cert_dir, nid, out_dir, fb0, timeout, replay_s, tag=None, log=print
     rec = {'id': tag or nid, 'node': nid, 'cert_dir': cert_dir, 'kind': n.kind, 'mode': mode,
            'paper_leaf': n.paper_leaf, 'claimed_types': sorted(set(t for a in n.actions for t in a['types'])),
            'partitions': [], 'status': None, 'solve_s': 0.0, 'encode_s': 0.0, 'n_vars': 0, 'n_clauses': 0,
-           'drat_status': None, 'timeout_s': timeout}
+           'drat_status': None, 'timeout_s': timeout, 'siblings': siblings}
     status = 'UNSAT'
     for pi, comp in enumerate(parts):
         fb = fb0
         while True:
             remaining = timeout - rec['solve_s']
             t0 = time.time()
-            I = Instance(tree, n, comp, fb, mode=mode)
+            I = Instance(tree, n, comp, fb, mode=mode, siblings=siblings)
             enc = time.time() - t0
             nv, ncl = I.c.n, len(I.c.clauses)
             log('  [%s] partition %d/%d FB=%d: %d vars %d clauses, encoded in %.1f s; solving (budget %.0f s)'

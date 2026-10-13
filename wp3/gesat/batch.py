@@ -23,6 +23,8 @@ OUT = 'logs/wp32'
 def main(argv):
     which = argv[0]
     fb = int(argv[argv.index('--fb') + 1]) if '--fb' in argv else 8
+    sib = '--siblings' in argv
+    out = OUT + ('_siblings' if sib else '')
     if which == 'leaves':
         items = [('certs', i, None) for i in LEAVES]
     elif which == 'internal':
@@ -32,12 +34,13 @@ def main(argv):
     elif which == 'controls_internal':
         items = [('mutants/' + m, i, m) for m, i in CONTROLS] + [('certs', i, None) for i in INTERNAL]
     else:
-        items = [('certs', i, None) for i in argv[1:] if not i.startswith('--')]
+        skip = {argv.index('--fb') + 1} if '--fb' in argv else set()
+        items = [('certs', a, None) for k, a in enumerate(argv[1:], 1) if not a.startswith('--') and k not in skip]
     t0 = time.time()
     for k, (d, nid, tag) in enumerate(items):
         print('[%d/%d, %.0f s elapsed, %d items left] %s %s' % (k + 1, len(items), time.time() - t0,
                                                               len(items) - k, tag or nid, d), flush=True)
-        rec = run.run_node(d, nid, OUT, fb, 600.0, 120.0, tag)
+        rec = run.run_node(d, nid, out, fb, 600.0, 120.0, tag, siblings=sib)
         print('    -> %s solve %.1f s encode %.1f s vars %d clauses %d %s' % (
             rec['status'], rec['solve_s'], rec['encode_s'], rec['n_vars'], rec['n_clauses'],
             rec.get('replay_verdict', '') or rec.get('reason', '')), flush=True)
