@@ -1,0 +1,2 @@
+5.2.1        leaf      not-checked (time budget)  compl=28911   pruned=571     vac=4875   750.0s  | stopped after 750 s with 28911 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 23380, '5/y <- c trivialising T': 656}

@@ -659,6 +659,28 @@ Caveats:
 - Transformations 1 and 4 are applied only when decidable from known facts.
   This is sound, since normalization never increases mu, but it is lossy.
 
+Long run after grading (2026-10-13, orchestrator, `wp3/logs/long/`): every one
+of the 18 unfinished nodes was re-run alone with a 750 s budget (8x the 90 s
+of stage C), one log file per node so that nothing is lost on interruption.
+Result: 0 of 18 finished; between 5,600 and 274,000 completions explored per
+node, 0 uncovered configurations and 0 completions below the claimed gain in
+the explored part.  A first attempt with 1800 s per node and a single log
+written at the end was killed by the 2 h session limit and left no artifact.
+Conclusions recorded for WP3.2: the lazy completion space of Cases 3 and 5 is
+too large for enumeration on 2 cores and the checker gives no estimate of the
+unexplored remainder; the certification should be reformulated as a
+counterexample search (a SAT/SMT instance "exists a completion whose measure
+decrease is below the claim", UNSAT = certified), with completions taken up to
+isomorphism.  Two disclosures from the grader: (1) commit 1b69150 changed the
+matcher after the freeze (two edges into one gate must come from two distinct
+sources; without the fix 5.4.1.2 passed with zero completions, a false
+"verified"); the negative controls were re-run after the fix with the same
+result (14 of 15 rejected, 0 accepted); (2) the frozen pre-registration is
+internally inconsistent: P1 lists the Case 5 types as 1-4 while the
+transcription in the same file has 5.4.1.3 as type 6 and 5.4.1.4 as type 5,
+and P4b's premise ("types 5 and 6 only from Cases 6-7") is therefore wrong;
+the arithmetic of both LPs stands (259/86 and 103/34).
+
 ## Layout
 
 - `encoder.py`, `solve.py`, `simulate.py`, `funcs.py` — encoder, per-instance

@@ -1,0 +1,36 @@
+[
+ {
+  "id": "5.3",
+  "label": "Case 5.3, B feeds D, D feeds C",
+  "kind": "leaf",
+  "paper_leaf": "5.3",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 750 s with 77013 completions, 0 uncovered so far",
+  "completions": 77013,
+  "pruned": 12648,
+  "vacuous": 3972,
+  "discharged": {
+   "5/x <- c trivialising T": 10204,
+   "5.3/y <- c trivialising T": 62837
+  },
+  "covered": {},
+  "certified_types": [
+   3,
+   4
+  ],
+  "certified_gain": "types 3(x4414),4(x58423); weakest completion 4 + -16*aT + 1*aI, slack at alpha* 0",
+  "claimed_types": [
+   3,
+   4
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 750.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 750.0
+ }
+]

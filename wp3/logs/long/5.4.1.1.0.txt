@@ -1,0 +1,2 @@
+5.4.1.1.0    leaf      not-checked (time budget)  compl=8080    pruned=15136   vac=110    750.0s types 3(x4113); weakest completion 4 + -16*aT + 1*aI, slack at alpha* 0 | stopped after 750 s with 8080 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 1890, '5/y <- c trivialising T': 1967, '5.4.1.1.0/t <- c trivialising E': 4113}

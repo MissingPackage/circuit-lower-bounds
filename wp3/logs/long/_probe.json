@@ -1,0 +1,64 @@
+[
+ {
+  "id": "2",
+  "label": "Case 2, protected x is a 0-variable; substitute its partner",
+  "kind": "leaf",
+  "paper_leaf": "2",
+  "status": "verified",
+  "reason": "",
+  "completions": 2,
+  "pruned": 2,
+  "vacuous": 0,
+  "discharged": {
+   "2/x2 <- 0": 2
+  },
+  "covered": {},
+  "certified_types": [
+   2
+  ],
+  "certified_gain": "types 2(x2); weakest completion 2*aI + 1*aQ, slack at alpha* 65/43",
+  "claimed_types": [
+   2
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 0.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 20.0
+ },
+ {
+  "id": "4",
+  "label": "Case 4, and-gate T fed by inputs x, y with out(x) = 1",
+  "kind": "leaf",
+  "paper_leaf": "4",
+  "status": "verified",
+  "reason": "",
+  "completions": 21,
+  "pruned": 15,
+  "vacuous": 9,
+  "discharged": {
+   "4/y <- c trivialising T": 12
+  },
+  "covered": {},
+  "certified_types": [
+   2
+  ],
+  "certified_gain": "types 2(x12); weakest completion 1 + -4*aT + 2*aI, slack at alpha* 39/43",
+  "claimed_types": [
+   2
+  ],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 0.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 20.0
+ }
+]

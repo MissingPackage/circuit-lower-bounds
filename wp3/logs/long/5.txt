@@ -1,0 +1,2 @@
+5            internal  not-checked (time budget)  compl=96558   pruned=8774    vac=1      750.0s types 3(x13686),4(x82871); weakest completion 3 + 1*aT + 1*aI, slack at alpha* 0 | stopped after 750 s with 96558 completions, 0 uncovered so far
+    discharged by: {'5/y <- c trivialising T': 6235, '5/x <- c trivialising T': 90322}

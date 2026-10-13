@@ -1,0 +1,36 @@
+[
+ {
+  "id": "5",
+  "label": "Case 5, troubled T fed by x, y; default: x or y trivialising T",
+  "kind": "internal",
+  "paper_leaf": false,
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 750 s with 96558 completions, 0 uncovered so far",
+  "completions": 96558,
+  "pruned": 8774,
+  "vacuous": 1,
+  "discharged": {
+   "5/y <- c trivialising T": 6235,
+   "5/x <- c trivialising T": 90322
+  },
+  "covered": {},
+  "certified_types": [
+   3,
+   4
+  ],
+  "certified_gain": "types 3(x13686),4(x82871); weakest completion 3 + 1*aT + 1*aI, slack at alpha* 0",
+  "claimed_types": [
+   3,
+   4
+  ],
+  "exhaustive": false,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 750.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 750.0
+ }
+]

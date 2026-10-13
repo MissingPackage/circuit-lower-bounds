@@ -1,0 +1,30 @@
+[
+ {
+  "id": "5.4.2",
+  "label": "Case 5.4.2, B (fed by a variable t) feeds a new troubled gate E fed by a variable z",
+  "kind": "internal",
+  "paper_leaf": false,
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 750 s with 7194 completions, 0 uncovered so far",
+  "completions": 7194,
+  "pruned": 47571,
+  "vacuous": 37,
+  "discharged": {
+   "5/x <- c trivialising T": 6581,
+   "5/y <- c trivialising T": 576
+  },
+  "covered": {},
+  "certified_types": [],
+  "certified_gain": "",
+  "claimed_types": [],
+  "exhaustive": false,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 750.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 750.0
+ }
+]

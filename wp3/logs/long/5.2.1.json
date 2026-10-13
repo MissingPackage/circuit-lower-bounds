@@ -1,0 +1,30 @@
+[
+ {
+  "id": "5.2.1",
+  "label": "Case 5.2.1, out(B) >= 2 (impossible: default applies)",
+  "kind": "leaf",
+  "paper_leaf": "5.2.1",
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 750 s with 28911 completions, 0 uncovered so far",
+  "completions": 28911,
+  "pruned": 571,
+  "vacuous": 4875,
+  "discharged": {
+   "5/x <- c trivialising T": 23380,
+   "5/y <- c trivialising T": 656
+  },
+  "covered": {},
+  "certified_types": [],
+  "certified_gain": "",
+  "claimed_types": [],
+  "exhaustive": null,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 750.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 750.0
+ }
+]

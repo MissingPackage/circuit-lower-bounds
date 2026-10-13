@@ -1,0 +1,2 @@
+5.4.1.1      internal  not-checked (time budget)  compl=87993   pruned=77213   vac=1633   750.0s  | stopped after 750 s with 87993 completions, 0 uncovered so far
+    discharged by: {'5/x <- c trivialising T': 75584, '5/y <- c trivialising T': 10776}

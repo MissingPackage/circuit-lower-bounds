@@ -1,0 +1,2 @@
+3            leaf      not-checked (time budget)  compl=274207  pruned=19338   vac=257    750.0s types 3(x273950); weakest completion 4 + -16*aT + 2*aI, slack at alpha* 260/43 | stopped after 750 s with 274207 completions, 0 uncovered so far
+    discharged by: {'3/x <- c trivialising T': 273950}

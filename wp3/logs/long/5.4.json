@@ -1,0 +1,30 @@
+[
+ {
+  "id": "5.4",
+  "label": "Case 5.4, no wire between B and D",
+  "kind": "internal",
+  "paper_leaf": false,
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 750 s with 97776 completions, 0 uncovered so far",
+  "completions": 97776,
+  "pruned": 626,
+  "vacuous": 1170,
+  "discharged": {
+   "5/y <- c trivialising T": 1217,
+   "5/x <- c trivialising T": 95389
+  },
+  "covered": {},
+  "certified_types": [],
+  "certified_gain": "",
+  "claimed_types": [],
+  "exhaustive": false,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 750.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 750.0
+ }
+]

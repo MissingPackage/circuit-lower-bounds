@@ -1,0 +1,3 @@
+5.2          internal  not-checked (time budget)  compl=117296  pruned=1465    vac=8381   750.0s  | stopped after 750 s with 117296 completions, 0 uncovered so far
+    covered by children: {'5.2.2': 2286}
+    discharged by: {'5/x <- c trivialising T': 49892, '5/y <- c trivialising T': 56737}

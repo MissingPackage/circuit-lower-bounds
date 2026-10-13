@@ -1,0 +1,30 @@
+[
+ {
+  "id": "5.4.1",
+  "label": "Case 5.4.1, D passes a variable z to a new troubled and-gate E",
+  "kind": "internal",
+  "paper_leaf": false,
+  "status": "not-checked (time budget)",
+  "reason": "stopped after 750 s with 22761 completions, 0 uncovered so far",
+  "completions": 22761,
+  "pruned": 22709,
+  "vacuous": 121,
+  "discharged": {
+   "5/x <- c trivialising T": 17240,
+   "5/y <- c trivialising T": 5400
+  },
+  "covered": {},
+  "certified_types": [],
+  "certified_gain": "",
+  "claimed_types": [],
+  "exhaustive": false,
+  "uncovered_count": 0,
+  "uncovered_examples": [],
+  "residual_count": 0,
+  "residual_examples": [],
+  "seconds": 750.0,
+  "deg_cap": 3,
+  "radius": 1,
+  "node_seconds": 750.0
+ }
+]
