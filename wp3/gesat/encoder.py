@@ -1077,6 +1077,10 @@ class Pass:
                     c.imp([s[pk], ct[(u, j)][w]], rt[u][w])
                 c.imp_eq([s[pk]], rc[u], self.cc[(u, j)])
                 c.imp_eq([s[pk]], rneg[u], c.XOR(cneg[(u, j)], s['pn']))
+                # post-freeze fix 6: a gate passing-removed at an earlier step
+                # whose passed input became constant resolves to that constant
+                # (with its output polarity); the value was unconstrained
+                c.imp_eq([s[pk]], rval[u], c.XOR(cval[(u, j)], s['pn']))
         self.rt, self.rc = rt, rc
         # subst map at this step (cumulative)
         subst = dict(sim.subst)
