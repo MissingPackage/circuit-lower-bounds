@@ -336,18 +336,19 @@ class Instance:
                     lt_cache[key] = lt(ru, self.rk[g])
                 c.add([-l, lt_cache[key]])
         # Transformation 4 configuration on the revealed part of the original circuit:
-        # a pattern 1-gate g whose successor q (pattern or block A) also reads one
-        # of g's inputs (restricted to these slots for size; the replay applies
-        # the engine's full admissibility check)
-        PA = set(self.P) | set(self.A)
+        # an eligible 1-gate g whose successor q also reads one of g's inputs
+        # (block-B 1-gates are not covered, for size; the replay applies the
+        # engine's full admissibility check)
+        # post-freeze fix 1: g ranges over the eligible gates (pattern and block A)
+        # and q over every full gate (two controls replayed as engine-pruned 'N4')
         for g in self.gslots:
-            if self.blk[g] != 'P':
+            if self.blk[g] not in ('P', 'A'):
                 continue
             od1 = self.od[g][1]
             if od1 == FALSE:
                 continue
             for q in self.gslots:
-                if q == g or q not in PA:
+                if q == g:
                     continue
                 for k in (0, 1):
                     lq = self.inp[(q, k)].get(g)

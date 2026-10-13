@@ -12,3 +12,5 @@ wp2d/E_*_vec.npy
 sources/fghk-r2.txt
 wp3/mutants/
 wp3/gecheck/__pycache__/
+wp3/logs/wp32/proofs/
+wp3/gesat/__pycache__/
