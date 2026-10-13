@@ -40,12 +40,11 @@ def decode(I, model):
             rec['type'] = 'and' if val(model, I.isand[s]) else 'xor'
             rec['bits'] = [int(val(model, b)) for b in I.bit[s]]
             rec['full'] = val(model, I.full[s])
-            if rec['full']:
-                ins = []
-                for j in (0, 1):
-                    t = [v for v, l in I.inp[(s, j)].items() if val(model, l)]
-                    ins.append(t[0] if t else None)
-                rec['inputs'] = ins
+            ins = []
+            for j in (0, 1):
+                t = [v for v, l in I.inp[(s, j)].items() if val(model, l)]
+                ins.append(t[0] if t else None)        # None: hidden input
+            rec['inputs'] = ins
         else:
             rec['prot'] = val(model, I.prot[s])
             part = [w for w in I.vslots if w != s and (s, w) in I.pt and val(model, I.pt[(s, w)])]
@@ -59,7 +58,8 @@ def sim_summary(I, model):
     for sm in I.sims:
         row = {'sim': sm.name, 'legal': val(model, sm.legal), 'trivialised': val(model, sm.triv),
                'vacuous': val(model, sm.vac), 'ok': val(model, sm.ok)}
-        if sm.passes:
+        row['light'] = sm.light
+        if sm.passes and not sm.light:
             last = sm.last
             row['removed'] = [s for s in sm.E if val(model, last.removed[s])]
             row['dominates'] = {str(t): [val(model, a), val(model, b)] for t, (a, b) in sm.dom_lits.items()}
@@ -85,9 +85,10 @@ def to_comp(I, view):
             n.protdom = (r['prot'],)
         ids[r['slot']] = n.id
     for r in order:
-        if r['kind'] == 'gate' and r.get('full'):
+        if r['kind'] == 'gate':
             for j, v in enumerate(r['inputs']):
-                comp.add_edge(ids[v], ids[r['slot']], j)
+                if v is not None:
+                    comp.add_edge(ids[v], ids[r['slot']], j)
     for r in order:
         if r['kind'] == 'var' and isinstance(r.get('partner'), int):
             comp.nodes[ids[r['slot']]].partner = ids[r['partner']]

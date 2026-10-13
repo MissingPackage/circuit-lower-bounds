@@ -22,6 +22,14 @@ def _int(x):
     return int(x)
 
 
+# Trivialising constants: for the first step x <- c trivialising an and-gate fed
+# by x, the constants are taken as {b, not b} with b the gate's bit at x's slot
+# (the same two values as {0, 1}); the complement cannot trivialise the target,
+# so it is simulated by the forward pass only, for the vacuity check the engine
+# also makes (dropping that check altogether produced a spurious SAT answer on
+# control m_weakened_pattern_4).
+
+
 class EncodingError(Exception):
     pass
 
@@ -51,15 +59,21 @@ class Instance:
             for ai, act in enumerate(owner.actions):
                 steps = act['steps']
                 choices = []
-                for s in steps:
+                for si, s in enumerate(steps):
                     v = s.get('value', 0)
                     if isinstance(v, dict):
-                        lit = self.triv_const(s)
-                        choices.append([lit] if lit is not None else [FALSE, TRUE])
+                        lit = self.triv_const(s) if si == 0 else None
+                        if lit is None or lit in (TRUE, FALSE):
+                            choices.append([(FALSE, False), (TRUE, False)])
+                        else:
+                            # the trivialising bit b (full simulation) and its
+                            # complement (cannot trivialise the target: only the
+                            # forward pass is needed, for the vacuity check)
+                            choices.append([(lit, False), (-lit, True)])
                     else:
-                        choices.append([TRUE if v else FALSE])
+                        choices.append([(TRUE if v else FALSE, False)])
                 for combo in itertools.product(*choices):
-                    self.sims.append(Sim(self, owner, ai, act, combo))
+                    self.sims.append(Sim(self, owner, ai, act, [x[0] for x in combo], [x[1] for x in combo]))
         self.ovf_constraints()
         self.pre_constraints()
         if siblings:
@@ -208,19 +222,12 @@ class Instance:
             else:
                 self.prot[s] = c.new()
                 c.add([self.isv[s], -self.prot[s]])
-        # full flag
-        self.full = {}
-        for s in self.gslots:
-            if self.blk[s] == 'P':
-                self.full[s] = TRUE
-            elif self.blk[s] == 'A':
-                self.full[s] = self.isg[s]
-            else:
-                self.full[s] = c.new()
-                c.add([self.isg[s], -self.full[s]])
-        # input pointers
+        # input pointers; an input of a block-A/B gate may be hidden (an
+        # unrevealed node at level >= 2); hidden inputs must be revealed only when
+        # the gate is touched (requirement R2, see ovf_constraints)
         self.inp = {}
         self.dom = {}
+        self.hid = {}
         PAQ = P + A + Q
         for g in self.gslots:
             for j in (0, 1):
@@ -231,6 +238,7 @@ class Instance:
                         lits = {dom[0]: TRUE}
                         self.dom[(g, j)] = dom
                         self.inp[(g, j)] = lits
+                        self.hid[(g, j)] = FALSE
                         continue
                     dom = [s for s in PAQ if s != g]
                 elif self.blk[g] == 'A':
@@ -244,14 +252,16 @@ class Instance:
                     lits[v] = c.new()
                 self.dom[(g, j)] = list(lits)
                 self.inp[(g, j)] = lits
-                L = list(lits.values())
+                h = FALSE if self.blk[g] == 'P' else c.new()
+                self.hid[(g, j)] = h
+                L = list(lits.values()) + [h]
                 for l in L:
-                    c.add([-l, self.full[g]])
-                c.add([-self.full[g]] + L)
+                    c.add([-l, self.isg[g]])
+                c.add([-self.isg[g]] + L)
                 c.amo(L)
                 for v, l in lits.items():
                     c.add([-l, self.used[v]])
-        # no_edge between pattern nodes where the target slot is generic: handled in E()
+        self.full = {g: c.AND([self.isg[g], -self.hid[(g, 0)], -self.hid[(g, 1)]]) for g in self.gslots}
         self.readers = {s: [] for s in range(N)}
         for (g, j), lits in self.inp.items():
             for v, l in lits.items():
@@ -271,7 +281,7 @@ class Instance:
         return r
 
     def lookup(self, g, j, fn, tag):
-        """literal equal to fn(target of pointer (g, j)); FALSE when not full."""
+        """literal equal to fn(target of pointer (g, j)); FALSE when hidden."""
         key = (g, j, tag)
         if key in self._lookup:
             return self._lookup[key]
@@ -280,7 +290,8 @@ class Instance:
             r = fn(list(lits)[0])
         else:
             r = self.c.new()
-            self.c.add([self.full[g], -r])
+            self.c.add([self.isg[g], -r])
+            self.c.add([-self.hid[(g, j)], -r])
             for v, l in lits.items():
                 self.c.imp_eq([l], r, fn(v))
         self._lookup[key] = r
@@ -449,28 +460,35 @@ class Instance:
     def ovf_constraints(self):
         c = self.c
         # R1: successors revealed for nodes removed / substituted / with a degree
-        # change involving 2 (variables); R2: gates with a degree change are full
+        # change involving 2 (variables)
         self.rsucc = {}
         for v in range(self.N):
             # only simulations that can credit their action (legal, targets
             # trivialised) need exact accounting, hence revealed successors
-            terms = [c.AND([sm.legal, sm.triv, sm.rsucc_term(v)]) for sm in self.sims if sm.passes]
+            terms = [c.AND([sm.legal, sm.triv, sm.rsucc_term(v)]) for sm in self.sims if sm.passes and not sm.light]
             self.rsucc[v] = c.OR(terms) if self.blk[v] != 'P' else TRUE
-        self.rfull = {}
-        for g in self.B:
-            if self.isg[g] == FALSE:
+        # R2: a gate that may become newly troubled (removed, out-degree changed,
+        # or reading a node in RW) has both inputs revealed
+        self.rw = {}
+        for v in range(self.N):
+            self.rw[v] = c.OR([c.AND([sm.legal, sm.triv, sm.rw_term(v)]) for sm in self.sims if sm.passes and not sm.light])
+        self.rin = {}
+        for g in self.gslots:
+            if self.blk[g] == 'P':
                 continue
-            self.rfull[g] = c.OR([c.AND([sm.legal, sm.triv, sm.rfull_term(g)]) for sm in self.sims if sm.passes])
+            terms = [c.AND([sm.legal, sm.triv, sm.rfull_term(g)]) for sm in self.sims if sm.passes and not sm.light]
+            terms += [self.lookup(g, j, lambda v: self.rw[v], 'rw') for j in (0, 1)]
+            self.rin[g] = c.OR(terms)
         unmet = []
         for v in range(self.N):
             if self.blk[v] != 'P':
                 unmet.append(c.AND([self.rsucc[v], self.extpos[v]]))
-        for g, r in self.rfull.items():
-            unmet.append(c.AND([r, -self.full[g]]))
+        for g, r in self.rin.items():
+            unmet.append(c.AND([r, c.OR([self.hid[(g, 0)], self.hid[(g, 1)]])]))
         # partner of a substituted protected variable must be revealed
         for sm in self.sims:
             for x in sm.subst_slots:
-                if x in self.ptx and sm.passes:
+                if x in self.ptx and sm.passes and not sm.light:
                     unmet.append(c.AND([sm.legal, sm.triv, self.prot[x], self.ptx[x]]))
         u = c.OR(unmet)
         c.add([-self.ovf, u])
@@ -478,17 +496,12 @@ class Instance:
         for b in self.B:
             c.add([-self.ovf, self.used[b]])
         # justification of block-B slots (no junk)
-        rr = {}
-        for g in self.B:
-            if self.isg[g] == FALSE:
-                continue
-            reads = [self.lookup(g, j, lambda v: self.rsucc[v], 'rsucc') for j in (0, 1)]
-            rr[g] = c.OR(reads)
-            c.add([-self.full[g], rr[g], self.rfull[g]])
         for b in self.B:
-            just = [c.AND([self.full[g], l]) for (g, j, l) in self.readers[b]]
-            if b in rr:
-                just.append(c.AND([self.full[b], rr[b]]))
+            # read (as a revealed input) by a gate that must reveal its inputs
+            just = [c.AND([self.rin.get(g, TRUE), l]) for (g, j, l) in self.readers[b]]
+            if self.isg[b] != FALSE:
+                # a revealed successor of an R1 node
+                just.append(c.OR([self.lookup(b, j, lambda v: self.rsucc[v], 'rsucc') for j in (0, 1)]))
             for w in self.vslots:
                 if w != b and (w, b) in self.pt and self.blk[w] != 'B':
                     just.append(self.pt[(w, b)])
@@ -607,6 +620,8 @@ class Instance:
             for u, v in pat.no_edge:
                 if u in M and v in M:
                     conds.append(-self.E(M[u], M[v]))
+                    if M[v] in self.full:
+                        conds.append(c.OR([self.isv[M[v]], self.full[M[v]]]))
             for u, v in pat.distinct:
                 if M.get(u) is not None and M.get(u) == M.get(v):
                     return
@@ -720,12 +735,15 @@ class Sim:
     """One (action, constants) simulation: substitutions, per-step normalization
     passes (Transformations 1, 2, 3, 5 on eligible gates), measure, verdict."""
 
-    def __init__(self, I, owner, ai, act, combo):
+    def __init__(self, I, owner, ai, act, combo, lights=None):
         self.I = I
         self.owner = owner
         self.act = act
         self.combo = combo
-        self.name = '%s/%s/%s' % (owner.id, act.get('name', ai), ''.join('0' if v == FALSE else ('1' if v == TRUE else 'b') for v in combo))
+        lights = lights or [False] * len(combo)
+        self.light = False
+        self.name = '%s/%s/%s' % (owner.id, act.get('name', ai), ''.join(
+            '0' if v == FALSE else ('1' if v == TRUE else ('b' if v > 0 else '~b')) for v in combo))
         c = I.c
         self.E = [s for s in I.gslots if I.blk[s] in ('P', 'A')]     # eligible
         self.Eset = set(self.E)
@@ -795,10 +813,14 @@ class Sim:
             else:
                 self.subst[x] = ('node', src, val)
             self.subst_slots.append(x)
-            p = Pass(self, k, prev, x, kind, src, val)
+            p = Pass(self, k, prev, x, kind, src, val, light=lights[k])
             self.passes.append(p)
             legal_prefix = c.AND([legal_prefix, legal])
             self.vac = c.OR([self.vac, c.AND([legal_prefix, triv_prefix, p.vac])])
+            if lights[k]:
+                # the target cannot be trivialised: the action fails here
+                self.light = True
+                break
             v = step.get('value', 0)
             if isinstance(v, dict) and 'trivialize' in v:
                 tname = v['trivialize']
@@ -813,7 +835,7 @@ class Sim:
         triv_all = triv_prefix
         self.legal = legal_all
         self.triv = triv_all
-        if not self.passes:
+        if not self.passes or self.light:
             self.ok = FALSE
             return
         last = self.passes[-1]
@@ -824,7 +846,7 @@ class Sim:
         for g in I.B:
             if I.isg[g] == FALSE:
                 continue
-            pend.append(c.AND([I.full[g], c.OR([last.cc[(g, 0)], last.cc[(g, 1)], last.sm[g],
+            pend.append(c.AND([I.isg[g], I.used[g], c.OR([last.cc[(g, 0)], last.cc[(g, 1)], last.sm[g],
                                                  c.AND([-last.oge[g][1], -last.isout[g]])])]))
         # post-freeze fix 2: Transformation 4 is not simulated after the
         # substitution, but if some eligible alive 1-gate is useless in the final
@@ -833,7 +855,7 @@ class Sim:
         n4c = []
         for g in self.E:
             reads = []
-            for q in I.gslots:
+            for q in self.E:            # eligible readers only (sound: less credit)
                 if q == g:
                     continue
                 for k in (0, 1):
@@ -841,6 +863,7 @@ class Sim:
                     for jg in (0, 1):
                         s = c.new()
                         c.add([-last.cc[(q, 1 - k)], -s])
+                        c.add([-last.ct[(q, 1 - k)]['H'], -s])
                         for w in range(I.N):
                             c.imp_eq([last.ct[(q, 1 - k)][w]], s, last.ct[(g, jg)][w])
                         reads.append(c.AND([last.falive[q], rq, s]))
@@ -926,6 +949,8 @@ class Sim:
         return prev.prot.get(v, FALSE)
 
     def rsucc_term(self, v):
+        """R1: successors must be revealed (substituted, removed by
+        Transformation 2/3/5, or a variable whose out-degree becomes 2)."""
         c = self.I.c
         terms = []
         if v in self.subst:
@@ -934,13 +959,35 @@ class Sim:
             if v in self.Eset:
                 terms.append(c.AND([self.I.isg[v], p.fremoved[v]]))
             if v in self.I.prot:
-                ch = c.AND([self.I.isv[v], -self.same_out(p, v),
-                            c.OR([self.I.od[v][2], c.AND([p.oge[v][2], -p.oge[v][3]])])])
-                terms.append(ch)
+                terms.append(self.to2(p, v))
+        return c.OR(terms)
+
+    def to2(self, p, v):
+        c = self.I.c
+        return c.AND([self.I.isv[v], -self.same_out(p, v), p.oge[v][2], -p.oge[v][3]])
+
+    def rw_term(self, v):
+        """a reader of v may become newly troubled: v is replaced by another node
+        (passing-removed gate, affine/quadratic substitution) or v is a variable
+        whose out-degree becomes 2"""
+        c = self.I.c
+        terms = []
+        if v in self.subst and self.subst[v][0] == 'node':
+            terms.append(TRUE)
+        for p in self.passes:
+            if v in self.Eset:
+                terms.append(c.AND([self.I.isg[v], c.OR([p.st[v]['p0'], p.st[v]['p1']])]))
+            if v in self.I.prot:
+                terms.append(self.to2(p, v))
         return c.OR(terms)
 
     def rfull_term(self, g):
-        return self.I.c.OR([-self.same_out(p, g) for p in self.passes] + [FALSE])
+        """the gate is removed or its out-degree changes in some pass"""
+        c = self.I.c
+        terms = [-self.same_out(p, g) for p in self.passes]
+        if g in self.Eset:
+            terms += [p.removed[g] for p in self.passes]
+        return c.OR(terms + [FALSE])
 
     def same_out(self, p, v):
         c = self.I.c
@@ -955,7 +1002,7 @@ class Sim:
 class Pass:
     """State after substitution step k and normalization."""
 
-    def __init__(self, sim, k, prev, x, kind, src, val):
+    def __init__(self, sim, k, prev, x, kind, src, val, light=False):
         I = sim.I
         c = I.c
         cap = I.cap
@@ -981,21 +1028,25 @@ class Pass:
         self.cc = {}
         cval = {}
         cneg = {}
+        TG = list(range(N)) + ['H']        # 'H': a hidden (unrevealed, untouched) node
         for g in I.gslots:
             for j in (0, 1):
-                tl = {w: c.new() for w in range(N)}
+                tl = {w: c.new() for w in TG}
                 ct[(g, j)] = tl
                 self.cc[(g, j)] = c.new()
                 cval[(g, j)] = c.new()
                 cneg[(g, j)] = c.new()
-                c.add([I.full[g], -self.cc[(g, j)]])
+                c.add([I.isg[g], -self.cc[(g, j)]])
                 for w, l in tl.items():
-                    c.add([I.full[g], -l])
+                    c.add([I.isg[g], -l])
                 c.amo(list(tl.values()) + [self.cc[(g, j)]])
+                h = I.hid[(g, j)]
+                c.add([-h, tl['H']])
+                c.add([-h, -cneg[(g, j)]])
         # resolution of eligible slots: rt (target), rc (const), rval, rneg
         rt, rc, rval, rneg = {}, {}, {}, {}
         for u in E:
-            rt[u] = {w: c.new() for w in range(N)}
+            rt[u] = {w: c.new() for w in TG}
             rc[u] = c.new()
             rval[u] = c.new()
             rneg[u] = c.new()
@@ -1011,7 +1062,7 @@ class Pass:
             c.add([-s['cr'], rc[u]])
             c.imp_eq([s['cr']], rval[u], s['cv'])
             for j, pk in ((0, 'p0'), (1, 'p1')):
-                for w in range(N):
+                for w in TG:
                     c.imp([s[pk], ct[(u, j)][w]], rt[u][w])
                 c.imp_eq([s[pk]], rc[u], self.cc[(u, j)])
                 c.imp_eq([s[pk]], rneg[u], c.XOR(cneg[(u, j)], s['pn']))
@@ -1031,7 +1082,7 @@ class Pass:
                         c.add([-l, T[sv[1]]])
                         c.imp_eq([l], cneg[(g, j)], sv[2])
                 elif v in Eset:
-                    for w in range(N):
+                    for w in TG:
                         c.imp([l, rt[v][w]], T[w])
                     c.imp_eq([l], self.cc[(g, j)], rc[v])
                     c.imp_eq([l], cval[(g, j)], rval[v])
@@ -1048,7 +1099,8 @@ class Pass:
             c.add([-self.cc[(g, 1)], -r])
             for w in range(N):
                 c.imp_eq([ct[(g, 0)][w]], r, ct[(g, 1)][w])
-            c.add([I.full[g], -r])
+            c.add([-ct[(g, 0)]['H'], -r])       # hidden: not known to be identical
+            c.add([I.isg[g], -r])
             self.sm[g] = r
         # ---------------- classification of eligible gates
         for u in E:
@@ -1111,13 +1163,18 @@ class Pass:
                 terms.append(I.outsel[w])
             self.isout[w] = c.OR(terms)
         self.vac = c.OR([c.AND([I.outsel[o], rc[o]]) for o in E])
+        if light:
+            for u in E:
+                c.add([-st[u]['n1']])
+            self.cval, self.cneg = cval, cneg
+            return
         # ---------------- backward pass: final-alive readers and out-degrees
         falive = {}
         for g in I.gslots:
             if g in Eset:
-                falive[g] = c.AND([I.full[g], st[g]['al'], -st[g]['n1']])
+                falive[g] = c.AND([I.isg[g], st[g]['al'], -st[g]['n1']])
             else:
-                falive[g] = I.full[g]
+                falive[g] = c.AND([I.isg[g], I.used[g]])
         self.falive = falive
         self.oge = {}
         for v in range(N):
@@ -1168,7 +1225,8 @@ class Pass:
                 for w in range(N):
                     c.imp_eq([ct[(g, j)][w]], r, q2a[w])
                 c.add([-self.cc[(g, j)], -r])
-                c.add([I.full[g], -r])
+                c.add([-ct[(g, j)]['H'], -r])
+                c.add([I.isg[g], -r])
                 ins.append(r)
             self.ta[g] = c.AND([falive[g], I.isand[g], self.oge[g][1], -self.oge[g][2],
                                 -self.isout[g], -self.sm[g]] + ins)
