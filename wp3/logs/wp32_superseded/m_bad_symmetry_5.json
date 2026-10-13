@@ -1,0 +1,12 @@
+{
+ "id": "m_bad_symmetry_5",
+ "node": "5",
+ "cert_dir": "mutants/m_bad_symmetry_5",
+ "status": "REJECTED-STRUCTURAL",
+ "reason": "5: declared symmetry {'x': 'y', 'y': 'x'} is not an automorphism (edges)",
+ "solve_s": 0.0,
+ "encode_s": 0.0,
+ "n_vars": 0,
+ "n_clauses": 0,
+ "drat_status": null
+}

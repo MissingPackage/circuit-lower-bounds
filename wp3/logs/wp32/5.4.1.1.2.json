@@ -1,0 +1,50 @@
+{
+ "id": "5.4.1.1.2",
+ "node": "5.4.1.1.2",
+ "cert_dir": "certs",
+ "kind": "leaf",
+ "mode": "leaf",
+ "paper_leaf": "5.4.1.1.2",
+ "claimed_types": [
+  1
+ ],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:?(T,z=t) out=None bits=??; B:?(x,z=t) out=None bits=??; C:?(y,?) out=None bits=??; z=t:var out=None prot=None; E:and(D,B) out=None bits=??",
+   "FB": 0,
+   "n_vars": 110099,
+   "n_clauses": 497676,
+   "encode_s": 0.97,
+   "solve_s": 2.29,
+   "n_sims": 8,
+   "KA": 8,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.4.1.1.2.p0.drat.gz",
+    "lines": 147167
+   }
+  },
+  {
+   "partition": 1,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:?(T,z) out=None bits=??; B:?(x,t) out=None bits=??; C:?(y,?) out=None bits=??; z:var out=None prot=None; E:and(D,B) out=None bits=??; t:var out=None prot=None",
+   "FB": 0,
+   "n_vars": 172793,
+   "n_clauses": 845306,
+   "encode_s": 1.09,
+   "solve_s": 597.93,
+   "n_sims": 8,
+   "KA": 11,
+   "status": "timeout"
+  }
+ ],
+ "status": "timeout",
+ "solve_s": 600.22,
+ "encode_s": 2.06,
+ "n_vars": 282892,
+ "n_clauses": 1342982,
+ "drat_status": null,
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 602.31
+}

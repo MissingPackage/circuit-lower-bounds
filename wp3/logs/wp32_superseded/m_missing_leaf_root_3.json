@@ -1,0 +1,226 @@
+{
+ "id": "m_missing_leaf_root_3",
+ "node": "R",
+ "cert_dir": "mutants/m_missing_leaf_root_3",
+ "kind": "root",
+ "mode": "internal",
+ "paper_leaf": false,
+ "claimed_types": [],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "T:and(?,?) out=None bits=??",
+   "FB": 0,
+   "n_vars": 1089,
+   "n_clauses": 6724,
+   "encode_s": 0.03,
+   "solve_s": 0.02,
+   "n_sims": 0,
+   "KA": 5,
+   "view": [
+    {
+     "slot": 0,
+     "block": "P",
+     "names": [
+      "T"
+     ],
+     "kind": "gate",
+     "out": 3,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      5,
+      4
+     ]
+    },
+    {
+     "slot": 1,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 2,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      3,
+      0
+     ]
+    },
+    {
+     "slot": 2,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 2,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      4
+     ]
+    },
+    {
+     "slot": 3,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 2,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      2
+     ]
+    },
+    {
+     "slot": 4,
+     "block": "A",
+     "names": [],
+     "kind": "var",
+     "out": 3,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 5,
+     "block": "A",
+     "names": [],
+     "kind": "var",
+     "out": 3,
+     "prot": false,
+     "partner": null
+    }
+   ],
+   "sims": [],
+   "status": "SAT",
+   "engine_comp": "T:and(n5,n4) out=3 bits=11; n1:and(n3,T) out=2 bits=11; n2:and(T,n4) out=2 bits=11; n3:and(T,n2) out=2 bits=11; n4:var out=3 prot=False; n5:var out=3 prot=False",
+   "replay": {
+    "completions": 1,
+    "pruned": {},
+    "vacuous": 0,
+    "discharged": {},
+    "covered": {},
+    "seconds": 0.0,
+    "verdict": "violation",
+    "engine_completion": "T:and(n5,n4) out=3 bits=11; n1:and(n3,T) out=2 bits=11; n2:and(T,n4) out=2 bits=11; n3:and(T,n2) out=2 bits=11; n4:var out=3 prot=False; n5:var out=3 prot=False",
+    "engine_reason": "None"
+   }
+  }
+ ],
+ "status": "SAT",
+ "solve_s": 0.02,
+ "encode_s": 0.03,
+ "n_vars": 1089,
+ "n_clauses": 6724,
+ "drat_status": null,
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 0.06,
+ "counter_completion": [
+  {
+   "slot": 0,
+   "block": "P",
+   "names": [
+    "T"
+   ],
+   "kind": "gate",
+   "out": 3,
+   "type": "and",
+   "bits": [
+    1,
+    1
+   ],
+   "full": true,
+   "inputs": [
+    5,
+    4
+   ]
+  },
+  {
+   "slot": 1,
+   "block": "A",
+   "names": [],
+   "kind": "gate",
+   "out": 2,
+   "type": "and",
+   "bits": [
+    1,
+    1
+   ],
+   "full": true,
+   "inputs": [
+    3,
+    0
+   ]
+  },
+  {
+   "slot": 2,
+   "block": "A",
+   "names": [],
+   "kind": "gate",
+   "out": 2,
+   "type": "and",
+   "bits": [
+    1,
+    1
+   ],
+   "full": true,
+   "inputs": [
+    0,
+    4
+   ]
+  },
+  {
+   "slot": 3,
+   "block": "A",
+   "names": [],
+   "kind": "gate",
+   "out": 2,
+   "type": "and",
+   "bits": [
+    1,
+    1
+   ],
+   "full": true,
+   "inputs": [
+    0,
+    2
+   ]
+  },
+  {
+   "slot": 4,
+   "block": "A",
+   "names": [],
+   "kind": "var",
+   "out": 3,
+   "prot": false,
+   "partner": null
+  },
+  {
+   "slot": 5,
+   "block": "A",
+   "names": [],
+   "kind": "var",
+   "out": 3,
+   "prot": false,
+   "partner": null
+  }
+ ],
+ "replay_verdict": "violation"
+}

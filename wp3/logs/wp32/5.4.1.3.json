@@ -1,0 +1,66 @@
+{
+ "id": "5.4.1.3",
+ "node": "5.4.1.3",
+ "cert_dir": "certs",
+ "kind": "leaf",
+ "mode": "leaf",
+ "paper_leaf": "5.4.1.3",
+ "claimed_types": [
+  6
+ ],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:xor(T,z) out=None bits=??; B=C:?(x,y) out=None bits=??; z:var out=None prot=True; E:and(D,?) out=None bits=??",
+   "FB": 0,
+   "n_vars": 116864,
+   "n_clauses": 526956,
+   "encode_s": 0.59,
+   "solve_s": 262.36,
+   "n_sims": 8,
+   "KA": 9,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.4.1.3.p0.drat.gz",
+    "lines": 6670227
+   }
+  },
+  {
+   "partition": 1,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:xor(T,z) out=None bits=??; B:?(x,?) out=None bits=??; C=E:and(y,D) out=None bits=??; z:var out=None prot=True",
+   "FB": 0,
+   "n_vars": 116845,
+   "n_clauses": 526620,
+   "encode_s": 0.91,
+   "solve_s": 40.42,
+   "n_sims": 8,
+   "KA": 9,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.4.1.3.p1.drat.gz",
+    "lines": 2007785
+   }
+  },
+  {
+   "partition": 2,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:xor(T,z) out=None bits=??; B:?(x,?) out=None bits=??; C:?(y,?) out=None bits=??; z:var out=None prot=True; E:and(D,?) out=None bits=??",
+   "FB": 0,
+   "n_vars": 227143,
+   "n_clauses": 1185349,
+   "encode_s": 2.16,
+   "solve_s": 297.45,
+   "n_sims": 8,
+   "KA": 14,
+   "status": "timeout"
+  }
+ ],
+ "status": "timeout",
+ "solve_s": 600.23,
+ "encode_s": 3.66,
+ "n_vars": 460852,
+ "n_clauses": 2238925,
+ "drat_status": null,
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 606.6
+}

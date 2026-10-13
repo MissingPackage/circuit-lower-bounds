@@ -1,0 +1,720 @@
+{
+ "id": "3",
+ "node": "3",
+ "cert_dir": "certs",
+ "kind": "leaf",
+ "mode": "leaf",
+ "paper_leaf": "3",
+ "claimed_types": [
+  3
+ ],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; T:and(x,?) out=None bits=??",
+   "FB": 0,
+   "n_vars": 8168,
+   "n_clauses": 32774,
+   "encode_s": 0.02,
+   "solve_s": 0.08,
+   "n_sims": 2,
+   "KA": 6,
+   "view": [
+    {
+     "slot": 0,
+     "block": "P",
+     "names": [
+      "x"
+     ],
+     "kind": "var",
+     "out": 3,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 1,
+     "block": "P",
+     "names": [
+      "T"
+     ],
+     "kind": "gate",
+     "out": 2,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      4
+     ]
+    },
+    {
+     "slot": 2,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      0,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      1,
+      0
+     ]
+    },
+    {
+     "slot": 3,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "xor",
+     "bits": [
+      0,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      1
+     ]
+    },
+    {
+     "slot": 4,
+     "block": "A",
+     "names": [],
+     "kind": "var",
+     "out": 1,
+     "prot": false,
+     "partner": null
+    }
+   ],
+   "sims": [
+    {
+     "sim": "3/x <- c trivialising T/b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [
+      1,
+      2,
+      3
+     ],
+     "dominates": {
+      "3": [
+       false,
+       false
+      ]
+     }
+    },
+    {
+     "sim": "3/x <- c trivialising T/~b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": true
+    }
+   ],
+   "status": "OVF"
+  },
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; T:and(x,?) out=None bits=??",
+   "FB": 2,
+   "n_vars": 11159,
+   "n_clauses": 45342,
+   "encode_s": 0.03,
+   "solve_s": 0.09,
+   "n_sims": 2,
+   "KA": 6,
+   "view": [
+    {
+     "slot": 0,
+     "block": "P",
+     "names": [
+      "x"
+     ],
+     "kind": "var",
+     "out": 3,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 1,
+     "block": "P",
+     "names": [
+      "T"
+     ],
+     "kind": "gate",
+     "out": 2,
+     "type": "and",
+     "bits": [
+      1,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      4
+     ]
+    },
+    {
+     "slot": 2,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      1
+     ]
+    },
+    {
+     "slot": 3,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "xor",
+     "bits": [
+      0,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      1,
+      0
+     ]
+    },
+    {
+     "slot": 4,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 2,
+     "type": "xor",
+     "bits": [
+      0,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      10,
+      9
+     ]
+    },
+    {
+     "slot": 9,
+     "block": "B",
+     "names": [],
+     "kind": "var",
+     "out": 1,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 10,
+     "block": "B",
+     "names": [],
+     "kind": "var",
+     "out": 1,
+     "prot": false,
+     "partner": null
+    }
+   ],
+   "sims": [
+    {
+     "sim": "3/x <- c trivialising T/b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [
+      1,
+      2,
+      3
+     ],
+     "dominates": {
+      "3": [
+       false,
+       false
+      ]
+     }
+    },
+    {
+     "sim": "3/x <- c trivialising T/~b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": true
+    }
+   ],
+   "status": "OVF"
+  },
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; T:and(x,?) out=None bits=??",
+   "FB": 4,
+   "n_vars": 14724,
+   "n_clauses": 60818,
+   "encode_s": 0.05,
+   "solve_s": 0.17,
+   "n_sims": 2,
+   "KA": 6,
+   "view": [
+    {
+     "slot": 0,
+     "block": "P",
+     "names": [
+      "x"
+     ],
+     "kind": "var",
+     "out": 2,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 1,
+     "block": "P",
+     "names": [
+      "T"
+     ],
+     "kind": "gate",
+     "out": 2,
+     "type": "and",
+     "bits": [
+      0,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      4
+     ]
+    },
+    {
+     "slot": 2,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 2,
+     "type": "xor",
+     "bits": [
+      1,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      1
+     ]
+    },
+    {
+     "slot": 3,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 2,
+     "type": "and",
+     "bits": [
+      0,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      9,
+      1
+     ]
+    },
+    {
+     "slot": 4,
+     "block": "A",
+     "names": [],
+     "kind": "var",
+     "out": 3,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 9,
+     "block": "B",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "xor",
+     "bits": [
+      1,
+      1
+     ],
+     "full": false,
+     "inputs": [
+      11,
+      null
+     ]
+    },
+    {
+     "slot": 10,
+     "block": "B",
+     "names": [],
+     "kind": "gate",
+     "out": 3,
+     "type": "xor",
+     "bits": [
+      1,
+      1
+     ],
+     "full": false,
+     "inputs": [
+      null,
+      4
+     ]
+    },
+    {
+     "slot": 11,
+     "block": "B",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      4,
+      12
+     ]
+    },
+    {
+     "slot": 12,
+     "block": "B",
+     "names": [],
+     "kind": "var",
+     "out": 3,
+     "prot": false,
+     "partner": null
+    }
+   ],
+   "sims": [
+    {
+     "sim": "3/x <- c trivialising T/b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [
+      1,
+      2,
+      3
+     ],
+     "dominates": {
+      "3": [
+       false,
+       false
+      ]
+     }
+    },
+    {
+     "sim": "3/x <- c trivialising T/~b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": true
+    }
+   ],
+   "status": "OVF"
+  },
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; T:and(x,?) out=None bits=??",
+   "FB": 8,
+   "n_vars": 24519,
+   "n_clauses": 104368,
+   "encode_s": 0.08,
+   "solve_s": 1.15,
+   "n_sims": 2,
+   "KA": 6,
+   "view": [
+    {
+     "slot": 0,
+     "block": "P",
+     "names": [
+      "x"
+     ],
+     "kind": "var",
+     "out": 2,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 1,
+     "block": "P",
+     "names": [
+      "T"
+     ],
+     "kind": "gate",
+     "out": 2,
+     "type": "and",
+     "bits": [
+      0,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      4
+     ]
+    },
+    {
+     "slot": 2,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "xor",
+     "bits": [
+      0,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      1
+     ]
+    },
+    {
+     "slot": 3,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 3,
+     "type": "and",
+     "bits": [
+      0,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      16,
+      1
+     ]
+    },
+    {
+     "slot": 4,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 3,
+     "type": "and",
+     "bits": [
+      1,
+      0
+     ],
+     "full": false,
+     "inputs": [
+      14,
+      null
+     ]
+    },
+    {
+     "slot": 9,
+     "block": "B",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      0,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      3,
+      12
+     ]
+    },
+    {
+     "slot": 10,
+     "block": "B",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      0,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      15,
+      3
+     ]
+    },
+    {
+     "slot": 11,
+     "block": "B",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      0,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      13,
+      3
+     ]
+    },
+    {
+     "slot": 12,
+     "block": "B",
+     "names": [],
+     "kind": "gate",
+     "out": 2,
+     "type": "xor",
+     "bits": [
+      0,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      13,
+      4
+     ]
+    },
+    {
+     "slot": 13,
+     "block": "B",
+     "names": [],
+     "kind": "gate",
+     "out": 2,
+     "type": "xor",
+     "bits": [
+      0,
+      0
+     ],
+     "full": false,
+     "inputs": [
+      null,
+      4
+     ]
+    },
+    {
+     "slot": 14,
+     "block": "B",
+     "names": [],
+     "kind": "gate",
+     "out": 2,
+     "type": "xor",
+     "bits": [
+      0,
+      0
+     ],
+     "full": false,
+     "inputs": [
+      15,
+      null
+     ]
+    },
+    {
+     "slot": 15,
+     "block": "B",
+     "names": [],
+     "kind": "gate",
+     "out": 3,
+     "type": "xor",
+     "bits": [
+      0,
+      0
+     ],
+     "full": false,
+     "inputs": [
+      null,
+      16
+     ]
+    },
+    {
+     "slot": 16,
+     "block": "B",
+     "names": [],
+     "kind": "var",
+     "out": 2,
+     "prot": false,
+     "partner": null
+    }
+   ],
+   "sims": [
+    {
+     "sim": "3/x <- c trivialising T/b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [
+      1,
+      2,
+      3
+     ],
+     "dominates": {
+      "3": [
+       false,
+       false
+      ]
+     }
+    },
+    {
+     "sim": "3/x <- c trivialising T/~b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": true
+    }
+   ],
+   "status": "OVF"
+  },
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; T:and(x,?) out=None bits=??",
+   "FB": 16,
+   "n_vars": 49931,
+   "n_clauses": 231200,
+   "encode_s": 1.54,
+   "solve_s": 599.02,
+   "n_sims": 2,
+   "KA": 6,
+   "status": "timeout"
+  }
+ ],
+ "status": "timeout",
+ "solve_s": 600.51,
+ "encode_s": 1.72,
+ "n_vars": 108501,
+ "n_clauses": 474502,
+ "drat_status": null,
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 602.25
+}

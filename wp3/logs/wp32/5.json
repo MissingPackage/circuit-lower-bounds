@@ -1,0 +1,88 @@
+{
+ "id": "5",
+ "node": "5",
+ "cert_dir": "certs",
+ "kind": "internal",
+ "mode": "internal",
+ "paper_leaf": false,
+ "claimed_types": [
+  3,
+  4
+ ],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D=B:?(T,x) out=None bits=??; C:?(y,?) out=None bits=??",
+   "FB": 0,
+   "n_vars": 29590,
+   "n_clauses": 127944,
+   "encode_s": 1.03,
+   "solve_s": 1.0,
+   "n_sims": 4,
+   "KA": 7,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.p0.drat.gz",
+    "lines": 118191
+   }
+  },
+  {
+   "partition": 1,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D=C:?(T,y) out=None bits=??; B:?(x,?) out=None bits=??",
+   "FB": 0,
+   "n_vars": 29590,
+   "n_clauses": 127944,
+   "encode_s": 0.21,
+   "solve_s": 0.89,
+   "n_sims": 4,
+   "KA": 7,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.p1.drat.gz",
+    "lines": 118191
+   }
+  },
+  {
+   "partition": 2,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:?(T,?) out=None bits=??; B=C:?(x,y) out=None bits=??",
+   "FB": 0,
+   "n_vars": 29588,
+   "n_clauses": 127932,
+   "encode_s": 0.25,
+   "solve_s": 0.23,
+   "n_sims": 4,
+   "KA": 7,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.p2.drat.gz",
+    "lines": 21673
+   }
+  },
+  {
+   "partition": 3,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:?(T,?) out=None bits=??; B:?(x,?) out=None bits=??; C:?(y,?) out=None bits=??",
+   "FB": 0,
+   "n_vars": 68416,
+   "n_clauses": 350212,
+   "encode_s": 0.55,
+   "solve_s": 0.58,
+   "n_sims": 4,
+   "KA": 12,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.p3.drat.gz",
+    "lines": 44082
+   }
+  }
+ ],
+ "status": "UNSAT",
+ "solve_s": 2.71,
+ "encode_s": 2.05,
+ "n_vars": 157184,
+ "n_clauses": 734032,
+ "drat_status": "unsat-uncertified (DRAT proof emitted, no external checker available offline)",
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 4.84,
+ "certified_types": null
+}

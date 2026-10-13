@@ -1,0 +1,158 @@
+{
+ "id": "m_missing_leaf_root_4",
+ "node": "R",
+ "cert_dir": "mutants/m_missing_leaf_root_4",
+ "kind": "root",
+ "mode": "internal",
+ "paper_leaf": false,
+ "claimed_types": [],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "T:and(?,?) out=None bits=??",
+   "FB": 0,
+   "n_vars": 1210,
+   "n_clauses": 7031,
+   "encode_s": 0.02,
+   "solve_s": 0.01,
+   "n_sims": 0,
+   "KA": 5,
+   "view": [
+    {
+     "slot": 0,
+     "block": "P",
+     "names": [
+      "T"
+     ],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      3,
+      2
+     ]
+    },
+    {
+     "slot": 1,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 0,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": false,
+     "inputs": [
+      0,
+      null
+     ]
+    },
+    {
+     "slot": 2,
+     "block": "A",
+     "names": [],
+     "kind": "var",
+     "out": 1,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 3,
+     "block": "A",
+     "names": [],
+     "kind": "var",
+     "out": 1,
+     "prot": false,
+     "partner": null
+    }
+   ],
+   "sims": [],
+   "status": "SAT",
+   "engine_comp": "T:and(n3,n2) out=1 bits=11; n1:and(T,?) out=0 bits=11; n2:var out=1 prot=False; n3:var out=1 prot=False",
+   "replay": {
+    "completions": 1,
+    "pruned": {},
+    "vacuous": 0,
+    "discharged": {},
+    "covered": {},
+    "seconds": 0.0,
+    "verdict": "violation",
+    "engine_completion": "T:and(n3,n2) out=1 bits=11; n1:and(T,?) out=0 bits=11; n2:var out=1 prot=False; n3:var out=1 prot=False",
+    "engine_reason": "None"
+   }
+  }
+ ],
+ "status": "SAT",
+ "solve_s": 0.01,
+ "encode_s": 0.02,
+ "n_vars": 1210,
+ "n_clauses": 7031,
+ "drat_status": null,
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 0.04,
+ "counter_completion": [
+  {
+   "slot": 0,
+   "block": "P",
+   "names": [
+    "T"
+   ],
+   "kind": "gate",
+   "out": 1,
+   "type": "and",
+   "bits": [
+    1,
+    1
+   ],
+   "full": true,
+   "inputs": [
+    3,
+    2
+   ]
+  },
+  {
+   "slot": 1,
+   "block": "A",
+   "names": [],
+   "kind": "gate",
+   "out": 0,
+   "type": "and",
+   "bits": [
+    1,
+    1
+   ],
+   "full": false,
+   "inputs": [
+    0,
+    null
+   ]
+  },
+  {
+   "slot": 2,
+   "block": "A",
+   "names": [],
+   "kind": "var",
+   "out": 1,
+   "prot": false,
+   "partner": null
+  },
+  {
+   "slot": 3,
+   "block": "A",
+   "names": [],
+   "kind": "var",
+   "out": 1,
+   "prot": false,
+   "partner": null
+  }
+ ],
+ "replay_verdict": "violation"
+}

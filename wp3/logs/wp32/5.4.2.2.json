@@ -1,0 +1,82 @@
+{
+ "id": "5.4.2.2",
+ "node": "5.4.2.2",
+ "cert_dir": "certs",
+ "kind": "leaf",
+ "mode": "leaf",
+ "paper_leaf": "5.4.2.2",
+ "claimed_types": [
+  1
+ ],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D=C:?(T,y) out=None bits=??; B:?(x,t=z) out=None bits=??; t=z:var out=None prot=None; E:and(B,t=z) out=None bits=??",
+   "FB": 0,
+   "n_vars": 85826,
+   "n_clauses": 365776,
+   "encode_s": 1.19,
+   "solve_s": 2.56,
+   "n_sims": 8,
+   "KA": 7,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.4.2.2.p0.drat.gz",
+    "lines": 355360
+   }
+  },
+  {
+   "partition": 1,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D=C:?(T,y) out=None bits=??; B:?(x,t) out=None bits=??; t:var out=None prot=None; z:var out=None prot=None; E:and(B,z) out=None bits=??",
+   "FB": 0,
+   "n_vars": 141203,
+   "n_clauses": 655564,
+   "encode_s": 0.94,
+   "solve_s": 4.87,
+   "n_sims": 8,
+   "KA": 10,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.4.2.2.p1.drat.gz",
+    "lines": 635855
+   }
+  },
+  {
+   "partition": 2,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:?(T,?) out=None bits=??; B:?(x,t=z) out=None bits=??; C:?(y,?) out=None bits=??; t=z:var out=None prot=None; E:and(B,t=z) out=None bits=??",
+   "FB": 0,
+   "n_vars": 183625,
+   "n_clauses": 914529,
+   "encode_s": 1.47,
+   "solve_s": 6.9,
+   "n_sims": 8,
+   "KA": 12,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.4.2.2.p2.drat.gz",
+    "lines": 881011
+   }
+  },
+  {
+   "partition": 3,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:?(T,?) out=None bits=??; B:?(x,t) out=None bits=??; C:?(y,?) out=None bits=??; t:var out=None prot=None; z:var out=None prot=None; E:and(B,z) out=None bits=??",
+   "FB": 0,
+   "n_vars": 261305,
+   "n_clauses": 1399627,
+   "encode_s": 2.53,
+   "solve_s": 585.93,
+   "n_sims": 8,
+   "KA": 15,
+   "status": "timeout"
+  }
+ ],
+ "status": "timeout",
+ "solve_s": 600.25,
+ "encode_s": 6.12,
+ "n_vars": 671959,
+ "n_clauses": 3335496,
+ "drat_status": null,
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 606.66
+}

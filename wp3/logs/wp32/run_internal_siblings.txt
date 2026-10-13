@@ -1,0 +1,81 @@
+[1/6, 0 s elapsed, 6 items left] 5.2 certs
+  [5.2] partition 1/1 FB=0: 38846 vars 178075 clauses, encoded in 0.2 s; solving (budget 600 s)
+  [5.2] partition 1: OVF model at FB=0
+  [5.2] partition 1/1 FB=2: 46314 vars 212938 clauses, encoded in 0.3 s; solving (budget 600 s)
+  [5.2] partition 1: OVF model at FB=2
+  [5.2] partition 1/1 FB=4: 55653 vars 255632 clauses, encoded in 0.5 s; solving (budget 597 s)
+  [5.2] partition 1: OVF model at FB=4
+  [5.2] partition 1/1 FB=8: 75367 vars 350116 clauses, encoded in 0.8 s; solving (budget 596 s)
+  [5.2] partition 1: UNSAT in 199.1 s (proof 4713346 lines)
+    -> UNSAT solve 203.1 s encode 1.8 s vars 216180 clauses 996761 
+[2/6, 207 s elapsed, 5 items left] 5.4.2 certs
+  [5.4.2] partition 1/4 FB=0: 48876 vars 230309 clauses, encoded in 0.5 s; solving (budget 600 s)
+  [5.4.2] partition 1: UNSAT in 1.5 s (proof 214659 lines)
+  [5.4.2] partition 2/4 FB=0: 76455 vars 392799 clauses, encoded in 0.6 s; solving (budget 598 s)
+  [5.4.2] partition 2: UNSAT in 2.8 s (proof 362335 lines)
+  [5.4.2] partition 3/4 FB=0: 96447 vars 532049 clauses, encoded in 0.8 s; solving (budget 596 s)
+  [5.4.2] partition 3: UNSAT in 1.1 s (proof 93875 lines)
+  [5.4.2] partition 4/4 FB=0: 132643 vars 790933 clauses, encoded in 1.2 s; solving (budget 595 s)
+  [5.4.2] partition 4: UNSAT in 1.4 s (proof 125957 lines)
+    -> UNSAT solve 6.8 s encode 3.1 s vars 354421 clauses 1946090 
+[3/6, 217 s elapsed, 4 items left] 5.4.1.1 certs
+  [5.4.1.1] partition 1/3 FB=0: 48555 vars 231080 clauses, encoded in 0.7 s; solving (budget 600 s)
+  [5.4.1.1] partition 1: UNSAT in 0.4 s (proof 43104 lines)
+  [5.4.1.1] partition 2/3 FB=0: 48536 vars 230881 clauses, encoded in 0.3 s; solving (budget 600 s)
+  [5.4.1.1] partition 2: UNSAT in 0.4 s (proof 43492 lines)
+  [5.4.1.1] partition 3/3 FB=0: 96181 vars 534531 clauses, encoded in 0.9 s; solving (budget 599 s)
+  [5.4.1.1] partition 3: OVF model at FB=0
+  [5.4.1.1] partition 3/3 FB=2: 107989 vars 601428 clauses, encoded in 0.9 s; solving (budget 598 s)
+  [5.4.1.1] partition 3: OVF model at FB=2
+  [5.4.1.1] partition 3/3 FB=4: 120724 vars 674050 clauses, encoded in 1.1 s; solving (budget 596 s)
+  [5.4.1.1] partition 3: OVF model at FB=4
+  [5.4.1.1] partition 3/3 FB=8: 148798 vars 836526 clauses, encoded in 1.6 s; solving (budget 579 s)
+  [5.4.1.1] partition 3: SAT in 92.5 s, replay verdict violation
+    -> SAT solve 113.1 s encode 5.5 s vars 570783 clauses 3108496 violation
+[4/6, 336 s elapsed, 3 items left] 5.4.1 certs
+  [5.4.1] partition 1/3 FB=0: 64254 vars 320674 clauses, encoded in 1.2 s; solving (budget 600 s)
+  [5.4.1] partition 1: UNSAT in 0.6 s (proof 50168 lines)
+  [5.4.1] partition 2/3 FB=0: 64232 vars 320470 clauses, encoded in 0.5 s; solving (budget 599 s)
+  [5.4.1] partition 2: OVF model at FB=0
+  [5.4.1] partition 2/3 FB=2: 73994 vars 370257 clauses, encoded in 0.7 s; solving (budget 599 s)
+  [5.4.1] partition 2: OVF model at FB=2
+  [5.4.1] partition 2/3 FB=4: 84671 vars 425241 clauses, encoded in 0.8 s; solving (budget 598 s)
+  [5.4.1] partition 2: OVF model at FB=4
+  [5.4.1] partition 2/3 FB=8: 108629 vars 551001 clauses, encoded in 0.9 s; solving (budget 589 s)
+  [5.4.1] partition 2: UNSAT in 269.3 s (proof 7176799 lines)
+  [5.4.1] partition 3/3 FB=0: 116182 vars 675077 clauses, encoded in 1.4 s; solving (budget 320 s)
+  [5.4.1] partition 3: OVF model at FB=0
+  [5.4.1] partition 3/3 FB=2: 129250 vars 752936 clauses, encoded in 1.1 s; solving (budget 318 s)
+  [5.4.1] partition 3: OVF model at FB=2
+  [5.4.1] partition 3/3 FB=4: 143253 vars 836872 clauses, encoded in 1.5 s; solving (budget 308 s)
+  [5.4.1] partition 3: OVF model at FB=4
+  [5.4.1] partition 3/3 FB=8: 173863 vars 1022936 clauses, encoded in 2.1 s; solving (budget 290 s)
+  [5.4.1] partition 3: SAT in 15.0 s, replay verdict violation
+    -> SAT solve 324.9 s encode 10.2 s vars 958328 clauses 5275464 violation
+[5/6, 673 s elapsed, 2 items left] 5.4 certs
+  [5.4] partition 1/4 FB=0: 29590 vars 127950 clauses, encoded in 0.8 s; solving (budget 600 s)
+  [5.4] partition 1: UNSAT in 0.9 s (proof 118191 lines)
+  [5.4] partition 2/4 FB=0: 29567 vars 128473 clauses, encoded in 0.1 s; solving (budget 599 s)
+  [5.4] partition 2: UNSAT in 0.8 s (proof 118612 lines)
+  [5.4] partition 3/4 FB=0: 29565 vars 127901 clauses, encoded in 0.2 s; solving (budget 598 s)
+  [5.4] partition 3: UNSAT in 0.2 s (proof 21672 lines)
+  [5.4] partition 4/4 FB=0: 68362 vars 352904 clauses, encoded in 0.7 s; solving (budget 598 s)
+  [5.4] partition 4: OVF model at FB=0
+  [5.4] partition 4/4 FB=2: 78438 vars 406389 clauses, encoded in 0.8 s; solving (budget 597 s)
+  [5.4] partition 4: OVF model at FB=2
+  [5.4] partition 4/4 FB=4: 89433 vars 465215 clauses, encoded in 1.0 s; solving (budget 596 s)
+  [5.4] partition 4: OVF model at FB=4
+  [5.4] partition 4/4 FB=8: 114027 vars 599043 clauses, encoded in 1.4 s; solving (budget 582 s)
+  [5.4] partition 4: OVF model at FB=8
+  [5.4] partition 4/4 FB=16: 178125 vars 951859 clauses, encoded in 1.8 s; solving (budget 474 s)
+    -> timeout solve 600.3 s encode 6.8 s vars 617107 clauses 3159734 
+[6/6, 1281 s elapsed, 1 items left] 5 certs
+  [5] partition 1/4 FB=0: 29590 vars 127944 clauses, encoded in 0.1 s; solving (budget 600 s)
+  [5] partition 1: UNSAT in 1.6 s (proof 118191 lines)
+  [5] partition 2/4 FB=0: 29590 vars 127944 clauses, encoded in 1.6 s; solving (budget 598 s)
+  [5] partition 2: UNSAT in 0.8 s (proof 118191 lines)
+  [5] partition 3/4 FB=0: 29588 vars 127932 clauses, encoded in 0.2 s; solving (budget 598 s)
+  [5] partition 3: UNSAT in 0.2 s (proof 21673 lines)
+  [5] partition 4/4 FB=0: 68416 vars 350212 clauses, encoded in 0.6 s; solving (budget 597 s)
+  [5] partition 4: UNSAT in 0.6 s (proof 44082 lines)
+    -> UNSAT solve 3.2 s encode 2.5 s vars 157184 clauses 734032 

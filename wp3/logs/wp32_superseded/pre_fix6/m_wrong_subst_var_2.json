@@ -1,0 +1,146 @@
+{
+ "id": "m_wrong_subst_var_2",
+ "node": "2",
+ "cert_dir": "mutants/m_wrong_subst_var_2",
+ "kind": "leaf",
+ "mode": "leaf",
+ "paper_leaf": "2",
+ "claimed_types": [
+  2
+ ],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=True partner=x2; x2:var out=None prot=True partner=x",
+   "FB": 0,
+   "n_vars": 1342,
+   "n_clauses": 4909,
+   "encode_s": 0.0,
+   "solve_s": 0.01,
+   "n_sims": 1,
+   "KA": 3,
+   "view": [
+    {
+     "slot": 0,
+     "block": "P",
+     "names": [
+      "x"
+     ],
+     "kind": "var",
+     "out": 0,
+     "prot": true,
+     "partner": 1
+    },
+    {
+     "slot": 1,
+     "block": "P",
+     "names": [
+      "x2"
+     ],
+     "kind": "var",
+     "out": 1,
+     "prot": true,
+     "partner": 0
+    },
+    {
+     "slot": 2,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "xor",
+     "bits": [
+      0,
+      1
+     ],
+     "full": false,
+     "inputs": [
+      1,
+      null
+     ]
+    }
+   ],
+   "sims": [
+    {
+     "sim": "2/x2 <- 0/0",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [],
+     "dominates": {
+      "2": [
+       false,
+       false
+      ]
+     }
+    }
+   ],
+   "status": "SAT",
+   "engine_comp": "x:var out=0 prot=True partner=x2; x2:var out=1 prot=True partner=x; n2:xor(x2,?) out=1 bits=00",
+   "replay": {
+    "completions": 1,
+    "pruned": {},
+    "vacuous": 0,
+    "discharged": {},
+    "covered": {},
+    "seconds": 0.0,
+    "verdict": "violation",
+    "engine_completion": "x:var out=0 prot=True partner=x2; x2:var out=1 prot=True partner=x; n2:xor(x2,?) out=1 bits=00",
+    "engine_reason": "('x2 <- 0', ['gain 1*aI + 1*aQ (g=0 t=0 i=1 q=1 pending=0) below types [2]'])"
+   }
+  }
+ ],
+ "status": "SAT",
+ "solve_s": 0.01,
+ "encode_s": 0.0,
+ "n_vars": 1342,
+ "n_clauses": 4909,
+ "drat_status": null,
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 0.02,
+ "counter_completion": [
+  {
+   "slot": 0,
+   "block": "P",
+   "names": [
+    "x"
+   ],
+   "kind": "var",
+   "out": 0,
+   "prot": true,
+   "partner": 1
+  },
+  {
+   "slot": 1,
+   "block": "P",
+   "names": [
+    "x2"
+   ],
+   "kind": "var",
+   "out": 1,
+   "prot": true,
+   "partner": 0
+  },
+  {
+   "slot": 2,
+   "block": "A",
+   "names": [],
+   "kind": "gate",
+   "out": 1,
+   "type": "xor",
+   "bits": [
+    0,
+    1
+   ],
+   "full": false,
+   "inputs": [
+    1,
+    null
+   ]
+  }
+ ],
+ "replay_verdict": "violation"
+}

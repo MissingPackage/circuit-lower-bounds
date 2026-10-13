@@ -1,0 +1,37 @@
+{
+ "id": "m_missing_leaf_root_4",
+ "node": "R",
+ "cert_dir": "mutants/m_missing_leaf_root_4",
+ "kind": "root",
+ "mode": "internal",
+ "paper_leaf": false,
+ "claimed_types": [],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "T:and(?,?) out=None bits=??",
+   "FB": 0,
+   "n_vars": 1114,
+   "n_clauses": 6809,
+   "encode_s": 0.02,
+   "solve_s": 0.05,
+   "n_sims": 0,
+   "KA": 5,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/m_missing_leaf_root_4.p0.drat.gz",
+    "lines": 4131
+   }
+  }
+ ],
+ "status": "UNSAT",
+ "solve_s": 0.05,
+ "encode_s": 0.02,
+ "n_vars": 1114,
+ "n_clauses": 6809,
+ "drat_status": "unsat-uncertified (DRAT proof emitted, no external checker available offline)",
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 0.08,
+ "certified_types": null
+}

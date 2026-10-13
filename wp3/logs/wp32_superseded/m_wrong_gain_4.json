@@ -1,0 +1,41 @@
+{
+ "id": "m_wrong_gain_4",
+ "node": "4",
+ "cert_dir": "mutants/m_wrong_gain_4",
+ "kind": "leaf",
+ "mode": "leaf",
+ "paper_leaf": "4",
+ "claimed_types": [
+  3
+ ],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??",
+   "FB": 0,
+   "n_vars": 4754,
+   "n_clauses": 19231,
+   "encode_s": 0.02,
+   "solve_s": 0.05,
+   "n_sims": 1,
+   "KA": 5,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/m_wrong_gain_4.p0.drat.gz",
+    "lines": 3766
+   }
+  }
+ ],
+ "status": "UNSAT",
+ "solve_s": 0.05,
+ "encode_s": 0.02,
+ "n_vars": 4754,
+ "n_clauses": 19231,
+ "drat_status": "unsat-uncertified (DRAT proof emitted, no external checker available offline)",
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 0.08,
+ "certified_types": [
+  3
+ ]
+}

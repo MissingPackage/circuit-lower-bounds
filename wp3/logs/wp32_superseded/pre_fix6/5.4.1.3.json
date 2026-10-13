@@ -1,0 +1,759 @@
+{
+ "id": "5.4.1.3",
+ "node": "5.4.1.3",
+ "cert_dir": "certs",
+ "kind": "leaf",
+ "mode": "leaf",
+ "paper_leaf": "5.4.1.3",
+ "claimed_types": [
+  6
+ ],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:xor(T,z) out=None bits=??; B=C:?(x,y) out=None bits=??; z:var out=None prot=True; E:and(D,?) out=None bits=??",
+   "FB": 0,
+   "n_vars": 75996,
+   "n_clauses": 402600,
+   "encode_s": 0.86,
+   "solve_s": 0.96,
+   "n_sims": 8,
+   "KA": 9,
+   "view": [
+    {
+     "slot": 0,
+     "block": "P",
+     "names": [
+      "x"
+     ],
+     "kind": "var",
+     "out": 2,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 1,
+     "block": "P",
+     "names": [
+      "y"
+     ],
+     "kind": "var",
+     "out": 2,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 2,
+     "block": "P",
+     "names": [
+      "T"
+     ],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      1,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      1
+     ]
+    },
+    {
+     "slot": 3,
+     "block": "P",
+     "names": [
+      "D"
+     ],
+     "kind": "gate",
+     "out": 2,
+     "type": "xor",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      2,
+      5
+     ]
+    },
+    {
+     "slot": 4,
+     "block": "P",
+     "names": [
+      "B",
+      "C"
+     ],
+     "kind": "gate",
+     "out": 0,
+     "type": "xor",
+     "bits": [
+      1,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      1
+     ]
+    },
+    {
+     "slot": 5,
+     "block": "P",
+     "names": [
+      "z"
+     ],
+     "kind": "var",
+     "out": 1,
+     "prot": true,
+     "partner": 18
+    },
+    {
+     "slot": 6,
+     "block": "P",
+     "names": [
+      "E"
+     ],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      3,
+      9
+     ]
+    },
+    {
+     "slot": 7,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      0,
+      1
+     ],
+     "full": false,
+     "inputs": [
+      null,
+      3
+     ]
+    },
+    {
+     "slot": 8,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      0,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      7,
+      6
+     ]
+    },
+    {
+     "slot": 9,
+     "block": "A",
+     "names": [],
+     "kind": "var",
+     "out": 1,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 18,
+     "block": "Q",
+     "names": [],
+     "kind": "var",
+     "out": 1,
+     "prot": true,
+     "partner": 5
+    }
+   ],
+   "sims": [
+    {
+     "sim": "5.4.1.3/x <- c trivialising T; z <- c trivialising E/b0",
+     "legal": true,
+     "trivialised": false,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [
+      2,
+      3,
+      4,
+      6,
+      7
+     ],
+     "dominates": {
+      "6": [
+       true,
+       false
+      ]
+     }
+    },
+    {
+     "sim": "5.4.1.3/x <- c trivialising T; z <- c trivialising E/b1",
+     "legal": true,
+     "trivialised": false,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [
+      2,
+      3,
+      4,
+      6,
+      7
+     ],
+     "dominates": {
+      "6": [
+       true,
+       false
+      ]
+     }
+    },
+    {
+     "sim": "5.4.1.3/x <- c trivialising T; z <- c trivialising E/~b0",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": true
+    },
+    {
+     "sim": "5.4.1.3/x <- c trivialising T; z <- c trivialising E/~b1",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": true
+    },
+    {
+     "sim": "5/x <- c trivialising T/b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [
+      2,
+      3,
+      4
+     ],
+     "dominates": {
+      "3": [
+       false,
+       false
+      ],
+      "4": [
+       false,
+       false
+      ]
+     }
+    },
+    {
+     "sim": "5/x <- c trivialising T/~b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": true
+    },
+    {
+     "sim": "5/y <- c trivialising T/b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [
+      2,
+      3,
+      4
+     ],
+     "dominates": {
+      "3": [
+       false,
+       false
+      ],
+      "4": [
+       false,
+       false
+      ]
+     }
+    },
+    {
+     "sim": "5/y <- c trivialising T/~b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": true
+    }
+   ],
+   "status": "OVF"
+  },
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:xor(T,z) out=None bits=??; B=C:?(x,y) out=None bits=??; z:var out=None prot=True; E:and(D,?) out=None bits=??",
+   "FB": 2,
+   "n_vars": 91987,
+   "n_clauses": 480717,
+   "encode_s": 0.73,
+   "solve_s": 2.25,
+   "n_sims": 8,
+   "KA": 9,
+   "view": [
+    {
+     "slot": 0,
+     "block": "P",
+     "names": [
+      "x"
+     ],
+     "kind": "var",
+     "out": 2,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 1,
+     "block": "P",
+     "names": [
+      "y"
+     ],
+     "kind": "var",
+     "out": 2,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 2,
+     "block": "P",
+     "names": [
+      "T"
+     ],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      0,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      1
+     ]
+    },
+    {
+     "slot": 3,
+     "block": "P",
+     "names": [
+      "D"
+     ],
+     "kind": "gate",
+     "out": 2,
+     "type": "xor",
+     "bits": [
+      0,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      2,
+      5
+     ]
+    },
+    {
+     "slot": 4,
+     "block": "P",
+     "names": [
+      "B",
+      "C"
+     ],
+     "kind": "gate",
+     "out": 1,
+     "type": "xor",
+     "bits": [
+      0,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      1
+     ]
+    },
+    {
+     "slot": 5,
+     "block": "P",
+     "names": [
+      "z"
+     ],
+     "kind": "var",
+     "out": 1,
+     "prot": true,
+     "partner": 20
+    },
+    {
+     "slot": 6,
+     "block": "P",
+     "names": [
+      "E"
+     ],
+     "kind": "gate",
+     "out": 0,
+     "type": "and",
+     "bits": [
+      0,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      3,
+      4
+     ]
+    },
+    {
+     "slot": 7,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      1,
+      0
+     ],
+     "full": true,
+     "inputs": [
+      19,
+      3
+     ]
+    },
+    {
+     "slot": 19,
+     "block": "B",
+     "names": [],
+     "kind": "var",
+     "out": 2,
+     "prot": false,
+     "partner": null
+    },
+    {
+     "slot": 20,
+     "block": "B",
+     "names": [],
+     "kind": "var",
+     "out": 1,
+     "prot": true,
+     "partner": 5
+    }
+   ],
+   "sims": [
+    {
+     "sim": "5.4.1.3/x <- c trivialising T; z <- c trivialising E/b0",
+     "legal": true,
+     "trivialised": false,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [
+      2,
+      3,
+      4,
+      6,
+      7
+     ],
+     "dominates": {
+      "6": [
+       true,
+       true
+      ]
+     }
+    },
+    {
+     "sim": "5.4.1.3/x <- c trivialising T; z <- c trivialising E/b1",
+     "legal": true,
+     "trivialised": false,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [
+      2,
+      3,
+      4,
+      6,
+      7
+     ],
+     "dominates": {
+      "6": [
+       true,
+       true
+      ]
+     }
+    },
+    {
+     "sim": "5.4.1.3/x <- c trivialising T; z <- c trivialising E/~b0",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": true
+    },
+    {
+     "sim": "5.4.1.3/x <- c trivialising T; z <- c trivialising E/~b1",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": true
+    },
+    {
+     "sim": "5/x <- c trivialising T/b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [
+      2,
+      3,
+      4
+     ],
+     "dominates": {
+      "3": [
+       false,
+       false
+      ],
+      "4": [
+       false,
+       false
+      ]
+     }
+    },
+    {
+     "sim": "5/x <- c trivialising T/~b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": true
+    },
+    {
+     "sim": "5/y <- c trivialising T/b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [
+      2,
+      3,
+      4
+     ],
+     "dominates": {
+      "3": [
+       false,
+       false
+      ],
+      "4": [
+       false,
+       false
+      ]
+     }
+    },
+    {
+     "sim": "5/y <- c trivialising T/~b",
+     "legal": true,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": true
+    }
+   ],
+   "status": "SAT",
+   "engine_comp": "x:var out=2 prot=False; y:var out=2 prot=False; T:and(x,y) out=1 bits=01; D:xor(T,z) out=2 bits=00; B=C:xor(x,y) out=1 bits=00; z:var out=1 prot=True partner=n9; E:and(D,B=C) out=0 bits=01; n7:and(n8,D) out=1 bits=10; n8:var out=2 prot=False; n9:var out=1 prot=True partner=z",
+   "replay": {
+    "completions": 1,
+    "pruned": {},
+    "vacuous": 1,
+    "discharged": {},
+    "covered": {},
+    "seconds": 0.0,
+    "verdict": "not-a-violation"
+   }
+  }
+ ],
+ "status": "SAT",
+ "solve_s": 3.21,
+ "encode_s": 1.59,
+ "n_vars": 167983,
+ "n_clauses": 883317,
+ "drat_status": null,
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 4.82,
+ "counter_completion": [
+  {
+   "slot": 0,
+   "block": "P",
+   "names": [
+    "x"
+   ],
+   "kind": "var",
+   "out": 2,
+   "prot": false,
+   "partner": null
+  },
+  {
+   "slot": 1,
+   "block": "P",
+   "names": [
+    "y"
+   ],
+   "kind": "var",
+   "out": 2,
+   "prot": false,
+   "partner": null
+  },
+  {
+   "slot": 2,
+   "block": "P",
+   "names": [
+    "T"
+   ],
+   "kind": "gate",
+   "out": 1,
+   "type": "and",
+   "bits": [
+    0,
+    1
+   ],
+   "full": true,
+   "inputs": [
+    0,
+    1
+   ]
+  },
+  {
+   "slot": 3,
+   "block": "P",
+   "names": [
+    "D"
+   ],
+   "kind": "gate",
+   "out": 2,
+   "type": "xor",
+   "bits": [
+    0,
+    0
+   ],
+   "full": true,
+   "inputs": [
+    2,
+    5
+   ]
+  },
+  {
+   "slot": 4,
+   "block": "P",
+   "names": [
+    "B",
+    "C"
+   ],
+   "kind": "gate",
+   "out": 1,
+   "type": "xor",
+   "bits": [
+    0,
+    0
+   ],
+   "full": true,
+   "inputs": [
+    0,
+    1
+   ]
+  },
+  {
+   "slot": 5,
+   "block": "P",
+   "names": [
+    "z"
+   ],
+   "kind": "var",
+   "out": 1,
+   "prot": true,
+   "partner": 20
+  },
+  {
+   "slot": 6,
+   "block": "P",
+   "names": [
+    "E"
+   ],
+   "kind": "gate",
+   "out": 0,
+   "type": "and",
+   "bits": [
+    0,
+    1
+   ],
+   "full": true,
+   "inputs": [
+    3,
+    4
+   ]
+  },
+  {
+   "slot": 7,
+   "block": "A",
+   "names": [],
+   "kind": "gate",
+   "out": 1,
+   "type": "and",
+   "bits": [
+    1,
+    0
+   ],
+   "full": true,
+   "inputs": [
+    19,
+    3
+   ]
+  },
+  {
+   "slot": 19,
+   "block": "B",
+   "names": [],
+   "kind": "var",
+   "out": 2,
+   "prot": false,
+   "partner": null
+  },
+  {
+   "slot": 20,
+   "block": "B",
+   "names": [],
+   "kind": "var",
+   "out": 1,
+   "prot": true,
+   "partner": 5
+  }
+ ],
+ "replay_verdict": "not-a-violation"
+}

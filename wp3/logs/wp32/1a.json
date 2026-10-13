@@ -1,0 +1,41 @@
+{
+ "id": "1a",
+ "node": "1a",
+ "cert_dir": "certs",
+ "kind": "leaf",
+ "mode": "leaf",
+ "paper_leaf": "1",
+ "claimed_types": [
+  7
+ ],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=True",
+   "FB": 0,
+   "n_vars": 1774,
+   "n_clauses": 6273,
+   "encode_s": 0.06,
+   "solve_s": 0.01,
+   "n_sims": 1,
+   "KA": 3,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/1a.p0.drat.gz",
+    "lines": 158
+   }
+  }
+ ],
+ "status": "UNSAT",
+ "solve_s": 0.01,
+ "encode_s": 0.06,
+ "n_vars": 1774,
+ "n_clauses": 6273,
+ "drat_status": "unsat-uncertified (DRAT proof emitted, no external checker available offline)",
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 0.07,
+ "certified_types": [
+  7
+ ]
+}

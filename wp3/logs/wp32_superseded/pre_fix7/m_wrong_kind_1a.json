@@ -1,0 +1,210 @@
+{
+ "id": "m_wrong_kind_1a",
+ "node": "1a",
+ "cert_dir": "mutants/m_wrong_kind_1a",
+ "kind": "leaf",
+ "mode": "leaf",
+ "paper_leaf": "1",
+ "claimed_types": [
+  7
+ ],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=True",
+   "FB": 0,
+   "n_vars": 1384,
+   "n_clauses": 5060,
+   "encode_s": 0.0,
+   "solve_s": 0.01,
+   "n_sims": 1,
+   "KA": 3,
+   "view": [
+    {
+     "slot": 0,
+     "block": "P",
+     "names": [
+      "x"
+     ],
+     "kind": "var",
+     "out": 3,
+     "prot": true,
+     "partner": 4
+    },
+    {
+     "slot": 1,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 2,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      4
+     ]
+    },
+    {
+     "slot": 2,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 2,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      1
+     ]
+    },
+    {
+     "slot": 3,
+     "block": "A",
+     "names": [],
+     "kind": "gate",
+     "out": 1,
+     "type": "and",
+     "bits": [
+      1,
+      1
+     ],
+     "full": true,
+     "inputs": [
+      0,
+      1
+     ]
+    },
+    {
+     "slot": 4,
+     "block": "Q",
+     "names": [],
+     "kind": "var",
+     "out": 2,
+     "prot": true,
+     "partner": 0
+    }
+   ],
+   "sims": [
+    {
+     "sim": "1a/x <- 0/0",
+     "legal": false,
+     "trivialised": true,
+     "vacuous": false,
+     "ok": false,
+     "light": false,
+     "removed": [],
+     "dominates": {
+      "7": [
+       false,
+       false
+      ]
+     }
+    }
+   ],
+   "status": "SAT",
+   "engine_comp": "x:var out=3 prot=True partner=n4; n1:and(x,n4) out=2 bits=11; n2:and(x,n1) out=2 bits=11; n3:and(x,n1) out=1 bits=11; n4:var out=2 prot=True partner=x",
+   "replay": {
+    "completions": 1,
+    "pruned": {},
+    "vacuous": 0,
+    "discharged": {},
+    "covered": {},
+    "seconds": 0.0,
+    "verdict": "violation",
+    "engine_completion": "x:var out=3 prot=True partner=n4; n1:and(x,n4) out=2 bits=11; n2:and(x,n1) out=2 bits=11; n3:and(x,n1) out=1 bits=11; n4:var out=2 prot=True partner=x",
+    "engine_reason": "('x <- 0', ['illegal: affine substitution of protected variable x (Lemma 3.1.1 items 2-3)'])"
+   }
+  }
+ ],
+ "status": "SAT",
+ "solve_s": 0.01,
+ "encode_s": 0.0,
+ "n_vars": 1384,
+ "n_clauses": 5060,
+ "drat_status": null,
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 0.02,
+ "counter_completion": [
+  {
+   "slot": 0,
+   "block": "P",
+   "names": [
+    "x"
+   ],
+   "kind": "var",
+   "out": 3,
+   "prot": true,
+   "partner": 4
+  },
+  {
+   "slot": 1,
+   "block": "A",
+   "names": [],
+   "kind": "gate",
+   "out": 2,
+   "type": "and",
+   "bits": [
+    1,
+    1
+   ],
+   "full": true,
+   "inputs": [
+    0,
+    4
+   ]
+  },
+  {
+   "slot": 2,
+   "block": "A",
+   "names": [],
+   "kind": "gate",
+   "out": 2,
+   "type": "and",
+   "bits": [
+    1,
+    1
+   ],
+   "full": true,
+   "inputs": [
+    0,
+    1
+   ]
+  },
+  {
+   "slot": 3,
+   "block": "A",
+   "names": [],
+   "kind": "gate",
+   "out": 1,
+   "type": "and",
+   "bits": [
+    1,
+    1
+   ],
+   "full": true,
+   "inputs": [
+    0,
+    1
+   ]
+  },
+  {
+   "slot": 4,
+   "block": "Q",
+   "names": [],
+   "kind": "var",
+   "out": 2,
+   "prot": true,
+   "partner": 0
+  }
+ ],
+ "replay_verdict": "violation"
+}

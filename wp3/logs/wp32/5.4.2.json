@@ -1,0 +1,85 @@
+{
+ "id": "5.4.2",
+ "node": "5.4.2",
+ "cert_dir": "certs",
+ "kind": "internal",
+ "mode": "internal",
+ "paper_leaf": false,
+ "claimed_types": [],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D=C:?(T,y) out=None bits=??; B:?(x,t=z) out=None bits=??; t=z:var out=None prot=None; E:and(B,t=z) out=None bits=??",
+   "FB": 0,
+   "n_vars": 48876,
+   "n_clauses": 230309,
+   "encode_s": 0.5,
+   "solve_s": 1.59,
+   "n_sims": 4,
+   "KA": 9,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.4.2.p0.drat.gz",
+    "lines": 214659
+   }
+  },
+  {
+   "partition": 1,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D=C:?(T,y) out=None bits=??; B:?(x,t) out=None bits=??; t:var out=None prot=None; z:var out=None prot=None; E:and(B,z) out=None bits=??",
+   "FB": 0,
+   "n_vars": 76455,
+   "n_clauses": 392799,
+   "encode_s": 0.54,
+   "solve_s": 2.63,
+   "n_sims": 4,
+   "KA": 12,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.4.2.p1.drat.gz",
+    "lines": 362335
+   }
+  },
+  {
+   "partition": 2,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:?(T,?) out=None bits=??; B:?(x,t=z) out=None bits=??; C:?(y,?) out=None bits=??; t=z:var out=None prot=None; E:and(B,t=z) out=None bits=??",
+   "FB": 0,
+   "n_vars": 96447,
+   "n_clauses": 532048,
+   "encode_s": 0.82,
+   "solve_s": 1.05,
+   "n_sims": 4,
+   "KA": 14,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.4.2.p2.drat.gz",
+    "lines": 93874
+   }
+  },
+  {
+   "partition": 3,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:?(T,?) out=None bits=??; B:?(x,t) out=None bits=??; C:?(y,?) out=None bits=??; t:var out=None prot=None; z:var out=None prot=None; E:and(B,z) out=None bits=??",
+   "FB": 0,
+   "n_vars": 132643,
+   "n_clauses": 790932,
+   "encode_s": 1.24,
+   "solve_s": 1.45,
+   "n_sims": 4,
+   "KA": 17,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.4.2.p3.drat.gz",
+    "lines": 125956
+   }
+  }
+ ],
+ "status": "UNSAT",
+ "solve_s": 6.72,
+ "encode_s": 3.1,
+ "n_vars": 354421,
+ "n_clauses": 1946088,
+ "drat_status": "unsat-uncertified (DRAT proof emitted, no external checker available offline)",
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 9.97,
+ "certified_types": null
+}

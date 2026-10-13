@@ -1,0 +1,149 @@
+[1/21, 0 s elapsed, 21 items left] m_wrong_gain_4 mutants/m_wrong_gain_4
+  [4] partition 1/1 FB=0: 5629 vars 23245 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [4] partition 1: OVF model at FB=0
+  [4] partition 1/1 FB=2: 8444 vars 34774 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [4] partition 1: SAT in 0.0 s, replay verdict violation
+    -> SAT solve 0.1 s encode 0.0 s vars 14073 clauses 58019 violation
+[2/21, 0 s elapsed, 20 items left] m_wrong_gain_1a mutants/m_wrong_gain_1a
+  [1a] partition 1/1 FB=0: 1388 vars 5085 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [1a] partition 1: OVF model at FB=0
+  [1a] partition 1/1 FB=2: 2723 vars 9879 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [1a] partition 1: OVF model at FB=2
+  [1a] partition 1/1 FB=4: 4775 vars 17662 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [1a] partition 1: OVF model at FB=4
+  [1a] partition 1/1 FB=8: 10173 vars 39866 clauses, encoded in 0.1 s; solving (budget 600 s)
+  [1a] partition 1: SAT in 0.1 s, replay verdict violation
+    -> SAT solve 0.1 s encode 0.1 s vars 19059 clauses 72492 violation
+[3/21, 0 s elapsed, 19 items left] m_wrong_gain_2 mutants/m_wrong_gain_2
+  [2] partition 1/1 FB=0: 1350 vars 4934 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [2] partition 1: SAT in 0.0 s, replay verdict violation
+    -> SAT solve 0.0 s encode 0.0 s vars 1350 clauses 4934 violation
+[4/21, 0 s elapsed, 18 items left] m_wrong_subst_var_4 mutants/m_wrong_subst_var_4
+  [4] partition 1/1 FB=0: 5594 vars 23138 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [4] partition 1: OVF model at FB=0
+  [4] partition 1/1 FB=2: 8399 vars 34638 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [4] partition 1: SAT in 0.0 s, replay verdict violation
+    -> SAT solve 0.1 s encode 0.1 s vars 13993 clauses 57776 violation
+[5/21, 1 s elapsed, 17 items left] m_wrong_subst_var_2 mutants/m_wrong_subst_var_2
+  [2] partition 1/1 FB=0: 1342 vars 4909 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [2] partition 1: SAT in 0.0 s, replay verdict violation
+    -> SAT solve 0.0 s encode 0.0 s vars 1342 clauses 4909 violation
+[6/21, 1 s elapsed, 16 items left] m_fixed_constant_4 mutants/m_fixed_constant_4
+  [4] partition 1/1 FB=0: 4849 vars 19980 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [4] partition 1: OVF model at FB=0
+  [4] partition 1/1 FB=2: 7450 vars 30430 clauses, encoded in 0.1 s; solving (budget 600 s)
+  [4] partition 1: SAT in 0.0 s, replay verdict violation
+    -> SAT solve 0.1 s encode 0.1 s vars 12299 clauses 50410 violation
+[7/21, 1 s elapsed, 15 items left] m_wrong_kind_1a mutants/m_wrong_kind_1a
+  [1a] partition 1/1 FB=0: 1378 vars 5024 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [1a] partition 1: SAT in 0.0 s, replay verdict violation
+    -> SAT solve 0.0 s encode 0.0 s vars 1378 clauses 5024 violation
+[8/21, 1 s elapsed, 14 items left] m_quadratic_from_var_51 mutants/m_quadratic_from_var_51
+  [5.1] partition 1/1 FB=0: 34436 vars 170314 clauses, encoded in 0.2 s; solving (budget 600 s)
+  [5.1] partition 1: OVF model at FB=0
+  [5.1] partition 1/1 FB=2: 42902 vars 210269 clauses, encoded in 0.3 s; solving (budget 600 s)
+  [5.1] partition 1: SAT in 0.5 s, replay verdict violation
+    -> SAT solve 0.8 s encode 0.5 s vars 77338 clauses 380583 violation
+[9/21, 2 s elapsed, 13 items left] m_weakened_pattern_4 mutants/m_weakened_pattern_4
+  [4] partition 1/1 FB=0: 9305 vars 41507 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [4] partition 1: OVF model at FB=0
+  [4] partition 1/1 FB=2: 12552 vars 56238 clauses, encoded in 0.2 s; solving (budget 600 s)
+  [4] partition 1: SAT in 0.1 s, replay verdict violation
+    -> SAT solve 0.1 s encode 0.3 s vars 21857 clauses 97745 violation
+[10/21, 2 s elapsed, 12 items left] m_dropped_pre_4 mutants/m_dropped_pre_4
+  [4] partition 1/1 FB=0: 5562 vars 22863 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [4] partition 1: OVF model at FB=0
+  [4] partition 1/1 FB=2: 8357 vars 34227 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [4] partition 1: OVF model at FB=2
+  [4] partition 1/1 FB=4: 11593 vars 47977 clauses, encoded in 0.1 s; solving (budget 600 s)
+  [4] partition 1: SAT in 0.1 s, replay verdict violation
+    -> SAT solve 0.1 s encode 0.1 s vars 25512 clauses 105067 violation
+[11/21, 3 s elapsed, 11 items left] m_missing_leaf_root_4 mutants/m_missing_leaf_root_4
+  [R] partition 1/1 FB=0: 1210 vars 7031 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [R] partition 1: SAT in 0.0 s, replay verdict violation
+    -> SAT solve 0.0 s encode 0.0 s vars 1210 clauses 7031 violation
+[12/21, 3 s elapsed, 10 items left] m_missing_leaf_root_3 mutants/m_missing_leaf_root_3
+  [R] partition 1/1 FB=0: 1185 vars 6946 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [R] partition 1: SAT in 0.0 s, replay verdict violation
+    -> SAT solve 0.0 s encode 0.0 s vars 1185 clauses 6946 violation
+[13/21, 3 s elapsed, 9 items left] m_bad_symmetry_5 mutants/m_bad_symmetry_5
+    -> REJECTED-STRUCTURAL solve 0.0 s encode 0.0 s vars 0 clauses 0 5: declared symmetry {'x': 'y', 'y': 'x'} is not an automorphism (edges)
+[14/21, 3 s elapsed, 8 items left] m_trivialise_wrong_target_1b mutants/m_trivialise_wrong_target_1b
+  [1b] partition 1/1 FB=0: 8639 vars 37358 clauses, encoded in 0.1 s; solving (budget 600 s)
+  [1b] partition 1: SAT in 0.1 s, replay verdict violation
+    -> SAT solve 0.1 s encode 0.1 s vars 8639 clauses 37358 violation
+[15/21, 3 s elapsed, 7 items left] m_wrong_gain_3_type4 mutants/m_wrong_gain_3_type4
+  [3] partition 1/1 FB=0: 6871 vars 28751 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [3] partition 1: OVF model at FB=0
+  [3] partition 1/1 FB=2: 9462 vars 40107 clauses, encoded in 0.0 s; solving (budget 600 s)
+  [3] partition 1: OVF model at FB=2
+  [3] partition 1/1 FB=4: 12627 vars 54371 clauses, encoded in 0.1 s; solving (budget 600 s)
+  [3] partition 1: SAT in 0.1 s, replay verdict violation
+    -> SAT solve 0.1 s encode 0.1 s vars 28960 clauses 123229 violation
+[16/21, 3 s elapsed, 6 items left] 5.2 certs
+  [5.2] partition 1/1 FB=0: 28730 vars 147199 clauses, encoded in 0.2 s; solving (budget 600 s)
+  [5.2] partition 1: OVF model at FB=0
+  [5.2] partition 1/1 FB=2: 34862 vars 178022 clauses, encoded in 0.2 s; solving (budget 600 s)
+  [5.2] partition 1: OVF model at FB=2
+  [5.2] partition 1/1 FB=4: 42865 vars 216676 clauses, encoded in 0.3 s; solving (budget 598 s)
+  [5.2] partition 1: OVF model at FB=4
+  [5.2] partition 1/1 FB=8: 59907 vars 303080 clauses, encoded in 0.6 s; solving (budget 595 s)
+  [5.2] partition 1: UNSAT in 207.2 s (proof 5145639 lines)
+    -> UNSAT solve 212.4 s encode 1.3 s vars 166364 clauses 844977 
+[17/21, 219 s elapsed, 5 items left] 5.4.2 certs
+  [5.4.2] partition 1/4 FB=0: 35236 vars 188753 clauses, encoded in 0.4 s; solving (budget 600 s)
+  [5.4.2] partition 1: UNSAT in 1.2 s (proof 173103 lines)
+  [5.4.2] partition 2/4 FB=0: 54615 vars 326343 clauses, encoded in 0.4 s; solving (budget 599 s)
+  [5.4.2] partition 2: UNSAT in 2.0 s (proof 295879 lines)
+  [5.4.2] partition 3/4 FB=0: 69031 vars 448672 clauses, encoded in 0.7 s; solving (budget 597 s)
+  [5.4.2] partition 3: UNSAT in 0.9 s (proof 89398 lines)
+  [5.4.2] partition 4/4 FB=0: 93955 vars 673354 clauses, encoded in 0.9 s; solving (budget 596 s)
+  [5.4.2] partition 4: UNSAT in 1.1 s (proof 120735 lines)
+    -> UNSAT solve 5.3 s encode 2.5 s vars 252837 clauses 1637122 
+[18/21, 227 s elapsed, 4 items left] 5.4.1.1 certs
+  [5.4.1.1] partition 1/3 FB=0: 35635 vars 191682 clauses, encoded in 0.5 s; solving (budget 600 s)
+  [5.4.1.1] partition 1: OVF model at FB=0
+  [5.4.1.1] partition 1/3 FB=2: 43486 vars 230713 clauses, encoded in 0.2 s; solving (budget 599 s)
+  [5.4.1.1] partition 1: OVF model at FB=2
+  [5.4.1.1] partition 1/3 FB=4: 51471 vars 272067 clauses, encoded in 0.4 s; solving (budget 597 s)
+  [5.4.1.1] partition 1: SAT in 6.6 s, replay verdict violation
+    -> SAT solve 9.6 s encode 1.2 s vars 130592 clauses 694462 violation
+[19/21, 238 s elapsed, 3 items left] 5.4.1 certs
+  [5.4.1] partition 1/3 FB=0: 46534 vars 266712 clauses, encoded in 0.6 s; solving (budget 600 s)
+  [5.4.1] partition 1: OVF model at FB=0
+  [5.4.1] partition 1/3 FB=2: 54536 vars 311183 clauses, encoded in 0.5 s; solving (budget 600 s)
+  [5.4.1] partition 1: SAT in 0.5 s, replay verdict violation
+    -> SAT solve 0.9 s encode 1.1 s vars 101070 clauses 577895 violation
+[20/21, 240 s elapsed, 2 items left] 5.4 certs
+  [5.4] partition 1/4 FB=0: 21970 vars 104667 clauses, encoded in 0.3 s; solving (budget 600 s)
+  [5.4] partition 1: UNSAT in 0.6 s (proof 94909 lines)
+  [5.4] partition 2/4 FB=0: 21947 vars 105190 clauses, encoded in 0.1 s; solving (budget 599 s)
+  [5.4] partition 2: UNSAT in 0.7 s (proof 95329 lines)
+  [5.4] partition 3/4 FB=0: 21945 vars 104617 clauses, encoded in 0.1 s; solving (budget 599 s)
+  [5.4] partition 3: OVF model at FB=0
+  [5.4] partition 3/4 FB=2: 27391 vars 130406 clauses, encoded in 0.2 s; solving (budget 599 s)
+  [5.4] partition 3: OVF model at FB=2
+  [5.4] partition 3/4 FB=4: 33696 vars 160520 clauses, encoded in 0.2 s; solving (budget 598 s)
+  [5.4] partition 3: OVF model at FB=4
+  [5.4] partition 3/4 FB=8: 50137 vars 238581 clauses, encoded in 0.4 s; solving (budget 594 s)
+  [5.4] partition 3: UNSAT in 59.0 s (proof 2217327 lines)
+  [5.4] partition 4/4 FB=0: 49918 vars 296730 clauses, encoded in 0.7 s; solving (budget 535 s)
+  [5.4] partition 4: OVF model at FB=0
+  [5.4] partition 4/4 FB=2: 58066 vars 344383 clauses, encoded in 0.7 s; solving (budget 534 s)
+  [5.4] partition 4: OVF model at FB=2
+  [5.4] partition 4/4 FB=4: 67133 vars 397377 clauses, encoded in 0.7 s; solving (budget 532 s)
+  [5.4] partition 4: OVF model at FB=4
+  [5.4] partition 4/4 FB=8: 87871 vars 519541 clauses, encoded in 1.1 s; solving (budget 521 s)
+  [5.4] partition 4: OVF model at FB=8
+  [5.4] partition 4/4 FB=16: 144257 vars 849029 clauses, encoded in 1.8 s; solving (budget 432 s)
+    -> timeout solve 600.3 s encode 6.4 s vars 584331 clauses 3251041 
+[21/21, 847 s elapsed, 1 items left] 5 certs
+  [5] partition 1/4 FB=0: 21970 vars 104662 clauses, encoded in 0.1 s; solving (budget 600 s)
+  [5] partition 1: UNSAT in 0.8 s (proof 94909 lines)
+  [5] partition 2/4 FB=0: 21970 vars 104662 clauses, encoded in 0.1 s; solving (budget 599 s)
+  [5] partition 2: UNSAT in 0.9 s (proof 94909 lines)
+  [5] partition 3/4 FB=0: 21968 vars 104650 clauses, encoded in 1.2 s; solving (budget 598 s)
+  [5] partition 3: UNSAT in 0.2 s (proof 21845 lines)
+  [5] partition 4/4 FB=0: 49972 vars 294040 clauses, encoded in 0.5 s; solving (budget 598 s)
+  [5] partition 4: UNSAT in 0.5 s (proof 44082 lines)
+    -> UNSAT solve 2.4 s encode 1.8 s vars 115880 clauses 608014 

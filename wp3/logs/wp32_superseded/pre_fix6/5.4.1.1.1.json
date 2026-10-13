@@ -1,0 +1,57 @@
+{
+ "id": "5.4.1.1.1",
+ "node": "5.4.1.1.1",
+ "cert_dir": "certs",
+ "kind": "leaf",
+ "mode": "leaf",
+ "paper_leaf": "5.4.1.1.1",
+ "claimed_types": [
+  3
+ ],
+ "partitions": [
+  {
+   "partition": 0,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:?(T,z=t) out=None bits=??; B:?(x,z=t) out=None bits=??; C:?(y,?) out=None bits=??; z=t:var out=None prot=None; E:and(D,B) out=None bits=??",
+   "FB": 0,
+   "n_vars": 70916,
+   "n_clauses": 425849,
+   "encode_s": 0.86,
+   "solve_s": 2.48,
+   "n_sims": 6,
+   "KA": 10,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.4.1.1.1.p0.drat.gz",
+    "lines": 333858
+   }
+  },
+  {
+   "partition": 1,
+   "pattern": "x:var out=None prot=None; y:var out=None prot=None; T:and(x,y) out=None bits=??; D:?(T,z) out=None bits=??; B:?(x,t) out=None bits=??; C:?(y,?) out=None bits=??; z:var out=None prot=None; E:and(D,B) out=None bits=??; t:var out=None prot=None",
+   "FB": 0,
+   "n_vars": 102797,
+   "n_clauses": 693456,
+   "encode_s": 0.98,
+   "solve_s": 2.47,
+   "n_sims": 6,
+   "KA": 13,
+   "status": "UNSAT",
+   "drat": {
+    "file": "logs/wp32/proofs/5.4.1.1.1.p1.drat.gz",
+    "lines": 255789
+   }
+  }
+ ],
+ "status": "UNSAT",
+ "solve_s": 4.95,
+ "encode_s": 1.85,
+ "n_vars": 173713,
+ "n_clauses": 1119305,
+ "drat_status": "unsat-uncertified (DRAT proof emitted, no external checker available offline)",
+ "timeout_s": 600.0,
+ "siblings": false,
+ "wall_s": 6.9,
+ "certified_types": [
+  3
+ ]
+}
