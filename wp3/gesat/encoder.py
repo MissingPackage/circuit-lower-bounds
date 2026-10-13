@@ -338,14 +338,12 @@ class Instance:
                     lt_cache[key] = lt(ru, self.rk[g])
                 c.add([-l, lt_cache[key]])
         # Transformation 4 configuration on the revealed part of the original circuit:
-        # an eligible 1-gate g whose successor q also reads one of g's inputs
-        # (block-B 1-gates are not covered, for size; the replay applies the
-        # engine's full admissibility check)
+        # a revealed 1-gate g whose successor q also reads one of g's inputs
         # post-freeze fix 1: g ranges over the eligible gates (pattern and block A)
         # and q over every full gate (two controls replayed as engine-pruned 'N4')
+        # post-freeze fix 3: block-B 1-gates as well (control m_dropped_pre_4 was
+        # replayed as an engine-pruned N4 configuration with g in block B)
         for g in self.gslots:
-            if self.blk[g] not in ('P', 'A'):
-                continue
             od1 = self.od[g][1]
             if od1 == FALSE:
                 continue
