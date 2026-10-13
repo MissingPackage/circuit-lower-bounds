@@ -1,0 +1,18 @@
+[1/3, 0 s elapsed, 3 items left] 5.4.1.3 certs
+  [5.4.1.3] partition 1/3 FB=0: 116865 vars 526961 clauses, encoded in 0.6 s; solving (budget 600 s)
+  [5.4.1.3] partition 1: UNSAT in 1.1 s (proof 87339 lines)
+  [5.4.1.3] partition 2/3 FB=0: 116846 vars 526624 clauses, encoded in 0.8 s; solving (budget 599 s)
+  [5.4.1.3] partition 2: UNSAT in 48.6 s (proof 2050714 lines)
+  [5.4.1.3] partition 3/3 FB=0: 227144 vars 1185354 clauses, encoded in 2.2 s; solving (budget 550 s)
+    -> timeout solve 600.3 s encode 3.6 s vars 460855 clauses 2238939 
+[2/3, 604 s elapsed, 2 items left] 5.4.1.1.2 certs
+  [5.4.1.1.2] partition 1/2 FB=0: 110100 vars 497680 clauses, encoded in 1.4 s; solving (budget 600 s)
+  [5.4.1.1.2] partition 1: UNSAT in 2.4 s (proof 175122 lines)
+  [5.4.1.1.2] partition 2/2 FB=0: 172794 vars 845310 clauses, encoded in 1.3 s; solving (budget 598 s)
+    -> timeout solve 600.3 s encode 2.8 s vars 282894 clauses 1342990 
+[3/3, 1207 s elapsed, 1 items left] 5.2.2 certs
+  [5.2.2] partition 1/1 FB=0: 144111 vars 684225 clauses, encoded in 1.3 s; solving (budget 600 s)
+  [5.2.2] partition 1: OVF model at FB=0
+  [5.2.2] partition 1/1 FB=2: 165719 vars 786608 clauses, encoded in 1.0 s; solving (budget 587 s)
+  [5.2.2] partition 1: SAT in 19.3 s, replay verdict violation
+    -> SAT solve 32.1 s encode 2.3 s vars 309830 clauses 1470833 violation

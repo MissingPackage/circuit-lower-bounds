@@ -810,6 +810,9 @@ engine; none is a finding about the paper):
   shared names fixed, FGHK p.23), the B = C answers disappear; 5.4.1 and
   5.4.1.1 stay SAT with the second kind of counter-completion (results in
   `wp3/logs/wp32_siblings/`).
+- Also under `--siblings`, 5.2, 5.4.2 and 5 stay UNSAT and 5.4 still times
+  out. Of the leaves, 5.4.1.3 and 5.4.1.1.2 still time out on their generic
+  partition, and 5.2.2 is still SAT with the same replayed counter-completion.
 
 Kill criterion: four leaves (3, 5.4.1.1.2, 5.4.1.3, 5.4.2.2) did not close in
 600 s, more than the pre-registered three. In three of them every partition
