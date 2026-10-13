@@ -31,6 +31,8 @@ def main(argv):
         items = [('certs', i, None) for i in INTERNAL]
     elif which == 'controls':
         items = [('mutants/' + m, i, m) for m, i in CONTROLS]
+    elif which == 'controls_leaves':
+        items = [('mutants/' + m, i, m) for m, i in CONTROLS] + [('certs', i, None) for i in LEAVES]
     elif which == 'leaves5':
         items = [('certs', i, None) for i in LEAVES if i.startswith('5')]
     elif which == 'controls_internal':

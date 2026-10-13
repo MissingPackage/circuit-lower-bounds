@@ -1198,8 +1198,15 @@ class Pass:
                 for j in (0, 1):
                     rd.append(c.AND([ct[(g, j)][v], falive[g]]))
             ext = [I.ext_ge[v][k] for k in range(1, cap + 1)]
-            if v in subst:
-                ext = [c.AND([e]) for e in ext]
+            # post-freeze fix 7 (soundness): the hidden successors of a
+            # passing-removed gate now read the node it resolves to
+            for u in E:
+                if u == v:
+                    continue
+                pr = c.AND([I.isg[u], c.OR([st[u]['p0'], st[u]['p1']]), rt[u][v]])
+                if pr == FALSE:
+                    continue
+                ext += [c.AND([pr, I.ext_ge[u][k]]) for k in range(1, cap + 1)]
             self.oge[v] = c.counter(rd + ext, cap + 2)
         # Transformation 1 (not frozen gates)
         for u in E:
