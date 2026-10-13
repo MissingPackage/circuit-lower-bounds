@@ -20,7 +20,7 @@ from gecheck import checker as ck
 from .encoder import Instance
 from . import replay as rp
 
-FB_MAX = 64
+FB_MAX = 32
 
 
 def _child(clauses, budget, out_path, want_proof):
@@ -126,8 +126,8 @@ def run_node(cert_dir, nid, out_dir, fb0, timeout, replay_s, tag=None, log=print
                 prow['status'] = 'OVF'
                 rec['partitions'].append(prow)
                 log('  [%s] partition %d: OVF model at FB=%d' % (nid, pi + 1, fb), flush=True)
-                if fb * 2 <= FB_MAX and rec['solve_s'] < timeout:
-                    fb *= 2
+                if fb < FB_MAX and rec['solve_s'] < timeout:
+                    fb = 2 if fb == 0 else fb * 2
                     continue
                 status = 'OVF' if status == 'UNSAT' else status
                 break
@@ -165,7 +165,7 @@ def main(argv):
     ap.add_argument('cert_dir')
     ap.add_argument('out_dir')
     ap.add_argument('ids', nargs='+')
-    ap.add_argument('--fb', type=int, default=16)
+    ap.add_argument('--fb', type=int, default=0)
     ap.add_argument('--timeout', type=float, default=600.0)
     ap.add_argument('--replay', type=float, default=120.0)
     ap.add_argument('--tag', default=None)

@@ -53,7 +53,11 @@ class Instance:
                 choices = []
                 for s in steps:
                     v = s.get('value', 0)
-                    choices.append([0, 1] if isinstance(v, dict) else [v])
+                    if isinstance(v, dict):
+                        lit = self.triv_const(s)
+                        choices.append([lit] if lit is not None else [FALSE, TRUE])
+                    else:
+                        choices.append([TRUE if v else FALSE])
                 for combo in itertools.product(*choices):
                     self.sims.append(Sim(self, owner, ai, act, combo))
         self.ovf_constraints()
@@ -65,6 +69,26 @@ class Instance:
         for sm in self.sims:
             self.c.add([-sm.vac])
             self.c.add([-sm.ok])
+
+    def triv_const(self, step):
+        """Performance (post-freeze, documented): for x <- c trivialising an
+        and-gate that x feeds directly in the pattern, the only constant that can
+        trivialise it is that gate's bit at x's slot; the other constant cannot
+        credit the action, so only its vacuity check is dropped (sound: fewer
+        exclusions). Returns the bit literal, or None (both constants tried)."""
+        if step['kind'] != 'const':
+            return None
+        tname = step['value'].get('trivialize')
+        if tname not in self.comp.names or step['var'] not in self.comp.names:
+            return None
+        tn = self.comp.nodes[self.comp.names[tname]]
+        if tn.kind != 'gate' or not (tn.gtype == 'and' or tuple(tn.typedom) == ('and',)):
+            return None
+        xid = self.comp.names[step['var']]
+        for j in (0, 1):
+            if tn.inp[j] == xid:
+                return self.bit[self.pid2slot[self.comp.names[tname]]][j]
+        return None
 
     # ================================================================ slots
     def build_slots(self, FB):
@@ -701,7 +725,7 @@ class Sim:
         self.owner = owner
         self.act = act
         self.combo = combo
-        self.name = '%s/%s/%s' % (owner.id, act.get('name', ai), ''.join(map(str, combo)))
+        self.name = '%s/%s/%s' % (owner.id, act.get('name', ai), ''.join('0' if v == FALSE else ('1' if v == TRUE else 'b') for v in combo))
         c = I.c
         self.E = [s for s in I.gslots if I.blk[s] in ('P', 'A')]     # eligible
         self.Eset = set(self.E)
@@ -1002,10 +1026,10 @@ class Pass:
                     sv = subst[v]
                     if sv[0] == 'const':
                         c.add([-l, self.cc[(g, j)]])
-                        c.add([-l, cval[(g, j)]] if sv[1] else [-l, -cval[(g, j)]])
+                        c.imp_eq([l], cval[(g, j)], sv[1])
                     else:
                         c.add([-l, T[sv[1]]])
-                        c.add([-l, cneg[(g, j)]] if sv[2] else [-l, -cneg[(g, j)]])
+                        c.imp_eq([l], cneg[(g, j)], sv[2])
                 elif v in Eset:
                     for w in range(N):
                         c.imp([l, rt[v][w]], T[w])

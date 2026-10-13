@@ -22,7 +22,7 @@ OUT = 'logs/wp32'
 
 def main(argv):
     which = argv[0]
-    fb = int(argv[argv.index('--fb') + 1]) if '--fb' in argv else 8
+    fb = int(argv[argv.index('--fb') + 1]) if '--fb' in argv else 0
     sib = '--siblings' in argv
     out = OUT + ('_siblings' if sib else '')
     if which == 'leaves':
@@ -31,6 +31,8 @@ def main(argv):
         items = [('certs', i, None) for i in INTERNAL]
     elif which == 'controls':
         items = [('mutants/' + m, i, m) for m, i in CONTROLS]
+    elif which == 'leaves5':
+        items = [('certs', i, None) for i in LEAVES if i.startswith('5')]
     elif which == 'controls_internal':
         items = [('mutants/' + m, i, m) for m, i in CONTROLS] + [('certs', i, None) for i in INTERNAL]
     else:
