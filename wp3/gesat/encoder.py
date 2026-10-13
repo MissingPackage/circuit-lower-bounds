@@ -477,7 +477,9 @@ class Instance:
             if self.blk[g] == 'P':
                 continue
             terms = [c.AND([sm.legal, sm.triv, sm.rfull_term(g)]) for sm in self.sims if sm.passes and not sm.light]
-            terms += [self.lookup(g, j, lambda v: self.rw[v], 'rw') for j in (0, 1)]
+            # only an and-gate of out-degree 1 can become troubled through its inputs
+            rwr = c.OR([self.lookup(g, j, lambda v: self.rw[v], 'rw') for j in (0, 1)])
+            terms.append(c.AND([self.isand[g], self.od[g][1], rwr]))
             self.rin[g] = c.OR(terms)
         unmet = []
         for v in range(self.N):
@@ -972,11 +974,20 @@ class Sim:
         whose out-degree becomes 2"""
         c = self.I.c
         terms = []
-        if v in self.subst and self.subst[v][0] == 'node':
-            terms.append(TRUE)
+        if v in self.subst and self.subst[v][0] == 'node' and self.I.static_kind[self.subst[v][1]] == 'var':
+            terms.append(TRUE)          # affine: readers now read an input variable
         for p in self.passes:
             if v in self.Eset:
-                terms.append(c.AND([self.I.isg[v], c.OR([p.st[v]['p0'], p.st[v]['p1']])]))
+                # passing-removed and resolved to a variable
+                tovar = p.cache.get(('tovar', v))
+                if tovar is None:
+                    tovar = c.new()
+                    for w in range(self.I.N):
+                        c.imp_eq([p.rt[v][w]], tovar, self.I.isv[w])
+                    c.add([-p.rt[v]['H'], -tovar])
+                    c.add([-p.rc[v], -tovar])
+                    p.cache[('tovar', v)] = tovar
+                terms.append(c.AND([self.I.isg[v], c.OR([p.st[v]['p0'], p.st[v]['p1']]), tovar]))
             if v in self.I.prot:
                 terms.append(self.to2(p, v))
         return c.OR(terms)
